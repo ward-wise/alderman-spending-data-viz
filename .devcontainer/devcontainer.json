@@ -1,0 +1,9 @@
+{
+    "name": "alderman-spending",
+    "image": "docker.io/jonathanortega2023/flutter_web_dev:1.0",
+    "forwardPorts": [8080],
+    "postCreateCommand": "/setup.sh",
+    "extensions": [
+        "dart-code.flutter"
+    ]
+}
