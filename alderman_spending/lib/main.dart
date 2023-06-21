@@ -92,17 +92,19 @@ class _PieChartRegionState extends State<PieChartRegion> {
   Widget build(BuildContext context) {
     if (_spendingData == null) {
       return CircularProgressIndicator(); // show loading spinner
-    } else {
-      return Padding(
-        padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
-        child: Column(
-          children: [
-            wardYearSelector(),
-            Expanded(child: wardYearCategorySpending()),
-          ],
-        ),
-      );
     }
+    if (_spendingData!.isEmpty) {
+      return Text("Error loading data"); // show error message
+    }
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+      child: Column(
+        children: [
+          wardYearSelector(),
+          Expanded(child: wardYearCategorySpending()),
+        ],
+      ),
+    );
   }
 
   Widget wardYearSelector() {
@@ -193,9 +195,13 @@ class AnnualWardSpendingData {
 }
 
 Future<List<AnnualWardSpendingData>> loadSpendingData() async {
-  final rawdata =
-      await rootBundle.loadString('/2019-2022_ward_category_totals.csv');
-
+  late var rawdata;
+  try {
+    rawdata = await rootBundle
+        .loadString('assets/2019-2022_ward_category_totals.csv');
+  } catch (e) {
+    return [];
+  }
   // Split raw data by new lines and commas
   var lines = rawdata.split('\n');
   var csvTable = lines.map((line) => line.split(',')).toList();
