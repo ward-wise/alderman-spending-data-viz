@@ -160,21 +160,24 @@ class _PieChartRegionState extends State<PieChartRegion> {
       primaryYAxis: NumericAxis(title: AxisTitle(text: 'Spending')),
       series: <BarSeries<AnnualWardSpendingData, String>>[
         BarSeries<AnnualWardSpendingData, String>(
-            dataSource: _spendingData!
-                .where((element) =>
-                    element.ward == _selectedWard &&
-                    element.year == _selectedYear)
-                .toList(),
-            onPointTap: (ChartPointDetails args) {
-              setState(() {
-                _selectedCategory = _spendingData![args.pointIndex!].category;
-              });
-              print(_selectedCategory);
-            },
-            xValueMapper: (AnnualWardSpendingData data, _) => data.category,
-            yValueMapper: (AnnualWardSpendingData data, _) => data.cost,
-            dataLabelMapper: (datum, index) =>
-                "${datum.category}\n\$${NumberFormat("#,##0").format(datum.cost)}"),
+          dataSource: _spendingData!
+              .where((element) =>
+                  element.ward == _selectedWard &&
+                  element.year == _selectedYear)
+              .toList(),
+          onPointTap: (ChartPointDetails args) {
+            setState(() {
+              _selectedCategory = _spendingData![args.pointIndex!].category;
+            });
+            print(_selectedCategory);
+          },
+          xValueMapper: (AnnualWardSpendingData data, _) => data.category,
+          yValueMapper: (AnnualWardSpendingData data, _) => data.cost,
+          // Uncomment to show data labels on bars
+          // dataLabelMapper: (datum, index) =>
+          //     "${datum.category}\n\$${NumberFormat("#,##0").format(datum.cost)}",
+          // dataLabelSettings: DataLabelSettings(isVisible: true, ),
+        )
       ],
     );
   }
