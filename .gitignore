@@ -35,5 +35,5 @@
 !**/web/**/public/
 
 # Other
-data-analytics
+data_analysis/
 alderman_spending/build
