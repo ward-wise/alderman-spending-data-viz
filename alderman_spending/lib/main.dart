@@ -8,11 +8,13 @@ import 'package:provider/provider.dart';
 void main() {
   runApp(ChangeNotifierProvider(
     create: (context) => SelectedData(),
-    child: MyApp(),
+    child: const MyApp(),
   ));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
@@ -35,27 +37,39 @@ class MyHomePage extends StatelessWidget {
         child: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
             if (constraints.maxWidth / constraints.maxHeight > 1.3) {
-              return Row(
+              return const Row(
                 children: [
-                  Expanded(child: DetailRegion()),
+                  Expanded(
+                    flex: 1,
+                    child: DetailRegion(),
+                  ),
                   VerticalDivider(
                     color: Colors.grey,
                     width: 0,
                     thickness: 1,
                   ),
-                  Expanded(child: PieChartRegion()),
+                  Expanded(
+                    flex: 2,
+                    child: PieChartRegion(),
+                  ),
                 ],
               );
             } else {
-              return Column(
+              return const Column(
                 children: [
-                  Expanded(child: PieChartRegion()),
+                  Expanded(
+                    flex: 2,
+                    child: PieChartRegion(),
+                  ),
                   Divider(
                     color: Colors.grey,
                     height: 0,
                     thickness: 1,
                   ),
-                  Expanded(child: DetailRegion()),
+                  Expanded(
+                    flex: 1,
+                    child: DetailRegion(),
+                  ),
                 ],
               );
             }
@@ -89,15 +103,18 @@ class _DetailRegionState extends State<DetailRegion> {
   Widget build(BuildContext context) {
     final selectedData = Provider.of<SelectedData>(context);
     if (_wardItemLocationSpendingData == null) {
-      return CircularProgressIndicator();
+      return const CircularProgressIndicator();
     }
     if (_wardItemLocationSpendingData!.isEmpty) {
       return const Text("Error loading data");
     }
-    if (selectedData.selectedCategory == null) {
-      return const Center(child: Text("Select a category to see spending breakdown"));
+    if (selectedData.selectedCategory == null ||
+        selectedData.selectedCategory == "") {
+      return const Center(
+          child: Text("Select a category to see spending breakdown"));
     }
-    final _selectedWardItems = _wardItemLocationSpendingData!
+    // TODO Refactor so that the ward/year data is stored at creation, then filter on category
+    final selectedWardItems = _wardItemLocationSpendingData!
         .where((element) =>
             element.category == selectedData.selectedCategory &&
             element.ward == selectedData.selectedWard &&
@@ -111,23 +128,23 @@ class _DetailRegionState extends State<DetailRegion> {
               : Colors.transparent, // Alternate background color
           child: ListTile(
             title: Text(
-              _selectedWardItems[index].item,
-              style: TextStyle(
+              selectedWardItems[index].item,
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
               ),
             ),
             subtitle: Text(
-              _selectedWardItems[index].location,
-              style: TextStyle(
+              selectedWardItems[index].location,
+              style: const TextStyle(
                 fontStyle: FontStyle.italic,
                 fontSize: 14,
               ),
             ),
             trailing: Text(
-              NumberFormat.simpleCurrency()
-                  .format(_selectedWardItems[index].cost),
-              style: TextStyle(
+              NumberFormat.simpleCurrency(decimalDigits: 0)
+                  .format(selectedWardItems[index].cost),
+              style: const TextStyle(
                 color: Colors.green,
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
@@ -136,7 +153,7 @@ class _DetailRegionState extends State<DetailRegion> {
           ),
         );
       },
-      itemCount: _selectedWardItems.length,
+      itemCount: selectedWardItems.length,
     );
   }
 }
@@ -178,11 +195,15 @@ class PieChartRegionState extends State<PieChartRegion> {
   }
 
   List<AnnualWardSpendingData>? _filterData() {
-    if (_spendingData == null || _selectedWard == null || _selectedYear == null) {
+    if (_spendingData == null ||
+        _selectedWard == null ||
+        _selectedYear == null) {
       return null;
     }
-    return _spendingData!.where((element) =>
-        element.ward == _selectedWard && element.year == _selectedYear).toList();
+    return _spendingData!
+        .where((element) =>
+            element.ward == _selectedWard && element.year == _selectedYear)
+        .toList();
   }
 
   @override
@@ -206,6 +227,7 @@ class PieChartRegionState extends State<PieChartRegion> {
       ),
     );
   }
+
   Widget wardYearSelector() {
     final selectedData = Provider.of<SelectedData>(context);
     return Row(
@@ -251,18 +273,35 @@ class PieChartRegionState extends State<PieChartRegion> {
     return SfCartesianChart(
       onAxisLabelTapped: (axisLabelTapArgs) {
         selectedData.updateSelectedCategory(axisLabelTapArgs.text);
-        print(selectedData.selectedCategory);
       },
-      title: ChartTitle(text: 'Spending per Category'),
-      primaryXAxis: CategoryAxis(title: AxisTitle(text: 'Categories')),
-      primaryYAxis: NumericAxis(title: AxisTitle(text: 'Spending')),
+      title: ChartTitle(text: 'Spending by Category'),
+      primaryXAxis: CategoryAxis(labelStyle: const TextStyle(fontSize: 16)),
+      primaryYAxis: NumericAxis(
+        axisLabelFormatter: (axisLabelRenderArgs) {
+          final value = axisLabelRenderArgs.value;
+          if (value >= 1000000) {
+            final double valueInMillions = value / 1000000;
+            final formattedValue =
+                '${NumberFormat('#,##0.##').format(valueInMillions)}M';
+            return ChartAxisLabel(
+                formattedValue, axisLabelRenderArgs.textStyle);
+          } else if (value >= 1000) {
+            final formattedValue =
+                '${NumberFormat('#,##0').format(value ~/ 1000)}k';
+            return ChartAxisLabel(
+                formattedValue, axisLabelRenderArgs.textStyle);
+          } else {
+            return ChartAxisLabel(NumberFormat('#,##0').format(value),
+                axisLabelRenderArgs.textStyle);
+          }
+        },
+      ),
       series: <BarSeries<AnnualWardSpendingData, String>>[
         BarSeries<AnnualWardSpendingData, String>(
           dataSource: _filteredData!,
           onPointTap: (ChartPointDetails args) {
             selectedData.updateSelectedCategory(
                 _filteredData![args.pointIndex!].category);
-            print(selectedData.selectedCategory);
           },
           xValueMapper: (AnnualWardSpendingData data, _) => data.category,
           yValueMapper: (AnnualWardSpendingData data, _) => data.cost,
@@ -335,12 +374,12 @@ Future<List<AnnualWardSpendingData>> loadAnnualCategorySpendingData() async {
   } catch (e) {
     return [];
   }
-  var csvTable = const CsvToListConverter().convert(rawdata, eol: '\n', shouldParseNumbers: false);
-  var spendingData = <AnnualWardSpendingData>[];
-
+  final csvTable = const CsvToListConverter()
+      .convert(rawdata, eol: '\n', shouldParseNumbers: false);
+  List<AnnualWardSpendingData> spendingData = [];
   for (var i = 1; i < csvTable.length; i++) {
-    var item = csvTable[i];
-    var newData = AnnualWardSpendingData(
+    final item = csvTable[i];
+    final newData = AnnualWardSpendingData(
       ward: int.parse(item[0].trim()),
       year: int.parse(item[1].trim()),
       category: item[2].trim(),
@@ -351,7 +390,6 @@ Future<List<AnnualWardSpendingData>> loadAnnualCategorySpendingData() async {
   return spendingData;
 }
 
-
 Future<List<WardItemLocationSpendingData>> loadCategoryItemsData() async {
   late String rawdata;
   try {
@@ -359,9 +397,10 @@ Future<List<WardItemLocationSpendingData>> loadCategoryItemsData() async {
   } catch (e) {
     return [];
   }
-  final csvTable = const CsvToListConverter().convert(rawdata, eol: '\n', shouldParseNumbers: false);
-  final itemData = <WardItemLocationSpendingData>[];
-  for(var i = 1; i < csvTable.length; i++) {
+  final csvTable = const CsvToListConverter()
+      .convert(rawdata, eol: '\n', shouldParseNumbers: false);
+  List<WardItemLocationSpendingData> itemData = [];
+  for (var i = 1; i < csvTable.length; i++) {
     final item = csvTable[i];
     final newData = WardItemLocationSpendingData(
       ward: int.parse(item[0].trim()),
