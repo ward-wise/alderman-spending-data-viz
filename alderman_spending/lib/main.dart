@@ -40,17 +40,17 @@ class MyHomePage extends StatelessWidget {
               return const Row(
                 children: [
                   Expanded(
-                    flex: 1,
-                    child: DetailRegion(),
+                    flex: 2,
+                    child: BarChartRegion(),
                   ),
                   VerticalDivider(
                     color: Colors.grey,
-                    width: 0,
+                    width: 1,
                     thickness: 1,
                   ),
                   Expanded(
-                    flex: 2,
-                    child: PieChartRegion(),
+                    flex: 1,
+                    child: DetailRegion(),
                   ),
                 ],
               );
@@ -59,11 +59,11 @@ class MyHomePage extends StatelessWidget {
                 children: [
                   Expanded(
                     flex: 2,
-                    child: PieChartRegion(),
+                    child: BarChartRegion(),
                   ),
                   Divider(
                     color: Colors.grey,
-                    height: 0,
+                    height: 1,
                     thickness: 1,
                   ),
                   Expanded(
@@ -89,14 +89,43 @@ class DetailRegion extends StatefulWidget {
 
 class _DetailRegionState extends State<DetailRegion> {
   List<WardItemLocationSpendingData>? _wardItemLocationSpendingData;
+  int? _selectedWard;
+  int? _selectedYear;
+  List<WardItemLocationSpendingData>? _filteredData;
+
   @override
   void initState() {
     loadCategoryItemsData().then((data) {
       setState(() {
         _wardItemLocationSpendingData = data;
+        _filteredData = _filterData();
       });
     });
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    final selectedData = Provider.of<SelectedData>(context);
+    if (_selectedWard != selectedData.selectedWard ||
+        _selectedYear != selectedData.selectedYear) {
+      _selectedWard = selectedData.selectedWard;
+      _selectedYear = selectedData.selectedYear;
+      _filteredData = _filterData();
+    }
+    super.didChangeDependencies();
+  }
+
+  List<WardItemLocationSpendingData>? _filterData() {
+    if (_wardItemLocationSpendingData == null ||
+        _selectedWard == null ||
+        _selectedYear == null) {
+      return null;
+    }
+    return _wardItemLocationSpendingData!
+        .where((element) =>
+            element.ward == _selectedWard && element.year == _selectedYear)
+        .toList();
   }
 
   @override
@@ -113,12 +142,9 @@ class _DetailRegionState extends State<DetailRegion> {
       return const Center(
           child: Text("Select a category to see spending breakdown"));
     }
-    // TODO Refactor so that the ward/year data is stored at creation, then filter on category
-    final selectedWardItems = _wardItemLocationSpendingData!
-        .where((element) =>
-            element.category == selectedData.selectedCategory &&
-            element.ward == selectedData.selectedWard &&
-            element.year == selectedData.selectedYear)
+
+    final selectedWardItems = _filteredData!
+        .where((element) => element.category == selectedData.selectedCategory)
         .toList();
     return ListView.builder(
       itemBuilder: (context, index) {
@@ -158,14 +184,15 @@ class _DetailRegionState extends State<DetailRegion> {
   }
 }
 
-class PieChartRegion extends StatefulWidget {
-  const PieChartRegion({super.key});
+class BarChartRegion extends StatefulWidget {
+  const BarChartRegion({super.key});
 
   @override
-  PieChartRegionState createState() => PieChartRegionState();
+  BarChartRegionState createState() => BarChartRegionState();
 }
 
-class PieChartRegionState extends State<PieChartRegion> {
+// TODO Highlight selected category, make pretty animations
+class BarChartRegionState extends State<BarChartRegion> {
   List<AnnualWardSpendingData>? _spendingData;
   int? _selectedWard;
   int? _selectedYear;
@@ -305,6 +332,17 @@ class PieChartRegionState extends State<PieChartRegion> {
           },
           xValueMapper: (AnnualWardSpendingData data, _) => data.category,
           yValueMapper: (AnnualWardSpendingData data, _) => data.cost,
+          dataLabelSettings: DataLabelSettings(
+            isVisible: true,
+            labelAlignment: ChartDataLabelAlignment.outer,
+            builder: (data, point, series, pointIndex, seriesIndex) => Text(
+              "\$${NumberFormat.compact().format(data.cost)}",
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+              ),
+            ),
+          ),
         )
       ],
     );
