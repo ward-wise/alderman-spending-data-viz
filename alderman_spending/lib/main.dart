@@ -209,7 +209,7 @@ class BarChartRegionState extends State<BarChartRegion> {
   List<AnnualWardSpendingData>? _filteredData;
   static const Map<String, String> categoryTranslations = {
     'Lighting': 'Iluminación',
-    'Police Cameras': 'Cámaras de seguridad',
+    'Police Cameras': 'Cámaras de policía',
     'Street Redesign': 'Rediseño de calles',
     'Misc.': 'Varios',
     'Ped. Infra.': 'Infraestructura peatonal',
@@ -218,7 +218,7 @@ class BarChartRegionState extends State<BarChartRegion> {
     'Sidewalk Repair': 'Reparación de aceras',
     'Alleys': 'Calles estrechas',
     'Misc. CDOT': 'Varios (CDOT)',
-    'Bike Infra.': 'Infraestructura para bicicletas',
+    'Bike Infra.': 'Infraestructura bicicletas',
     'Viaducts': 'Viaductos',
     'Beautification': 'Embellecimiento',
   };
