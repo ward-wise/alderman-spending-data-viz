@@ -1,0 +1,5 @@
+{
+    "wardDropdown": "Barrio {wardValue}",
+    "chartTitle": "Gasto Por Categoría",
+    "detailPlaceholder": "Seleccione un barrio para ver los detalles de gasto"
+}

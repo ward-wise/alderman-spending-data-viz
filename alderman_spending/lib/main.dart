@@ -1,4 +1,5 @@
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:csv/csv.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       localizationsDelegates: const [
+        AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
@@ -148,8 +150,8 @@ class _DetailRegionState extends State<DetailRegion> {
     }
     if (selectedData.selectedCategory == null ||
         selectedData.selectedCategory == "") {
-      return const Center(
-          child: Text("Select a category to see spending breakdown"));
+      return Center(
+          child: Text(AppLocalizations.of(context)!.detailPlaceholder));
     }
 
     final selectedWardItems = _filteredData!
@@ -271,7 +273,7 @@ class BarChartRegionState extends State<BarChartRegion> {
       children: [
         DropdownButton<int>(
           // set menumaxheight to quarter of the screen height
-          menuMaxHeight: MediaQuery.of(context).size.height / 4,
+          menuMaxHeight: MediaQuery.of(context).size.height / 3,
           value: selectedData._selectedWard,
           onChanged: (int? newValue) {
             selectedData.updateSelectedWard(newValue!);
@@ -281,7 +283,7 @@ class BarChartRegionState extends State<BarChartRegion> {
               .map<DropdownMenuItem<int>>((int value) {
             return DropdownMenuItem<int>(
               value: value,
-              child: Text('Ward $value'),
+              child: Text(AppLocalizations.of(context)!.wardDropdown(value)),
             );
           }).toList(),
         ),
@@ -310,7 +312,7 @@ class BarChartRegionState extends State<BarChartRegion> {
       onAxisLabelTapped: (axisLabelTapArgs) {
         selectedData.updateSelectedCategory(axisLabelTapArgs.text);
       },
-      title: ChartTitle(text: 'Spending by Category'),
+      title: ChartTitle(text: AppLocalizations.of(context)!.chartTitle),
       primaryXAxis: CategoryAxis(labelStyle: const TextStyle(fontSize: 16)),
       primaryYAxis: NumericAxis(
         axisLabelFormatter: (axisLabelRenderArgs) {
@@ -333,7 +335,12 @@ class BarChartRegionState extends State<BarChartRegion> {
             selectedData.updateSelectedCategory(
                 _filteredData![args.pointIndex!].category);
           },
-          xValueMapper: (AnnualWardSpendingData data, _) => data.category,
+          xValueMapper: (AnnualWardSpendingData data, _) {
+            if (Localizations.localeOf(context).languageCode == 'en') {
+              return data.category;
+            }
+            // TODO Add Spanish case, likely using direct mapping
+          },
           yValueMapper: (AnnualWardSpendingData data, _) => data.cost,
           dataLabelSettings: DataLabelSettings(
             isVisible: true,
@@ -418,7 +425,7 @@ readCSV(path) async {
   return csvTable;
 }
 
-// TODO Use read CSV
+// TODO Use readCSV()
 Future<List<AnnualWardSpendingData>> loadAnnualCategorySpendingData() async {
   late String rawdata;
   try {
@@ -443,7 +450,7 @@ Future<List<AnnualWardSpendingData>> loadAnnualCategorySpendingData() async {
   return spendingData;
 }
 
-// TODO Use read CSV
+// TODO Use readCSV()
 Future<List<WardItemLocationSpendingData>> loadCategoryItemsData() async {
   late String rawdata;
   try {
