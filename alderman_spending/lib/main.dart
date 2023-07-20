@@ -197,7 +197,6 @@ class _DetailRegionState extends State<DetailRegion> {
 
 class BarChartRegion extends StatefulWidget {
   const BarChartRegion({super.key});
-
   @override
   BarChartRegionState createState() => BarChartRegionState();
 }
@@ -208,7 +207,21 @@ class BarChartRegionState extends State<BarChartRegion> {
   int? _selectedWard;
   int? _selectedYear;
   List<AnnualWardSpendingData>? _filteredData;
-
+  static const Map<String, String> categoryTranslations = {
+    'Lighting': 'Iluminación',
+    'Police Cameras': 'Cámaras de seguridad',
+    'Street Redesign': 'Rediseño de calles',
+    'Misc.': 'Varios',
+    'Ped. Infra.': 'Infraestructura peatonal',
+    'Parks': 'Parques',
+    'Street Resurfacing': 'Reasfaltado de calles',
+    'Sidewalk Repair': 'Reparación de aceras',
+    'Alleys': 'Calles estrechas',
+    'Misc. CDOT': 'Varios (CDOT)',
+    'Bike Infra.': 'Infraestructura para bicicletas',
+    'Viaducts': 'Viaductos',
+    'Beautification': 'Embellecimiento',
+  };
   @override
   void initState() {
     loadAnnualCategorySpendingData().then((data) {
@@ -339,8 +352,7 @@ class BarChartRegionState extends State<BarChartRegion> {
             if (Localizations.localeOf(context).languageCode == 'en') {
               return data.category;
             }
-            // TODO Add Spanish case, likely using direct mapping
-            return data.category;
+            return categoryTranslations[data.category];
           },
           yValueMapper: (AnnualWardSpendingData data, _) => data.cost,
           dataLabelSettings: DataLabelSettings(
