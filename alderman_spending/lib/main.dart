@@ -340,6 +340,7 @@ class BarChartRegionState extends State<BarChartRegion> {
               return data.category;
             }
             // TODO Add Spanish case, likely using direct mapping
+            return data.category;
           },
           yValueMapper: (AnnualWardSpendingData data, _) => data.cost,
           dataLabelSettings: DataLabelSettings(
