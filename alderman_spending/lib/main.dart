@@ -1,3 +1,4 @@
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:csv/csv.dart';
@@ -18,6 +19,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en', 'US'),
+        Locale('es', 'US'),
+      ],
       title: 'Alderman Spending',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -305,26 +314,20 @@ class BarChartRegionState extends State<BarChartRegion> {
       primaryXAxis: CategoryAxis(labelStyle: const TextStyle(fontSize: 16)),
       primaryYAxis: NumericAxis(
         axisLabelFormatter: (axisLabelRenderArgs) {
-          final value = axisLabelRenderArgs.value;
-          if (value >= 1000000) {
-            final double valueInMillions = value / 1000000;
-            final formattedValue =
-                '${NumberFormat('#,##0.##').format(valueInMillions)}M';
-            return ChartAxisLabel(
-                formattedValue, axisLabelRenderArgs.textStyle);
-          } else if (value >= 1000) {
-            final formattedValue =
-                '${NumberFormat('#,##0').format(value ~/ 1000)}k';
-            return ChartAxisLabel(
-                formattedValue, axisLabelRenderArgs.textStyle);
-          } else {
-            return ChartAxisLabel(NumberFormat('#,##0').format(value),
-                axisLabelRenderArgs.textStyle);
-          }
+          return ChartAxisLabel(
+              NumberFormat.compact().format(axisLabelRenderArgs.value),
+              axisLabelRenderArgs.textStyle);
         },
       ),
       series: <BarSeries<AnnualWardSpendingData, String>>[
         BarSeries<AnnualWardSpendingData, String>(
+          selectionBehavior: SelectionBehavior(
+            toggleSelection: false,
+            enable: true,
+            selectedColor: Colors.blue[800],
+            unselectedColor: const Color(0xFF4b87b9),
+            unselectedOpacity: 1,
+          ),
           dataSource: _filteredData!,
           onPointTap: (ChartPointDetails args) {
             selectedData.updateSelectedCategory(
@@ -336,7 +339,7 @@ class BarChartRegionState extends State<BarChartRegion> {
             isVisible: true,
             labelAlignment: ChartDataLabelAlignment.outer,
             builder: (data, point, series, pointIndex, seriesIndex) => Text(
-              "\$${NumberFormat.compact().format(data.cost)}",
+              NumberFormat.compactSimpleCurrency().format(data.cost),
               style: const TextStyle(
                 color: Colors.black,
                 fontSize: 16,
@@ -404,6 +407,18 @@ class WardItemLocationSpendingData {
       required this.location});
 }
 
+readCSV(path) async {
+  late String rawData;
+  try {
+    rawData = await rootBundle.loadString(path);
+  } catch (e) {
+    return [];
+  }
+  final csvTable = const CsvToListConverter().convert(rawData, eol: '\n');
+  return csvTable;
+}
+
+// TODO Use read CSV
 Future<List<AnnualWardSpendingData>> loadAnnualCategorySpendingData() async {
   late String rawdata;
   try {
@@ -428,6 +443,7 @@ Future<List<AnnualWardSpendingData>> loadAnnualCategorySpendingData() async {
   return spendingData;
 }
 
+// TODO Use read CSV
 Future<List<WardItemLocationSpendingData>> loadCategoryItemsData() async {
   late String rawdata;
   try {
