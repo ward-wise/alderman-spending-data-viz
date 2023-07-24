@@ -1,11 +1,13 @@
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart';
-import 'package:csv/csv.dart';
-import 'package:flutter/services.dart' show rootBundle;
-import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:provider/provider.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
+import 'src/data/models/annual_ward_spending_data.dart';
+import 'src/data/models/ward_item_location_spending_data.dart';
+import 'src/data/providers/selected_data.dart';
+import 'src/utils/csv_service.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -287,7 +289,7 @@ class BarChartRegionState extends State<BarChartRegion> {
         DropdownButton<int>(
           // set menumaxheight to quarter of the screen height
           menuMaxHeight: MediaQuery.of(context).size.height / 3,
-          value: selectedData._selectedWard,
+          value: selectedData.selectedWard,
           onChanged: (int? newValue) {
             selectedData.updateSelectedWard(newValue!);
             selectedData.updateSelectedCategory('');
@@ -301,7 +303,7 @@ class BarChartRegionState extends State<BarChartRegion> {
           }).toList(),
         ),
         DropdownButton<int>(
-          value: selectedData._selectedYear,
+          value: selectedData.selectedYear,
           onChanged: (int? newValue) {
             selectedData.updateSelectedYear(newValue!);
             selectedData.updateSelectedCategory('');
@@ -372,83 +374,11 @@ class BarChartRegionState extends State<BarChartRegion> {
   }
 }
 
-class SelectedData extends ChangeNotifier {
-  int _selectedWard = 1;
-  int _selectedYear = 2019;
-  String? _selectedCategory;
-
-  int get selectedWard => _selectedWard;
-  int get selectedYear => _selectedYear;
-  String? get selectedCategory => _selectedCategory;
-
-  void updateSelectedWard(int ward) {
-    _selectedWard = ward;
-    notifyListeners();
-  }
-
-  void updateSelectedYear(int year) {
-    _selectedYear = year;
-    notifyListeners();
-  }
-
-  void updateSelectedCategory(String category) {
-    _selectedCategory = category;
-    notifyListeners();
-  }
-}
-
-class AnnualWardSpendingData {
-  final int ward;
-  final int year;
-  final String category;
-  final int cost;
-
-  AnnualWardSpendingData({
-    required this.ward,
-    required this.year,
-    required this.category,
-    required this.cost,
-  });
-}
-
-class WardItemLocationSpendingData {
-  final int ward;
-  final int year;
-  final String item;
-  final String category;
-  final int cost;
-  final String location;
-  WardItemLocationSpendingData(
-      {required this.ward,
-      required this.year,
-      required this.item,
-      required this.category,
-      required this.cost,
-      required this.location});
-}
-
-readCSV(path) async {
-  late String rawData;
-  try {
-    rawData = await rootBundle.loadString(path);
-  } catch (e) {
-    return [];
-  }
-  final csvTable = const CsvToListConverter().convert(rawData, eol: '\n');
-  return csvTable;
-}
-
-// TODO Use readCSV()
 Future<List<AnnualWardSpendingData>> loadAnnualCategorySpendingData() async {
-  late String rawdata;
-  try {
-    rawdata = await rootBundle
-        .loadString('assets/2019-2022_ward_category_totals.csv');
-  } catch (e) {
+  final csvTable = await readCSV('assets/2019-2022_ward_category_totals.csv');
+  if (csvTable.isEmpty) {
     return [];
   }
-  final csvTable = const CsvToListConverter()
-      .convert(rawdata, eol: '\n', shouldParseNumbers: false);
   List<AnnualWardSpendingData> spendingData = [];
   for (var i = 1; i < csvTable.length; i++) {
     final item = csvTable[i];
@@ -463,16 +393,11 @@ Future<List<AnnualWardSpendingData>> loadAnnualCategorySpendingData() async {
   return spendingData;
 }
 
-// TODO Use readCSV()
 Future<List<WardItemLocationSpendingData>> loadCategoryItemsData() async {
-  late String rawdata;
-  try {
-    rawdata = await rootBundle.loadString('assets/2019-2022_ward_items.csv');
-  } catch (e) {
+  final csvTable = await readCSV('assets/2019-2022_ward_items.csv');
+  if (csvTable.isEmpty) {
     return [];
   }
-  final csvTable = const CsvToListConverter()
-      .convert(rawdata, eol: '\n', shouldParseNumbers: false);
   List<WardItemLocationSpendingData> itemData = [];
   for (var i = 1; i < csvTable.length; i++) {
     final item = csvTable[i];
