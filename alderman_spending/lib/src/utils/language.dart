@@ -1,0 +1,15 @@
+const Map<String, String> categoryTranslations = {
+  'Lighting': 'Iluminación',
+  'Police Cameras': 'Cámaras de policía',
+  'Street Redesign': 'Rediseño de calles',
+  'Misc.': 'Varios',
+  'Ped. Infra.': 'Infraestructura peatonal',
+  'Parks': 'Parques',
+  'Street Resurfacing': 'Reasfaltado de calles',
+  'Sidewalk Repair': 'Reparación de aceras',
+  'Alleys': 'Calles estrechas',
+  'Misc. CDOT': 'Varios (CDOT)',
+  'Bike Infra.': 'Infraestructura bicicletas',
+  'Viaducts': 'Viaductos',
+  'Beautification': 'Embellecimiento',
+};

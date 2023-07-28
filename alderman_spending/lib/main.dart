@@ -7,7 +7,8 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import 'src/data/models/annual_ward_spending_data.dart';
 import 'src/data/models/ward_item_location_spending_data.dart';
 import 'src/data/providers/selected_data.dart';
-import 'src/utils/csv_service.dart';
+import 'src/data/loaders.dart';
+import 'src/utils/language.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         Locale('en', 'US'),
         Locale('es', 'US'),
       ],
-      title: 'Alderman Spending',
+      title: "Alderman Spending",
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -148,7 +149,7 @@ class _DetailRegionState extends State<DetailRegion> {
       return const CircularProgressIndicator();
     }
     if (_wardItemLocationSpendingData!.isEmpty) {
-      return const Text("Error loading data");
+      return Text(AppLocalizations.of(context)!.errorLoadingData);
     }
     if (selectedData.selectedCategory == null ||
         selectedData.selectedCategory == "") {
@@ -209,21 +210,7 @@ class BarChartRegionState extends State<BarChartRegion> {
   int? _selectedWard;
   int? _selectedYear;
   List<AnnualWardSpendingData>? _filteredData;
-  static const Map<String, String> categoryTranslations = {
-    'Lighting': 'Iluminación',
-    'Police Cameras': 'Cámaras de policía',
-    'Street Redesign': 'Rediseño de calles',
-    'Misc.': 'Varios',
-    'Ped. Infra.': 'Infraestructura peatonal',
-    'Parks': 'Parques',
-    'Street Resurfacing': 'Reasfaltado de calles',
-    'Sidewalk Repair': 'Reparación de aceras',
-    'Alleys': 'Calles estrechas',
-    'Misc. CDOT': 'Varios (CDOT)',
-    'Bike Infra.': 'Infraestructura bicicletas',
-    'Viaducts': 'Viaductos',
-    'Beautification': 'Embellecimiento',
-  };
+
   @override
   void initState() {
     loadAnnualCategorySpendingData().then((data) {
@@ -265,10 +252,11 @@ class BarChartRegionState extends State<BarChartRegion> {
       return const CircularProgressIndicator();
     }
     if (_spendingData!.isEmpty) {
-      return const Text("Error loading data");
+      return Text(AppLocalizations.of(context)!.errorLoadingData);
     }
     if (_filteredData == null) {
-      return const Text("No data available for the selected ward and year");
+      return Text(AppLocalizations.of(context)!
+          .noDataForWardYear(_selectedWard!, _selectedYear!));
     }
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
@@ -372,44 +360,4 @@ class BarChartRegionState extends State<BarChartRegion> {
       ],
     );
   }
-}
-
-Future<List<AnnualWardSpendingData>> loadAnnualCategorySpendingData() async {
-  final csvTable = await readCSV('assets/2019-2022_ward_category_totals.csv');
-  if (csvTable.isEmpty) {
-    return [];
-  }
-  List<AnnualWardSpendingData> spendingData = [];
-  for (var i = 1; i < csvTable.length; i++) {
-    final item = csvTable[i];
-    final newData = AnnualWardSpendingData(
-      ward: int.parse(item[0].trim()),
-      year: int.parse(item[1].trim()),
-      category: item[2].trim(),
-      cost: int.parse(item[3].trim()),
-    );
-    spendingData.add(newData);
-  }
-  return spendingData;
-}
-
-Future<List<WardItemLocationSpendingData>> loadCategoryItemsData() async {
-  final csvTable = await readCSV('assets/2019-2022_ward_items.csv');
-  if (csvTable.isEmpty) {
-    return [];
-  }
-  List<WardItemLocationSpendingData> itemData = [];
-  for (var i = 1; i < csvTable.length; i++) {
-    final item = csvTable[i];
-    final newData = WardItemLocationSpendingData(
-      ward: int.parse(item[0].trim()),
-      year: int.parse(item[1].trim()),
-      item: item[2].trim(),
-      category: item[3].trim(),
-      location: item[4].trim(),
-      cost: int.parse(item[5].trim()),
-    );
-    itemData.add(newData);
-  }
-  return itemData;
 }
