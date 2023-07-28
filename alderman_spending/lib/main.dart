@@ -204,7 +204,6 @@ class BarChartRegion extends StatefulWidget {
   BarChartRegionState createState() => BarChartRegionState();
 }
 
-// TODO Highlight selected category, make pretty animations
 class BarChartRegionState extends State<BarChartRegion> {
   List<AnnualWardSpendingData>? _spendingData;
   int? _selectedWard;
@@ -326,13 +325,7 @@ class BarChartRegionState extends State<BarChartRegion> {
       ),
       series: <BarSeries<AnnualWardSpendingData, String>>[
         BarSeries<AnnualWardSpendingData, String>(
-          selectionBehavior: SelectionBehavior(
-            toggleSelection: false,
-            enable: true,
-            selectedColor: Colors.blue[800],
-            unselectedColor: const Color(0xFF4b87b9),
-            unselectedOpacity: 1,
-          ),
+          // TODO Utilize selection behaviour to highlight selected category bar, needs state management for clearing and triggering on label tap
           dataSource: _filteredData!,
           onPointTap: (ChartPointDetails args) {
             selectedData.updateSelectedCategory(
