@@ -31,6 +31,10 @@
   "@faq": {
     "description": "To be used as the label for the faq button"
   },
+  "menuItems": "Menu Items",
+  "@menuItems":{
+    "description": "To be used as the label for the menu items button"
+  },
   "about": "About",
   "@about": {
     "description": "To be used as the label for the about button"

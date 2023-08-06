@@ -1,3 +1,4 @@
+import 'package:alderman_spending/src/ui/menu_items_page/menu_items_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -55,6 +56,7 @@ class MyApp extends StatelessWidget {
     return {
       '/home': (context) => PageWithDrawer(child: HomeScreen()),
       '/faq': (context) => PageWithDrawer(child: FAQScreen()),
+      '/items': (context) => PageWithDrawer(child: MenuItemsScreen()),
       '/charts': (context) => PageWithDrawer(child: ChartScreen()),
       '/about': (context) => PageWithDrawer(child: AboutScreen()),
     };
@@ -94,25 +96,42 @@ class ScaffoldDrawer extends StatelessWidget {
           ListTile(
             title: Text(AppLocalizations.of(context)!.home),
             onTap: () {
-              Navigator.popAndPushNamed(context, '/home');
+              // If not on route
+              if (ModalRoute.of(context)!.settings.name != '/home') {
+                Navigator.popAndPushNamed(context, '/home');
+              }
             },
           ),
           ListTile(
             title: Text(AppLocalizations.of(context)!.faq),
             onTap: () {
-              Navigator.popAndPushNamed(context, '/faq');
+              if (ModalRoute.of(context)!.settings.name != '/faq') {
+                Navigator.popAndPushNamed(context, '/faq');
+              }
+            },
+          ),
+          ListTile(
+            title: Text(AppLocalizations.of(context)!.menuItems),
+            onTap: () {
+              if (ModalRoute.of(context)!.settings.name != '/items') {
+                Navigator.popAndPushNamed(context, '/items');
+              }
             },
           ),
           ListTile(
             title: Text(AppLocalizations.of(context)!.spendingCharts),
             onTap: () {
-              Navigator.popAndPushNamed(context, '/charts');
+              if (ModalRoute.of(context)!.settings.name != '/charts') {
+                Navigator.popAndPushNamed(context, '/charts');
+              }
             },
           ),
           ListTile(
             title: Text(AppLocalizations.of(context)!.about),
             onTap: () {
-              Navigator.popAndPushNamed(context, '/about');
+              if (ModalRoute.of(context)!.settings.name != '/about') {
+                Navigator.popAndPushNamed(context, '/about');
+              }
             },
           ),
           // Switch which toggles between en and es
