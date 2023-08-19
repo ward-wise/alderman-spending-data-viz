@@ -1,6 +1,6 @@
 import 'package:alderman_spending/src/data/models/annual_ward_spending_data.dart';
 import 'package:alderman_spending/src/data/models/ward_item_location_spending_data.dart';
-import 'package:alderman_spending/src/utils/csv_service.dart';
+import 'package:alderman_spending/src/services/csv_service.dart';
 
 Future<List<AnnualWardSpendingData>> loadAnnualCategorySpendingData() async {
   final csvTable = await readCSV('assets/2019-2022_ward_category_totals.csv');

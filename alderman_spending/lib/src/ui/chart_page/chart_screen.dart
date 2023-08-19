@@ -7,7 +7,7 @@ import 'package:alderman_spending/src/data/loaders.dart';
 import 'package:alderman_spending/src/data/models/annual_ward_spending_data.dart';
 import 'package:alderman_spending/src/data/models/ward_item_location_spending_data.dart';
 import 'package:alderman_spending/src/data/providers/selected_data.dart';
-import 'package:alderman_spending/src/utils/language.dart';
+import 'package:alderman_spending/src/services/language.dart';
 
 class ChartScreen extends StatelessWidget {
   const ChartScreen({
