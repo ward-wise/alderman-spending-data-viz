@@ -42,6 +42,8 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   http: ^1.1.0
+  getwidget: ^3.1.1
+  hovering: ^1.0.4
 
 dev_dependencies:
   flutter_test:
@@ -69,8 +71,8 @@ flutter:
   assets:
     - assets/2019-2022_ward_category_totals.csv
     - assets/2019-2022_ward_items.csv
-    - assets/images/usa.png
-    - assets/images/mexico.png
+    - assets/images/
+    - assets/images/menu_items/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
