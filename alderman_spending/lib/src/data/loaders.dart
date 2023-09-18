@@ -1,6 +1,9 @@
 import 'package:alderman_spending/src/data/models/annual_ward_spending_data.dart';
 import 'package:alderman_spending/src/data/models/ward_item_location_spending_data.dart';
+import 'package:alderman_spending/src/data/models/menu_item_info.dart';
+import 'package:alderman_spending/src/data/models/viaduct_info.dart';
 import 'package:alderman_spending/src/services/csv_service.dart';
+import 'dart:convert';
 
 Future<List<AnnualWardSpendingData>> loadAnnualCategorySpendingData() async {
   final csvTable = await readCSV('assets/2019-2022_ward_category_totals.csv');
@@ -40,4 +43,54 @@ Future<List<WardItemLocationSpendingData>> loadCategoryItemsData() async {
     itemData.add(newData);
   }
   return itemData;
+}
+
+Future<List<MenuItemInfo>> loadMenuItems() async {
+  final csvTable = await readCSV('assets/menu_items_info.csv');
+  if (csvTable.isEmpty) {
+    return [];
+  }
+
+  List<MenuItemInfo> menuItems = [];
+  for (var i = 1; i < csvTable.length; i++) {
+    final item = csvTable[i];
+    // Parse the 'Notes' column as JSON
+    List<String>? notes = [];
+    try {
+      notes = json.decode(item[4].trim());
+    } catch (e) {
+      // Handle JSON parsing errors if necessary
+      notes = null;
+    }
+
+    final newData = MenuItemInfo(
+      title: item[0].trim(),
+      cost: int.parse(item[1].trim()),
+      measurement: item[2].trim(),
+      description: item[3].trim(),
+      notes: notes,
+    );
+    menuItems.add(newData);
+  }
+  return menuItems;
+}
+
+Future<List<ViaductImprovementInfo>> loadViaductImprovements() async {
+  final csvTable = await readCSV('assets/viaduct_improvements.csv');
+  if (csvTable.isEmpty) {
+    return [];
+  }
+
+  List<ViaductImprovementInfo> improvements = [];
+  for (var i = 1; i < csvTable.length; i++) {
+    final item = csvTable[i];
+    final newData = ViaductImprovementInfo(
+      name: item[0].trim(),
+      cost: int.parse(item[1].trim()),
+      measurement: item[2].trim(),
+      description: item[3].trim(),
+    );
+    improvements.add(newData);
+  }
+  return improvements;
 }

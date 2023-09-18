@@ -135,20 +135,6 @@ class ScaffoldDrawer extends StatelessWidget {
               }
             },
           ),
-          // Switch which toggles between en and es
-          // SwitchListTile(
-          //   title: const Text("English / Español"),
-          //   value: localeProvider.currentLocale.languageCode == 'es',
-          //   onChanged: (value) {
-          //     if (value) {
-          //       localeProvider.updateLocale(const Locale('es', 'US'));
-          //     } else {
-          //       localeProvider.updateLocale(const Locale('en', 'US'));
-          //     }
-          //   },
-          //   activeThumbImage: const AssetImage('assets/images/mexico.png'),
-          //   inactiveThumbImage: const AssetImage('assets/images/usa.png'),
-          // ),
           // Row of 3 buttons for languages
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
