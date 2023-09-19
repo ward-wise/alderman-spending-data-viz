@@ -4,6 +4,8 @@ class MenuItemInfo {
   final String measurement;
   final String description;
   final List<String>? notes;
+  final bool visionZero;
+  final String imgFilename;
 
   MenuItemInfo({
     required this.title,
@@ -11,5 +13,7 @@ class MenuItemInfo {
     required this.measurement,
     required this.description,
     this.notes,
+    required this.visionZero,
+    required this.imgFilename,
   });
 }

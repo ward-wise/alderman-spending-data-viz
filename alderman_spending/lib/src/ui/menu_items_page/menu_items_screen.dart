@@ -5,7 +5,7 @@ import 'package:alderman_spending/src/data/models/menu_item_info.dart';
 import 'package:alderman_spending/src/data/loaders.dart';
 import 'package:intl/intl.dart';
 
-const baseImagePath = 'assets/images/menu_items/AlleySpeedHumpProgram.png';
+const baseImagePath = 'assets/images/menu_items/';
 final menuItems = loadMenuItems().then((value) => value);
 
 class MenuItemsScreen extends StatelessWidget {
@@ -38,7 +38,8 @@ class MenuItemsScreen extends StatelessWidget {
                       );
                     },
                     child: MenuListItem(
-                      imagePath: baseImagePath,
+                      imagePath:
+                          baseImagePath + snapshot.data![index].imgFilename,
                       title: snapshot.data![index].title,
                       cost: snapshot.data![index].cost,
                       unit: snapshot.data![index].measurement,
@@ -70,7 +71,7 @@ class MenuItemDetailScreen extends StatelessWidget {
               tag: 'menu_item_image',
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Image.asset(baseImagePath),
+                child: Image.asset(baseImagePath + menuItemInfo.imgFilename),
               ),
             ),
             SizedBox(height: 10),

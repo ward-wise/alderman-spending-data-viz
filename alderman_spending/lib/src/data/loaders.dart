@@ -54,17 +54,11 @@ Future<List<MenuItemInfo>> loadMenuItems() async {
   List<MenuItemInfo> menuItems = [];
   for (var i = 1; i < csvTable.length; i++) {
     final item = csvTable[i];
-    // skip empty lines
-    // TODO remove empty lines
-    if (item[0].trim().isEmpty) {
-      continue;
-    }
     // Parse the 'Notes' column as JSON
     List<String>? notes = [];
     try {
       notes = json.decode(item[4].trim());
     } catch (e) {
-      // Handle JSON parsing errors if necessary
       notes = null;
     }
 
@@ -74,6 +68,8 @@ Future<List<MenuItemInfo>> loadMenuItems() async {
       measurement: item[2].trim(),
       description: item[3].trim(),
       notes: notes,
+      visionZero: item[5].trim() == 'True',
+      imgFilename: item[6].trim(),
     );
     menuItems.add(newData);
   }
