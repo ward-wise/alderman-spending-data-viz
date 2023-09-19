@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:hovering/hovering.dart';
+import 'package:alderman_spending/src/data/models/menu_item_info.dart';
+import 'package:alderman_spending/src/data/loaders.dart';
+import 'package:intl/intl.dart';
 
-final imagePath = 'assets/images/menu_items/AlleySpeedHumpProgram.png';
-final title = 'Alley Speed Hump';
-final subtitle =
-    'The Alley Speed Hump Program is a new program that will install speed humps...';
+const baseImagePath = 'assets/images/menu_items/AlleySpeedHumpProgram.png';
+final menuItems = loadMenuItems().then((value) => value);
 
 class MenuItemsScreen extends StatelessWidget {
   const MenuItemsScreen({Key? key});
@@ -13,46 +14,50 @@ class MenuItemsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Menu Items'),
-      ),
-      body: ListView(
-        children: [
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MenuItemDetailScreen(
-                    imagePath: imagePath,
-                    title: title,
-                    subtitle: subtitle,
-                  ),
-                ),
+        appBar: AppBar(
+          title: const Text('Menu Items'),
+        ),
+        // use loadMenuItems() to make a builder
+        body: FutureBuilder(
+          future: menuItems,
+          builder: (context, AsyncSnapshot<List<MenuItemInfo>> snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                itemCount: snapshot.data!.length,
+                itemBuilder: (context, index) {
+                  // MenuListItem that can be clicked to produce MenuItemDetailScreen
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MenuItemDetailScreen(
+                            menuItemInfo: snapshot.data![index],
+                          ),
+                        ),
+                      );
+                    },
+                    child: MenuListItem(
+                      imagePath: baseImagePath,
+                      title: snapshot.data![index].title,
+                      cost: snapshot.data![index].cost,
+                      unit: snapshot.data![index].measurement,
+                    ),
+                  );
+                },
               );
-            },
-            child: MenuListItem(
-              imagePath: imagePath,
-              title: title,
-              subtitle: subtitle,
-            ),
-          ),
-        ],
-      ),
-    );
+            } else {
+              return const Center(child: CircularProgressIndicator());
+            }
+          },
+        ));
   }
 }
 
 class MenuItemDetailScreen extends StatelessWidget {
-  final String imagePath;
-  final String title;
-  final String subtitle;
+  final MenuItemInfo menuItemInfo;
 
-  MenuItemDetailScreen({
-    required this.imagePath,
-    required this.title,
-    required this.subtitle,
-  });
+  MenuItemDetailScreen({required this.menuItemInfo});
 
   @override
   Widget build(BuildContext context) {
@@ -65,21 +70,26 @@ class MenuItemDetailScreen extends StatelessWidget {
               tag: 'menu_item_image',
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Image.asset(imagePath),
+                child: Image.asset(baseImagePath),
               ),
             ),
             SizedBox(height: 10),
             Text(
-              title,
+              menuItemInfo.title,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 8),
-            Text("Average Cost: \$1,400 per block"),
+            Text(
+              '${menuItemInfo.cost} per ${menuItemInfo.measurement}',
+              style: TextStyle(fontSize: 16),
+            ),
             SizedBox(height: 8),
             Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Text("This program is primarily designed to reduce vehicular traffic speed in residential alleys and will consist of installing raised rubber 'humps' on improved alleys. No resurfacing will be included as part of this program. CDOT recommends a survey of the affected residents before choosing a location and retains the final approval for each location. Due to the variety and shape of alleys throughout the City, actual quantities and prices will vary accordingly."),
-            ),
+                padding: const EdgeInsets.all(20.0),
+                child: Text(
+                  menuItemInfo.description,
+                  style: TextStyle(fontSize: 16),
+                )),
           ],
         ),
       ),
@@ -90,17 +100,21 @@ class MenuItemDetailScreen extends StatelessWidget {
 class MenuListItem extends StatelessWidget {
   final String imagePath;
   final String title;
-  final String subtitle;
+  final int cost;
+  final String unit;
 
   MenuListItem({
     required this.imagePath,
     required this.title,
-    required this.subtitle,
+    required this.cost,
+    required this.unit,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Column(children:[ItemCard(imagePath: imagePath, title: title, subtitle: subtitle)]);
+    return Column(children: [
+      ItemCard(imagePath: imagePath, title: title, cost: cost, unit: unit),
+    ]);
   }
 }
 
@@ -109,17 +123,19 @@ class ItemCard extends StatelessWidget {
     super.key,
     required this.imagePath,
     required this.title,
-    required this.subtitle,
+    required this.cost,
+    required this.unit,
   });
 
   final String imagePath;
   final String title;
-  final String subtitle;
+  final int cost;
+  final String unit;
 
   @override
   Widget build(BuildContext context) {
     return HoverCrossFadeWidget(
-      duration: Duration(milliseconds: 50),
+      duration: const Duration(milliseconds: 50),
       firstChild: Card(
         elevation: 4, // Add elevation for shadow effect
         child: ListTile(
@@ -129,7 +145,8 @@ class ItemCard extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           title: Text(title),
-          subtitle: Text(subtitle),
+          subtitle: Text(
+              "${NumberFormat.simpleCurrency(decimalDigits: 0).format(cost)} Per $unit"),
         ),
       ),
       secondChild: Card(
@@ -142,7 +159,8 @@ class ItemCard extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           title: Text(title),
-          subtitle: Text(subtitle),
+          subtitle: Text(
+              "${NumberFormat.simpleCurrency(decimalDigits: 0).format(cost)} Per $unit"),
         ),
       ),
     );

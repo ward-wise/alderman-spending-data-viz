@@ -54,6 +54,11 @@ Future<List<MenuItemInfo>> loadMenuItems() async {
   List<MenuItemInfo> menuItems = [];
   for (var i = 1; i < csvTable.length; i++) {
     final item = csvTable[i];
+    // skip empty lines
+    // TODO remove empty lines
+    if (item[0].trim().isEmpty) {
+      continue;
+    }
     // Parse the 'Notes' column as JSON
     List<String>? notes = [];
     try {
