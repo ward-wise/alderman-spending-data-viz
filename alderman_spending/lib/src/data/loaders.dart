@@ -57,7 +57,7 @@ Future<List<MenuItemInfo>> loadMenuItems() async {
     // Parse the 'Notes' column as JSON
     List<String>? notes = [];
     try {
-      notes = json.decode(item[4].trim());
+      notes = List<String>.from(json.decode(item[4].trim()));
     } catch (e) {
       notes = null;
     }

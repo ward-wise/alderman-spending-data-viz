@@ -27,6 +27,7 @@ class MenuItemsScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   // MenuListItem that can be clicked to produce MenuItemDetailScreen
                   return InkWell(
+                    hoverColor: Colors.grey[300],
                     onTap: () {
                       Navigator.push(
                         context,
@@ -64,36 +65,93 @@ class MenuItemDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Hero(
-              tag: 'menu_item_image',
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Image.asset(baseImagePath + menuItemInfo.imgFilename),
+          child: GFCard(
+        elevation: 15,
+        padding: const EdgeInsets.all(20.0),
+        image: Image.asset(
+          baseImagePath + menuItemInfo.imgFilename,
+          fit: BoxFit.cover,
+        ),
+        showImage: true,
+        title: GFListTile(
+            title: Text(
+              menuItemInfo.title,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
-            Text(
-              menuItemInfo.title,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 8),
-            Text(
-              '${menuItemInfo.cost} per ${menuItemInfo.measurement}',
+            subTitle: Text(
+              '${NumberFormat.simpleCurrency(decimalDigits: 0).format(menuItemInfo.cost)} per ${menuItemInfo.measurement}',
               style: TextStyle(fontSize: 16),
             ),
-            SizedBox(height: 8),
-            Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Text(
-                  menuItemInfo.description,
-                  style: TextStyle(fontSize: 16),
-                )),
+            shadow: BoxShadow(
+              color: Colors.grey.withOpacity(0.3),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: const Offset(0, 3),
+            )),
+        content: Column(
+          children: [
+            Text(
+              menuItemInfo.description,
+              style: TextStyle(fontSize: 16),
+              overflow: TextOverflow.fade,
+            ),
+            // builder to loop through notes, if not null. use index to number notes
+            if (menuItemInfo.notes != null)
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: menuItemInfo.notes!.length,
+                itemBuilder: (context, index) {
+                  return Text(
+                    'Note ${index + 1}: ${menuItemInfo.notes![index]}',
+                    style: TextStyle(fontSize: 12),
+                  );
+                },
+              ),
           ],
         ),
-      ),
+      )
+
+          // child: Column(
+          //   // mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     Hero(
+          //       tag: 'menu_item_image',
+          //       child: Padding(
+          //         padding: const EdgeInsets.all(20.0),
+          //         child: Image.asset(baseImagePath + menuItemInfo.imgFilename),
+          //       ),
+          //     ),
+          //     SizedBox(height: 10),
+          //     GFBorder(
+          //         type: GFBorderType.rRect,
+          //         dashedLine: [10, 0],
+          //         child: Column(
+          //           children: [
+          //             Text(
+          //               menuItemInfo.title,
+          //               style:
+          //                   TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          //             ),
+          //             SizedBox(height: 8),
+          //             Text(
+          //               '${NumberFormat.simpleCurrency(decimalDigits: 0).format(menuItemInfo.cost)} per ${menuItemInfo.measurement}',
+          //               style: TextStyle(fontSize: 16),
+          //             ),
+          //           ],
+          //         )),
+          //     SizedBox(height: 8),
+          //     Padding(
+          //         padding: const EdgeInsets.all(20.0),
+          //         child: Text(
+          //           menuItemInfo.description,
+          //           style: TextStyle(fontSize: 16),
+          //         )),
+          //   ],
+          // ),
+          ),
     );
   }
 }
@@ -135,33 +193,23 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HoverCrossFadeWidget(
-      duration: const Duration(milliseconds: 50),
-      firstChild: Card(
-        elevation: 4, // Add elevation for shadow effect
-        child: ListTile(
-          dense: false,
-          leading: Image.asset(
-            imagePath,
-            fit: BoxFit.cover,
-          ),
-          title: Text(title),
-          subtitle: Text(
-              "${NumberFormat.simpleCurrency(decimalDigits: 0).format(cost)} Per $unit"),
+    return Card(
+      margin: EdgeInsets.fromLTRB(5, 8, 5, 8),
+      elevation: 5, // Add elevation for shadow effect
+      child: ListTile(
+        dense: false,
+        leading: Image.asset(
+          imagePath,
+          fit: BoxFit.cover,
+          scale: 2,
         ),
-      ),
-      secondChild: Card(
-        color: Colors.grey[400],
-        elevation: 4, // Add elevation for shadow effect
-        child: ListTile(
-          dense: false,
-          leading: Image.asset(
-            imagePath,
-            fit: BoxFit.cover,
-          ),
-          title: Text(title),
-          subtitle: Text(
-              "${NumberFormat.simpleCurrency(decimalDigits: 0).format(cost)} Per $unit"),
+        title: Text(
+          title,
+          style: TextStyle(fontSize: 20),
+        ),
+        subtitle: Text(
+          "${NumberFormat.simpleCurrency(decimalDigits: 0).format(cost)} Per $unit",
+          style: TextStyle(fontSize: 16),
         ),
       ),
     );
