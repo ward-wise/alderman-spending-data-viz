@@ -2,29 +2,54 @@ import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
 
-final MapShapePath = "/workspaces/alderman-spending/alderman_spending/assets/Wards-Boundaries.geojson";
-late MapShapeSource dataSource;
+const String mapShapePath =
+    'assets/Wards-Boundaries.geojson';
 
 class WardFinderScreen extends StatefulWidget {
-  const WardFinderScreen({super.key});
+  const WardFinderScreen({Key? key}) : super(key: key);
 
   @override
   State<WardFinderScreen> createState() => _WardFinderScreenState();
 }
 
 class _WardFinderScreenState extends State<WardFinderScreen> {
-
+  late MapShapeSource dataSource;
+  late int? _selectedWard;
   @override
-void initState() {
-  dataSource = MapShapeSource.asset(
-    MapShapePath,
-    shapeDataField: 'ward',
-  );
-  super.initState();
-}
+  void initState() {
+    _selectedWard = null;
+    dataSource = MapShapeSource.asset(
+      mapShapePath,
+      shapeDataField: 'ward',
+      dataCount: 50,
+      primaryValueMapper: (int index) => (index+1).toString(),
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body:SfMaps(layers: [MapShapeLayer(source: dataSource)],));
+    return Scaffold(
+      body: SfMaps(
+        layers: [
+          MapShapeLayer(
+            source: dataSource,
+            selectedIndex: _selectedWard ?? -1,
+            onSelectionChanged: (value) {
+              if(value == _selectedWard){return;}
+              setState(() {
+              _selectedWard = value;
+              print(_selectedWard);
+            });
+            },
+            selectionSettings: MapSelectionSettings(
+              color: Colors.blue,
+              strokeColor: Colors.black,
+              strokeWidth: 2,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

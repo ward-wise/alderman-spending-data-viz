@@ -2,6 +2,7 @@ import 'package:alderman_spending/src/data/models/annual_ward_spending_data.dart
 import 'package:alderman_spending/src/data/models/ward_item_location_spending_data.dart';
 import 'package:alderman_spending/src/data/models/menu_item_info.dart';
 import 'package:alderman_spending/src/data/models/viaduct_info.dart';
+import 'package:alderman_spending/src/data/models/ward_info.dart';
 import 'package:alderman_spending/src/services/csv_service.dart';
 import 'dart:convert';
 
@@ -94,4 +95,24 @@ Future<List<ViaductImprovementInfo>> loadViaductImprovements() async {
     improvements.add(newData);
   }
   return improvements;
+}
+
+Future<List<WardInformation>> loadWardInformation() async {
+  final csvTable = await readCSV('assets/ward_information.csv');
+  if (csvTable.isEmpty) {
+    return [];
+  }
+  List<WardInformation> wardInfo = [];
+  for (var i = 1; i < csvTable.length; i++) {
+    final item = csvTable[i];
+    final newData = WardInformation(
+      wardNumber: int.parse(item[0].trim()),
+      alderpersonName: item[1].trim(),
+      wardAddress: item[2].trim(),
+      wardEmail: item[3].trim(),
+      wardPhone: item[4].trim(),
+    );
+    wardInfo.add(newData);
+  }
+  return wardInfo;
 }
