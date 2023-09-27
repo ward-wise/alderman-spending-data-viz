@@ -10,6 +10,7 @@ import 'src/ui/about_page/about_screen.dart';
 import 'src/ui/chart_page/chart_screen.dart';
 import 'src/ui/faq_page/faq_screen.dart';
 import 'src/ui/home_screen/home_screen.dart';
+import 'src/ui/ward_finder_page/ward_finder_screen.dart';
 import 'src/ui/widgets.dart';
 
 void main() {
@@ -57,6 +58,7 @@ class MyApp extends StatelessWidget {
     return {
       '/home': (context) => PageWithDrawer(child: HomeScreen()),
       '/faq': (context) => PageWithDrawer(child: FAQScreen()),
+      '/finder':(context) => PageWithDrawer(child: WardFinderScreen()),
       '/items': (context) => PageWithDrawer(child: MenuItemsScreen()),
       '/charts': (context) => PageWithDrawer(child: ChartScreen()),
       '/about': (context) => PageWithDrawer(child: AboutScreen()),
@@ -108,6 +110,14 @@ class ScaffoldDrawer extends StatelessWidget {
             onTap: () {
               if (ModalRoute.of(context)!.settings.name != '/faq') {
                 Navigator.popAndPushNamed(context, '/faq');
+              }
+            },
+          ),
+          ListTile(
+            title: Text("Ward Finder"),
+            onTap: () {
+              if (ModalRoute.of(context)!.settings.name != '/finder') {
+                Navigator.popAndPushNamed(context, '/finder');
               }
             },
           ),
