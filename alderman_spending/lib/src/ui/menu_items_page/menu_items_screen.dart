@@ -6,7 +6,7 @@ import 'package:alderman_spending/src/data/loaders.dart';
 import 'package:intl/intl.dart';
 
 const baseImagePath = 'assets/images/menu_items/';
-final menuItems = loadMenuItems().then((value) => value);
+final menuItems = loadMenuItems();
 
 class MenuItemsScreen extends StatelessWidget {
   const MenuItemsScreen({Key? key});

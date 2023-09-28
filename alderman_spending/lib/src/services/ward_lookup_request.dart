@@ -15,14 +15,20 @@ Future<int> getWard(String address) async {
 
   final headers = {
     "Authorization": "Basic ZWxzX2NsaWVudF93YXJkZ2VvOnR2S0xANFM2N2Fw",
+    "Content-Type":"application/json",
+    "Host":"api.chicago.gov",
+    "Origin":"https://gisapps.chicago.gov",
   };
 
-  final response = await http.post(Uri.parse(apiURL),
-      headers: headers, body: jsonEncode(requestBody));
+  final response = await http.post(
+    Uri.parse(apiURL),
+    headers: headers,
+    body: jsonEncode(requestBody),
+  );
 
   // Check if the request was successful
   if (response.statusCode != 200) {
-    throw Exception("Failed to make request");
+    throw Exception('API Request Failed');
   }
 
   final data = jsonDecode(response.body)["ForwardGeocodeServiceOutput3"];

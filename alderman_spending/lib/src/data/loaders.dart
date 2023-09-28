@@ -97,7 +97,7 @@ Future<List<ViaductImprovementInfo>> loadViaductImprovements() async {
   return improvements;
 }
 
-Future<List<WardInformation>> loadWardInformation() async {
+Future<List<WardInformation>> loadWardsInformation() async {
   final csvTable = await readCSV('assets/ward_information.csv');
   if (csvTable.isEmpty) {
     return [];
