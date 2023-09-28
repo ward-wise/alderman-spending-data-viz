@@ -9,7 +9,7 @@ const baseImagePath = 'assets/images/menu_items/';
 final menuItems = loadMenuItems();
 
 class MenuItemsScreen extends StatelessWidget {
-  const MenuItemsScreen({Key? key});
+  const MenuItemsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,6 @@ class MenuItemsScreen extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Menu Items'),
         ),
-        // use loadMenuItems() to make a builder
         body: FutureBuilder(
           future: menuItems,
           builder: (context, AsyncSnapshot<List<MenuItemInfo>> snapshot) {
@@ -26,6 +25,7 @@ class MenuItemsScreen extends StatelessWidget {
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
                   // MenuListItem that can be clicked to produce MenuItemDetailScreen
+                  // TODO, add routing or close button to MenuItemDetailScreen
                   return InkWell(
                     hoverColor: Colors.grey[300],
                     onTap: () {
@@ -59,11 +59,12 @@ class MenuItemsScreen extends StatelessWidget {
 class MenuItemDetailScreen extends StatelessWidget {
   final MenuItemInfo menuItemInfo;
 
-  MenuItemDetailScreen({required this.menuItemInfo});
+  const MenuItemDetailScreen({super.key, required this.menuItemInfo});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // TODO Make look better
       body: Center(
           child: GFCard(
         elevation: 15,
@@ -76,14 +77,14 @@ class MenuItemDetailScreen extends StatelessWidget {
         title: GFListTile(
             title: Text(
               menuItemInfo.title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
             subTitle: Text(
               '${NumberFormat.simpleCurrency(decimalDigits: 0).format(menuItemInfo.cost)} per ${menuItemInfo.measurement}',
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
             shadow: BoxShadow(
               color: Colors.grey.withOpacity(0.3),
@@ -91,14 +92,14 @@ class MenuItemDetailScreen extends StatelessWidget {
               blurRadius: 7,
               offset: const Offset(0, 3),
             )),
+        // TODO Probably turn this into a scrollable text region
         content: Column(
           children: [
             Text(
               menuItemInfo.description,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
               overflow: TextOverflow.fade,
             ),
-            // builder to loop through notes, if not null. use index to number notes
             if (menuItemInfo.notes != null)
               ListView.builder(
                 shrinkWrap: true,
@@ -106,52 +107,13 @@ class MenuItemDetailScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Text(
                     'Note ${index + 1}: ${menuItemInfo.notes![index]}',
-                    style: TextStyle(fontSize: 12),
+                    style: const TextStyle(fontSize: 12),
                   );
                 },
               ),
           ],
         ),
-      )
-
-          // child: Column(
-          //   // mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     Hero(
-          //       tag: 'menu_item_image',
-          //       child: Padding(
-          //         padding: const EdgeInsets.all(20.0),
-          //         child: Image.asset(baseImagePath + menuItemInfo.imgFilename),
-          //       ),
-          //     ),
-          //     SizedBox(height: 10),
-          //     GFBorder(
-          //         type: GFBorderType.rRect,
-          //         dashedLine: [10, 0],
-          //         child: Column(
-          //           children: [
-          //             Text(
-          //               menuItemInfo.title,
-          //               style:
-          //                   TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          //             ),
-          //             SizedBox(height: 8),
-          //             Text(
-          //               '${NumberFormat.simpleCurrency(decimalDigits: 0).format(menuItemInfo.cost)} per ${menuItemInfo.measurement}',
-          //               style: TextStyle(fontSize: 16),
-          //             ),
-          //           ],
-          //         )),
-          //     SizedBox(height: 8),
-          //     Padding(
-          //         padding: const EdgeInsets.all(20.0),
-          //         child: Text(
-          //           menuItemInfo.description,
-          //           style: TextStyle(fontSize: 16),
-          //         )),
-          //   ],
-          // ),
-          ),
+      )),
     );
   }
 }
@@ -162,7 +124,8 @@ class MenuListItem extends StatelessWidget {
   final int cost;
   final String unit;
 
-  MenuListItem({
+  const MenuListItem({
+    super.key,
     required this.imagePath,
     required this.title,
     required this.cost,
@@ -194,8 +157,8 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.fromLTRB(5, 8, 5, 8),
-      elevation: 5, // Add elevation for shadow effect
+      margin: const EdgeInsets.fromLTRB(5, 8, 5, 8),
+      elevation: 5,
       child: ListTile(
         dense: false,
         leading: Image.asset(
@@ -205,11 +168,11 @@ class ItemCard extends StatelessWidget {
         ),
         title: Text(
           title,
-          style: TextStyle(fontSize: 20),
+          style: const TextStyle(fontSize: 20),
         ),
         subtitle: Text(
           "${NumberFormat.simpleCurrency(decimalDigits: 0).format(cost)} Per $unit",
-          style: TextStyle(fontSize: 16),
+          style: const TextStyle(fontSize: 16),
         ),
       ),
     );
