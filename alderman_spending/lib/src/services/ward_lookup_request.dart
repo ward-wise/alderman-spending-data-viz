@@ -15,9 +15,9 @@ Future<int> getWard(String address) async {
 
   final headers = {
     "Authorization": "Basic ZWxzX2NsaWVudF93YXJkZ2VvOnR2S0xANFM2N2Fw",
-    "Content-Type":"application/json",
-    "Host":"api.chicago.gov",
-    "Origin":"https://gisapps.chicago.gov",
+    "Content-Type": "application/json",
+    "Host": "api.chicago.gov",
+    "Origin": "https://gisapps.chicago.gov",
   };
 
   final response = await http.post(
@@ -35,14 +35,13 @@ Future<int> getWard(String address) async {
 
   // Handle the response data containing geolocation information
   if (data["cleansingStatus"] != "ACTUAL") {
-    if (!data.containsKey("cleansingStatusDescription")) {
-      throw Exception("Invalid address");
-    }
     if (data["cleansingStatusDescription"] == "BADSTREET") {
       throw Exception("Invalid street");
     }
     if (data["cleansingStatusDescription"] == "BADADDRESSNUM") {
       throw Exception("Invalid address number");
+    } else {
+      throw Exception("Invalid address");
     }
   }
 

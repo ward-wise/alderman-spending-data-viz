@@ -1,6 +1,3 @@
-import 'dart:io';
-import 'dart:js_interop';
-
 import 'package:alderman_spending/src/data/loaders.dart';
 import 'package:alderman_spending/src/data/models/ward_info.dart';
 import 'package:alderman_spending/src/services/ward_lookup_request.dart';
@@ -9,7 +6,6 @@ import 'package:getwidget/getwidget.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
 
 const String mapShapePath = 'assets/Wards-Boundaries.geojson';
-
 const Map<int, List<double>> wardCentroidCoordinates = {
   1: [-87.6834578873681, 41.9115084911536],
   2: [-87.63630899994621, 41.90647465180663],
@@ -84,11 +80,15 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
 
   @override
   void initState() {
-    loadWardsInformation().then((value) => 
-      setState(() {
-        wardsInformation = value;
-      })
-    );
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      wardsInformation = await loadWardsInformation();
+    });
+    // Doesn't work for no reason???
+    // loadWardsInformation().then((value) =>
+    //   setState(() {
+    //     wardsInformation = value;
+    //   })
+    // );
     super.initState();
   }
 
@@ -119,10 +119,17 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
                   decoration: const InputDecoration(labelText: "Enter Address"),
                   // REST call using getWard() from WardLookupRequest
                   onFieldSubmitted: (value) async {
-                    final ward = await getWard(value);
-                    setState(() {
-                      _selectedWard = ward;
-                    });
+                    try {
+                      final ward = await getWard(value);
+                      setState(() => _selectedWard = ward);
+                    } catch (e) {
+                      setState(() => _selectedWard = null);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(e.toString()),
+                        ),
+                      );
+                    }
                   },
                 ),
                 if (_selectedWard != null) Text("Ward $_selectedWard"),
@@ -154,26 +161,21 @@ class HighlightedWardMap extends StatefulWidget {
 }
 
 class _HighlightedWardMapState extends State<HighlightedWardMap> {
-  MapZoomPanBehavior? _zoomPanBehavior;
+  final MapZoomPanBehavior _zoomPanBehavior =
+      MapZoomPanBehavior(showToolbar: false);
+  final _mapSelectionSettings = const MapSelectionSettings(
+    color: Colors.teal,
+    strokeColor: Colors.black,
+    strokeWidth: 1,
+  );
 
-  @override
-  void initState() {
-    super.initState();
-  }
-
+// TODO fix stupid dumb little zoom code that only works on changing ward but not initial selection
   @override
   void didUpdateWidget(covariant HighlightedWardMap oldWidget) {
-    if (widget.selectedWard != oldWidget.selectedWard) {
-      setState(() {
-        _zoomPanBehavior = MapZoomPanBehavior(
-          focalLatLng: MapLatLng(
-            wardCentroidCoordinates[widget.selectedWard]![0],
-            wardCentroidCoordinates[widget.selectedWard]![1],
-          ),
-          zoomLevel: 3,
-        );
-      });
-    }
+    // _zoomPanBehavior.focalLatLng = MapLatLng(
+    //     wardCentroidCoordinates[widget.selectedWard]![1],
+    //     wardCentroidCoordinates[widget.selectedWard]![0]);
+    // _zoomPanBehavior.zoomLevel = 2;
     super.didUpdateWidget(oldWidget);
   }
 
@@ -183,14 +185,10 @@ class _HighlightedWardMapState extends State<HighlightedWardMap> {
       child: SfMaps(
         layers: [
           MapShapeLayer(
+            zoomPanBehavior: _zoomPanBehavior,
             source: mapDataSource,
             selectedIndex: widget.selectedWard ?? -1,
-            selectionSettings: const MapSelectionSettings(
-              color: Colors.teal,
-              strokeColor: Colors.black,
-              strokeWidth: 1,
-            ),
-            zoomPanBehavior: _zoomPanBehavior,
+            selectionSettings: _mapSelectionSettings,
           ),
         ],
       ),
@@ -200,8 +198,11 @@ class _HighlightedWardMapState extends State<HighlightedWardMap> {
 
 class WardContactCard extends StatefulWidget {
   final int? wardNumber;
-  const WardContactCard({super.key, this.wardNumber});
-  
+  const WardContactCard({
+    super.key,
+    this.wardNumber,
+  });
+
   @override
   State<WardContactCard> createState() => _WardContactCardState();
 }
@@ -209,20 +210,30 @@ class WardContactCard extends StatefulWidget {
 class _WardContactCardState extends State<WardContactCard> {
   Image? avatarImage;
   WardInformation? wardInfo;
+
   @override
-  void initState() {
-    wardInfo = wardsInformation[widget.wardNumber! - 1];
-    avatarImage = Image.asset("images/alderpeople/ward_${widget.wardNumber}.png");
-    super.initState();
+  void didUpdateWidget(covariant WardContactCard oldWidget) {
+    if (widget.wardNumber != null) {
+      wardInfo = wardsInformation[widget.wardNumber! - 1];
+      avatarImage = Image.asset(
+        "images/alderpeople/ward_${widget.wardNumber}.png",
+        errorBuilder: (context, error, stackTrace) {
+          return const Icon(Icons.person);
+        },
+      );
+    } else {
+      avatarImage = null;
+      wardInfo = null;
+    }
+    super.didUpdateWidget(oldWidget);
   }
+
   @override
   Widget build(BuildContext context) {
-    if (wardInfo == null || avatarImage == null) {
-      return const CircularProgressIndicator();
-    }
     return GFListTile(
-      avatar: avatarImage,
-      title: Text(wardInfo!.alderpersonName),
+      avatar: avatarImage ?? const Icon(Icons.person),
+      title: Text(wardInfo?.alderpersonName ?? "Alderperson"),
+      subTitle: Text(wardInfo?.wardEmail ?? "Email"),
     );
   }
 }
