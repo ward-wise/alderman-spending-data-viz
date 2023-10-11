@@ -253,6 +253,7 @@ class _WardContactCardState extends State<WardContactCard> {
   Widget build(BuildContext context) {
     // TODO Make look good
     return GFListTile(
+      padding: const EdgeInsets.all(20),
       color: Colors.white,
       shadow: const BoxShadow(
         color: Colors.black,
@@ -264,12 +265,34 @@ class _WardContactCardState extends State<WardContactCard> {
         decoration: BoxDecoration(
           border: Border.all(color: Colors.black, width: 1),
         ),
-        child: avatarImage ?? const Icon(Icons.person),
+        child: avatarImage ??
+            const Icon(
+              Icons.person,
+              size: 100,
+            ),
       ),
-      title: Text(wardInfo?.alderpersonName ?? "Alderperson"),
-      // subTitle: Text(wardInfo?.wardEmail ?? "Email"),
-      subTitle: IconButton(
-          icon: const Icon(Icons.email), onPressed: _launchEmailMessage),
+      title: Column(children: [
+        Text(
+          wardInfo?.alderpersonName ?? "Alderperson",
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        Row(
+          children: [
+            IconButton(onPressed: null, icon: Icon(Icons.phone)),
+            Text(wardInfo?.wardPhone ?? "Phone"),
+          ],
+        ),
+        Row(
+          children: [
+            IconButton(
+                icon: const Icon(Icons.email), onPressed: _launchEmailMessage),
+            Text(
+              wardInfo?.wardEmail ?? "Email",
+            )
+          ],
+        )
+      ]),
+      subTitle: websiteButtons(wardInfo?.wardWebsites ?? {}),
     );
   }
 
@@ -287,4 +310,29 @@ class _WardContactCardState extends State<WardContactCard> {
         "mailto:${wardInfo!.wardEmail}?subject=$emailSubject&body=$emailBody");
     return launchUrl(Uri.parse(url));
   }
+}
+
+Widget websiteButtons(Map<String, String?> wardWebsites) {
+  List<IconButton> rowElements = [];
+  const iconMap = {
+    "Website": Icon(Icons.web),
+    "Facebook": Icon(Icons.facebook, color: Colors.blueAccent),
+    "Twitter": Icon(Icons.cancel_outlined),
+    "Instagram": Icon(Icons.camera_alt_outlined, color: Colors.redAccent),
+    "YouTube": Icon(Icons.play_arrow, color: Colors.red),
+    "LinkedIn": Icon(Icons.people_alt_outlined, color: Colors.blue),
+  };
+  wardWebsites.forEach((key, value) {
+    if (value != null) {
+      rowElements.add(IconButton(
+        onPressed: () => launchUrl(Uri.parse(value), webOnlyWindowName: "_blank"),
+        icon: iconMap[key]!,
+        tooltip: key,
+      ));
+    }
+  });
+  if (rowElements.isEmpty) {
+    return const SizedBox.shrink();
+  }
+  return Row(children: rowElements);
 }
