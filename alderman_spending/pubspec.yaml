@@ -45,6 +45,7 @@ dependencies:
   getwidget: ^4.0.0
   hovering: ^1.0.4
   syncfusion_flutter_maps: ^23.1.38
+  url_launcher: ^6.1.14
 
 dev_dependencies:
   flutter_test:

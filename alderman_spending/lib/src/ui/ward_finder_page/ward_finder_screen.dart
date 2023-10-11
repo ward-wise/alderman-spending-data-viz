@@ -1,6 +1,7 @@
 import 'package:alderman_spending/src/data/loaders.dart';
 import 'package:alderman_spending/src/data/models/ward_info.dart';
 import 'package:alderman_spending/src/services/ward_lookup_request.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
@@ -58,7 +59,18 @@ const Map<int, List<double>> wardCentroidCoordinates = {
   49: [42.010602647972, -87.67079475721036],
   50: [42.00254798792905, -87.70055631463124],
 };
+// mailto:<email address>?subject=<subject>&body=<body>
+String emailSubject =
+    Uri.encodeFull("Participatory Budgeting For Ward wardNumber");
+String emailBody = Uri.encodeFull('''Dear alderpseronName,
 
+I am a concerned resident of wardNumber, and I strongly believe that implementing participatory budgeting (PB) would greatly benefit our ward. PB empowers residents like us to have a direct say in how public funds are allocated, ensuring that our community's needs and priorities are met.
+I urge you to consider supporting the introduction of participatory budgeting in our ward. By doing so, you can help create a more inclusive and transparent decision-making process that actively involves the people who live here. Few other wards and communities have adopted PB, and I believe it's time for us to do so.
+I would appreciate any information you can provide on how I can get involved in advocating for participatory budgeting in our ward. Whether it's attending meetings, gathering signatures, or spreading awareness, I am eager to contribute to this important cause.
+Thank you for your time and attention, I look forward to your response and to working together to make participatory budgeting a successful reality in wardNumber.
+
+Sincerely,
+Ward wardNumber Resident''');
 final mapDataSource = MapShapeSource.asset(
   mapShapePath,
   shapeDataField: 'ward',
@@ -107,22 +119,25 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
 
   Widget portraitLayout() {
     return Scaffold(
-        body: Column(
-      children: [
-        Row(
-          children: [
-            Expanded(
-                child: Column(
-              children: [
-                addressLookupForm(),
-                if (_selectedWard != null) Text("Ward $_selectedWard"),
-              ],
-            )),
-            Expanded(child: HighlightedWardMap(selectedWard: _selectedWard)),
-          ],
-        ),
-        WardContactCard(wardNumber: _selectedWard),
-      ],
+        body: Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                  child: Column(
+                children: [
+                  addressLookupForm(),
+                  if (_selectedWard != null) Text("Ward $_selectedWard"),
+                ],
+              )),
+              Expanded(child: HighlightedWardMap(selectedWard: _selectedWard)),
+            ],
+          ),
+          WardContactCard(wardNumber: _selectedWard),
+        ],
+      ),
     ));
   }
 
@@ -138,7 +153,8 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
       // REST call using getWard() from WardLookupRequest
       onFieldSubmitted: (value) async {
         try {
-          final ward = await getWard(value);
+          const ward = 42;
+          // final ward = await getWard(value);
           setState(() => _selectedWard = ward);
         } catch (e) {
           setState(() => _selectedWard = null);
@@ -235,10 +251,40 @@ class _WardContactCardState extends State<WardContactCard> {
 
   @override
   Widget build(BuildContext context) {
+    // TODO Make look good
     return GFListTile(
-      avatar: avatarImage ?? const Icon(Icons.person),
+      color: Colors.white,
+      shadow: const BoxShadow(
+        color: Colors.black,
+        spreadRadius: 1,
+        blurRadius: 2,
+        offset: Offset(0, 1),
+      ),
+      avatar: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.black, width: 1),
+        ),
+        child: avatarImage ?? const Icon(Icons.person),
+      ),
       title: Text(wardInfo?.alderpersonName ?? "Alderperson"),
-      subTitle: Text(wardInfo?.wardEmail ?? "Email"),
+      // subTitle: Text(wardInfo?.wardEmail ?? "Email"),
+      subTitle: IconButton(
+          icon: const Icon(Icons.email), onPressed: _launchEmailMessage),
     );
+  }
+
+// TODO Make work/validate
+  Future<void> _launchEmailMessage() {
+    if (wardInfo == null) {
+      return Future.value();
+    }
+    emailBody = emailBody
+        .replaceAll("alderpseronName", wardInfo!.alderpersonName)
+        .replaceAll("wardNumber", wardInfo!.wardNumber.toString());
+    emailSubject =
+        emailSubject.replaceAll("wardNumber", wardInfo!.wardNumber.toString());
+    final url = Uri.encodeFull(
+        "mailto:${wardInfo!.wardEmail}?subject=$emailSubject&body=$emailBody");
+    return launchUrl(Uri.parse(url));
   }
 }
