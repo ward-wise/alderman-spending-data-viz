@@ -105,12 +105,29 @@ Future<List<WardInformation>> loadWardsInformation() async {
   List<WardInformation> wardInfo = [];
   for (var i = 1; i < csvTable.length; i++) {
     final item = csvTable[i];
+
+    Map<String, String>? wardWebsites;
+
+    if (item[5] != null && item[5].trim().isNotEmpty) {
+      wardWebsites = {};
+      String rawWebsitesString = item[5]
+          .replaceAll("https://", "")
+          .replaceAll("https://", "")
+          .replaceAll("{", "")
+          .replaceAll("}", "");
+      List<String> websitesPairs = rawWebsitesString.trim().split(",");
+      for (var pair in websitesPairs) {
+        List<String> pairSplit = pair.split(":");
+        wardWebsites.addAll({pairSplit[0].trim(): pairSplit[1].trim()});
+      }
+    }
     final newData = WardInformation(
       wardNumber: int.parse(item[0].trim()),
       alderpersonName: item[1].trim(),
       wardAddress: item[2].trim(),
       wardEmail: item[3].trim(),
       wardPhone: item[4].trim(),
+      wardWebsites: wardWebsites,
     );
     wardInfo.add(newData);
   }

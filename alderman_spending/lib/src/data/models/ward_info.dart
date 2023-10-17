@@ -17,12 +17,13 @@ class WardInformation {
     this.wardAddress,
     Map<String, String?>? wardWebsites,
     this.alderpersonImagePath,
-  }) : wardWebsites = wardWebsites ?? {
-          "Website": null,
-          "Facebook": null,
-          "Twitter": null,
-          "Instagram": null,
-          "YouTube": null,
-          "LinkedIn": null,
-        };
+  }) : wardWebsites = wardWebsites ??
+            {
+              "Website": null,
+              "Facebook": null,
+              "X": null,
+              "Instagram": null,
+              "YouTube": null,
+              "LinkedIn": null,
+            };
 }

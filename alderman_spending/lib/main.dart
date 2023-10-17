@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
     return {
       '/home': (context) => PageWithDrawer(child: HomeScreen()),
       '/faq': (context) => PageWithDrawer(child: FAQScreen()),
-      '/finder':(context) => PageWithDrawer(child: WardFinderScreen()),
+      '/finder': (context) => PageWithDrawer(child: WardFinderScreen()),
       '/items': (context) => PageWithDrawer(child: MenuItemsScreen()),
       '/charts': (context) => PageWithDrawer(child: ChartScreen()),
       '/about': (context) => PageWithDrawer(child: AboutScreen()),

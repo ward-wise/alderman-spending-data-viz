@@ -2,6 +2,8 @@ import 'package:alderman_spending/src/data/loaders.dart';
 import 'package:alderman_spending/src/data/models/ward_info.dart';
 import 'package:alderman_spending/src/services/ward_lookup_request.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'dart:html' as html;
+import 'package:url_launcher_web/url_launcher_web.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
@@ -153,7 +155,7 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
       // REST call using getWard() from WardLookupRequest
       onFieldSubmitted: (value) async {
         try {
-          const ward = 42;
+          final ward = int.parse(value);
           // final ward = await getWard(value);
           setState(() => _selectedWard = ward);
         } catch (e) {
@@ -190,7 +192,8 @@ class _HighlightedWardMapState extends State<HighlightedWardMap> {
     strokeWidth: 1,
   );
 
-// TODO fix stupid dumb little zoom code that only works on changing ward but not initial selection
+  // TODO fix stupid dumb little zoom code that only works on changing ward but not initial selection
+  // Should update from null to ward
   @override
   void didUpdateWidget(covariant HighlightedWardMap oldWidget) {
     // _zoomPanBehavior.focalLatLng = MapLatLng(
@@ -231,6 +234,7 @@ class WardContactCard extends StatefulWidget {
 class _WardContactCardState extends State<WardContactCard> {
   Image? avatarImage;
   WardInformation? wardInfo;
+  static const avatarPlaceholder = Icon(Icons.person, size: 100);
 
   @override
   void didUpdateWidget(covariant WardContactCard oldWidget) {
@@ -238,8 +242,9 @@ class _WardContactCardState extends State<WardContactCard> {
       wardInfo = wardsInformation[widget.wardNumber! - 1];
       avatarImage = Image.asset(
         "images/alderpeople/ward_${widget.wardNumber}.png",
+        width: 100,
         errorBuilder: (context, error, stackTrace) {
-          return const Icon(Icons.person);
+          return avatarPlaceholder;
         },
       );
     } else {
@@ -265,11 +270,7 @@ class _WardContactCardState extends State<WardContactCard> {
         decoration: BoxDecoration(
           border: Border.all(color: Colors.black, width: 1),
         ),
-        child: avatarImage ??
-            const Icon(
-              Icons.person,
-              size: 100,
-            ),
+        child: avatarImage ?? avatarPlaceholder,
       ),
       title: Column(children: [
         Text(
@@ -315,9 +316,10 @@ class _WardContactCardState extends State<WardContactCard> {
 Widget websiteButtons(Map<String, String?> wardWebsites) {
   List<IconButton> rowElements = [];
   const iconMap = {
+    // TODO Use real icons
     "Website": Icon(Icons.web),
     "Facebook": Icon(Icons.facebook, color: Colors.blueAccent),
-    "Twitter": Icon(Icons.cancel_outlined),
+    "X": Icon(Icons.cancel_outlined),
     "Instagram": Icon(Icons.camera_alt_outlined, color: Colors.redAccent),
     "YouTube": Icon(Icons.play_arrow, color: Colors.red),
     "LinkedIn": Icon(Icons.people_alt_outlined, color: Colors.blue),
@@ -325,7 +327,11 @@ Widget websiteButtons(Map<String, String?> wardWebsites) {
   wardWebsites.forEach((key, value) {
     if (value != null) {
       rowElements.add(IconButton(
-        onPressed: () => launchUrl(Uri.parse(value), webOnlyWindowName: "_blank"),
+        onPressed: () async {
+          // TODO Fix url launching, goes to localhost:port/value rather than value
+          // html.window.open() not working either
+          await launchUrl(Uri.parse(value), webOnlyWindowName: "_blank");
+        },
         icon: iconMap[key]!,
         tooltip: key,
       ));
