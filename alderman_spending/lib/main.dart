@@ -5,12 +5,14 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'src/data/providers/selected_data.dart';
+import 'src/data/providers/selected_data_choropleth.dart';
 import 'src/data/providers/selected_locale.dart';
 import 'src/ui/about_page/about_screen.dart';
 import 'src/ui/chart_page/chart_screen.dart';
 import 'src/ui/faq_page/faq_screen.dart';
 import 'src/ui/home_screen/home_screen.dart';
 import 'src/ui/ward_finder_page/ward_finder_screen.dart';
+import 'src/ui/choropleth_map/choropleth_map.dart';
 import 'src/ui/widgets.dart';
 
 void main() {
@@ -18,6 +20,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => SelectedData()),
+        ChangeNotifierProvider(create: (context) => SelectedDataMap()),
         ChangeNotifierProvider(create: (context) => LocaleProvider()),
       ],
       child: const MyApp(),
@@ -62,6 +65,7 @@ class MyApp extends StatelessWidget {
       '/items': (context) => PageWithDrawer(child: MenuItemsScreen()),
       '/charts': (context) => PageWithDrawer(child: ChartScreen()),
       '/about': (context) => PageWithDrawer(child: AboutScreen()),
+      '/choropleth': (context) => PageWithDrawer(child: ChoroplethMapPage()),
     };
   }
 }
@@ -142,6 +146,14 @@ class ScaffoldDrawer extends StatelessWidget {
             onTap: () {
               if (ModalRoute.of(context)!.settings.name != '/about') {
                 Navigator.popAndPushNamed(context, '/about');
+              }
+            },
+          ),
+           ListTile(
+            title: Text("Choropleth Map"), //need Applocalizations
+            onTap: () {
+              if (ModalRoute.of(context)!.settings.name != '/choropleth') {
+                Navigator.popAndPushNamed(context, '/choropleth');
               }
             },
           ),
