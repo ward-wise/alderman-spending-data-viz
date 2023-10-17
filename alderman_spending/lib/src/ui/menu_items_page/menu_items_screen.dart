@@ -7,35 +7,38 @@ import 'package:intl/intl.dart';
 const baseImagePath = 'assets/images/menu_items';
 
 class MenuItemsScreen extends StatelessWidget {
-  const MenuItemsScreen({super.key});
+  const MenuItemsScreen({Key? key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Menu Items'),
-      ),
-      body: FutureBuilder<List<MenuItemInfo>>(
-        future: loadMenuItems(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return const Center(child: Text('Error loading data'));
-          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return const Center(child: Text('No data available'));
-          }
+    return FutureBuilder<List<MenuItemInfo>>(
+      future: loadMenuItems(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return const Center(child: Text('Error loading data'));
+        } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+          return const Center(child: Text('No data available'));
+        }
 
-          final menuItems = snapshot.data!;
+        final menuItems = snapshot.data!;
 
-          return ListView.builder(
-            itemCount: menuItems.length,
-            itemBuilder: (context, index) {
-              return MenuListItem(menuItemInfo: menuItems[index]);
-            },
-          );
-        },
-      ),
+        return Column(
+          children: [
+            Container(height: 50),
+            Divider(height: 2),
+            Expanded(
+              child: ListView.builder(
+                itemCount: menuItems.length,
+                itemBuilder: (context, index) {
+                  return MenuListItem(menuItemInfo: menuItems[index]);
+                },
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

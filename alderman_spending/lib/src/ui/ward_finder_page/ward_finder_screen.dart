@@ -97,7 +97,7 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       wardsInformation = await loadWardsInformation();
     });
-    // Doesn't work for no reason???
+
     // loadWardsInformation().then((value) =>
     //   setState(() {
     //     wardsInformation = value;
@@ -120,27 +120,53 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
   }
 
   Widget portraitLayout() {
-    return Scaffold(
-        body: Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Expanded(
-                  child: Column(
-                children: [
-                  addressLookupForm(),
-                  if (_selectedWard != null) Text("Ward $_selectedWard"),
-                ],
-              )),
-              Expanded(child: HighlightedWardMap(selectedWard: _selectedWard)),
-            ],
-          ),
-          WardContactCard(wardNumber: _selectedWard),
-        ],
-      ),
-    ));
+    return Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: ListView(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 50,
+                ),
+                Flexible(
+                  child: addressLookupForm(),
+                  flex: 12,
+                ),
+                Spacer(flex: 1),
+                AnimatedOpacity(
+                  duration: const Duration(milliseconds: 250),
+                  child:
+                      Text("Ward\n$_selectedWard", textAlign: TextAlign.center),
+                  opacity: _selectedWard == null ? 0 : 1,
+                ),
+                Spacer(flex: 1),
+                // Selected ward
+              ],
+            ),
+            HighlightedWardMap(selectedWard: _selectedWard),
+            WardContactCard(wardNumber: _selectedWard),
+          ],
+        )
+        // child: Column(
+        //   children: [
+        //     Row(
+        //       children: [
+        //         Expanded(
+        //             child: Column(
+        //           children: [
+        //             addressLookupForm(),
+        //             if (_selectedWard != null) Text("Ward $_selectedWard"),
+        //           ],
+        //         )),
+        //         Expanded(child: HighlightedWardMap(selectedWard: _selectedWard)),
+        //       ],
+        //     ),
+        //     WardContactCard(wardNumber: _selectedWard),
+        //   ],
+        // ),
+        );
   }
 
   Widget landscapeLayout() {

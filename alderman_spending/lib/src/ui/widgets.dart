@@ -6,7 +6,6 @@ class MenuButton extends StatelessWidget {
   @override
   FloatingActionButton build(BuildContext context) {
     return FloatingActionButton(
-      child: const Icon(Icons.menu),
       onPressed: () {
         Scaffold.of(context).openDrawer();
       },
@@ -20,6 +19,7 @@ class MenuButton extends StatelessWidget {
       focusColor: Colors.transparent,
       hoverColor: Colors.transparent,
       splashColor: Colors.transparent,
+      child: const Icon(Icons.menu),
     );
   }
 }
