@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/charts',
+      initialRoute: '/home',
       routes: generateRoutes(), // Use the generated routes
       home: PageWithDrawer(child: HomeScreen()),
     );
