@@ -3,6 +3,7 @@ import 'package:getwidget/getwidget.dart';
 import 'package:alderman_spending/src/data/models/menu_item_info.dart';
 import 'package:alderman_spending/src/data/loaders.dart';
 import 'package:intl/intl.dart';
+import 'package:alderman_spending/src/ui/navigation/navigation_drawer.dart';
 
 const baseImagePath = 'assets/images/menu_items';
 
@@ -24,19 +25,23 @@ class MenuItemsScreen extends StatelessWidget {
 
         final menuItems = snapshot.data!;
 
-        return Column(
-          children: [
-            Container(height: 50),
-            Divider(height: 2),
-            Expanded(
-              child: ListView.builder(
-                itemCount: menuItems.length,
-                itemBuilder: (context, index) {
-                  return MenuListItem(menuItemInfo: menuItems[index]);
-                },
+        return Scaffold(
+          drawer: MyNavigationDrawer(),
+          appBar: AppBar(title: const Text('Alderman Menu Items'),),
+          body: Column(
+            children: [
+              Container(height: 50),
+              Divider(height: 2),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: menuItems.length,
+                  itemBuilder: (context, index) {
+                    return MenuListItem(menuItemInfo: menuItems[index]);
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         );
       },
     );
@@ -100,6 +105,7 @@ class MenuItemDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: GFCard(
         height: MediaQuery.of(context).size.height,
         elevation: 15,

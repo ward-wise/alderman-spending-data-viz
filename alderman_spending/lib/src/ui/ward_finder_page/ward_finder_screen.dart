@@ -7,6 +7,7 @@ import 'package:url_launcher_web/url_launcher_web.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
+import 'package:alderman_spending/src/ui/navigation/navigation_drawer.dart';
 
 const String mapShapePath = 'assets/Wards-Boundaries.geojson';
 const Map<int, List<double>> wardCentroidCoordinates = {
@@ -108,14 +109,18 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        if (MediaQuery.of(context).size.aspectRatio < 1.3) {
-          return portraitLayout();
-        }
-        // TODO Make landscape layout
-        return landscapeLayout();
-      },
+    return Scaffold(
+      drawer: MyNavigationDrawer(),
+      appBar: AppBar(title: const Text('Ward Finder'),),
+      body: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          if (MediaQuery.of(context).size.aspectRatio < 1.3) {
+            return portraitLayout();
+          }
+          // TODO Make landscape layout
+          return landscapeLayout();
+        },
+      ),
     );
   }
 

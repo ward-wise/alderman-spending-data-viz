@@ -1,32 +1,38 @@
-import 'dart:html';
+// import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
-// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-// import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:intl/intl.dart';
+// import 'package:intl/intl.dart';
 import 'package:csv/csv.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'dart:developer' as developer;
-// import 'alderman_spending/src/data/models/annual_ward_spending_data.dart';
-// import 'src/data/models/map_ward_spending_data.dart';
-// import 'src/data/models/ward_item_location_spending_data.dart';
-// import 'src/data/providers/selected_data.dart';
-// import 'src/data/loaders.dart';
+import 'package:alderman_spending/src/ui/navigation/navigation_drawer.dart';
 
-import 'package:alderman_spending/src/data/loaders.dart';
-import 'package:alderman_spending/src/data/models/annual_ward_spending_data.dart';
-import 'package:alderman_spending/src/data/models/ward_item_location_spending_data.dart';
+
+
+// import 'package:alderman_spending/src/data/loaders.dart';
+// import 'package:alderman_spending/src/data/models/annual_ward_spending_data.dart';
+// import 'package:alderman_spending/src/data/models/ward_item_location_spending_data.dart';
 import 'package:alderman_spending/src/data/providers/selected_data_choropleth.dart';
 import 'package:alderman_spending/src/data/models/map_ward_spending_data.dart';
 
 
-// void main() {
-//   runApp(ChangeNotifierProvider(
-//     create: (context) => SelectedData(),
-//     child: const MyApp(),
-//   ));
+// class ChoroplethMapPage extends StatelessWidget {
+//   const ChoroplethMapPage ({super.key});
+
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Choropleth page',
+//       theme: ThemeData(
+//         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+//         useMaterial3: true,
+//       ),
+//       home: const _ChoroplethMap(),
+//     );
+//   }
 // }
 
 class ChoroplethMapPage extends StatelessWidget {
@@ -35,33 +41,13 @@ class ChoroplethMapPage extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
- 
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Choropleth Map Ward Spending"),
-        ),
-        body: _ChoroplethMap());
+      drawer: MyNavigationDrawer(),
+      appBar: AppBar(
+        title: const Text('Map'),
+      ),
+      body: const _ChoroplethMap(),
+    );
   }
 }
 
@@ -193,9 +179,9 @@ class __ChoroplethMapState extends State<_ChoroplethMap> {
   @override
   Widget build(BuildContext context) {
     developer.log('initialized: ${_isInitialized}');
-    // if (!_isInitialized) {
-    //   return const CircularProgressIndicator();
-    // }
+    if (!_isInitialized) {
+      return const CircularProgressIndicator();
+    }
       return Scaffold(
       body: Padding(
         padding: EdgeInsets.all(15),

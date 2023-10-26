@@ -8,6 +8,7 @@ import 'package:alderman_spending/src/data/models/annual_ward_spending_data.dart
 import 'package:alderman_spending/src/data/models/ward_item_location_spending_data.dart';
 import 'package:alderman_spending/src/data/providers/selected_data.dart';
 import 'package:alderman_spending/src/services/language.dart';
+import 'package:alderman_spending/src/ui/navigation/navigation_drawer.dart';
 
 class ChartScreen extends StatelessWidget {
   const ChartScreen({
@@ -16,47 +17,51 @@ class ChartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-          if (constraints.maxWidth / constraints.maxHeight > 1.3) {
-            return const Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: BarChartRegion(),
-                ),
-                VerticalDivider(
-                  color: Colors.grey,
-                  width: 1,
-                  thickness: 1,
-                ),
-                Expanded(
-                  flex: 1,
-                  child: DetailRegion(),
-                ),
-              ],
-            );
-          } else {
-            return const Column(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: BarChartRegion(),
-                ),
-                Divider(
-                  color: Colors.grey,
-                  height: 1,
-                  thickness: 1,
-                ),
-                Expanded(
-                  flex: 1,
-                  child: DetailRegion(),
-                ),
-              ],
-            );
-          }
-        },
+    return Scaffold(
+      drawer: MyNavigationDrawer(),
+      appBar: AppBar(title: const Text('FAQ'),),
+      body: SafeArea(
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            if (constraints.maxWidth / constraints.maxHeight > 1.3) {
+              return const Row(
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: BarChartRegion(),
+                  ),
+                  VerticalDivider(
+                    color: Colors.grey,
+                    width: 1,
+                    thickness: 1,
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: DetailRegion(),
+                  ),
+                ],
+              );
+            } else {
+              return const Column(
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: BarChartRegion(),
+                  ),
+                  Divider(
+                    color: Colors.grey,
+                    height: 1,
+                    thickness: 1,
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: DetailRegion(),
+                  ),
+                ],
+              );
+            }
+          },
+        ),
       ),
     );
   }
@@ -117,12 +122,14 @@ class _DetailRegionState extends State<DetailRegion> {
       return const CircularProgressIndicator();
     }
     if (_wardItemLocationSpendingData!.isEmpty) {
-      return Text(AppLocalizations.of(context)!.errorLoadingData);
+      // return Text(AppLocalizations.of(context)!.errorLoadingData);
+      return const Text("error loading data");
     }
     if (selectedData.selectedCategory == null ||
         selectedData.selectedCategory == "") {
       return Center(
-          child: Text(AppLocalizations.of(context)!.detailPlaceholder));
+          // child: Text(AppLocalizations.of(context)!.detailPlaceholder));
+          child: const Text("Select a category to see a detailed list of spending."));
     }
 
     final selectedWardItems = _filteredData!
@@ -219,11 +226,13 @@ class BarChartRegionState extends State<BarChartRegion> {
       return const CircularProgressIndicator();
     }
     if (_spendingData!.isEmpty) {
-      return Text(AppLocalizations.of(context)!.errorLoadingData);
+      // return Text(AppLocalizations.of(context)!.errorLoadingData);
+      return const Text("error loading data");
     }
     if (_filteredData == null) {
-      return Text(AppLocalizations.of(context)!
-          .noDataForWardYear(_selectedWard!, _selectedYear!));
+      // return Text(AppLocalizations.of(context)!
+      //     .noDataForWardYear(_selectedWard!, _selectedYear!));
+      return const Text("error loading data");
     }
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
@@ -253,7 +262,8 @@ class BarChartRegionState extends State<BarChartRegion> {
               .map<DropdownMenuItem<int>>((int value) {
             return DropdownMenuItem<int>(
               value: value,
-              child: Text(AppLocalizations.of(context)!.wardDropdown(value)),
+              // child: Text(AppLocalizations.of(context)!.wardDropdown(value)),
+              child: Text('$value')
             );
           }).toList(),
         ),
@@ -282,7 +292,8 @@ class BarChartRegionState extends State<BarChartRegion> {
       onAxisLabelTapped: (axisLabelTapArgs) {
         selectedData.updateSelectedCategory(axisLabelTapArgs.text);
       },
-      title: ChartTitle(text: AppLocalizations.of(context)!.chartTitle),
+      // title: ChartTitle(text: AppLocalizations.of(context)!.chartTitle),
+      title: ChartTitle(text: "Ward Spending"),
       primaryXAxis: CategoryAxis(labelStyle: const TextStyle(fontSize: 16)),
       primaryYAxis: NumericAxis(
         axisLabelFormatter: (axisLabelRenderArgs) {

@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:alderman_spending/src/ui/navigation/navigation_drawer.dart';
 
 class FAQScreen extends StatelessWidget {
   const FAQScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        if (constraints.maxWidth / constraints.maxHeight > 1.3) {
-          return GridViewFAQ(columns: 2);
-        }
-        return GridViewFAQ(columns: 1);
-      },
+    return Scaffold(
+      drawer: MyNavigationDrawer(),
+      appBar: AppBar(title: const Text('FAQ'),),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          if (constraints.maxWidth / constraints.maxHeight > 1.3) {
+            return GridViewFAQ(columns: 2);
+          }
+          return GridViewFAQ(columns: 1);
+        },
+      ),
     );
   }
 }
