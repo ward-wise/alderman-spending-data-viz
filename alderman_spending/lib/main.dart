@@ -52,23 +52,23 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/home',
-      routes: generateRoutes(), // Use the generated routes
+      // initialRoute: '/home',
+      // routes: generateRoutes(), // Use the generated routes
       home: HomeScreen(),
     );
   }
 
-  Map<String, WidgetBuilder> generateRoutes() {
-    return {
-      '/home': (context) => HomeScreen(),
-      '/faq': (context) => FAQScreen(),
-      // '/finder': (context) => PageWithDrawer(child: WardFinderScreen()),
-      // '/items': (context) => PageWithDrawer(child: MenuItemsScreen()),
-      // '/charts': (context) => PageWithDrawer(child: ChartScreen()),
-      // '/about': (context) => PageWithDrawer(child: AboutScreen()),
-      // '/choropleth': (context) => PageWithDrawer(child: ChoroplethMapPage()),
-    };
-  }
+  // Map<String, WidgetBuilder> generateRoutes() {
+  //   return {
+  //     '/home': (context) => HomeScreen(),
+  //     '/faq': (context) => FAQScreen(),
+  //     // '/finder': (context) => PageWithDrawer(child: WardFinderScreen()),
+  //     // '/items': (context) => PageWithDrawer(child: MenuItemsScreen()),
+  //     // '/charts': (context) => PageWithDrawer(child: ChartScreen()),
+  //     // '/about': (context) => PageWithDrawer(child: AboutScreen()),
+  //     // '/choropleth': (context) => PageWithDrawer(child: ChoroplethMapPage()),
+  //   };
+  // }
 }
 
 // class PageWithDrawer extends StatelessWidget {
@@ -93,22 +93,20 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color color = Theme.of(context).primaryColor;
-    Widget buttonSection = Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        _buildButtonColumn(color, Icons.call, 'CALL'),
-        _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
-        _buildButtonColumn(color, Icons.share, 'SHARE'),
-      ],
-    );
-    return MaterialApp(
-      title: 'Flutter layout demo',
-      home: Scaffold(
+    // Color color = Theme.of(context).primaryColor;
+    // Widget buttonSection = Row(
+    //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    //   children: [
+    //     _buildButtonColumn(color, Icons.call, 'CALL'),
+    //     _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
+    //     _buildButtonColumn(color, Icons.share, 'SHARE'),
+    //   ],
+    // );
+    return Scaffold(
         appBar: AppBar(
           title: const Text('Ward-Wise'),
         ),
-        drawer: MyNavigationDrawer(),
+        drawer: const MyNavigationDrawer(),
         body: ListView(            
             children: [
             Image.asset(            
@@ -118,12 +116,24 @@ class HomeScreen extends StatelessWidget {
               fit: BoxFit.cover,            
               ),            
             titleSection,
-            buttonSection, 
-            textSection,           
+            // buttonSection, 
+            // textSection,
+            // ElevatedButton(
+            //   child: Text("Tap on this"),
+            //   style: ElevatedButton.styleFrom(
+            //     backgroundColor: Colors.red,
+            //     elevation: 0,
+            //   ), 
+            //   onPressed: () {
+            //     Navigator.push(
+            //       context, 
+            //       MaterialPageRoute(builder: (context) => const WardFinderScreen())
+            //     );
+            //     },
+            //   ),          
             ],
         ),
-      ),
-    );
+      );
   }
 
   Column _buildButtonColumn(Color color, IconData icon, String label) {
@@ -155,49 +165,45 @@ Widget titleSection = Container(
       Expanded(
         /*1*/
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             /*2*/
             Container(
               padding: const EdgeInsets.only(bottom: 8),
               child: const Text(
-                'Oeschinen Lake Campground',
+                'Welcome to Ward-Wise!',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-            Text(
-              'Kandersteg, Switzerland',
+            const Text(
+              '''Each year, Chicago alders get \$1.5 million in "menu money" to spend at their discretion on capital improvements in their ward. This tool is intended to help residents have a say in the process. It explains past spending in each ward and the options for future spending.
+                Use the tool:
+                Find my ward or skip to the past ward spending breakdown
+                Read answers to frequently asked questions
+                See the alder menu options
+                Contact your ward to get involved in the improvement process''',
               style: TextStyle(
-                color: Colors.grey[500],
+                color: Colors.black,
               ),
             ),
           ],
         ),
       ),
-      /*3*/
-      Icon(
-        Icons.star,
-        color: Colors.red[500],
-      ),
-      const Text('41'),
     ],
   ),
 );
 
-Widget textSection = Container(
-  padding: const EdgeInsets.all(32),
-  child: const Text(
-    'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese '
-    'Alps. Situated 1,578 meters above sea level, it is one of the '
-    'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a '
-    'half-hour walk through pastures and pine forest, leads you to the '
-    'lake, which warms to 20 degrees Celsius in the summer. Activities '
-    'enjoyed here include rowing, and riding the summer toboggan run.',
-    softWrap: true,
-  ),
-);
+// Widget textSection = Container(
+//   padding: const EdgeInsets.all(32),
+//   child: const Text(
+//     '''
+//     Alderpersons get a menu of items from which they can choose
+//     ''',
+//     softWrap: true,
+//   ),
+// );
 
 // class NavigationDrawer extends StatelessWidget {
 //   const NavigationDrawer({
