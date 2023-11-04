@@ -22,5 +22,25 @@
   "projectTitle":"Alderman Spending",
   "@projectTitle": {
     "description": "Won't work for the MaterialApp title property, would be used for the title of the project"
+  },
+  "home": "Home",
+  "@home": {
+    "description": "To be used as the label for the home button"
+  },
+  "faq": "FAQ",
+  "@faq": {
+    "description": "To be used as the label for the faq button"
+  },
+  "menuItems": "Menu Items",
+  "@menuItems":{
+    "description": "To be used as the label for the menu items button"
+  },
+  "about": "About",
+  "@about": {
+    "description": "To be used as the label for the about button"
+  },
+  "spendingCharts": "Spending Charts",
+  "@spendingCharts": {
+    "description": "To be used as the label for the spending charts button"
   }
 }

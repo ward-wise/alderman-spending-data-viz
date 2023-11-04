@@ -1,27 +1,41 @@
+import 'package:alderman_spending/src/ui/menu_items_page/menu_items_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
-import 'src/data/models/annual_ward_spending_data.dart';
-import 'src/data/models/ward_item_location_spending_data.dart';
+
 import 'src/data/providers/selected_data.dart';
-import 'src/data/loaders.dart';
-import 'src/utils/language.dart';
+import 'src/data/providers/selected_data_choropleth.dart';
+import 'src/data/providers/selected_locale.dart';
+import 'src/ui/about_page/about_screen.dart';
+import 'src/ui/chart_page/chart_screen.dart';
+import 'src/ui/faq_page/faq_screen.dart';
+import 'src/ui/home_screen/home_screen.dart';
+import 'src/ui/ward_finder_page/ward_finder_screen.dart';
+import 'src/ui/choropleth_map/choropleth_map.dart';
+import 'src/ui/navigation/navigation_drawer.dart';
+import 'src/ui/widgets.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => SelectedData(),
-    child: const MyApp(),
-  ));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => SelectedData()),
+        ChangeNotifierProvider(create: (context) => SelectedDataMap()),
+        ChangeNotifierProvider(create: (context) => LocaleProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key});
 
   @override
   Widget build(BuildContext context) {
+    final localeProvider = Provider.of<LocaleProvider>(context);
+
     return MaterialApp(
       localizationsDelegates: const [
         AppLocalizations.delegate,
@@ -31,326 +45,334 @@ class MyApp extends StatelessWidget {
       supportedLocales: const [
         Locale('en', 'US'),
         Locale('es', 'US'),
+        Locale('pl', 'US'),
       ],
+      locale: localeProvider.currentLocale,
       title: "Alderman Spending",
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      // initialRoute: '/home',
+      // routes: generateRoutes(), // Use the generated routes
+      home: HomeScreen(),
     );
   }
+
+  // Map<String, WidgetBuilder> generateRoutes() {
+  //   return {
+  //     '/home': (context) => HomeScreen(),
+  //     '/faq': (context) => FAQScreen(),
+  //     // '/finder': (context) => PageWithDrawer(child: WardFinderScreen()),
+  //     // '/items': (context) => PageWithDrawer(child: MenuItemsScreen()),
+  //     // '/charts': (context) => PageWithDrawer(child: ChartScreen()),
+  //     // '/about': (context) => PageWithDrawer(child: AboutScreen()),
+  //     // '/choropleth': (context) => PageWithDrawer(child: ChoroplethMapPage()),
+  //   };
+  // }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+// class PageWithDrawer extends StatelessWidget {
+//   const PageWithDrawer({Key? key, required this.child}) : super(key: key);
+
+//   final Widget child;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     final localeProvider = Provider.of<LocaleProvider>(context);
+//     return Scaffold(
+//       drawer: ScaffoldDrawer(localeProvider: localeProvider),
+//       body: Center(
+//         child: Stack(children: [const MenuButton(), child]),
+//       ),
+//     );
+//   }
+// }
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Color color = Theme.of(context).primaryColor;
+    // Widget buttonSection = Row(
+    //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    //   children: [
+    //     _buildButtonColumn(color, Icons.call, 'CALL'),
+    //     _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
+    //     _buildButtonColumn(color, Icons.share, 'SHARE'),
+    //   ],
+    // );
     return Scaffold(
-      body: Center(
-        child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-            if (constraints.maxWidth / constraints.maxHeight > 1.3) {
-              return const Row(
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: BarChartRegion(),
-                  ),
-                  VerticalDivider(
-                    color: Colors.grey,
-                    width: 1,
-                    thickness: 1,
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: DetailRegion(),
-                  ),
-                ],
-              );
-            } else {
-              return const Column(
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: BarChartRegion(),
-                  ),
-                  Divider(
-                    color: Colors.grey,
-                    height: 1,
-                    thickness: 1,
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: DetailRegion(),
-                  ),
-                ],
-              );
-            }
-          },
+        appBar: AppBar(
+          title: const Text('Ward-Wise'),
         ),
-      ),
-    );
-  }
-}
-
-class DetailRegion extends StatefulWidget {
-  const DetailRegion({super.key});
-
-  @override
-  State<DetailRegion> createState() => _DetailRegionState();
-}
-
-class _DetailRegionState extends State<DetailRegion> {
-  List<WardItemLocationSpendingData>? _wardItemLocationSpendingData;
-  int? _selectedWard;
-  int? _selectedYear;
-  List<WardItemLocationSpendingData>? _filteredData;
-
-  @override
-  void initState() {
-    loadCategoryItemsData().then((data) {
-      setState(() {
-        _wardItemLocationSpendingData = data;
-        _filteredData = _filterData();
-      });
-    });
-    super.initState();
-  }
-
-  @override
-  void didChangeDependencies() {
-    final selectedData = Provider.of<SelectedData>(context);
-    if (_selectedWard != selectedData.selectedWard ||
-        _selectedYear != selectedData.selectedYear) {
-      _selectedWard = selectedData.selectedWard;
-      _selectedYear = selectedData.selectedYear;
-      _filteredData = _filterData();
-    }
-    super.didChangeDependencies();
+        drawer: const MyNavigationDrawer(),
+        body: ListView(            
+            children: [
+            Image.asset(            
+              'images/chicago_flag.png',            
+              width: 600,            
+              height: 240,            
+              fit: BoxFit.cover,            
+              ),            
+            titleSection,
+            // buttonSection, 
+            // textSection,
+            // ElevatedButton(
+            //   child: Text("Tap on this"),
+            //   style: ElevatedButton.styleFrom(
+            //     backgroundColor: Colors.red,
+            //     elevation: 0,
+            //   ), 
+            //   onPressed: () {
+            //     Navigator.push(
+            //       context, 
+            //       MaterialPageRoute(builder: (context) => const WardFinderScreen())
+            //     );
+            //     },
+            //   ),          
+            ],
+        ),
+      );
   }
 
-  List<WardItemLocationSpendingData>? _filterData() {
-    if (_wardItemLocationSpendingData == null ||
-        _selectedWard == null ||
-        _selectedYear == null) {
-      return null;
-    }
-    return _wardItemLocationSpendingData!
-        .where((element) =>
-            element.ward == _selectedWard && element.year == _selectedYear)
-        .toList();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final selectedData = Provider.of<SelectedData>(context);
-    if (_wardItemLocationSpendingData == null) {
-      return const CircularProgressIndicator();
-    }
-    if (_wardItemLocationSpendingData!.isEmpty) {
-      return Text(AppLocalizations.of(context)!.errorLoadingData);
-    }
-    if (selectedData.selectedCategory == null ||
-        selectedData.selectedCategory == "") {
-      return Center(
-          child: Text(AppLocalizations.of(context)!.detailPlaceholder));
-    }
-
-    final selectedWardItems = _filteredData!
-        .where((element) => element.category == selectedData.selectedCategory)
-        .toList();
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        return Container(
-          color: index % 2 == 0
-              ? Colors.grey[200]
-              : Colors.transparent, // Alternate background color
-          child: ListTile(
-            title: Text(
-              selectedWardItems[index].item,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              ),
-            ),
-            subtitle: Text(
-              selectedWardItems[index].location,
-              style: const TextStyle(
-                fontStyle: FontStyle.italic,
-                fontSize: 14,
-              ),
-            ),
-            trailing: Text(
-              NumberFormat.simpleCurrency(decimalDigits: 0)
-                  .format(selectedWardItems[index].cost),
-              style: const TextStyle(
-                color: Colors.green,
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              ),
-            ),
-          ),
-        );
-      },
-      itemCount: selectedWardItems.length,
-    );
-  }
-}
-
-class BarChartRegion extends StatefulWidget {
-  const BarChartRegion({super.key});
-  @override
-  BarChartRegionState createState() => BarChartRegionState();
-}
-
-class BarChartRegionState extends State<BarChartRegion> {
-  List<AnnualWardSpendingData>? _spendingData;
-  int? _selectedWard;
-  int? _selectedYear;
-  List<AnnualWardSpendingData>? _filteredData;
-
-  @override
-  void initState() {
-    loadAnnualCategorySpendingData().then((data) {
-      setState(() {
-        _spendingData = data;
-        _filteredData = _filterData();
-      });
-    });
-    super.initState();
-  }
-
-  @override
-  void didChangeDependencies() {
-    final selectedData = Provider.of<SelectedData>(context);
-    if (_selectedWard != selectedData.selectedWard ||
-        _selectedYear != selectedData.selectedYear) {
-      _selectedWard = selectedData.selectedWard;
-      _selectedYear = selectedData.selectedYear;
-      _filteredData = _filterData();
-    }
-    super.didChangeDependencies();
-  }
-
-  List<AnnualWardSpendingData>? _filterData() {
-    if (_spendingData == null ||
-        _selectedWard == null ||
-        _selectedYear == null) {
-      return null;
-    }
-    return _spendingData!
-        .where((element) =>
-            element.ward == _selectedWard && element.year == _selectedYear)
-        .toList();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    if (_spendingData == null) {
-      return const CircularProgressIndicator();
-    }
-    if (_spendingData!.isEmpty) {
-      return Text(AppLocalizations.of(context)!.errorLoadingData);
-    }
-    if (_filteredData == null) {
-      return Text(AppLocalizations.of(context)!
-          .noDataForWardYear(_selectedWard!, _selectedYear!));
-    }
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
-      child: Column(
-        children: [
-          wardYearSelector(),
-          Expanded(child: wardYearCategorySpending()),
-        ],
-      ),
-    );
-  }
-
-  Widget wardYearSelector() {
-    final selectedData = Provider.of<SelectedData>(context);
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  Column _buildButtonColumn(Color color, IconData icon, String label) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        DropdownButton<int>(
-          // set menumaxheight to quarter of the screen height
-          menuMaxHeight: MediaQuery.of(context).size.height / 3,
-          value: selectedData.selectedWard,
-          onChanged: (int? newValue) {
-            selectedData.updateSelectedWard(newValue!);
-            selectedData.updateSelectedCategory('');
-          },
-          items: List<int>.generate(50, (i) => i + 1)
-              .map<DropdownMenuItem<int>>((int value) {
-            return DropdownMenuItem<int>(
-              value: value,
-              child: Text(AppLocalizations.of(context)!.wardDropdown(value)),
-            );
-          }).toList(),
-        ),
-        DropdownButton<int>(
-          value: selectedData.selectedYear,
-          onChanged: (int? newValue) {
-            selectedData.updateSelectedYear(newValue!);
-            selectedData.updateSelectedCategory('');
-          },
-          items: <int>[2019, 2020, 2021, 2022]
-              .map<DropdownMenuItem<int>>((int value) {
-            return DropdownMenuItem<int>(
-              value: value,
-              child: Text('$value'),
-            );
-          }).toList(),
-        ),
-      ],
-    );
-  }
-
-  Widget wardYearCategorySpending() {
-    final selectedData = Provider.of<SelectedData>(context);
-
-    return SfCartesianChart(
-      onAxisLabelTapped: (axisLabelTapArgs) {
-        selectedData.updateSelectedCategory(axisLabelTapArgs.text);
-      },
-      title: ChartTitle(text: AppLocalizations.of(context)!.chartTitle),
-      primaryXAxis: CategoryAxis(labelStyle: const TextStyle(fontSize: 16)),
-      primaryYAxis: NumericAxis(
-        axisLabelFormatter: (axisLabelRenderArgs) {
-          return ChartAxisLabel(
-              NumberFormat.compact().format(axisLabelRenderArgs.value),
-              axisLabelRenderArgs.textStyle);
-        },
-      ),
-      series: <BarSeries<AnnualWardSpendingData, String>>[
-        BarSeries<AnnualWardSpendingData, String>(
-          // TODO Utilize selection behaviour to highlight selected category bar, needs state management for clearing and triggering on label tap
-          dataSource: _filteredData!,
-          onPointTap: (ChartPointDetails args) {
-            selectedData.updateSelectedCategory(
-                _filteredData![args.pointIndex!].category);
-          },
-          xValueMapper: (AnnualWardSpendingData data, _) {
-            if (Localizations.localeOf(context).languageCode == 'en') {
-              return data.category;
-            }
-            return categoryTranslations[data.category];
-          },
-          yValueMapper: (AnnualWardSpendingData data, _) => data.cost,
-          dataLabelSettings: DataLabelSettings(
-            isVisible: true,
-            labelAlignment: ChartDataLabelAlignment.outer,
-            builder: (data, point, series, pointIndex, seriesIndex) => Text(
-              NumberFormat.compactSimpleCurrency().format(data.cost),
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-              ),
+        Icon(icon, color: color),
+        Container(
+          margin: const EdgeInsets.only(top: 8),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: color,
             ),
           ),
-        )
+        ),
       ],
     );
   }
 }
+
+Widget titleSection = Container(
+  padding: const EdgeInsets.all(32),
+  child: Row(
+    children: [
+      Expanded(
+        /*1*/
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            /*2*/
+            Container(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: const Text(
+                'Welcome to Ward-Wise!',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const Text(
+              '''Each year, Chicago alders get \$1.5 million in "menu money" to spend at their discretion on capital improvements in their ward. This tool is intended to help residents have a say in the process. It explains past spending in each ward and the options for future spending.
+                Use the tool:
+                Find my ward or skip to the past ward spending breakdown
+                Read answers to frequently asked questions
+                See the alder menu options
+                Contact your ward to get involved in the improvement process''',
+              style: TextStyle(
+                color: Colors.black,
+              ),
+            ),
+          ],
+        ),
+      ),
+    ],
+  ),
+);
+
+// Widget textSection = Container(
+//   padding: const EdgeInsets.all(32),
+//   child: const Text(
+//     '''
+//     Alderpersons get a menu of items from which they can choose
+//     ''',
+//     softWrap: true,
+//   ),
+// );
+
+// class NavigationDrawer extends StatelessWidget {
+//   const NavigationDrawer({
+//     Key? key,
+//     // required this.localeProvider,
+//   }) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Drawer(child: ListView(
+//         children: [
+//           ListTile(
+//             title: Text("Home"),
+//             onTap: () {
+//               // If not on route
+//               if (ModalRoute.of(context)!.settings.name != '/home') {
+//                 Navigator.popAndPushNamed(context, '/home');
+//               }
+//             },
+//           ),
+//           ListTile(
+//             title: Text("FAQ"),
+//             onTap: () {
+//                 Navigator.of(context).push(MaterialPageRoute(
+//                   builder: (context) => const ChoroplethMapPage(),));
+//               }
+//           ),
+//           ListTile(
+//             title: Text("Ward Finder"),
+//             onTap: () {
+//               if (ModalRoute.of(context)!.settings.name != '/finder') {
+//                 Navigator.popAndPushNamed(context, '/finder');
+//               }
+//             },
+//           ),
+//           ListTile(
+//             title: Text("Menu Items"),
+//             onTap: () {
+//               if (ModalRoute.of(context)!.settings.name != '/items') {
+//                 Navigator.popAndPushNamed(context, '/items');
+//               }
+//             },
+//           ),
+//           ListTile(
+//             title: Text("Spending charts"),
+//             onTap: () {
+//               if (ModalRoute.of(context)!.settings.name != '/charts') {
+//                 Navigator.popAndPushNamed(context, '/charts');
+//               }
+//             },
+//           ),
+//           ListTile(
+//             title: Text("About"),
+//             onTap: () {
+//               if (ModalRoute.of(context)!.settings.name != '/about') {
+//                 Navigator.popAndPushNamed(context, '/about');
+//               }
+//             },
+//           ),
+//            ListTile(
+//             title: Text("Choropleth Map"), //need Applocalizations
+//             onTap: () {
+//               if (ModalRoute.of(context)!.settings.name != '/choropleth') {
+//                 Navigator.popAndPushNamed(context, '/choropleth');
+//               }
+//             },
+//           ),
+//         ]  
+//       )
+//     );
+//   }
+// }
+
+// class NavigationDrawer extends StatelessWidget {
+//   const NavigationDrawer({
+//     Key? key,
+//     // required this.localeProvider,
+//   }) : super(key: key);
+
+//   // final LocaleProvider localeProvider;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Drawer(
+//       child: ListView(
+//         children: [
+//           ListTile(
+//             title: Text(AppLocalizations.of(context)!.home),
+//             onTap: () {
+//               // If not on route
+//               if (ModalRoute.of(context)!.settings.name != '/home') {
+//                 Navigator.popAndPushNamed(context, '/home');
+//               }
+//             },
+//           ),
+//           ListTile(
+//             title: Text(AppLocalizations.of(context)!.faq),
+//             onTap: () {
+//               if (ModalRoute.of(context)!.settings.name != '/faq') {
+//                 Navigator.popAndPushNamed(context, '/faq');
+//               }
+//             },
+//           ),
+//           ListTile(
+//             title: Text("Ward Finder"),
+//             onTap: () {
+//               if (ModalRoute.of(context)!.settings.name != '/finder') {
+//                 Navigator.popAndPushNamed(context, '/finder');
+//               }
+//             },
+//           ),
+//           ListTile(
+//             title: Text(AppLocalizations.of(context)!.menuItems),
+//             onTap: () {
+//               if (ModalRoute.of(context)!.settings.name != '/items') {
+//                 Navigator.popAndPushNamed(context, '/items');
+//               }
+//             },
+//           ),
+//           ListTile(
+//             title: Text(AppLocalizations.of(context)!.spendingCharts),
+//             onTap: () {
+//               if (ModalRoute.of(context)!.settings.name != '/charts') {
+//                 Navigator.popAndPushNamed(context, '/charts');
+//               }
+//             },
+//           ),
+//           ListTile(
+//             title: Text(AppLocalizations.of(context)!.about),
+//             onTap: () {
+//               if (ModalRoute.of(context)!.settings.name != '/about') {
+//                 Navigator.popAndPushNamed(context, '/about');
+//               }
+//             },
+//           ),
+//            ListTile(
+//             title: Text("Choropleth Map"), //need Applocalizations
+//             onTap: () {
+//               if (ModalRoute.of(context)!.settings.name != '/choropleth') {
+//                 Navigator.popAndPushNamed(context, '/choropleth');
+//               }
+//             },
+//           ),
+//           // Row of 3 buttons for languages
+//           // Row(
+//           //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//           //   children: [
+//           //     ElevatedButton(
+//           //       onPressed: () {
+//           //         localeProvider.updateLocale(const Locale('en', 'US'));
+//           //       },
+//           //       child: const Text('English'),
+//           //     ),
+//           //     ElevatedButton(
+//           //       onPressed: () {
+//           //         localeProvider.updateLocale(const Locale('es', 'US'));
+//           //       },
+//           //       child: const Text('Español'),
+//           //     ),
+//           //     ElevatedButton(
+//           //       onPressed: () {
+//           //         localeProvider.updateLocale(const Locale('pl', 'US'));
+//           //       },
+//           //       child: const Text('Polski'),
+//           //     ),
+//           //   ],
+//           // ),
+//         ],
+//       ),
+//     );
+//   }
+// }

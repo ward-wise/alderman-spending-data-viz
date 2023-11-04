@@ -1,0 +1,13 @@
+{
+    "wardDropdown": "Okolica {wardValue}",
+    "chartTitle": "Wydatki Według Kategorii",
+    "detailPlaceholder": "Wybierz kategorię aby zobaczyć zestawienie wydatków",
+    "errorLoadingData": "Błąd ładowania danych",
+    "noDataForWardYear": "Brak dostępnych danych dla okolica {wardValue} w {yearValue}",
+    "projectTitle": "Wydatki Radny Miejski",
+    "home": "Dom",
+    "faq": "Często Zadawane Pytania",
+    "menuItems": "Elementy Menu",
+    "about": "Informacja",
+    "spendingCharts": "Wykresy Wydatków"
+}

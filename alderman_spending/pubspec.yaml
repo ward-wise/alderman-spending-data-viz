@@ -37,10 +37,16 @@ dependencies:
   cupertino_icons: ^1.0.2
   csv: ^5.0.2
   intl: any
-  syncfusion_flutter_charts: ^21.2.10
+  syncfusion_flutter_charts: ^23.1.38
   provider: ^6.0.5
   flutter_localizations:
     sdk: flutter
+  http: ^1.1.0
+  getwidget: ^4.0.0
+  hovering: ^1.0.4
+  syncfusion_flutter_maps: ^23.1.38
+  url_launcher: ^6.1.14
+  url_launcher_web: ^2.0.20
 
 dev_dependencies:
   flutter_test:
@@ -66,10 +72,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/2019-2022_ward_category_totals.csv
-    - assets/2019-2022_ward_items.csv
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+    - assets/
+    - assets/images/
+    - assets/images/menu_items/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

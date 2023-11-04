@@ -3,6 +3,11 @@
     "chartTitle": "Gasto Por Categoría",
     "detailPlaceholder": "Seleccione un barrio para ver los detalles de gasto",
     "errorLoadingData": "Error al cargar datos",
-    "noDataForWardYear":"No hay datos por el barrio {wardValue} en {yearValue}",
-    "projectTitle": "Gastos De Los Concejales"
+    "noDataForWardYear": "No hay datos por el barrio {wardValue} en {yearValue}",
+    "projectTitle": "Gastos De Los Concejales",
+    "home": "Inicio",
+    "faq": "Preguntas Frecuentes",
+    "menuItems": "Menús De Concejales",
+    "about": "Acerca De",
+    "spendingCharts": "Gráficos De Gastos"
 }
