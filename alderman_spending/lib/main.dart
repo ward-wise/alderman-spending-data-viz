@@ -93,15 +93,15 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Color color = Theme.of(context).primaryColor;
-    // Widget buttonSection = Row(
-    //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    //   children: [
-    //     _buildButtonColumn(color, Icons.call, 'CALL'),
-    //     _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
-    //     _buildButtonColumn(color, Icons.share, 'SHARE'),
-    //   ],
-    // );
+    Color color = Theme.of(context).primaryColor;
+    Widget buttonSection = Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        _buildButtonColumn(color, 'Find Your Ward', WardFinderScreen(),context),
+        _buildButtonColumn(color, 'Explore Spending', ChartScreen(), context),
+        _buildButtonColumn(color, 'Learn About Menu Items', MenuItemsScreen(),context),
+      ],
+    );
     return Scaffold(
         appBar: AppBar(
           title: const Text('Ward-Wise'),
@@ -116,42 +116,33 @@ class HomeScreen extends StatelessWidget {
               fit: BoxFit.cover,            
               ),            
             titleSection,
-            // buttonSection, 
+            buttonSection, 
             // textSection,
-            // ElevatedButton(
-            //   child: Text("Tap on this"),
-            //   style: ElevatedButton.styleFrom(
-            //     backgroundColor: Colors.red,
-            //     elevation: 0,
-            //   ), 
-            //   onPressed: () {
-            //     Navigator.push(
-            //       context, 
-            //       MaterialPageRoute(builder: (context) => const WardFinderScreen())
-            //     );
-            //     },
-            //   ),          
             ],
         ),
       );
   }
 
-  Column _buildButtonColumn(Color color, IconData icon, String label) {
+  Column _buildButtonColumn(Color color, String label, link, context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(icon, color: color),
         Container(
           margin: const EdgeInsets.only(top: 8),
-          child: Text(
-            label,
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-              color: color,
-            ),
-          ),
+          child: ElevatedButton(
+              child: Text(label),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue[300],
+                elevation: 0,
+              ), 
+              onPressed: () {
+                Navigator.push(
+                  context, 
+                  MaterialPageRoute(builder: (context) => link)
+                );
+                },
+              ), 
         ),
       ],
     );
@@ -163,11 +154,9 @@ Widget titleSection = Container(
   child: Row(
     children: [
       Expanded(
-        /*1*/
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            /*2*/
             Container(
               padding: const EdgeInsets.only(bottom: 8),
               child: const Text(
@@ -178,12 +167,9 @@ Widget titleSection = Container(
               ),
             ),
             const Text(
-              '''Each year, Chicago alders get \$1.5 million in "menu money" to spend at their discretion on capital improvements in their ward. This tool is intended to help residents have a say in the process. It explains past spending in each ward and the options for future spending.
-                Use the tool:
-                Find my ward or skip to the past ward spending breakdown
-                Read answers to frequently asked questions
-                See the alder menu options
-                Contact your ward to get involved in the improvement process''',
+              '''Each year, Chicago alderpersonss get \$1.5 million in to spend on improvements in their ward. The spending is limited to "Menu Items", a list of specific projects that can be completed in each ward. Ward-Wise is intended to educate residents about these "Menu Items" and give them access to the spending history in their ward. It explains past spending in each ward and the options for future spending.
+              ''',
+              softWrap: true,
               style: TextStyle(
                 color: Colors.black,
               ),
@@ -195,15 +181,6 @@ Widget titleSection = Container(
   ),
 );
 
-// Widget textSection = Container(
-//   padding: const EdgeInsets.all(32),
-//   child: const Text(
-//     '''
-//     Alderpersons get a menu of items from which they can choose
-//     ''',
-//     softWrap: true,
-//   ),
-// );
 
 // class NavigationDrawer extends StatelessWidget {
 //   const NavigationDrawer({
