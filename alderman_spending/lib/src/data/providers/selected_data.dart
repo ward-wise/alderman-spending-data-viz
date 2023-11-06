@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class SelectedData extends ChangeNotifier {
   int _selectedWard = 1;
-  int _selectedYear = 2019;
+  int _selectedYear = 2022;
   String? _selectedCategory;
 
   int get selectedWard => _selectedWard;

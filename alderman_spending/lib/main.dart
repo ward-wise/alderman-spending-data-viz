@@ -1,3 +1,4 @@
+import 'package:alderman_spending/src/ui/data_page/data_screen.dart';
 import 'package:alderman_spending/src/ui/menu_items_page/menu_items_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -98,7 +99,7 @@ class HomeScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         _buildButtonColumn(color, 'Find Your Ward', WardFinderScreen(),context),
-        _buildButtonColumn(color, 'Explore Spending', ChartScreen(), context),
+        _buildButtonColumn(color, 'Explore Spending', DataPage(), context),
         _buildButtonColumn(color, 'Learn About Menu Items', MenuItemsScreen(),context),
       ],
     );
