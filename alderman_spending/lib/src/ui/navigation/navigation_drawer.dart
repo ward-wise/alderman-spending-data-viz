@@ -7,6 +7,7 @@ import 'package:alderman_spending/src/ui/faq_page/faq_screen.dart';
 import 'package:alderman_spending/src/ui/home_screen/home_screen.dart';
 import 'package:alderman_spending/src/ui/ward_finder_page/ward_finder_screen.dart';
 import 'package:alderman_spending/src/ui/choropleth_map/choropleth_map.dart';
+import 'package:alderman_spending/src/ui/data_page/data_screen.dart';
 
 class MyNavigationDrawer extends StatelessWidget {
   const MyNavigationDrawer({
@@ -46,13 +47,13 @@ class MyNavigationDrawer extends StatelessWidget {
                   builder: (context) => const MenuItemsScreen(),));
               },
           ),
-          ListTile(
-            title: const Text("Spending charts"),
-            onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const ChartScreen(),));
-              },
-          ),
+          // ListTile(
+          //   title: const Text("Spending charts"),
+          //   onTap: () {
+          //       Navigator.of(context).push(MaterialPageRoute(
+          //         builder: (context) => const ChartScreen(),));
+          //     },
+          // ),
           // ListTile(
           //   title: const Text("About"),
           //   onTap: () {
@@ -60,11 +61,18 @@ class MyNavigationDrawer extends StatelessWidget {
           //         builder: (context) => const FAQScreen(),));
           //     },
           // ),
+          //  ListTile(
+          //   title: const Text("Spending Map"), //need Applocalizations
+          //   onTap: () {
+          //       Navigator.of(context).push(MaterialPageRoute(
+          //         builder: (context) => const ChoroplethMapPage(),));
+          //   },
+          // ),
            ListTile(
-            title: const Text("Choropleth Map"), //need Applocalizations
+            title: const Text("Data"), //need Applocalizations
             onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const ChoroplethMapPage(),));
+                  builder: (context) => const DataPage(),));
             },
           ),
         ]  

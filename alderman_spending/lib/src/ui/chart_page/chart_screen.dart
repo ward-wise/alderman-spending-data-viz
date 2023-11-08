@@ -19,29 +19,29 @@ class ChartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MyNavigationDrawer(),
-      appBar: AppBar(title: const Text('FAQ'),),
+      // appBar: AppBar(title: const Text('Spending Charts'),),
       body: SafeArea(
         child: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
-            if (constraints.maxWidth / constraints.maxHeight > 1.3) {
-              return const Row(
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: BarChartRegion(),
-                  ),
-                  VerticalDivider(
-                    color: Colors.grey,
-                    width: 1,
-                    thickness: 1,
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: DetailRegion(),
-                  ),
-                ],
-              );
-            } else {
+            // if (constraints.maxWidth / constraints.maxHeight > 1.3) {
+            //   return const Row(
+            //     children: [
+            //       Expanded(
+            //         flex: 2,
+            //         child: BarChartRegion(),
+            //       ),
+            //       VerticalDivider(
+            //         color: Colors.grey,
+            //         width: 1,
+            //         thickness: 1,
+            //       ),
+            //       Expanded(
+            //         flex: 1,
+            //         child: DetailRegion(),
+            //       ),
+            //     ],
+            //   );
+            // } else {
               return const Column(
                 children: [
                   Expanded(
@@ -60,7 +60,7 @@ class ChartScreen extends StatelessWidget {
                 ],
               );
             }
-          },
+          // },
         ),
       ),
     );
@@ -263,7 +263,7 @@ class BarChartRegionState extends State<BarChartRegion> {
             return DropdownMenuItem<int>(
               value: value,
               // child: Text(AppLocalizations.of(context)!.wardDropdown(value)),
-              child: Text('$value')
+              child: Text('Ward: $value')
             );
           }).toList(),
         ),

@@ -2,38 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
-// import 'package:intl/intl.dart';
 import 'package:csv/csv.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'dart:developer' as developer;
 import 'package:alderman_spending/src/ui/navigation/navigation_drawer.dart';
-
-
-
-// import 'package:alderman_spending/src/data/loaders.dart';
-// import 'package:alderman_spending/src/data/models/annual_ward_spending_data.dart';
-// import 'package:alderman_spending/src/data/models/ward_item_location_spending_data.dart';
 import 'package:alderman_spending/src/data/providers/selected_data_choropleth.dart';
 import 'package:alderman_spending/src/data/models/map_ward_spending_data.dart';
-
-
-// class ChoroplethMapPage extends StatelessWidget {
-//   const ChoroplethMapPage ({super.key});
-
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Choropleth page',
-//       theme: ThemeData(
-//         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-//         useMaterial3: true,
-//       ),
-//       home: const _ChoroplethMap(),
-//     );
-//   }
-// }
 
 class ChoroplethMapPage extends StatelessWidget {
   const ChoroplethMapPage ({super.key});
@@ -42,10 +17,10 @@ class ChoroplethMapPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: MyNavigationDrawer(),
-      appBar: AppBar(
-        title: const Text('Map'),
-      ),
+      // drawer: MyNavigationDrawer(),
+      // appBar: AppBar(
+      //   title: const Text('Map'),
+      // ),
       body: const _ChoroplethMap(),
     );
   }
@@ -185,7 +160,8 @@ class __ChoroplethMapState extends State<_ChoroplethMap> {
       return Scaffold(
       body: Padding(
         padding: EdgeInsets.all(15),
-        child: Row(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             yearCategorySelector(),
@@ -201,7 +177,7 @@ class __ChoroplethMapState extends State<_ChoroplethMap> {
             layers: [
               MapShapeLayer(
                 source: _dataSource, 
-                legend: MapLegend.bar(MapElement.shape),
+                legend: MapLegend.bar(MapElement.shape, title: Text('Percent of Annual Spending')),
                 shapeTooltipBuilder: (BuildContext context, int index) {
                 return Container(
                   width: 180,
@@ -250,8 +226,8 @@ class __ChoroplethMapState extends State<_ChoroplethMap> {
   }
   Widget yearCategorySelector() {
     final selectedData = Provider.of<SelectedDataMap>(context);
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         DropdownButton<int>(
