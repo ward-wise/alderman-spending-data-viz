@@ -44,7 +44,7 @@ class __ChoroplethMapState extends State<_ChoroplethMap> {
   late List<MapWardSpendingData> _filteredMapData;
 
   Future<List<MapWardSpendingData>> _loadCSV() async {
-    final _rawData = await rootBundle.loadString("spending_by_category.csv");
+    final _rawData = await rootBundle.loadString("assets/spending_by_category.csv");
     List<List<dynamic>> _listData = 
     const CsvToListConverter().convert(_rawData, eol: '\n', shouldParseNumbers: false,);
     List<MapWardSpendingData> spendingData = [];
