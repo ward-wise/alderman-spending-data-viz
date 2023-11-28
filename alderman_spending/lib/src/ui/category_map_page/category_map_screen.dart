@@ -3,8 +3,8 @@ import 'package:alderman_spending/src/ui/choropleth_map/choropleth_map.dart';
 import 'package:alderman_spending/src/ui/chart_page/chart_screen.dart';
 import 'package:alderman_spending/src/ui/navigation/navigation_drawer.dart';
 
-class DataPage extends StatelessWidget {
-  const DataPage({super.key});
+class CategoryMapPage extends StatelessWidget {
+  const CategoryMapPage({super.key});
 
   // This widget is the root of your application.
   @override
@@ -33,7 +33,7 @@ Widget _buildNarrowContainer() {
       children: [
         Container(
           height: 500,
-          child: ChartScreen(),
+          child: ChoroplethMapPage(),
         ),
       ],
     ),
@@ -47,7 +47,7 @@ Widget _buildWideContainers() {
       children: [
         Expanded(
           flex: 1,
-          child: ChartScreen(),
+          child: ChoroplethMapPage(),
         ),
       ],
     ),
