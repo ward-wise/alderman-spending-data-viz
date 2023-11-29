@@ -58,7 +58,7 @@ class MyNavigationDrawer extends StatelessWidget {
       //   },
       // ),
       ListTile(
-        title: const Text("Past Spending Data"), //need Applocalizations
+        title: const Text("Spending By Ward"), //need Applocalizations
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => const DataPage(),
