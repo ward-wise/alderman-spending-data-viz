@@ -55,29 +55,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       initialRoute: '/',
-      routes: {
-        '/': (context) => const HomeScreen(),
-        '/find-my-ward': (context) => const WardFinderScreen(),
-        '/ward-spending': (context) => const DataPage(),
-        '/category-map': (context) => const CategoryMapPage(),
-        '/menu-items': (context) => const MenuItemsScreen(),
-        '/faqs': (context) => const FAQScreen(),
-        // '/about': (context) => const AboutScreen(),
-      },
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
-
-  // Map<String, WidgetBuilder> generateRoutes() {
-  //   return {
-  //     '/home': (context) => HomeScreen(),
-  //     '/faq': (context) => FAQScreen(),
-  //     // '/finder': (context) => PageWithDrawer(child: WardFinderScreen()),
-  //     // '/items': (context) => PageWithDrawer(child: MenuItemsScreen()),
-  //     // '/charts': (context) => PageWithDrawer(child: ChartScreen()),
-  //     // '/about': (context) => PageWithDrawer(child: AboutScreen()),
-  //     // '/choropleth': (context) => PageWithDrawer(child: ChoroplethMapPage()),
-  //   };
-  // }
 }
 
 // class PageWithDrawer extends StatelessWidget {
@@ -188,3 +168,43 @@ Widget titleSection = Container(
     ],
   ),
 );
+
+class RouteGenerator {
+  static Route<dynamic> generateRoute(RouteSettings settings) {
+    String? route;
+    Map? queryParameters;
+    if (settings.name != null) {
+      var uriData = Uri.parse(settings.name!);
+      route = uriData.path;
+      queryParameters = uriData.queryParameters;
+    }
+
+    // var message =
+    //     'generateRoute: Route $route, QueryParameters $queryParameters';
+    // print(message);
+
+    // route mapping
+    final Map<String, WidgetBuilder> routes = {
+      '/': (context) => const HomeScreen(),
+      '/find-my-ward': (context) => const WardFinderScreen(),
+      '/ward-spending': (context) {
+        return DataPage(
+          // pass query parameters
+          initialWard: int.parse(queryParameters?['ward'] ?? '1'),
+          initialYear: int.parse(queryParameters?['year'] ?? '2022'),
+        );
+      },
+      '/category-map': (context) => const CategoryMapPage(),
+      '/menu-items': (context) => const MenuItemsScreen(),
+      '/faqs': (context) => const FAQScreen(),
+    };
+
+    final WidgetBuilder builder =
+        routes[route] ?? ((context) => const HomeScreen());
+
+    return MaterialPageRoute(
+      builder: builder,
+      settings: settings,
+    );
+  }
+}
