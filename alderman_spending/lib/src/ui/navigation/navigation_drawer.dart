@@ -23,26 +23,39 @@ class MyNavigationDrawer extends StatelessWidget {
       ListTile(
         title: const Text("Home"),
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const MyApp(),
-          ));
+          Navigator.pushNamed(context, '/');
         },
       ),
       ListTile(
         title: const Text("Find My Ward"),
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const WardFinderScreen(),
-          ));
+          Navigator.pushNamed(context, '/find-my-ward');
         },
       ),
-      // ListTile(
-      //   title: const Text("Spending charts"),
-      //   onTap: () {
-      //       Navigator.of(context).push(MaterialPageRoute(
-      //         builder: (context) => const ChartScreen(),));
-      //     },
-      // ),
+      ListTile(
+        title: const Text("View Ward Spending"), //need Applocalizations
+        onTap: () {
+          Navigator.pushNamed(context, '/ward-spending');
+        },
+      ),
+      ListTile(
+        title: const Text("Categorical Spending Map"), //need Applocalizations
+        onTap: () {
+          Navigator.pushNamed(context, '/category-map');
+        },
+      ),
+      ListTile(
+        title: const Text("View Spending Menu"),
+        onTap: () {
+          Navigator.pushNamed(context, '/menu-items');
+        },
+      ),
+      ListTile(
+        title: const Text("FAQs"),
+        onTap: () {
+          Navigator.pushNamed(context, '/faqs');
+        },
+      ),
       // ListTile(
       //   title: const Text("About"),
       //   onTap: () {
@@ -50,45 +63,6 @@ class MyNavigationDrawer extends StatelessWidget {
       //         builder: (context) => const FAQScreen(),));
       //     },
       // ),
-      //  ListTile(
-      //   title: const Text("Spending Map"), //need Applocalizations
-      //   onTap: () {
-      //       Navigator.of(context).push(MaterialPageRoute(
-      //         builder: (context) => const ChoroplethMapPage(),));
-      //   },
-      // ),
-      ListTile(
-        title: const Text("View Ward Spending"), //need Applocalizations
-        onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const DataPage(),
-          ));
-        },
-      ),
-      ListTile(
-        title: const Text("Categorical Spending Map"), //need Applocalizations
-        onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const CategoryMapPage(),
-          ));
-        },
-      ),
-      ListTile(
-        title: const Text("View Spending Menu"),
-        onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const MenuItemsScreen(),
-          ));
-        },
-      ),
-      ListTile(
-        title: const Text("FAQs"),
-        onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const FAQScreen(),
-          ));
-        },
-      ),
     ]));
   }
 }

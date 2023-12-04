@@ -15,6 +15,7 @@ import 'src/ui/home_screen/home_screen.dart';
 import 'src/ui/ward_finder_page/ward_finder_screen.dart';
 import 'src/ui/choropleth_map/choropleth_map.dart';
 import 'src/ui/navigation/navigation_drawer.dart';
+import 'package:alderman_spending/src/ui/category_map_page/category_map_screen.dart';
 import 'src/ui/widgets.dart';
 
 void main() {
@@ -53,9 +54,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // initialRoute: '/home',
-      // routes: generateRoutes(), // Use the generated routes
-      home: HomeScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomeScreen(),
+        '/find-my-ward': (context) => const WardFinderScreen(),
+        '/ward-spending': (context) => const DataPage(),
+        '/category-map': (context) => const CategoryMapPage(),
+        '/menu-items': (context) => const MenuItemsScreen(),
+        '/faqs': (context) => const FAQScreen(),
+        // '/about': (context) => const AboutScreen(),
+      },
     );
   }
 
@@ -98,11 +106,11 @@ class HomeScreen extends StatelessWidget {
     Widget buttonSection = Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
+        _buildButtonColumn(color, 'Find Your Ward', '/find-my-ward', context),
         _buildButtonColumn(
-            color, 'Find Your Ward', WardFinderScreen(), context),
-        _buildButtonColumn(color, 'Explore Spending', DataPage(), context),
+            color, 'Explore Spending', '/ward-spending', context),
         _buildButtonColumn(
-            color, 'Learn About Menu Items', MenuItemsScreen(), context),
+            color, 'Learn About Menu Items', '/menu-items', context),
       ],
     );
     return Scaffold(
@@ -140,8 +148,7 @@ class HomeScreen extends StatelessWidget {
               elevation: 0,
             ),
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => link));
+              Navigator.pushNamed(context, link);
             },
           ),
         ),
