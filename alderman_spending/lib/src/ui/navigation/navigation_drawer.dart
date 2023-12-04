@@ -58,7 +58,7 @@ class MyNavigationDrawer extends StatelessWidget {
       //   },
       // ),
       ListTile(
-        title: const Text("Spending By Ward"), //need Applocalizations
+        title: const Text("View Ward Spending"), //need Applocalizations
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => const DataPage(),
@@ -74,7 +74,7 @@ class MyNavigationDrawer extends StatelessWidget {
         },
       ),
       ListTile(
-        title: const Text("Ward Spending Menu"),
+        title: const Text("View Spending Menu"),
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => const MenuItemsScreen(),

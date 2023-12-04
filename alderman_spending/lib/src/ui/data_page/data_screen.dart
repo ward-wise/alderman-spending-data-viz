@@ -12,7 +12,7 @@ class DataPage extends StatelessWidget {
     return Scaffold(
       drawer: MyNavigationDrawer(),
       appBar: AppBar(
-        title: const Text('Explore Ward Spending in Chicago'),
+        title: const Text('Ward Spending'),
       ),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
@@ -28,15 +28,8 @@ class DataPage extends StatelessWidget {
 }
 
 Widget _buildNarrowContainer() {
-  return Center(
-    child: ListView(
-      children: [
-        Container(
-          height: 500,
-          child: ChartScreen(),
-        ),
-      ],
-    ),
+  return const Center(
+    child: ChartScreen(),
   );
 }
 

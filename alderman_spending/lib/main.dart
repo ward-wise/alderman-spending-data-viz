@@ -98,30 +98,32 @@ class HomeScreen extends StatelessWidget {
     Widget buttonSection = Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        _buildButtonColumn(color, 'Find Your Ward', WardFinderScreen(),context),
+        _buildButtonColumn(
+            color, 'Find Your Ward', WardFinderScreen(), context),
         _buildButtonColumn(color, 'Explore Spending', DataPage(), context),
-        _buildButtonColumn(color, 'Learn About Menu Items', MenuItemsScreen(),context),
+        _buildButtonColumn(
+            color, 'Learn About Menu Items', MenuItemsScreen(), context),
       ],
     );
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Ward-Wise'),
-        ),
-        drawer: const MyNavigationDrawer(),
-        body: ListView(            
-            children: [
-            Image.asset(            
-              'assets/images/chicago_flag.png',            
-              width: 600,            
-              height: 240,            
-              fit: BoxFit.cover,            
-              ),            
-            titleSection,
-            buttonSection, 
-            // textSection,
-            ],
-        ),
-      );
+      appBar: AppBar(
+        title: const Text('Ward-Wise'),
+      ),
+      drawer: const MyNavigationDrawer(),
+      body: ListView(
+        children: [
+          Image.asset(
+            'assets/images/chicago_flag.png',
+            width: 600,
+            height: 240,
+            fit: BoxFit.cover,
+          ),
+          titleSection,
+          buttonSection,
+          // textSection,
+        ],
+      ),
+    );
   }
 
   Column _buildButtonColumn(Color color, String label, link, context) {
@@ -132,18 +134,16 @@ class HomeScreen extends StatelessWidget {
         Container(
           margin: const EdgeInsets.only(top: 8),
           child: ElevatedButton(
-              child: Text(label),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue[300],
-                elevation: 0,
-              ), 
-              onPressed: () {
-                Navigator.push(
-                  context, 
-                  MaterialPageRoute(builder: (context) => link)
-                );
-                },
-              ), 
+            child: Text(label),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue[300],
+              elevation: 0,
+            ),
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => link));
+            },
+          ),
         ),
       ],
     );
@@ -181,176 +181,3 @@ Widget titleSection = Container(
     ],
   ),
 );
-
-
-// class NavigationDrawer extends StatelessWidget {
-//   const NavigationDrawer({
-//     Key? key,
-//     // required this.localeProvider,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Drawer(child: ListView(
-//         children: [
-//           ListTile(
-//             title: Text("Home"),
-//             onTap: () {
-//               // If not on route
-//               if (ModalRoute.of(context)!.settings.name != '/home') {
-//                 Navigator.popAndPushNamed(context, '/home');
-//               }
-//             },
-//           ),
-//           ListTile(
-//             title: Text("FAQ"),
-//             onTap: () {
-//                 Navigator.of(context).push(MaterialPageRoute(
-//                   builder: (context) => const ChoroplethMapPage(),));
-//               }
-//           ),
-//           ListTile(
-//             title: Text("Ward Finder"),
-//             onTap: () {
-//               if (ModalRoute.of(context)!.settings.name != '/finder') {
-//                 Navigator.popAndPushNamed(context, '/finder');
-//               }
-//             },
-//           ),
-//           ListTile(
-//             title: Text("Menu Items"),
-//             onTap: () {
-//               if (ModalRoute.of(context)!.settings.name != '/items') {
-//                 Navigator.popAndPushNamed(context, '/items');
-//               }
-//             },
-//           ),
-//           ListTile(
-//             title: Text("Spending charts"),
-//             onTap: () {
-//               if (ModalRoute.of(context)!.settings.name != '/charts') {
-//                 Navigator.popAndPushNamed(context, '/charts');
-//               }
-//             },
-//           ),
-//           ListTile(
-//             title: Text("About"),
-//             onTap: () {
-//               if (ModalRoute.of(context)!.settings.name != '/about') {
-//                 Navigator.popAndPushNamed(context, '/about');
-//               }
-//             },
-//           ),
-//            ListTile(
-//             title: Text("Choropleth Map"), //need Applocalizations
-//             onTap: () {
-//               if (ModalRoute.of(context)!.settings.name != '/choropleth') {
-//                 Navigator.popAndPushNamed(context, '/choropleth');
-//               }
-//             },
-//           ),
-//         ]  
-//       )
-//     );
-//   }
-// }
-
-// class NavigationDrawer extends StatelessWidget {
-//   const NavigationDrawer({
-//     Key? key,
-//     // required this.localeProvider,
-//   }) : super(key: key);
-
-//   // final LocaleProvider localeProvider;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Drawer(
-//       child: ListView(
-//         children: [
-//           ListTile(
-//             title: Text(AppLocalizations.of(context)!.home),
-//             onTap: () {
-//               // If not on route
-//               if (ModalRoute.of(context)!.settings.name != '/home') {
-//                 Navigator.popAndPushNamed(context, '/home');
-//               }
-//             },
-//           ),
-//           ListTile(
-//             title: Text(AppLocalizations.of(context)!.faq),
-//             onTap: () {
-//               if (ModalRoute.of(context)!.settings.name != '/faq') {
-//                 Navigator.popAndPushNamed(context, '/faq');
-//               }
-//             },
-//           ),
-//           ListTile(
-//             title: Text("Ward Finder"),
-//             onTap: () {
-//               if (ModalRoute.of(context)!.settings.name != '/finder') {
-//                 Navigator.popAndPushNamed(context, '/finder');
-//               }
-//             },
-//           ),
-//           ListTile(
-//             title: Text(AppLocalizations.of(context)!.menuItems),
-//             onTap: () {
-//               if (ModalRoute.of(context)!.settings.name != '/items') {
-//                 Navigator.popAndPushNamed(context, '/items');
-//               }
-//             },
-//           ),
-//           ListTile(
-//             title: Text(AppLocalizations.of(context)!.spendingCharts),
-//             onTap: () {
-//               if (ModalRoute.of(context)!.settings.name != '/charts') {
-//                 Navigator.popAndPushNamed(context, '/charts');
-//               }
-//             },
-//           ),
-//           ListTile(
-//             title: Text(AppLocalizations.of(context)!.about),
-//             onTap: () {
-//               if (ModalRoute.of(context)!.settings.name != '/about') {
-//                 Navigator.popAndPushNamed(context, '/about');
-//               }
-//             },
-//           ),
-//            ListTile(
-//             title: Text("Choropleth Map"), //need Applocalizations
-//             onTap: () {
-//               if (ModalRoute.of(context)!.settings.name != '/choropleth') {
-//                 Navigator.popAndPushNamed(context, '/choropleth');
-//               }
-//             },
-//           ),
-//           // Row of 3 buttons for languages
-//           // Row(
-//           //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//           //   children: [
-//           //     ElevatedButton(
-//           //       onPressed: () {
-//           //         localeProvider.updateLocale(const Locale('en', 'US'));
-//           //       },
-//           //       child: const Text('English'),
-//           //     ),
-//           //     ElevatedButton(
-//           //       onPressed: () {
-//           //         localeProvider.updateLocale(const Locale('es', 'US'));
-//           //       },
-//           //       child: const Text('Español'),
-//           //     ),
-//           //     ElevatedButton(
-//           //       onPressed: () {
-//           //         localeProvider.updateLocale(const Locale('pl', 'US'));
-//           //       },
-//           //       child: const Text('Polski'),
-//           //     ),
-//           //   ],
-//           // ),
-//         ],
-//       ),
-//     );
-//   }
-// }
