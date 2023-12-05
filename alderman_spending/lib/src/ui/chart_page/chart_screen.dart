@@ -337,7 +337,7 @@ class BarChartRegionState extends State<BarChartRegion> {
           },
           dataLabelSettings: DataLabelSettings(
             isVisible: true,
-            labelAlignment: ChartDataLabelAlignment.outer,
+            labelAlignment: ChartDataLabelAlignment.auto,
             builder: (data, point, series, pointIndex, seriesIndex) => Text(
               NumberFormat.compactSimpleCurrency().format(data.cost),
               style: const TextStyle(
