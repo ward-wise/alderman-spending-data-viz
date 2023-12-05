@@ -28,7 +28,7 @@ class MenuItemsScreen extends StatelessWidget {
         return Scaffold(
           drawer: MyNavigationDrawer(),
           appBar: AppBar(
-            title: const Text('Alderman Menu Items'),
+            title: const Text('Aldermanic Menu Items'),
           ),
           body: Column(
             children: [

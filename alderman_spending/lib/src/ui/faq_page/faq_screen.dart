@@ -8,7 +8,9 @@ class FAQScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MyNavigationDrawer(),
-      appBar: AppBar(title: const Text('FAQ'),),
+      appBar: AppBar(
+        title: const Text('Frequently Asked Questions'),
+      ),
       body: LayoutBuilder(
         builder: (context, constraints) {
           if (constraints.maxWidth / constraints.maxHeight > 1.3) {
@@ -32,8 +34,8 @@ class GridViewFAQ extends StatelessWidget {
         padding: const EdgeInsets.all(50),
         child: GridView.count(
           crossAxisCount: columns,
-          children: [
-            FAQCollapsableWidget(
+          children: const [
+            FAQWidget(
                 question: "What's a menu item?",
                 answer:
                     "Check out the menu items tab to see a description, image, and price for the project Alderpeople can spend money on.")
@@ -44,7 +46,6 @@ class GridViewFAQ extends StatelessWidget {
 
 class FAQCollapsableWidget extends StatelessWidget {
   final String answer;
-
   final String question;
 
   const FAQCollapsableWidget(
@@ -59,6 +60,35 @@ class FAQCollapsableWidget extends StatelessWidget {
       childrenPadding: EdgeInsets.fromLTRB(50, 0, 50, 0),
       title: Text(question),
       children: <Widget>[Text(answer)],
+    );
+  }
+}
+
+class FAQWidget extends StatelessWidget {
+  final String answer;
+  final String question;
+
+  const FAQWidget({
+    Key? key,
+    required this.question,
+    required this.answer,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          question,
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        const SizedBox(height: 8),
+        Text(
+          answer,
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
+      ],
     );
   }
 }
