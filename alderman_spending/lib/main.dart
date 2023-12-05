@@ -63,17 +63,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color color = Theme.of(context).primaryColor;
-    Widget buttonSection = Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        _buildButtonColumn(
-            color, 'Find Your Ward', WardFinderScreen(), context),
-        _buildButtonColumn(color, 'Explore Spending', DataPage(), context),
-        _buildButtonColumn(
-            color, 'Learn About Menu Items', MenuItemsScreen(), context),
-      ],
-    );
     return Scaffold(
       appBar: AppBar(
         title: const Text('Ward Wise'),
@@ -88,35 +77,9 @@ class HomeScreen extends StatelessWidget {
           //   fit: BoxFit.cover,
           // ),
           titleSection(context),
-          buttonSection,
+          buttonSection(context),
         ],
       ),
-    );
-  }
-
-  Column _buildButtonColumn(Color color, String label, link, context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          margin: const EdgeInsets.only(top: 8),
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue[300],
-              elevation: 0,
-            ),
-            child: Text(
-              label,
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => link));
-            },
-          ),
-        ),
-      ],
     );
   }
 }
@@ -147,5 +110,57 @@ Widget titleSection(context) {
         ),
       ],
     ),
+  );
+}
+
+Widget buttonSection(context) {
+  Color color = Theme.of(context).primaryColor;
+  var children = [
+    _buildButtonColumn(color, 'Find Your Ward', WardFinderScreen(), context),
+    _buildButtonColumn(color, 'Explore Spending', DataPage(), context),
+    _buildButtonColumn(
+        color, 'Learn About Menu Items', MenuItemsScreen(), context),
+  ];
+
+  return LayoutBuilder(
+    builder: (BuildContext context, BoxConstraints constraints) {
+      if (MediaQuery.of(context).size.width < 600) {
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: children,
+        );
+      }
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: children,
+      );
+    },
+  );
+}
+
+Column _buildButtonColumn(Color color, String label, link, context) {
+  return Column(
+    mainAxisSize: MainAxisSize.min,
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Container(
+        padding: const EdgeInsets.all(20),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.blue[300],
+            elevation: 0,
+            padding: const EdgeInsets.all(25),
+          ),
+          child: Text(
+            label,
+            style: Theme.of(context).textTheme.labelLarge,
+          ),
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => link));
+          },
+        ),
+      ),
+    ],
   );
 }
