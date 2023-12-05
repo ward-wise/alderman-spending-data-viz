@@ -36,9 +36,10 @@ class GridViewFAQ extends StatelessWidget {
           crossAxisCount: columns,
           children: const [
             FAQWidget(
-                question: "What's a menu item?",
-                answer:
-                    "Check out the menu items tab to see a description, image, and price for the project Alderpeople can spend money on.")
+              question: "What's a menu item?",
+              answer:
+                  "Check out the menu items tab to see a description, image, and price for the project Alderpeople can spend money on.",
+            ),
           ],
         ));
   }

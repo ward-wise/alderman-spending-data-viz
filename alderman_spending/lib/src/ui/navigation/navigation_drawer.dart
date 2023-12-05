@@ -89,6 +89,14 @@ class MyNavigationDrawer extends StatelessWidget {
           ));
         },
       ),
+      ListTile(
+        title: const Text("About the Project"),
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const AboutScreen(),
+          ));
+        },
+      )
     ]));
   }
 }
