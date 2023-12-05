@@ -40,6 +40,14 @@ class MenuItemsScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyLarge,
                   softWrap: true,
                 ),
+                const SizedBox(height: 20),
+                Text(
+                  "Tap items to learn more.",
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                  softWrap: true,
+                ),
                 const SizedBox(height: 25),
                 Expanded(
                   child: ListView.builder(
