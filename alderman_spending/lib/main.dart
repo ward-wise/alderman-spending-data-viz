@@ -116,7 +116,7 @@ Widget titleSection(context) {
 Widget buttonSection(context) {
   Color color = Theme.of(context).primaryColor;
   var children = [
-    _buildButtonColumn(color, 'Find Your Ward', WardFinderScreen(), context),
+    _buildButtonColumn(color, 'Find My Ward', WardFinderScreen(), context),
     _buildButtonColumn(color, 'Explore Spending', DataPage(), context),
     _buildButtonColumn(
         color, 'Learn About Menu Items', MenuItemsScreen(), context),
