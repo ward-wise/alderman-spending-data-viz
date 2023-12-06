@@ -22,46 +22,46 @@ class ChartScreen extends StatelessWidget {
       // appBar: AppBar(title: const Text('Spending Charts'),),
       body: SafeArea(
         child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-            // if (constraints.maxWidth / constraints.maxHeight > 1.3) {
-            //   return const Row(
-            //     children: [
-            //       Expanded(
-            //         flex: 2,
-            //         child: BarChartRegion(),
-            //       ),
-            //       VerticalDivider(
-            //         color: Colors.grey,
-            //         width: 1,
-            //         thickness: 1,
-            //       ),
-            //       Expanded(
-            //         flex: 1,
-            //         child: DetailRegion(),
-            //       ),
-            //     ],
-            //   );
-            // } else {
-              return const Column(
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: BarChartRegion(),
-                  ),
-                  Divider(
-                    color: Colors.grey,
-                    height: 1,
-                    thickness: 1,
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: DetailRegion(),
-                  ),
-                ],
-              );
-            }
-          // },
-        ),
+            builder: (BuildContext context, BoxConstraints constraints) {
+          // if (constraints.maxWidth / constraints.maxHeight > 1.3) {
+          //   return const Row(
+          //     children: [
+          //       Expanded(
+          //         flex: 2,
+          //         child: BarChartRegion(),
+          //       ),
+          //       VerticalDivider(
+          //         color: Colors.grey,
+          //         width: 1,
+          //         thickness: 1,
+          //       ),
+          //       Expanded(
+          //         flex: 1,
+          //         child: DetailRegion(),
+          //       ),
+          //     ],
+          //   );
+          // } else {
+          return const Column(
+            children: [
+              Expanded(
+                flex: 2,
+                child: BarChartRegion(),
+              ),
+              Divider(
+                color: Colors.grey,
+                height: 1,
+                thickness: 1,
+              ),
+              Expanded(
+                flex: 1,
+                child: DetailRegion(),
+              ),
+            ],
+          );
+        }
+            // },
+            ),
       ),
     );
   }
@@ -129,7 +129,8 @@ class _DetailRegionState extends State<DetailRegion> {
         selectedData.selectedCategory == "") {
       return Center(
           // child: Text(AppLocalizations.of(context)!.detailPlaceholder));
-          child: const Text("Select a category to see a detailed list of spending."));
+          child: const Text(
+              "Select a category to see a detailed list of spending."));
     }
 
     final selectedWardItems = _filteredData!
@@ -184,6 +185,7 @@ class BarChartRegionState extends State<BarChartRegion> {
   int? _selectedWard;
   int? _selectedYear;
   List<AnnualWardSpendingData>? _filteredData;
+  String? _selectedCategory;
 
   @override
   void initState() {
@@ -257,14 +259,16 @@ class BarChartRegionState extends State<BarChartRegion> {
           onChanged: (int? newValue) {
             selectedData.updateSelectedWard(newValue!);
             selectedData.updateSelectedCategory('');
+            setState(() {
+              _selectedCategory = null;
+            });
           },
           items: List<int>.generate(50, (i) => i + 1)
               .map<DropdownMenuItem<int>>((int value) {
             return DropdownMenuItem<int>(
-              value: value,
-              // child: Text(AppLocalizations.of(context)!.wardDropdown(value)),
-              child: Text('Ward: $value')
-            );
+                value: value,
+                // child: Text(AppLocalizations.of(context)!.wardDropdown(value)),
+                child: Text('Ward: $value'));
           }).toList(),
         ),
         DropdownButton<int>(
@@ -272,6 +276,9 @@ class BarChartRegionState extends State<BarChartRegion> {
           onChanged: (int? newValue) {
             selectedData.updateSelectedYear(newValue!);
             selectedData.updateSelectedCategory('');
+            setState(() {
+              _selectedCategory = null;
+            });
           },
           items: <int>[2019, 2020, 2021, 2022]
               .map<DropdownMenuItem<int>>((int value) {
@@ -291,9 +298,10 @@ class BarChartRegionState extends State<BarChartRegion> {
     return SfCartesianChart(
       onAxisLabelTapped: (axisLabelTapArgs) {
         selectedData.updateSelectedCategory(axisLabelTapArgs.text);
+        setState(() {
+          _selectedCategory = axisLabelTapArgs.text;
+        });
       },
-      // title: ChartTitle(text: AppLocalizations.of(context)!.chartTitle),
-      title: ChartTitle(text: "Ward Spending"),
       primaryXAxis: CategoryAxis(labelStyle: const TextStyle(fontSize: 16)),
       primaryYAxis: NumericAxis(
         axisLabelFormatter: (axisLabelRenderArgs) {
@@ -304,11 +312,13 @@ class BarChartRegionState extends State<BarChartRegion> {
       ),
       series: <BarSeries<AnnualWardSpendingData, String>>[
         BarSeries<AnnualWardSpendingData, String>(
-          // TODO Utilize selection behaviour to highlight selected category bar, needs state management for clearing and triggering on label tap
           dataSource: _filteredData!,
           onPointTap: (ChartPointDetails args) {
             selectedData.updateSelectedCategory(
                 _filteredData![args.pointIndex!].category);
+            setState(() {
+              _selectedCategory = _filteredData![args.pointIndex!].category;
+            });
           },
           xValueMapper: (AnnualWardSpendingData data, _) {
             if (Localizations.localeOf(context).languageCode == 'en') {
@@ -317,9 +327,17 @@ class BarChartRegionState extends State<BarChartRegion> {
             return categoryTranslations[data.category];
           },
           yValueMapper: (AnnualWardSpendingData data, _) => data.cost,
+          pointColorMapper: (AnnualWardSpendingData data, _) {
+            return _selectedCategory == null
+                ? Colors.blue // Default color
+                : _selectedCategory == data.category
+                    ? Color.fromARGB(
+                        255, 105, 208, 255) // Color for selected category
+                    : Colors.blue; // Color for other categories
+          },
           dataLabelSettings: DataLabelSettings(
             isVisible: true,
-            labelAlignment: ChartDataLabelAlignment.outer,
+            labelAlignment: ChartDataLabelAlignment.auto,
             builder: (data, point, series, pointIndex, seriesIndex) => Text(
               NumberFormat.compactSimpleCurrency().format(data.cost),
               style: const TextStyle(

@@ -3,8 +3,8 @@ import 'package:alderman_spending/src/ui/choropleth_map/choropleth_map.dart';
 import 'package:alderman_spending/src/ui/chart_page/chart_screen.dart';
 import 'package:alderman_spending/src/ui/navigation/navigation_drawer.dart';
 
-class DataPage extends StatelessWidget {
-  const DataPage({super.key});
+class CategoryMapPage extends StatelessWidget {
+  const CategoryMapPage({super.key});
 
   // This widget is the root of your application.
   @override
@@ -12,7 +12,7 @@ class DataPage extends StatelessWidget {
     return Scaffold(
       drawer: MyNavigationDrawer(),
       appBar: AppBar(
-        title: const Text('Ward Spending'),
+        title: const Text('Spending by Category'),
       ),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
@@ -29,7 +29,7 @@ class DataPage extends StatelessWidget {
 
 Widget _buildNarrowContainer() {
   return const Center(
-    child: ChartScreen(),
+    child: ChoroplethMapPage(),
   );
 }
 
@@ -40,7 +40,7 @@ Widget _buildWideContainers() {
       children: [
         Expanded(
           flex: 1,
-          child: ChartScreen(),
+          child: ChoroplethMapPage(),
         ),
       ],
     ),

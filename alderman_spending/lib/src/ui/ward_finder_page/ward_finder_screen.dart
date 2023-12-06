@@ -112,7 +112,7 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
     return Scaffold(
       drawer: MyNavigationDrawer(),
       appBar: AppBar(
-        title: const Text('Ward Finder'),
+        title: const Text('Findy My Ward'),
       ),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
