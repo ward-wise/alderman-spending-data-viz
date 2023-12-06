@@ -111,7 +111,9 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MyNavigationDrawer(),
-      appBar: AppBar(title: const Text('Ward Finder'),),
+      appBar: AppBar(
+        title: const Text('Ward Finder'),
+      ),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           if (MediaQuery.of(context).size.aspectRatio < 1.3) {
