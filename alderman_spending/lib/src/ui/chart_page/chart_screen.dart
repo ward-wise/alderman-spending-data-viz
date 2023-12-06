@@ -302,8 +302,6 @@ class BarChartRegionState extends State<BarChartRegion> {
           _selectedCategory = axisLabelTapArgs.text;
         });
       },
-      // title: ChartTitle(text: AppLocalizations.of(context)!.chartTitle),
-      title: ChartTitle(text: "Ward Spending"),
       primaryXAxis: CategoryAxis(labelStyle: const TextStyle(fontSize: 16)),
       primaryYAxis: NumericAxis(
         axisLabelFormatter: (axisLabelRenderArgs) {
@@ -314,7 +312,6 @@ class BarChartRegionState extends State<BarChartRegion> {
       ),
       series: <BarSeries<AnnualWardSpendingData, String>>[
         BarSeries<AnnualWardSpendingData, String>(
-          // TODO Utilize selection behaviour to highlight selected category bar, needs state management for clearing and triggering on label tap
           dataSource: _filteredData!,
           onPointTap: (ChartPointDetails args) {
             selectedData.updateSelectedCategory(
@@ -340,7 +337,7 @@ class BarChartRegionState extends State<BarChartRegion> {
           },
           dataLabelSettings: DataLabelSettings(
             isVisible: true,
-            labelAlignment: ChartDataLabelAlignment.outer,
+            labelAlignment: ChartDataLabelAlignment.auto,
             builder: (data, point, series, pointIndex, seriesIndex) => Text(
               NumberFormat.compactSimpleCurrency().format(data.cost),
               style: const TextStyle(

@@ -13,8 +13,8 @@ class DataPage extends StatelessWidget {
     return Scaffold(
       drawer: MyNavigationDrawer(),
       appBar: AppBar(
-        // title: const Text('Ward Spending'),
-        title: Text('$initialWard - $initialYear'),
+        title: const Text('Ward Spending'),
+        // title: Text('$initialWard - $initialYear'),
       ),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {

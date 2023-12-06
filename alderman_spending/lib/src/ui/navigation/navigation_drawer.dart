@@ -56,13 +56,12 @@ class MyNavigationDrawer extends StatelessWidget {
           Navigator.pushNamed(context, '/faqs');
         },
       ),
-      // ListTile(
-      //   title: const Text("About"),
-      //   onTap: () {
-      //       Navigator.of(context).push(MaterialPageRoute(
-      //         builder: (context) => const FAQScreen(),));
-      //     },
-      // ),
+      ListTile(
+        title: const Text("About the Project"),
+        onTap: () {
+          Navigator.pushNamed(context, '/about');
+        },
+      )
     ]));
   }
 }

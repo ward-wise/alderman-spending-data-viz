@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
         Locale('pl', 'US'),
       ],
       locale: localeProvider.currentLocale,
-      title: "Alderman Spending",
+      title: "Ward Wise - Aldermanic spending on neighborhood infrastructure",
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -60,114 +60,110 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// class PageWithDrawer extends StatelessWidget {
-//   const PageWithDrawer({Key? key, required this.child}) : super(key: key);
-
-//   final Widget child;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final localeProvider = Provider.of<LocaleProvider>(context);
-//     return Scaffold(
-//       drawer: ScaffoldDrawer(localeProvider: localeProvider),
-//       body: Center(
-//         child: Stack(children: [const MenuButton(), child]),
-//       ),
-//     );
-//   }
-// }
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Color color = Theme.of(context).primaryColor;
-    Widget buttonSection = Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        _buildButtonColumn(color, 'Find Your Ward', '/find-my-ward', context),
-        _buildButtonColumn(
-            color, 'Explore Spending', '/ward-spending', context),
-        _buildButtonColumn(
-            color, 'Learn About Menu Items', '/menu-items', context),
-      ],
-    );
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ward-Wise'),
+        title: const Text('Ward Wise'),
       ),
       drawer: const MyNavigationDrawer(),
       body: ListView(
         children: [
-          Image.asset(
-            'assets/images/chicago_flag.png',
-            width: 600,
-            height: 240,
-            fit: BoxFit.cover,
-          ),
-          titleSection,
-          buttonSection,
-          // textSection,
+          //   Image.asset(
+          //   'assets/images/chicago_flag.png',
+          //   width: 600,
+          //   height: 240,
+          //   fit: BoxFit.cover,
+          // ),
+          titleSection(context),
+          buttonSection(context),
         ],
       ),
     );
   }
+}
 
-  Column _buildButtonColumn(Color color, String label, link, context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
+Widget titleSection(context) {
+  return Container(
+    padding: const EdgeInsets.all(32),
+    child: Row(
       children: [
-        Container(
-          margin: const EdgeInsets.only(top: 8),
-          child: ElevatedButton(
-            child: Text(label),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue[300],
-              elevation: 0,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, link);
-            },
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: Text(
+                  'Welcome to Ward Wise!',
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                  '''Each year, Chicago alderpersons get \$1.5 million in to spend on improvements in their ward. The spending is limited to "Menu Items", a list of specific projects that can be completed in each ward. Ward-Wise is intended to educate residents about these "Menu Items" and give them access to the spending history in their ward. It explains past spending in each ward and the options for future spending.
+              ''',
+                  softWrap: true, style: Theme.of(context).textTheme.bodyLarge),
+            ],
           ),
         ),
       ],
-    );
-  }
+    ),
+  );
 }
 
-Widget titleSection = Container(
-  padding: const EdgeInsets.all(32),
-  child: Row(
+Widget buttonSection(context) {
+  Color color = Theme.of(context).primaryColor;
+  var children = [
+    _buildButtonColumn(color, 'Find My Ward', '/find-my-ward', context),
+    _buildButtonColumn(color, 'Explore Spending', '/ward-spending', context),
+    _buildButtonColumn(color, 'Learn About Menu Items', '/menu-items', context),
+  ];
+
+  return LayoutBuilder(
+    builder: (BuildContext context, BoxConstraints constraints) {
+      if (MediaQuery.of(context).size.width < 600) {
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: children,
+        );
+      }
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: children,
+      );
+    },
+  );
+}
+
+Column _buildButtonColumn(Color color, String label, String route, context) {
+  return Column(
+    mainAxisSize: MainAxisSize.min,
+    mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      Expanded(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: const Text(
-                'Welcome to Ward-Wise!',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            const Text(
-              '''Each year, Chicago alderpersonss get \$1.5 million in to spend on improvements in their ward. The spending is limited to "Menu Items", a list of specific projects that can be completed in each ward. Ward-Wise is intended to educate residents about these "Menu Items" and give them access to the spending history in their ward. It explains past spending in each ward and the options for future spending.
-              ''',
-              softWrap: true,
-              style: TextStyle(
-                color: Colors.black,
-              ),
-            ),
-          ],
+      Container(
+        padding: const EdgeInsets.all(20),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.blue[300],
+            elevation: 0,
+            padding: const EdgeInsets.all(25),
+          ),
+          child: Text(
+            label,
+            style: Theme.of(context).textTheme.labelLarge,
+          ),
+          onPressed: () {
+            Navigator.pushNamed(context, route);
+          },
         ),
       ),
     ],
-  ),
-);
+  );
+}
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -197,6 +193,7 @@ class RouteGenerator {
       '/category-map': (context) => const CategoryMapPage(),
       '/menu-items': (context) => const MenuItemsScreen(),
       '/faqs': (context) => const FAQScreen(),
+      '/about': (context) => const AboutScreen(),
     };
 
     final WidgetBuilder builder =
