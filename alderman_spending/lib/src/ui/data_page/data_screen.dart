@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:alderman_spending/src/ui/choropleth_map/choropleth_map.dart';
 import 'package:alderman_spending/src/ui/chart_page/chart_screen.dart';
 import 'package:alderman_spending/src/ui/navigation/navigation_drawer.dart';
 
 class DataPage extends StatelessWidget {
-  const DataPage({super.key});
+  final int initialWard;
+  final int initialYear;
+  const DataPage({super.key, this.initialWard = 1, this.initialYear = 2022});
 
   // This widget is the root of your application.
   @override
@@ -13,6 +14,7 @@ class DataPage extends StatelessWidget {
       drawer: MyNavigationDrawer(),
       appBar: AppBar(
         title: const Text('Ward Spending'),
+        // title: Text('$initialWard - $initialYear'),
       ),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {

@@ -15,6 +15,7 @@ import 'src/ui/home_screen/home_screen.dart';
 import 'src/ui/ward_finder_page/ward_finder_screen.dart';
 import 'src/ui/choropleth_map/choropleth_map.dart';
 import 'src/ui/navigation/navigation_drawer.dart';
+import 'package:alderman_spending/src/ui/category_map_page/category_map_screen.dart';
 import 'src/ui/widgets.dart';
 
 void main() {
@@ -53,7 +54,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      initialRoute: '/',
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }
@@ -116,10 +118,9 @@ Widget titleSection(context) {
 Widget buttonSection(context) {
   Color color = Theme.of(context).primaryColor;
   var children = [
-    _buildButtonColumn(color, 'Find My Ward', WardFinderScreen(), context),
-    _buildButtonColumn(color, 'Explore Spending', DataPage(), context),
-    _buildButtonColumn(
-        color, 'Learn About Menu Items', MenuItemsScreen(), context),
+    _buildButtonColumn(color, 'Find My Ward', '/find-my-ward', context),
+    _buildButtonColumn(color, 'Explore Spending', '/ward-spending', context),
+    _buildButtonColumn(color, 'Learn About Menu Items', '/menu-items', context),
   ];
 
   return LayoutBuilder(
@@ -138,7 +139,7 @@ Widget buttonSection(context) {
   );
 }
 
-Column _buildButtonColumn(Color color, String label, link, context) {
+Column _buildButtonColumn(Color color, String label, String route, context) {
   return Column(
     mainAxisSize: MainAxisSize.min,
     mainAxisAlignment: MainAxisAlignment.center,
@@ -156,11 +157,51 @@ Column _buildButtonColumn(Color color, String label, link, context) {
             style: Theme.of(context).textTheme.labelLarge,
           ),
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => link));
+            Navigator.pushNamed(context, route);
           },
         ),
       ),
     ],
   );
+}
+
+class RouteGenerator {
+  static Route<dynamic> generateRoute(RouteSettings settings) {
+    String? route;
+    Map? queryParameters;
+    if (settings.name != null) {
+      var uriData = Uri.parse(settings.name!);
+      route = uriData.path;
+      queryParameters = uriData.queryParameters;
+    }
+
+    // var message =
+    //     'generateRoute: Route $route, QueryParameters $queryParameters';
+    // print(message);
+
+    // route mapping
+    final Map<String, WidgetBuilder> routes = {
+      '/': (context) => const HomeScreen(),
+      '/find-my-ward': (context) => const WardFinderScreen(),
+      '/ward-spending': (context) {
+        return DataPage(
+          // pass query parameters
+          initialWard: int.parse(queryParameters?['ward'] ?? '1'),
+          initialYear: int.parse(queryParameters?['year'] ?? '2022'),
+        );
+      },
+      '/category-map': (context) => const CategoryMapPage(),
+      '/menu-items': (context) => const MenuItemsScreen(),
+      '/faqs': (context) => const FAQScreen(),
+      '/about': (context) => const AboutScreen(),
+    };
+
+    final WidgetBuilder builder =
+        routes[route] ?? ((context) => const HomeScreen());
+
+    return MaterialPageRoute(
+      builder: builder,
+      settings: settings,
+    );
+  }
 }
