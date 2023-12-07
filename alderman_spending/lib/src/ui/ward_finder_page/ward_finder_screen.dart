@@ -360,10 +360,8 @@ Widget websiteButtons(Map<String, String?> wardWebsites) {
   wardWebsites.forEach((key, value) {
     if (value != null) {
       rowElements.add(IconButton(
-        onPressed: () async {
-          // TODO Fix url launching, goes to localhost:port/value rather than value
-          // html.window.open() not working either
-          await launchUrl(Uri.parse(value), webOnlyWindowName: "_blank");
+        onPressed: () {
+          html.window.open(value, 'new tab');
         },
         icon: iconMap[key]!,
         tooltip: key,

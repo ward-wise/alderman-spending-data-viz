@@ -110,15 +110,21 @@ Future<List<WardInformation>> loadWardsInformation() async {
 
     if (item[5] != null && item[5].trim().isNotEmpty) {
       wardWebsites = {};
-      String rawWebsitesString = item[5]
-          .replaceAll("https://", "")
-          .replaceAll("https://", "")
-          .replaceAll("{", "")
-          .replaceAll("}", "");
+      String rawWebsitesString =
+          item[5].replaceAll("{", "").replaceAll("}", "");
       List<String> websitesPairs = rawWebsitesString.trim().split(",");
       for (var pair in websitesPairs) {
-        List<String> pairSplit = pair.split(":");
-        wardWebsites.addAll({pairSplit[0].trim(): pairSplit[1].trim()});
+        List<String> pairSplit = pair.split(": ");
+        String key = pairSplit[0].trim();
+        String value = pairSplit[1].trim();
+
+        // Check if the URL starts with "https://" or "http://"
+        if (!value.startsWith("http://") && !value.startsWith("https://")) {
+          // If not, prepend "https://"
+          value = "https://$value";
+        }
+
+        wardWebsites.addAll({key: value});
       }
     }
     final newData = WardInformation(
