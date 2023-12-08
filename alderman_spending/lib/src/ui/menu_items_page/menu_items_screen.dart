@@ -26,40 +26,50 @@ class MenuItemsScreen extends StatelessWidget {
         final menuItems = snapshot.data!;
 
         return Scaffold(
-          drawer: MyNavigationDrawer(),
+          drawer: const MyNavigationDrawer(),
           appBar: AppBar(
             title: const Text('Aldermanic Menu Items'),
           ),
-          body: Container(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-            child: Column(
-              children: [
-                const SizedBox(height: 30),
-                Text(
-                  "Each year, CDOT and OBM provide alderpersons a list of standard menu items. Costs are estimated based on previous years' costs. Alderpersons select items from this list to allocate their \$1.5 million budget.",
-                  style: Theme.of(context).textTheme.bodyLarge,
-                  softWrap: true,
-                ),
-                const SizedBox(height: 20),
-                Text(
-                  "Tap items to learn more.",
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
-                  softWrap: true,
-                ),
-                const SizedBox(height: 25),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: menuItems.length,
-                    itemBuilder: (context, index) {
-                      return MenuListItem(menuItemInfo: menuItems[index]);
-                    },
+          body: CustomScrollView(
+          slivers: [
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                    child: Column(
+                      children: [
+                        const SizedBox(height: 30),
+                        Text(
+                          "Each year, CDOT and OBM provide alderpersons a list of standard menu items. Costs are estimated based on previous years' costs. Alderpersons select items from this list to allocate their \$1.5 million budget.",
+                          style: Theme.of(context).textTheme.bodyLarge,
+                          softWrap: true,
+                        ),
+                        const SizedBox(height: 20),
+                        Text(
+                          "Tap items to learn more.",
+                          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                          softWrap: true,
+                        ),
+                        const SizedBox(height: 25),
+                        ListView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: menuItems.length,
+                          itemBuilder: (context, index) {
+                            return MenuListItem(menuItemInfo: menuItems[index]);
+                          },
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
+          ],
+        ),
         );
       },
     );
