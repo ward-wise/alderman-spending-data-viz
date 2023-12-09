@@ -26,7 +26,7 @@ Future<List<AnnualWardSpendingData>> loadAnnualCategorySpendingData() async {
 }
 
 Future<List<WardItemLocationSpendingData>> loadCategoryItemsData() async {
-  final csvTable = await readCSV('assets/2019-2022_ward_items.csv');
+  final csvTable = await readCSV('assets/2012-2023_ward_items.csv');
   if (csvTable.isEmpty) {
     return [];
   }
