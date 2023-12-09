@@ -13,6 +13,7 @@ import 'src/ui/chart_page/chart_screen.dart';
 import 'src/ui/faq_page/faq_screen.dart';
 import 'src/ui/home_screen/home_screen.dart';
 import 'src/ui/ward_finder_page/ward_finder_screen.dart';
+import 'src/ui/ward_finder_page/ward_finder_iframe.dart';
 import 'src/ui/choropleth_map/choropleth_map.dart';
 import 'src/ui/navigation/navigation_drawer.dart';
 import 'src/ui/widgets.dart';
@@ -98,7 +99,7 @@ class HomeScreen extends StatelessWidget {
     Widget buttonSection = Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        _buildButtonColumn(color, 'Find Your Ward', WardFinderScreen(),context),
+        _buildButtonColumn(color, 'Find Your Ward', WardFinderiFrame(),context),
         _buildButtonColumn(color, 'Explore Spending', DataPage(), context),
         _buildButtonColumn(color, 'Learn About Menu Items', MenuItemsScreen(),context),
       ],

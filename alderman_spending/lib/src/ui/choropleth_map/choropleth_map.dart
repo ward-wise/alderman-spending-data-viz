@@ -17,22 +17,22 @@ class ChoroplethMapPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // drawer: MyNavigationDrawer(),
-      // appBar: AppBar(
-      //   title: const Text('Map'),
-      // ),
-      body: const _ChoroplethMap(),
+      drawer: MyNavigationDrawer(),
+      appBar: AppBar(
+        title: const Text('Map'),
+      ),
+      body: const ChoroplethMap(),
     );
   }
 }
 
-class _ChoroplethMap extends StatefulWidget {
-  const _ChoroplethMap({Key? key}) : super(key: key);
+class ChoroplethMap extends StatefulWidget {
+  const ChoroplethMap({Key? key}) : super(key: key);
   @override
-  __ChoroplethMapState createState() => __ChoroplethMapState();
+  ChoroplethMapState createState() => ChoroplethMapState();
 }
 
-class __ChoroplethMapState extends State<_ChoroplethMap> {
+class ChoroplethMapState extends State<ChoroplethMap> {
 
   late List<MapWardSpendingData> _data;
   late MapShapeSource _dataSource;
