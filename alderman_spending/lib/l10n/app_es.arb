@@ -1,7 +1,7 @@
 {
     "wardDropdown": "Barrio {wardValue}",
     "chartTitle": "Gasto Por Categoría",
-    "detailPlaceholder": "Seleccione un barrio para ver los detalles de gasto",
+    "detailPlaceholder": "Selecciona una categoría para ver una lista detallada de gastos",
     "errorLoadingData": "Error al cargar datos",
     "noDataForWardYear": "No hay datos por el barrio {wardValue} en {yearValue}",
     "projectTitle": "Gastos De Los Concejales",

@@ -187,7 +187,7 @@ class RouteGenerator {
         return DataPage(
           // pass query parameters
           initialWard: int.parse(queryParameters?['ward'] ?? '1'),
-          initialYear: int.parse(queryParameters?['year'] ?? '2022'),
+          initialYear: int.parse(queryParameters?['year'] ?? '2023'),
         );
       },
       '/category-map': (context) => const CategoryMapPage(),

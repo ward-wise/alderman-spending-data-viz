@@ -7,7 +7,7 @@
   "@chartTitle": {
     "description": "To be used as the title of the chart"
   },
-  "detailPlaceholder": "Select a category to see spending breakdown",
+  "detailPlaceholder": "Select a category to see a detailed list of spending",
   "@detailPlaceholder": {
     "description": "To be used as the placeholder for the detail region"
   },

@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
 import 'package:alderman_spending/src/ui/navigation/navigation_drawer.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-const String mapShapePath = 'assets/Wards-Boundaries.geojson';
 const Map<int, List<double>> wardCentroidCoordinates = {
   1: [41.9115084911536, -87.6834578873681],
   2: [41.90647465180663, -87.63630899994621],
@@ -75,7 +75,7 @@ Thank you for your time and attention, I look forward to your response and to wo
 Sincerely,
 Ward wardNumber Resident''');
 final mapDataSource = MapShapeSource.asset(
-  mapShapePath,
+  'assets/Wards-Boundaries.geojson',
   shapeDataField: 'ward',
   dataCount: 51,
   primaryValueMapper: (int index) => index.toString(),
@@ -98,19 +98,13 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       wardsInformation = await loadWardsInformation();
     });
-
-    // loadWardsInformation().then((value) =>
-    //   setState(() {
-    //     wardsInformation = value;
-    //   })
-    // );
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: MyNavigationDrawer(),
+      drawer: const MyNavigationDrawer(),
       appBar: AppBar(
         title: const Text('Find My Ward'),
       ),
@@ -119,7 +113,6 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
           if (MediaQuery.of(context).size.aspectRatio < 1.3) {
             return portraitLayout();
           }
-          // TODO Make landscape layout
           return landscapeLayout();
         },
       ),
@@ -138,46 +131,72 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
                   width: 50,
                 ),
                 Flexible(
-                  child: addressLookupForm(),
                   flex: 12,
+                  child: addressLookupForm(),
                 ),
-                Spacer(flex: 1),
+                const Spacer(flex: 1),
                 AnimatedOpacity(
                   duration: const Duration(milliseconds: 250),
+                  opacity: _selectedWard == null ? 0 : 1,
                   child:
                       Text("Ward\n$_selectedWard", textAlign: TextAlign.center),
-                  opacity: _selectedWard == null ? 0 : 1,
                 ),
-                Spacer(flex: 1),
+                const Spacer(flex: 1),
                 // Selected ward
               ],
             ),
             HighlightedWardMap(selectedWard: _selectedWard),
             WardContactCard(wardNumber: _selectedWard),
           ],
-        )
-        // child: Column(
-        //   children: [
-        //     Row(
-        //       children: [
-        //         Expanded(
-        //             child: Column(
-        //           children: [
-        //             addressLookupForm(),
-        //             if (_selectedWard != null) Text("Ward $_selectedWard"),
-        //           ],
-        //         )),
-        //         Expanded(child: HighlightedWardMap(selectedWard: _selectedWard)),
-        //       ],
-        //     ),
-        //     WardContactCard(wardNumber: _selectedWard),
-        //   ],
-        // ),
-        );
+        ));
   }
 
   Widget landscapeLayout() {
-    return const Placeholder();
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: addressLookupForm(),
+                    ),
+                    if (_selectedWard != null)
+                      Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.teal,
+                                width: 2,
+                              ),
+                            ),
+                            padding: const EdgeInsets.all(5),
+                            child: Text("Ward $_selectedWard",
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                          )),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: WardContactCard(wardNumber: _selectedWard),
+                )
+              ],
+            ),
+          ),
+          Expanded(child: HighlightedWardMap(selectedWard: _selectedWard)),
+        ],
+      ),
+    );
   }
 
   Widget addressLookupForm() {
@@ -219,16 +238,15 @@ class HighlightedWardMap extends StatefulWidget {
 class _HighlightedWardMapState extends State<HighlightedWardMap> {
   final MapZoomPanBehavior _zoomPanBehavior =
       MapZoomPanBehavior(showToolbar: false);
-  final _mapSelectionSettings = const MapSelectionSettings(
-    color: Colors.teal,
+  final _mapSelectionSettings = MapSelectionSettings(
+    color: Colors.teal.withOpacity(0.5),
     strokeColor: Colors.black,
     strokeWidth: 1,
   );
 
-  // TODO fix stupid dumb little zoom code that only works on changing ward but not initial selection
-  // Should update from null to ward
   @override
   void didUpdateWidget(covariant HighlightedWardMap oldWidget) {
+    // TODO Potential feature, zoom to ward once local tiles are supported
     // _zoomPanBehavior.focalLatLng = MapLatLng(
     //     wardCentroidCoordinates[widget.selectedWard]![0],
     //     wardCentroidCoordinates[widget.selectedWard]![1]);
@@ -238,16 +256,28 @@ class _HighlightedWardMapState extends State<HighlightedWardMap> {
 
   @override
   Widget build(BuildContext context) {
-    return IgnorePointer(
-      child: SfMaps(
-        layers: [
-          MapShapeLayer(
-            zoomPanBehavior: _zoomPanBehavior,
-            source: mapDataSource,
-            selectedIndex: widget.selectedWard ?? -1,
-            selectionSettings: _mapSelectionSettings,
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: IgnorePointer(
+        // Hack to show city map under ward map, SFMaps doesn't support asset tiles
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/Chicago_map_sublayer.png"),
+              fit: BoxFit.contain,
+            ),
           ),
-        ],
+          child: SfMaps(
+            layers: [
+              MapShapeLayer(
+                zoomPanBehavior: _zoomPanBehavior,
+                source: mapDataSource,
+                selectedIndex: widget.selectedWard ?? -1,
+                selectionSettings: _mapSelectionSettings,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -289,7 +319,6 @@ class _WardContactCardState extends State<WardContactCard> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO Make look good
     return GFListTile(
       padding: const EdgeInsets.all(20),
       color: Colors.white,
@@ -312,7 +341,7 @@ class _WardContactCardState extends State<WardContactCard> {
         ),
         Row(
           children: [
-            IconButton(onPressed: null, icon: Icon(Icons.phone)),
+            IconButton(onPressed: _launchPhone, icon: const Icon(Icons.phone)),
             Text(wardInfo?.wardPhone ?? "Phone"),
           ],
         ),
@@ -344,18 +373,25 @@ class _WardContactCardState extends State<WardContactCard> {
         "mailto:${wardInfo!.wardEmail}?subject=$emailSubject&body=$emailBody");
     return launchUrl(Uri.parse(url));
   }
+
+  Future<void> _launchPhone() {
+    if (wardInfo == null) {
+      return Future.value();
+    }
+    final url = Uri.encodeFull("tel:${wardInfo!.wardPhone}");
+    return launchUrl(Uri.parse(url));
+  }
 }
 
 Widget websiteButtons(Map<String, String?> wardWebsites) {
   List<IconButton> rowElements = [];
   const iconMap = {
-    // TODO Use real icons
-    "Website": Icon(Icons.web),
-    "Facebook": Icon(Icons.facebook, color: Colors.blueAccent),
-    "X": Icon(Icons.cancel_outlined),
-    "Instagram": Icon(Icons.camera_alt_outlined, color: Colors.redAccent),
-    "YouTube": Icon(Icons.play_arrow, color: Colors.red),
-    "LinkedIn": Icon(Icons.people_alt_outlined, color: Colors.blue),
+    "Website": Icon(FontAwesomeIcons.globe),
+    "Facebook": Icon(FontAwesomeIcons.facebook, color: Colors.blue),
+    "X": Icon(FontAwesomeIcons.xTwitter),
+    "Instagram": Icon(FontAwesomeIcons.instagram, color: Colors.redAccent),
+    "YouTube": Icon(FontAwesomeIcons.youtube, color: Colors.red),
+    "LinkedIn": Icon(FontAwesomeIcons.linkedin, color: Colors.blue),
   };
   wardWebsites.forEach((key, value) {
     if (value != null) {

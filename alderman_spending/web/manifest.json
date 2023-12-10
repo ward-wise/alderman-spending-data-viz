@@ -1,11 +1,11 @@
 {
-    "name": "alderman_spending",
-    "short_name": "alderman_spending",
+    "name": "Ward Wise - Aldermanic spending on neighborhood infrastructure",
+    "short_name": "Ward Wise",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Explore past spending on neighborhood infrastructure across Chicago. See how alderpeople spend their yearly $1.5 million in \"menu funds\" on their ward.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

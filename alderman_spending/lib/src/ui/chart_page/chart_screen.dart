@@ -18,51 +18,73 @@ class ChartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: MyNavigationDrawer(),
-      // appBar: AppBar(title: const Text('Spending Charts'),),
+      drawer: const MyNavigationDrawer(),
       body: SafeArea(
         child: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) {
-          // if (constraints.maxWidth / constraints.maxHeight > 1.3) {
-          //   return const Row(
-          //     children: [
-          //       Expanded(
-          //         flex: 2,
-          //         child: BarChartRegion(),
-          //       ),
-          //       VerticalDivider(
-          //         color: Colors.grey,
-          //         width: 1,
-          //         thickness: 1,
-          //       ),
-          //       Expanded(
-          //         flex: 1,
-          //         child: DetailRegion(),
-          //       ),
-          //     ],
-          //   );
-          // } else {
-          return const Column(
-            children: [
-              Expanded(
-                flex: 2,
-                child: BarChartRegion(),
-              ),
-              Divider(
-                color: Colors.grey,
-                height: 1,
-                thickness: 1,
-              ),
-              Expanded(
-                flex: 1,
-                child: DetailRegion(),
-              ),
-            ],
-          );
-        }
-            // },
-            ),
+  builder: (BuildContext context, BoxConstraints constraints) {
+    if (constraints.maxWidth / constraints.maxHeight > 1.3) {
+      return const LandscapeLayout();
+    } else {
+      return const PortraitLayout();
+    }
+  },
+),
+
       ),
+    );
+  }
+}
+
+class PortraitLayout extends StatelessWidget {
+  const PortraitLayout({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      children: [
+        Expanded(
+          flex: 2,
+          child: BarChartRegion(),
+        ),
+        Divider(
+          color: Colors.grey,
+          height: 1,
+          thickness: 1,
+        ),
+        Expanded(
+          flex: 1,
+          child: DetailRegion(),
+        ),
+      ],
+    );
+  }
+}
+
+class LandscapeLayout extends StatelessWidget {
+  const LandscapeLayout({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Row(
+      children: [
+        Expanded(
+          flex: 2,
+          child: BarChartRegion(),
+        ),
+        VerticalDivider(
+          color: Colors.grey,
+          width: 1,
+          thickness: 1,
+        ),
+        Expanded(
+          flex: 1,
+          child: DetailRegion(),
+        ),
+      ],
     );
   }
 }
@@ -109,10 +131,12 @@ class _DetailRegionState extends State<DetailRegion> {
         _selectedYear == null) {
       return null;
     }
-    return _wardItemLocationSpendingData!
+    var data = _wardItemLocationSpendingData!
         .where((element) =>
             element.ward == _selectedWard && element.year == _selectedYear)
-        .toList();
+        .toList()
+      ..sort((a, b) => b.cost.compareTo(a.cost));
+    return data;
   }
 
   @override
@@ -122,15 +146,12 @@ class _DetailRegionState extends State<DetailRegion> {
       return const CircularProgressIndicator();
     }
     if (_wardItemLocationSpendingData!.isEmpty) {
-      // return Text(AppLocalizations.of(context)!.errorLoadingData);
-      return const Text("error loading data");
+      return Text(AppLocalizations.of(context)!.errorLoadingData);
     }
     if (selectedData.selectedCategory == null ||
         selectedData.selectedCategory == "") {
       return Center(
-          // child: Text(AppLocalizations.of(context)!.detailPlaceholder));
-          child: const Text(
-              "Select a category to see a detailed list of spending."));
+          child: Text(AppLocalizations.of(context)!.detailPlaceholder));
     }
 
     final selectedWardItems = _filteredData!
@@ -219,7 +240,8 @@ class BarChartRegionState extends State<BarChartRegion> {
     return _spendingData!
         .where((element) =>
             element.ward == _selectedWard && element.year == _selectedYear)
-        .toList();
+        .toList()
+      ..sort((a, b) => a.cost.compareTo(b.cost));
   }
 
   @override
@@ -228,13 +250,11 @@ class BarChartRegionState extends State<BarChartRegion> {
       return const CircularProgressIndicator();
     }
     if (_spendingData!.isEmpty) {
-      // return Text(AppLocalizations.of(context)!.errorLoadingData);
-      return const Text("error loading data");
+      return Text(AppLocalizations.of(context)!.errorLoadingData);
     }
     if (_filteredData == null) {
-      // return Text(AppLocalizations.of(context)!
-      //     .noDataForWardYear(_selectedWard!, _selectedYear!));
-      return const Text("error loading data");
+      return Text(AppLocalizations.of(context)!
+          .noDataForWardYear(_selectedWard!, _selectedYear!));
     }
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
@@ -267,8 +287,8 @@ class BarChartRegionState extends State<BarChartRegion> {
               .map<DropdownMenuItem<int>>((int value) {
             return DropdownMenuItem<int>(
                 value: value,
-                // child: Text(AppLocalizations.of(context)!.wardDropdown(value)),
-                child: Text('Ward: $value'));
+                child: Text(AppLocalizations.of(context)!.wardDropdown(value)),
+            );
           }).toList(),
         ),
         DropdownButton<int>(
@@ -280,7 +300,7 @@ class BarChartRegionState extends State<BarChartRegion> {
               _selectedCategory = null;
             });
           },
-          items: <int>[2019, 2020, 2021, 2022]
+          items: List<int>.generate(12, (i) => 2012 + i) //2012-2023
               .map<DropdownMenuItem<int>>((int value) {
             return DropdownMenuItem<int>(
               value: value,
@@ -331,7 +351,7 @@ class BarChartRegionState extends State<BarChartRegion> {
             return _selectedCategory == null
                 ? Colors.blue // Default color
                 : _selectedCategory == data.category
-                    ? Color.fromARGB(
+                    ? const Color.fromARGB(
                         255, 105, 208, 255) // Color for selected category
                     : Colors.blue; // Color for other categories
           },

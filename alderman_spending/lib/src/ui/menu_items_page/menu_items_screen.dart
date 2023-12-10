@@ -31,45 +31,66 @@ class MenuItemsScreen extends StatelessWidget {
             title: const Text('Aldermanic Menu Items'),
           ),
           body: CustomScrollView(
-          slivers: [
-            SliverList(
-              delegate: SliverChildListDelegate(
-                [
-                  Container(
-                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                    child: Column(
-                      children: [
-                        const SizedBox(height: 30),
-                        Text(
-                          "Each year, CDOT and OBM provide alderpersons a list of standard menu items. Costs are estimated based on previous years' costs. Alderpersons select items from this list to allocate their \$1.5 million budget.",
-                          style: Theme.of(context).textTheme.bodyLarge,
-                          softWrap: true,
-                        ),
-                        const SizedBox(height: 20),
-                        Text(
-                          "Tap items to learn more.",
-                          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                fontWeight: FontWeight.bold,
+            slivers: [
+              SliverList(
+                delegate: SliverChildListDelegate(
+                  [
+                    Container(
+                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                      child: Column(
+                        children: [
+                          const SizedBox(height: 30),
+                          Text(
+                            "Each year, CDOT and OBM provide alderpersons a list of standard menu items. Costs are estimated based on previous years' costs. Alderpersons select items from this list to allocate their \$1.5 million budget.",
+                            style: Theme.of(context).textTheme.bodyLarge,
+                            softWrap: true,
+                          ),
+                          const SizedBox(height: 20),
+                          Text(
+                            "Tap items to learn more.",
+                            style:
+                                Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                            softWrap: true,
+                          ),
+                          const SizedBox(height: 25),
+                          if (MediaQuery.of(context).size.aspectRatio < 1.3)
+                            ListView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: menuItems.length,
+                              itemBuilder: (context, index) {
+                                return MenuListItem(
+                                    menuItemInfo: menuItems[index]);
+                              },
+                            )
+                          else
+                            GridView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: menuItems.length,
+                              primary: false,
+                              gridDelegate:
+                                  const SliverGridDelegateWithMaxCrossAxisExtent(
+                                maxCrossAxisExtent: 600,
+                                childAspectRatio: 1.5,
+                                crossAxisSpacing: 20,
+                                mainAxisSpacing: 20,
                               ),
-                          softWrap: true,
-                        ),
-                        const SizedBox(height: 25),
-                        ListView.builder(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: menuItems.length,
-                          itemBuilder: (context, index) {
-                            return MenuListItem(menuItemInfo: menuItems[index]);
-                          },
-                        ),
-                      ],
+                              itemBuilder: (context, index) {
+                                return MenuGridItem(
+                                    menuItemInfo: menuItems[index]);
+                              },
+                            )
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
         );
       },
     );
@@ -89,7 +110,7 @@ class MenuListItem extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => MenuItemDetailScreen(
+            builder: (context) => MenuItemDetailPortraitCard(
               menuItemInfo: menuItemInfo,
             ),
           ),
@@ -119,74 +140,152 @@ class MenuListItem extends StatelessWidget {
   }
 }
 
-class MenuItemDetailScreen extends StatelessWidget {
+class MenuGridItem extends StatelessWidget {
   final MenuItemInfo menuItemInfo;
-  static final _boxShadowSettings = BoxShadow(
+
+  const MenuGridItem({Key? key, required this.menuItemInfo}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      hoverColor: Colors.grey[300],
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MenuItemDetailPortraitCard(
+              menuItemInfo: menuItemInfo,
+            ),
+          ),
+        );
+      },
+      child: Card(
+        margin: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+        elevation: 5,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 8),
+              Text(
+                menuItemInfo.title,
+                style: const TextStyle(fontSize: 18),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 4),
+              Text(
+                _parseCostMeasurement(menuItemInfo),
+                style: const TextStyle(fontSize: 14),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 8),
+              Image.asset(
+                '$baseImagePath/${menuItemInfo.imgFilename}',
+                fit: BoxFit.cover,
+                scale: 2,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class MenuItemDetailPortraitCard extends StatelessWidget {
+  final MenuItemInfo menuItemInfo;
+  static final _boxShadowSettingsGFCard = BoxShadow(
     color: Colors.grey[500]!,
     spreadRadius: 5,
     blurRadius: 7,
     offset: const Offset(0, 3),
   );
 
-  const MenuItemDetailScreen({super.key, required this.menuItemInfo});
-  // TODO Add a back or close button
+  const MenuItemDetailPortraitCard({super.key, required this.menuItemInfo});
+  // TODO change to hero, don't route to new page
+  // TODO make landscape version
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: GFCard(
-        height: MediaQuery.of(context).size.height,
-        elevation: 15,
-        // padding: const EdgeInsets.all(20.0),
-        image: Image.asset(
-          '$baseImagePath/${menuItemInfo.imgFilename}',
-          fit: BoxFit.cover,
-        ),
-        showImage: true,
-        title: GFListTile(
-          title: Text(
-            menuItemInfo.title,
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
+        appBar: AppBar(),
+        body: GFCard(
+          color: Colors.grey[200]!,
+          elevation: 15,
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+          image: Image.asset(
+            '$baseImagePath/${menuItemInfo.imgFilename}',
+            fit: BoxFit.cover,
+          ),
+          showImage: true,
+          title: GFListTile(
+            title: Text(
+              menuItemInfo.title,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-          subTitle: Text(
-            _parseCostMeasurement(menuItemInfo),
-            style: const TextStyle(fontSize: 16),
-          ),
-          shadow: _boxShadowSettings,
-        ),
-        // margin: const EdgeInsets.all(20.0),
-        // TODO Make this scrollable, overflows for some reason
-        content: Column(
-          children: [
-            Text(
-              menuItemInfo.description,
+            subTitle: Text(
+              _parseCostMeasurement(menuItemInfo),
               style: const TextStyle(fontSize: 16),
             ),
-            _parseNotes(),
-          ],
-        ),
-      ),
-    );
+            shadow: _boxShadowSettingsGFCard,
+          ),
+          content: Container(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+            foregroundDecoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.grey[400]!,
+                width: 2,
+              ),
+              borderRadius: const BorderRadius.all(Radius.circular(5)),
+            ),
+            child: SizedBox(
+                  height: MediaQuery.of(context).size.height / 4,
+                  child: CustomScrollView(
+                    shrinkWrap: true,
+                    scrollBehavior: const ScrollBehavior(),
+                    scrollDirection: Axis.vertical,
+                    slivers: [
+                      SliverList(
+                        delegate: SliverChildListDelegate(
+                          [
+                            Text(
+                              menuItemInfo.description,
+                              style: const TextStyle(fontSize: 16),
+                            ),
+                            const SizedBox(height: 20),
+                            _parseNotes(menuItemInfo),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+          ),
+        ));
   }
+}
 
-  _parseNotes() {
-    if (menuItemInfo.notes != null) {
-      return Column(
-        children: menuItemInfo.notes!
-            .asMap()
-            .entries
-            .map((entry) => Text(
-                  'Note ${entry.key + 1}: ${entry.value}',
-                  style: const TextStyle(fontSize: 12),
-                ))
-            .toList(),
-      );
-    } else {
-      return const SizedBox.shrink();
-    }
+
+
+
+_parseNotes(MenuItemInfo menuItemInfo) {
+  if (menuItemInfo.notes != null) {
+    return Column(
+      children: menuItemInfo.notes!
+          .asMap()
+          .entries
+          .map((entry) => Text(
+                'Note ${entry.key + 1}: ${entry.value}\n',
+                style: const TextStyle(fontSize: 12),
+              ))
+          .toList(),
+    );
+  } else {
+    return const SizedBox.shrink();
   }
 }
 
