@@ -1,0 +1,3933 @@
+ward,year,category,cost
+1,2019,Lighting,500
+1,2019,Police Cameras,1800
+1,2019,Street Redesign,16450
+1,2019,Misc.,32230
+1,2019,Ped. Infra.,59030
+1,2019,Parks,250000
+1,2019,Street Resurfacing,261390
+1,2019,Sidewalk Repair,267960
+1,2019,Alleys,430640
+1,2020,Street Redesign,4700
+1,2020,Parks,75560
+1,2020,Ped. Infra.,78130
+1,2020,Sidewalk Repair,99930
+1,2020,Alleys,184030
+1,2020,Street Resurfacing,877650
+1,2021,Misc. CDOT,660
+1,2021,Street Redesign,2350
+1,2021,Police Cameras,12390
+1,2021,Misc.,21940
+1,2021,Bike Infra.,75000
+1,2021,Ped. Infra.,179210
+1,2021,Sidewalk Repair,196400
+1,2021,Alleys,218730
+1,2021,Parks,324440
+1,2021,Street Resurfacing,468870
+1,2022,Misc.,54780
+1,2022,Street Resurfacing,127160
+1,2022,Street Redesign,129190
+1,2022,Ped. Infra.,137310
+1,2022,Sidewalk Repair,209680
+1,2022,Bike Infra.,300000
+1,2022,Alleys,541890
+2,2019,Misc.,14000
+2,2019,Sidewalk Repair,14520
+2,2019,Ped. Infra.,38150
+2,2019,Alleys,46740
+2,2019,Police Cameras,49550
+2,2019,Lighting,82050
+2,2019,Street Redesign,101990
+2,2019,Parks,113000
+2,2019,Street Resurfacing,860000
+2,2020,Misc. CDOT,20000
+2,2020,Misc.,21940
+2,2020,Ped. Infra.,23400
+2,2020,Police Cameras,30330
+2,2020,Alleys,69940
+2,2020,Street Redesign,71380
+2,2020,Parks,197000
+2,2020,Lighting,359620
+2,2020,Street Resurfacing,526380
+2,2021,Ped. Infra.,1300
+2,2021,Lighting,1900
+2,2021,Street Redesign,3130
+2,2021,Misc.,10970
+2,2021,Sidewalk Repair,21250
+2,2021,Alleys,28200
+2,2021,Misc. CDOT,69370
+2,2021,Police Cameras,148220
+2,2021,Parks,197310
+2,2021,Street Resurfacing,1018360
+2,2022,Ped. Infra.,1050
+2,2022,Sidewalk Repair,14880
+2,2022,Street Redesign,16450
+2,2022,Police Cameras,49550
+2,2022,Parks,65000
+2,2022,Lighting,157250
+2,2022,Misc.,168210
+2,2022,Alleys,191580
+2,2022,Misc. CDOT,282340
+2,2022,Street Resurfacing,527630
+3,2019,Misc. CDOT,33720
+3,2019,Street Redesign,35790
+3,2019,Ped. Infra.,81630
+3,2019,Misc.,132000
+3,2019,Alleys,177980
+3,2019,Sidewalk Repair,258520
+3,2019,Street Resurfacing,578360
+3,2020,Misc.,500
+3,2020,Lighting,4540
+3,2020,Street Redesign,11750
+3,2020,Misc. CDOT,12430
+3,2020,Ped. Infra.,99500
+3,2020,Sidewalk Repair,217500
+3,2020,Alleys,468250
+3,2020,Street Resurfacing,505520
+3,2021,Misc. CDOT,6340
+3,2021,Ped. Infra.,16730
+3,2021,Street Redesign,35250
+3,2021,Sidewalk Repair,78100
+3,2021,Lighting,137290
+3,2021,Police Cameras,200680
+3,2021,Alleys,287690
+3,2021,Street Resurfacing,737930
+3,2022,Misc. CDOT,2250
+3,2022,Street Redesign,11750
+3,2022,Lighting,26260
+3,2022,Misc.,31460
+3,2022,Ped. Infra.,59540
+3,2022,Sidewalk Repair,63580
+3,2022,Alleys,516310
+3,2022,Street Resurfacing,788850
+4,2019,Misc. CDOT,150
+4,2019,Lighting,55100
+4,2019,Alleys,58880
+4,2019,Sidewalk Repair,90990
+4,2019,Ped. Infra.,130260
+4,2019,Street Resurfacing,984630
+4,2020,Misc. CDOT,750
+4,2020,Street Redesign,5000
+4,2020,Lighting,18500
+4,2020,Misc.,25000
+4,2020,Ped. Infra.,31550
+4,2020,Police Cameras,73450
+4,2020,Alleys,469470
+4,2020,Street Resurfacing,696290
+4,2021,Lighting,1000
+4,2021,Sidewalk Repair,29750
+4,2021,Street Redesign,30510
+4,2021,Misc.,35000
+4,2021,Parks,81140
+4,2021,Ped. Infra.,122590
+4,2021,Misc. CDOT,195660
+4,2021,Police Cameras,214010
+4,2021,Street Resurfacing,380380
+4,2021,Alleys,409940
+4,2022,Ped. Infra.,34330
+4,2022,Misc. CDOT,55320
+4,2022,Street Redesign,63590
+4,2022,Parks,75000
+4,2022,Sidewalk Repair,112300
+4,2022,Lighting,168000
+4,2022,Misc.,172610
+4,2022,Alleys,364590
+4,2022,Street Resurfacing,454260
+5,2019,Alleys,24000
+5,2019,Police Cameras,74330
+5,2019,Sidewalk Repair,76080
+5,2019,Misc.,363000
+5,2019,Street Resurfacing,372600
+5,2019,Lighting,410000
+5,2020,Sidewalk Repair,9820
+5,2020,Ped. Infra.,13300
+5,2020,Alleys,24050
+5,2020,Street Resurfacing,402830
+5,2020,Lighting,870000
+5,2021,Street Redesign,4700
+5,2021,Ped. Infra.,11760
+5,2021,Sidewalk Repair,56140
+5,2021,Street Resurfacing,124030
+5,2021,Police Cameras,214480
+5,2021,Lighting,465000
+5,2021,Alleys,623900
+5,2022,Misc. CDOT,1560
+5,2022,Police Cameras,24780
+5,2022,Misc.,38970
+5,2022,Ped. Infra.,72790
+5,2022,Alleys,247300
+5,2022,Lighting,431900
+5,2022,Street Resurfacing,584340
+6,2019,Police Cameras,24780
+6,2019,Misc.,25500
+6,2019,Sidewalk Repair,47910
+6,2019,Alleys,71800
+6,2019,Street Resurfacing,1150020
+6,2020,Alleys,1400
+6,2020,Street Redesign,4700
+6,2020,Police Cameras,24780
+6,2020,Ped. Infra.,28790
+6,2020,Sidewalk Repair,152650
+6,2020,Street Resurfacing,1107680
+6,2021,Street Redesign,4700
+6,2021,Misc. CDOT,5270
+6,2021,Alleys,96160
+6,2021,Sidewalk Repair,275400
+6,2021,Lighting,276700
+6,2021,Street Resurfacing,841780
+6,2022,Lighting,250
+6,2022,Street Redesign,2350
+6,2022,Misc. CDOT,31550
+6,2022,Alleys,36510
+6,2022,Misc.,37100
+6,2022,Sidewalk Repair,323930
+6,2022,Street Resurfacing,1068310
+7,2019,Lighting,500
+7,2019,Misc. CDOT,2670
+7,2019,Street Redesign,16450
+7,2019,Alleys,23020
+7,2019,Police Cameras,24780
+7,2019,Misc.,43340
+7,2019,Sidewalk Repair,233030
+7,2019,Street Resurfacing,976220
+7,2020,Street Redesign,11000
+7,2020,Misc. CDOT,22010
+7,2020,Alleys,22600
+7,2020,Lighting,109200
+7,2020,Sidewalk Repair,141540
+7,2020,Street Resurfacing,1013650
+7,2021,Street Redesign,9400
+7,2021,Misc. CDOT,122550
+7,2021,Sidewalk Repair,149140
+7,2021,Alleys,215400
+7,2021,Lighting,355000
+7,2021,Street Resurfacing,648510
+7,2022,Misc. CDOT,660
+7,2022,Lighting,2000
+7,2022,Street Redesign,18800
+7,2022,Viaducts,28340
+7,2022,Alleys,32410
+7,2022,Sidewalk Repair,371100
+7,2022,Street Resurfacing,1002650
+8,2019,Misc. CDOT,500
+8,2019,Alleys,10210
+8,2019,Street Redesign,16450
+8,2019,Sidewalk Repair,37560
+8,2019,Lighting,121640
+8,2019,Misc.,405000
+8,2019,Street Resurfacing,728630
+8,2020,Alleys,3500
+8,2020,Ped. Infra.,8580
+8,2020,Sidewalk Repair,11980
+8,2020,Street Redesign,39950
+8,2020,Lighting,353860
+8,2020,Street Resurfacing,902120
+8,2021,Misc. CDOT,1200
+8,2021,Misc.,2050
+8,2021,Alleys,6920
+8,2021,Street Redesign,25850
+8,2021,Ped. Infra.,40740
+8,2021,Sidewalk Repair,98790
+8,2021,Police Cameras,156790
+8,2021,Lighting,331200
+8,2021,Street Resurfacing,833640
+8,2022,Misc. CDOT,600
+8,2022,Alleys,4900
+8,2022,Misc.,23170
+8,2022,Street Redesign,43620
+8,2022,Sidewalk Repair,112010
+8,2022,Lighting,174750
+8,2022,Street Resurfacing,1140960
+9,2019,Alleys,123250
+9,2019,Sidewalk Repair,252620
+9,2019,Street Resurfacing,944130
+9,2020,Lighting,500
+9,2020,Alleys,2100
+9,2020,Misc.,10670
+9,2020,Street Redesign,100000
+9,2020,Sidewalk Repair,214760
+9,2020,Street Resurfacing,991970
+9,2021,Alleys,197760
+9,2021,Sidewalk Repair,217870
+9,2021,Street Resurfacing,1084360
+9,2022,Misc. CDOT,750
+9,2022,Alleys,76680
+9,2022,Sidewalk Repair,160290
+9,2022,Street Resurfacing,1261790
+10,2019,Ped. Infra.,350
+10,2019,Street Redesign,34300
+10,2019,Police Cameras,49550
+10,2019,Alleys,230650
+10,2019,Sidewalk Repair,262030
+10,2019,Street Resurfacing,743120
+10,2020,Beautification,10000
+10,2020,Street Redesign,28900
+10,2020,Sidewalk Repair,95150
+10,2020,Alleys,116060
+10,2020,Street Resurfacing,1069890
+10,2021,Lighting,1000
+10,2021,Misc. CDOT,1320
+10,2021,Misc.,2440
+10,2021,Police Cameras,10970
+10,2021,Beautification,35000
+10,2021,Street Redesign,81840
+10,2021,Alleys,146450
+10,2021,Sidewalk Repair,545170
+10,2021,Street Resurfacing,675800
+10,2022,Misc. CDOT,660
+10,2022,Viaducts,6890
+10,2022,Beautification,25000
+10,2022,Alleys,35830
+10,2022,Misc.,37300
+10,2022,Street Redesign,46900
+10,2022,Sidewalk Repair,273540
+10,2022,Street Resurfacing,1073890
+11,2019,Misc.,1510
+11,2019,Ped. Infra.,15000
+11,2019,Lighting,20600
+11,2019,Street Redesign,39630
+11,2019,Misc. CDOT,48910
+11,2019,Police Cameras,49550
+11,2019,Sidewalk Repair,84300
+11,2019,Bike Infra.,150000
+11,2019,Viaducts,152390
+11,2019,Alleys,276520
+11,2019,Street Resurfacing,481580
+11,2020,Street Redesign,20490
+11,2020,Police Cameras,49550
+11,2020,Sidewalk Repair,116120
+11,2020,Lighting,175400
+11,2020,Alleys,365830
+11,2020,Street Resurfacing,592610
+11,2021,Misc. CDOT,6010
+11,2021,Lighting,12500
+11,2021,Sidewalk Repair,17190
+11,2021,Misc.,56430
+11,2021,Viaducts,56510
+11,2021,Ped. Infra.,82500
+11,2021,Parks,172830
+11,2021,Street Redesign,177330
+11,2021,Police Cameras,206340
+11,2021,Street Resurfacing,336860
+11,2021,Alleys,375500
+11,2022,Police Cameras,1800
+11,2022,Lighting,17300
+11,2022,Ped. Infra.,66250
+11,2022,Street Redesign,199060
+11,2022,Street Resurfacing,212190
+11,2022,Sidewalk Repair,309820
+11,2022,Alleys,693590
+12,2019,Lighting,2000
+12,2019,Viaducts,12060
+12,2019,Street Redesign,23500
+12,2019,Police Cameras,74330
+12,2019,Misc.,97300
+12,2019,Alleys,237520
+12,2019,Sidewalk Repair,266300
+12,2019,Street Resurfacing,606980
+12,2020,Sidewalk Repair,31210
+12,2020,Street Redesign,97240
+12,2020,Street Resurfacing,334690
+12,2020,Alleys,351860
+12,2020,Lighting,505000
+12,2021,Ped. Infra.,600
+12,2021,Lighting,4850
+12,2021,Parks,7240
+12,2021,Misc.,21940
+12,2021,Police Cameras,49550
+12,2021,Street Redesign,56660
+12,2021,Sidewalk Repair,172720
+12,2021,Street Resurfacing,554510
+12,2021,Alleys,631920
+12,2022,Misc. CDOT,150
+12,2022,Lighting,500
+12,2022,Street Redesign,7050
+12,2022,Misc.,9030
+12,2022,Sidewalk Repair,13310
+12,2022,Viaducts,14000
+12,2022,Parks,108110
+12,2022,Alleys,489910
+12,2022,Street Resurfacing,857950
+13,2019,Lighting,4100
+13,2019,Street Redesign,7050
+13,2019,Misc. CDOT,15500
+13,2019,Misc.,40500
+13,2019,Parks,240000
+13,2019,Alleys,260880
+13,2019,Sidewalk Repair,345340
+13,2019,Street Resurfacing,406630
+13,2020,Lighting,10
+13,2020,Ped. Infra.,350
+13,2020,Street Redesign,4700
+13,2020,Misc.,11000
+13,2020,Alleys,32840
+13,2020,Sidewalk Repair,167550
+13,2020,Street Resurfacing,478550
+13,2020,Parks,625000
+13,2021,Misc. CDOT,660
+13,2021,Lighting,9340
+13,2021,Misc.,89360
+13,2021,Alleys,170340
+13,2021,Parks,200000
+13,2021,Sidewalk Repair,370270
+13,2021,Street Resurfacing,660030
+13,2022,Misc. CDOT,1320
+13,2022,Police Cameras,1800
+13,2022,Lighting,5450
+13,2022,Misc.,37640
+13,2022,Alleys,192090
+13,2022,Sidewalk Repair,194610
+13,2022,Parks,275000
+13,2022,Street Resurfacing,792090
+14,2019,Street Redesign,30550
+14,2019,Alleys,34940
+14,2019,Street Resurfacing,552990
+14,2019,Sidewalk Repair,701520
+14,2020,Lighting,310
+14,2020,Street Redesign,16450
+14,2020,Ped. Infra.,24920
+14,2020,Sidewalk Repair,419710
+14,2020,Street Resurfacing,858610
+14,2021,Misc. CDOT,760
+14,2021,Street Redesign,18800
+14,2021,Police Cameras,24780
+14,2021,Alleys,191020
+14,2021,Sidewalk Repair,259600
+14,2021,Street Resurfacing,1005040
+14,2022,Lighting,1690
+14,2022,Street Redesign,25720
+14,2022,Alleys,176040
+14,2022,Sidewalk Repair,416900
+14,2022,Street Resurfacing,879650
+15,2019,Street Redesign,2350
+15,2019,Street Resurfacing,4630
+15,2019,Alleys,52600
+15,2019,Lighting,80790
+15,2019,Misc.,271000
+15,2019,Sidewalk Repair,908620
+15,2020,Sidewalk Repair,20900
+15,2020,Parks,48590
+15,2020,Lighting,113240
+15,2020,Street Redesign,155430
+15,2020,Alleys,411450
+15,2020,Street Resurfacing,570400
+15,2021,Misc. CDOT,660
+15,2021,Misc.,810
+15,2021,Lighting,22350
+15,2021,Sidewalk Repair,57260
+15,2021,Street Resurfacing,105830
+15,2021,Alleys,1305840
+15,2022,Street Redesign,2350
+15,2022,Sidewalk Repair,22560
+15,2022,Lighting,298000
+15,2022,Alleys,586620
+15,2022,Street Resurfacing,590470
+16,2019,Misc. CDOT,960
+16,2019,Lighting,1000
+16,2019,Street Redesign,28200
+16,2019,Misc.,100000
+16,2019,Sidewalk Repair,177990
+16,2019,Street Resurfacing,1011850
+16,2020,Alleys,224920
+16,2020,Street Resurfacing,1095080
+16,2021,Misc. CDOT,300
+16,2021,Alleys,146620
+16,2021,Lighting,190000
+16,2021,Street Resurfacing,1163080
+16,2022,Misc. CDOT,100
+16,2022,Misc.,3340
+16,2022,Street Redesign,9400
+16,2022,Alleys,307440
+16,2022,Sidewalk Repair,325820
+16,2022,Street Resurfacing,853900
+17,2019,Misc. CDOT,2600
+17,2019,Street Redesign,4700
+17,2019,Police Cameras,24780
+17,2019,Sidewalk Repair,178210
+17,2019,Alleys,385790
+17,2019,Street Resurfacing,723930
+17,2020,Street Redesign,18800
+17,2020,Sidewalk Repair,163070
+17,2020,Alleys,314700
+17,2020,Street Resurfacing,823420
+17,2021,Misc. CDOT,810
+17,2021,Street Redesign,23500
+17,2021,Misc.,34880
+17,2021,Sidewalk Repair,162290
+17,2021,Lighting,280500
+17,2021,Alleys,348460
+17,2021,Street Resurfacing,649560
+17,2022,Misc. CDOT,300
+17,2022,Lighting,1500
+17,2022,Misc.,6820
+17,2022,Street Redesign,9400
+17,2022,Alleys,58890
+17,2022,Sidewalk Repair,409470
+17,2022,Street Resurfacing,1013620
+18,2019,Street Redesign,18800
+18,2019,Sidewalk Repair,350750
+18,2019,Street Resurfacing,950450
+18,2020,Street Redesign,7050
+18,2020,Alleys,62820
+18,2020,Sidewalk Repair,110940
+18,2020,Street Resurfacing,1139190
+18,2021,Lighting,500
+18,2021,Misc. CDOT,660
+18,2021,Street Redesign,14100
+18,2021,Alleys,24830
+18,2021,Misc.,89520
+18,2021,Sidewalk Repair,207460
+18,2021,Street Resurfacing,1162940
+18,2022,Misc.,5490
+18,2022,Lighting,26890
+18,2022,Street Redesign,43050
+18,2022,Sidewalk Repair,119830
+18,2022,Street Resurfacing,1304740
+19,2019,Street Redesign,3100
+19,2019,Misc. CDOT,22300
+19,2019,Parks,50000
+19,2019,Street Resurfacing,1244600
+19,2020,Sidewalk Repair,3720
+19,2020,Alleys,27700
+19,2020,Parks,50000
+19,2020,Street Resurfacing,1238590
+19,2021,Parks,91000
+19,2021,Misc.,160990
+19,2021,Street Resurfacing,1248010
+19,2022,Alleys,700
+19,2022,Misc. CDOT,1320
+19,2022,Lighting,3000
+19,2022,Street Redesign,14200
+19,2022,Street Resurfacing,1452200
+20,2019,Street Redesign,37320
+20,2019,Alleys,102610
+20,2019,Sidewalk Repair,160850
+20,2019,Lighting,1019220
+20,2020,Alleys,38080
+20,2020,Lighting,153730
+20,2020,Street Resurfacing,1128190
+20,2021,Misc. CDOT,1050
+20,2021,Ped. Infra.,8170
+20,2021,Sidewalk Repair,93590
+20,2021,Lighting,167930
+20,2021,Alleys,274670
+20,2021,Street Resurfacing,954590
+20,2022,Lighting,1000
+20,2022,Misc. CDOT,1350
+20,2022,Misc.,2210
+20,2022,Ped. Infra.,15000
+20,2022,Sidewalk Repair,294350
+20,2022,Alleys,344240
+20,2022,Street Resurfacing,725880
+21,2019,Misc. CDOT,1500
+21,2019,Street Redesign,23500
+21,2019,Alleys,86320
+21,2019,Sidewalk Repair,593100
+21,2019,Street Resurfacing,615580
+21,2020,Misc. CDOT,1320
+21,2020,Street Redesign,39950
+21,2020,Alleys,265370
+21,2020,Sidewalk Repair,298480
+21,2020,Street Resurfacing,714880
+21,2021,Misc. CDOT,660
+21,2021,Street Redesign,7050
+21,2021,Alleys,109920
+21,2021,Lighting,259450
+21,2021,Street Resurfacing,544490
+21,2021,Sidewalk Repair,578420
+21,2022,Misc. CDOT,660
+21,2022,Lighting,4300
+21,2022,Misc.,4490
+21,2022,Street Redesign,52920
+21,2022,Alleys,233590
+21,2022,Sidewalk Repair,407570
+21,2022,Street Resurfacing,796460
+22,2019,Misc. CDOT,2400
+22,2019,Street Redesign,21150
+22,2019,Misc.,23630
+22,2019,Police Cameras,49550
+22,2019,Sidewalk Repair,75020
+22,2019,Parks,81810
+22,2019,Alleys,237090
+22,2019,Street Resurfacing,829350
+22,2020,Misc. CDOT,1320
+22,2020,Misc.,1370
+22,2020,Lighting,1900
+22,2020,Ped. Infra.,5670
+22,2020,Police Cameras,24780
+22,2020,Street Redesign,30400
+22,2020,Sidewalk Repair,103480
+22,2020,Alleys,388010
+22,2020,Street Resurfacing,763080
+22,2021,Street Redesign,11750
+22,2021,Ped. Infra.,63720
+22,2021,Misc.,88540
+22,2021,Sidewalk Repair,158800
+22,2021,Alleys,547690
+22,2021,Street Resurfacing,629490
+22,2022,Misc. CDOT,1320
+22,2022,Street Redesign,46650
+22,2022,Parks,49120
+22,2022,Misc.,67740
+22,2022,Ped. Infra.,99480
+22,2022,Sidewalk Repair,164550
+22,2022,Alleys,430700
+22,2022,Street Resurfacing,599460
+23,2019,Misc.,680
+23,2019,Misc. CDOT,900
+23,2019,Street Redesign,30170
+23,2019,Alleys,139720
+23,2019,Sidewalk Repair,169290
+23,2019,Street Resurfacing,979240
+23,2020,Street Redesign,21150
+23,2020,Police Cameras,24780
+23,2020,Alleys,64320
+23,2020,Sidewalk Repair,85260
+23,2020,Street Resurfacing,1124490
+23,2021,Lighting,4750
+23,2021,Ped. Infra.,15070
+23,2021,Street Redesign,30550
+23,2021,Sidewalk Repair,42620
+23,2021,Beautification,50000
+23,2021,Misc.,52360
+23,2021,Viaducts,82400
+23,2021,Alleys,97240
+23,2021,Police Cameras,107240
+23,2021,Parks,185370
+23,2021,Street Resurfacing,832390
+23,2022,Lighting,32330
+23,2022,Street Redesign,37450
+23,2022,Parks,40000
+23,2022,Beautification,50000
+23,2022,Ped. Infra.,69460
+23,2022,Misc.,78160
+23,2022,Viaducts,86790
+23,2022,Sidewalk Repair,179700
+23,2022,Alleys,187260
+23,2022,Misc. CDOT,350000
+23,2022,Street Resurfacing,353690
+24,2019,Misc. CDOT,500
+24,2019,Viaducts,19940
+24,2019,Street Redesign,23500
+24,2019,Alleys,44910
+24,2019,Parks,125000
+24,2019,Sidewalk Repair,315580
+24,2019,Street Resurfacing,790570
+24,2020,Misc.,25000
+24,2020,Police Cameras,26580
+24,2020,Street Redesign,37600
+24,2020,Ped. Infra.,50000
+24,2020,Sidewalk Repair,58750
+24,2020,Alleys,106330
+24,2020,Street Resurfacing,219350
+24,2020,Misc. CDOT,271540
+24,2020,Lighting,524850
+24,2021,Misc. CDOT,1320
+24,2021,Lighting,11700
+24,2021,Street Redesign,44650
+24,2021,Sidewalk Repair,118980
+24,2021,Police Cameras,335530
+24,2021,Alleys,485520
+24,2021,Street Resurfacing,502300
+24,2022,Misc. CDOT,3210
+24,2022,Street Redesign,71480
+24,2022,Misc.,106330
+24,2022,Sidewalk Repair,120670
+24,2022,Lighting,344300
+24,2022,Street Resurfacing,407010
+24,2022,Alleys,412530
+25,2019,Street Redesign,3700
+25,2019,Misc. CDOT,12280
+25,2019,Viaducts,29040
+25,2019,Alleys,85140
+25,2019,Sidewalk Repair,142540
+25,2019,Street Resurfacing,1047300
+25,2020,Lighting,500
+25,2020,Street Redesign,4700
+25,2020,Misc. CDOT,28650
+25,2020,Alleys,50970
+25,2020,Sidewalk Repair,368410
+25,2020,Street Resurfacing,866770
+25,2021,Alleys,57360
+25,2021,Street Redesign,58750
+25,2021,Misc.,126510
+25,2021,Street Resurfacing,157730
+25,2021,Misc. CDOT,223820
+25,2021,Sidewalk Repair,236630
+25,2021,Lighting,639200
+25,2022,Misc. CDOT,2640
+25,2022,Street Redesign,30800
+25,2022,Alleys,140000
+25,2022,Misc.,155070
+25,2022,Lighting,176000
+25,2022,Ped. Infra.,295440
+25,2022,Street Resurfacing,310040
+25,2022,Sidewalk Repair,377190
+26,2019,Lighting,500
+26,2019,Street Redesign,11040
+26,2019,Parks,20000
+26,2019,Police Cameras,49550
+26,2019,Sidewalk Repair,182690
+26,2019,Street Resurfacing,308130
+26,2019,Alleys,748090
+26,2020,Misc. CDOT,660
+26,2020,Street Redesign,710
+26,2020,Beautification,20000
+26,2020,Lighting,40500
+26,2020,Police Cameras,49550
+26,2020,Sidewalk Repair,270730
+26,2020,Alleys,361300
+26,2020,Street Resurfacing,576550
+26,2021,Misc. CDOT,660
+26,2021,Police Cameras,1800
+26,2021,Lighting,5500
+26,2021,Street Redesign,11750
+26,2021,Street Resurfacing,33810
+26,2021,Sidewalk Repair,202170
+26,2021,Alleys,1244310
+26,2022,Lighting,950
+26,2022,Street Redesign,4700
+26,2022,Sidewalk Repair,16970
+26,2022,Misc. CDOT,110660
+26,2022,Street Resurfacing,221330
+26,2022,Alleys,1145380
+27,2019,Lighting,500
+27,2019,Street Redesign,20640
+27,2019,Sidewalk Repair,51350
+27,2019,Alleys,80630
+27,2019,Police Cameras,148660
+27,2019,Street Resurfacing,152220
+27,2019,Misc.,866000
+27,2020,Misc. CDOT,660
+27,2020,Street Redesign,4700
+27,2020,Lighting,14000
+27,2020,Police Cameras,24780
+27,2020,Alleys,44380
+27,2020,Sidewalk Repair,341930
+27,2020,Street Resurfacing,889550
+27,2021,Street Redesign,4700
+27,2021,Misc.,32910
+27,2021,Misc. CDOT,50660
+27,2021,Sidewalk Repair,75820
+27,2021,Viaducts,103480
+27,2021,Police Cameras,229030
+27,2021,Alleys,307470
+27,2021,Street Resurfacing,695930
+27,2022,Ped. Infra.,350
+27,2022,Lighting,4500
+27,2022,Misc. CDOT,7430
+27,2022,Police Cameras,24780
+27,2022,Misc.,63550
+27,2022,Street Redesign,66500
+27,2022,Alleys,86080
+27,2022,Sidewalk Repair,622640
+27,2022,Street Resurfacing,624180
+28,2019,Street Redesign,11750
+28,2019,Parks,25000
+28,2019,Ped. Infra.,28720
+28,2019,Misc. CDOT,57650
+28,2019,Sidewalk Repair,76810
+28,2019,Alleys,199690
+28,2019,Street Resurfacing,327200
+28,2019,Lighting,593180
+28,2020,Misc. CDOT,10160
+28,2020,Sidewalk Repair,11000
+28,2020,Street Redesign,62350
+28,2020,Street Resurfacing,312000
+28,2020,Alleys,347610
+28,2020,Lighting,576870
+28,2021,Police Cameras,1800
+28,2021,Sidewalk Repair,105900
+28,2021,Street Resurfacing,155480
+28,2021,Alleys,164880
+28,2021,Lighting,1071940
+28,2022,Misc. CDOT,660
+28,2022,Police Cameras,1800
+28,2022,Misc.,13310
+28,2022,Alleys,29170
+28,2022,Street Redesign,29700
+28,2022,Sidewalk Repair,55340
+28,2022,Street Resurfacing,97810
+28,2022,Lighting,1219700
+29,2019,Parks,30000
+29,2019,Misc.,50000
+29,2019,Street Redesign,54700
+29,2019,Sidewalk Repair,141290
+29,2019,Alleys,222230
+29,2019,Street Resurfacing,821780
+29,2020,Parks,15000
+29,2020,Sidewalk Repair,18610
+29,2020,Lighting,84200
+29,2020,Alleys,208890
+29,2020,Misc. CDOT,270000
+29,2020,Street Resurfacing,723300
+29,2021,Lighting,3660
+29,2021,Viaducts,4150
+29,2021,Misc.,14190
+29,2021,Ped. Infra.,14530
+29,2021,Beautification,15000
+29,2021,Misc. CDOT,24300
+29,2021,Police Cameras,35750
+29,2021,Street Redesign,89160
+29,2021,Parks,101520
+29,2021,Street Resurfacing,375370
+29,2021,Alleys,386250
+29,2021,Sidewalk Repair,436120
+29,2022,Misc. CDOT,900
+29,2022,Viaducts,4100
+29,2022,Lighting,6840
+29,2022,Parks,16700
+29,2022,Beautification,25000
+29,2022,Street Redesign,32510
+29,2022,Misc.,79350
+29,2022,Sidewalk Repair,163340
+29,2022,Alleys,562560
+29,2022,Street Resurfacing,608700
+30,2019,Lighting,500
+30,2019,Misc. CDOT,500
+30,2019,Misc.,1800
+30,2019,Street Redesign,21150
+30,2019,Sidewalk Repair,259400
+30,2019,Street Resurfacing,464610
+30,2019,Alleys,572050
+30,2020,Lighting,500
+30,2020,Street Redesign,7050
+30,2020,Police Cameras,24780
+30,2020,Sidewalk Repair,281410
+30,2020,Alleys,454420
+30,2020,Street Resurfacing,551840
+30,2021,Misc.,6710
+30,2021,Street Redesign,7050
+30,2021,Sidewalk Repair,106610
+30,2021,Lighting,259950
+30,2021,Alleys,359770
+30,2021,Street Resurfacing,759900
+30,2022,Street Redesign,23500
+30,2022,Lighting,227860
+30,2022,Sidewalk Repair,235000
+30,2022,Street Resurfacing,406330
+30,2022,Alleys,607310
+31,2019,Misc. CDOT,500
+31,2019,Lighting,2100
+31,2019,Street Redesign,18800
+31,2019,Ped. Infra.,80270
+31,2019,Alleys,101640
+31,2019,Sidewalk Repair,446140
+31,2019,Street Resurfacing,670560
+31,2020,Lighting,3800
+31,2020,Street Redesign,25850
+31,2020,Misc.,54820
+31,2020,Ped. Infra.,59300
+31,2020,Sidewalk Repair,100430
+31,2020,Police Cameras,123880
+31,2020,Alleys,441130
+31,2020,Street Resurfacing,510790
+31,2021,Sidewalk Repair,9750
+31,2021,Police Cameras,110080
+31,2021,Street Resurfacing,364410
+31,2021,Lighting,409900
+31,2021,Alleys,605860
+31,2022,Misc. CDOT,660
+31,2022,Lighting,16400
+31,2022,Misc.,18580
+31,2022,Street Redesign,18800
+31,2022,Ped. Infra.,80710
+31,2022,Sidewalk Repair,226490
+31,2022,Alleys,284890
+31,2022,Street Resurfacing,853470
+32,2019,Ped. Infra.,1200
+32,2019,Misc. CDOT,4540
+32,2019,Street Redesign,9400
+32,2019,Sidewalk Repair,101140
+32,2019,Alleys,133230
+32,2019,Parks,175000
+32,2019,Misc.,325000
+32,2019,Street Resurfacing,570480
+32,2020,Ped. Infra.,7970
+32,2020,Street Redesign,21950
+32,2020,Police Cameras,24780
+32,2020,Sidewalk Repair,96640
+32,2020,Alleys,314390
+32,2020,Street Resurfacing,854280
+32,2021,Misc. CDOT,150
+32,2021,Street Redesign,11750
+32,2021,Misc.,15200
+32,2021,Sidewalk Repair,20870
+32,2021,Police Cameras,87930
+32,2021,Ped. Infra.,98730
+32,2021,Alleys,623060
+32,2021,Street Resurfacing,642300
+32,2022,Sidewalk Repair,3760
+32,2022,Street Redesign,22740
+32,2022,Lighting,50000
+32,2022,Parks,150000
+32,2022,Ped. Infra.,169500
+32,2022,Street Resurfacing,368850
+32,2022,Alleys,689300
+33,2019,Ped. Infra.,11220
+33,2019,Street Redesign,21370
+33,2019,Parks,25000
+33,2019,Misc.,54170
+33,2019,Sidewalk Repair,166350
+33,2019,Street Resurfacing,217110
+33,2019,Alleys,824780
+33,2020,Street Redesign,23280
+33,2020,Beautification,25000
+33,2020,Misc. CDOT,35000
+33,2020,Police Cameras,42650
+33,2020,Parks,75000
+33,2020,Alleys,132750
+33,2020,Sidewalk Repair,207610
+33,2020,Ped. Infra.,263220
+33,2020,Street Resurfacing,515490
+33,2021,Beautification,5000
+33,2021,Ped. Infra.,11380
+33,2021,Misc.,50000
+33,2021,Lighting,69000
+33,2021,Parks,70000
+33,2021,Sidewalk Repair,91520
+33,2021,Street Redesign,112800
+33,2021,Bike Infra.,191000
+33,2021,Street Resurfacing,284480
+33,2021,Alleys,614820
+33,2022,Lighting,500
+33,2022,Ped. Infra.,950
+33,2022,Street Redesign,18800
+33,2022,Misc. CDOT,41260
+33,2022,Sidewalk Repair,105020
+33,2022,Misc.,111400
+33,2022,Parks,305000
+33,2022,Street Resurfacing,336270
+33,2022,Alleys,537480
+34,2019,Misc. CDOT,1500
+34,2019,Lighting,8000
+34,2019,Street Redesign,9400
+34,2019,Alleys,114640
+34,2019,Sidewalk Repair,137500
+34,2019,Street Resurfacing,1048960
+34,2020,Street Redesign,4700
+34,2020,Alleys,57470
+34,2020,Sidewalk Repair,100210
+34,2020,Street Resurfacing,1157620
+34,2021,Misc. CDOT,660
+34,2021,Lighting,15400
+34,2021,Street Redesign,68150
+34,2021,Alleys,98550
+34,2021,Sidewalk Repair,134010
+34,2021,Street Resurfacing,1183230
+34,2022,Misc. CDOT,1320
+34,2022,Street Redesign,42300
+34,2022,Sidewalk Repair,183960
+34,2022,Alleys,189230
+34,2022,Lighting,260000
+34,2022,Street Resurfacing,823190
+35,2019,Misc. CDOT,5100
+35,2019,Misc.,7280
+35,2019,Ped. Infra.,15050
+35,2019,Street Redesign,18800
+35,2019,Police Cameras,74330
+35,2019,Lighting,154400
+35,2019,Street Resurfacing,215770
+35,2019,Sidewalk Repair,217670
+35,2019,Alleys,611600
+35,2020,Ped. Infra.,6900
+35,2020,Lighting,11700
+35,2020,Police Cameras,17870
+35,2020,Misc. CDOT,22370
+35,2020,Street Redesign,28200
+35,2020,Sidewalk Repair,63870
+35,2020,Misc.,72560
+35,2020,Parks,75000
+35,2020,Street Resurfacing,413750
+35,2020,Alleys,607770
+35,2021,Misc. CDOT,1720
+35,2021,Lighting,4350
+35,2021,Street Redesign,21150
+35,2021,Misc.,27410
+35,2021,Ped. Infra.,33470
+35,2021,Police Cameras,76130
+35,2021,Sidewalk Repair,167620
+35,2021,Parks,280000
+35,2021,Street Resurfacing,368020
+35,2021,Alleys,520130
+35,2022,Misc. CDOT,1320
+35,2022,Lighting,21800
+35,2022,Ped. Infra.,22490
+35,2022,Misc.,52820
+35,2022,Beautification,60000
+35,2022,Street Redesign,82450
+35,2022,Sidewalk Repair,94480
+35,2022,Bike Infra.,110000
+35,2022,Parks,143500
+35,2022,Viaducts,154350
+35,2022,Alleys,337820
+35,2022,Street Resurfacing,397010
+36,2019,Alleys,14000
+36,2019,Ped. Infra.,43510
+36,2019,Misc.,130400
+36,2019,Street Redesign,180810
+36,2019,Sidewalk Repair,220530
+36,2019,Street Resurfacing,730740
+36,2020,Ped. Infra.,350
+36,2020,Misc.,14670
+36,2020,Misc. CDOT,22190
+36,2020,Police Cameras,24780
+36,2020,Alleys,64930
+36,2020,Parks,110000
+36,2020,Street Redesign,132600
+36,2020,Sidewalk Repair,133530
+36,2020,Street Resurfacing,816950
+36,2021,Misc. CDOT,660
+36,2021,Misc.,4540
+36,2021,Street Redesign,18800
+36,2021,Ped. Infra.,61330
+36,2021,Sidewalk Repair,214810
+36,2021,Alleys,592270
+36,2021,Street Resurfacing,607590
+36,2022,Misc. CDOT,660
+36,2022,Ped. Infra.,9870
+36,2022,Misc.,13360
+36,2022,Street Redesign,34880
+36,2022,Sidewalk Repair,321360
+36,2022,Alleys,522410
+36,2022,Street Resurfacing,597460
+37,2019,Misc. CDOT,6000
+37,2019,Street Redesign,63000
+37,2019,Sidewalk Repair,211180
+37,2019,Alleys,454700
+37,2019,Street Resurfacing,585120
+37,2020,Misc. CDOT,150
+37,2020,Police Cameras,24780
+37,2020,Street Redesign,32900
+37,2020,Sidewalk Repair,53070
+37,2020,Alleys,94570
+37,2020,Lighting,532950
+37,2020,Street Resurfacing,581590
+37,2021,Street Redesign,5830
+37,2021,Police Cameras,24780
+37,2021,Ped. Infra.,29260
+37,2021,Sidewalk Repair,39040
+37,2021,Alleys,122420
+37,2021,Lighting,220500
+37,2021,Street Resurfacing,1058180
+37,2022,Misc.,1840
+37,2022,Viaducts,14360
+37,2022,Beautification,15000
+37,2022,Street Redesign,20070
+37,2022,Ped. Infra.,29970
+37,2022,Sidewalk Repair,35900
+37,2022,Lighting,137500
+37,2022,Alleys,559040
+37,2022,Street Resurfacing,622700
+38,2019,Alleys,17700
+38,2019,Sidewalk Repair,51340
+38,2019,Street Resurfacing,1250960
+38,2020,Lighting,1000
+38,2020,Misc. CDOT,1320
+38,2020,Police Cameras,24780
+38,2020,Street Redesign,35250
+38,2020,Sidewalk Repair,66710
+38,2020,Alleys,190720
+38,2020,Street Resurfacing,1000220
+38,2021,Misc. CDOT,1320
+38,2021,Lighting,2000
+38,2021,Street Redesign,9400
+38,2021,Parks,10000
+38,2021,Alleys,27430
+38,2021,Street Resurfacing,1449850
+38,2022,Misc.,28000
+38,2022,Street Redesign,28200
+38,2022,Sidewalk Repair,58010
+38,2022,Alleys,402910
+38,2022,Lighting,420500
+38,2022,Street Resurfacing,522300
+39,2019,Sidewalk Repair,2700
+39,2019,Viaducts,5000
+39,2019,Ped. Infra.,5810
+39,2019,Misc. CDOT,8820
+39,2019,Alleys,14090
+39,2019,Street Redesign,38980
+39,2019,Misc.,65500
+39,2019,Street Resurfacing,1179100
+39,2020,Misc. CDOT,3490
+39,2020,Lighting,3500
+39,2020,Alleys,4900
+39,2020,Street Redesign,9400
+39,2020,Parks,16850
+39,2020,Police Cameras,49550
+39,2020,Sidewalk Repair,94370
+39,2020,Misc.,400000
+39,2020,Street Resurfacing,737940
+39,2021,Lighting,11200
+39,2021,Sidewalk Repair,21050
+39,2021,Police Cameras,35750
+39,2021,Street Redesign,37830
+39,2021,Alleys,51170
+39,2021,Misc. CDOT,66470
+39,2021,Misc.,85130
+39,2021,Parks,170000
+39,2021,Beautification,173900
+39,2021,Street Resurfacing,847500
+39,2022,Lighting,1250
+39,2022,Street Redesign,14250
+39,2022,Sidewalk Repair,26960
+39,2022,Misc. CDOT,50000
+39,2022,Parks,255000
+39,2022,Street Resurfacing,1152540
+40,2019,Street Redesign,5950
+40,2019,Sidewalk Repair,7810
+40,2019,Bike Infra.,23000
+40,2019,Police Cameras,49550
+40,2019,Misc.,71500
+40,2019,Street Resurfacing,499250
+40,2019,Alleys,662940
+40,2020,Lighting,340
+40,2020,Ped. Infra.,5660
+40,2020,Street Redesign,14100
+40,2020,Sidewalk Repair,45050
+40,2020,Beautification,55000
+40,2020,Misc. CDOT,97840
+40,2020,Police Cameras,99100
+40,2020,Parks,120000
+40,2020,Alleys,191030
+40,2020,Street Resurfacing,684000
+40,2021,Lighting,1660
+40,2021,Misc. CDOT,15790
+40,2021,Street Redesign,49350
+40,2021,Beautification,50000
+40,2021,Ped. Infra.,76930
+40,2021,Parks,110000
+40,2021,Sidewalk Repair,234810
+40,2021,Street Resurfacing,303110
+40,2021,Alleys,658340
+40,2022,Viaducts,36140
+40,2022,Misc. CDOT,70220
+40,2022,Misc.,87730
+40,2022,Ped. Infra.,101600
+40,2022,Sidewalk Repair,251970
+40,2022,Parks,270000
+40,2022,Street Resurfacing,334820
+40,2022,Alleys,347520
+41,2019,Ped. Infra.,950
+41,2019,Alleys,5550
+41,2019,Sidewalk Repair,14570
+41,2019,Misc.,43500
+41,2019,Street Resurfacing,1255430
+41,2020,Alleys,1390
+41,2020,Street Redesign,18150
+41,2020,Misc. CDOT,20000
+41,2020,Sidewalk Repair,106060
+41,2020,Street Resurfacing,1174400
+41,2021,Misc.,1470
+41,2021,Alleys,2100
+41,2021,Street Redesign,9400
+41,2021,Ped. Infra.,19660
+41,2021,Misc. CDOT,59700
+41,2021,Street Resurfacing,1407660
+41,2022,Ped. Infra.,350
+41,2022,Misc. CDOT,660
+41,2022,Street Redesign,14100
+41,2022,Misc.,60520
+41,2022,Street Resurfacing,1421050
+42,2019,Street Redesign,37860
+42,2019,Alleys,62520
+42,2019,Police Cameras,74330
+42,2019,Sidewalk Repair,98080
+42,2019,Ped. Infra.,136930
+42,2019,Misc.,200050
+42,2019,Misc. CDOT,200660
+42,2019,Lighting,240830
+42,2019,Street Resurfacing,268740
+42,2020,Ped. Infra.,350
+42,2020,Misc. CDOT,10540
+42,2020,Police Cameras,24780
+42,2020,Alleys,51400
+42,2020,Viaducts,60000
+42,2020,Street Resurfacing,60420
+42,2020,Misc.,65790
+42,2020,Sidewalk Repair,68620
+42,2020,Street Redesign,159890
+42,2020,Lighting,818220
+42,2021,Misc. CDOT,660
+42,2021,Ped. Infra.,27560
+42,2021,Parks,45000
+42,2021,Police Cameras,99100
+42,2021,Street Resurfacing,282880
+42,2021,Lighting,492920
+42,2021,Misc.,551880
+42,2022,Street Redesign,4700
+42,2022,Parks,16280
+42,2022,Ped. Infra.,16600
+42,2022,Sidewalk Repair,55860
+42,2022,Viaducts,100000
+42,2022,Misc. CDOT,100660
+42,2022,Lighting,200000
+42,2022,Street Resurfacing,446340
+42,2022,Misc.,447950
+43,2019,Lighting,1500
+43,2019,Parks,35620
+43,2019,Sidewalk Repair,47950
+43,2019,Ped. Infra.,65240
+43,2019,Street Resurfacing,217230
+43,2019,Misc.,276500
+43,2019,Alleys,675960
+43,2020,Lighting,500
+43,2020,Ped. Infra.,2350
+43,2020,Misc.,25000
+43,2020,Sidewalk Repair,81150
+43,2020,Police Cameras,99100
+43,2020,Alleys,180150
+43,2020,Street Resurfacing,899830
+43,2021,Ped. Infra.,1050
+43,2021,Misc. CDOT,1320
+43,2021,Alleys,14390
+43,2021,Viaducts,40580
+43,2021,Police Cameras,99100
+43,2021,Lighting,125000
+43,2021,Misc.,269280
+43,2021,Sidewalk Repair,314340
+43,2021,Street Resurfacing,634940
+43,2022,Lighting,4200
+43,2022,Misc. CDOT,15070
+43,2022,Parks,50000
+43,2022,Ped. Infra.,65520
+43,2022,Sidewalk Repair,101160
+43,2022,Misc.,259960
+43,2022,Street Resurfacing,484930
+43,2022,Alleys,519150
+44,2019,Lighting,5500
+44,2019,Misc. CDOT,10990
+44,2019,Ped. Infra.,60000
+44,2019,Sidewalk Repair,83790
+44,2019,Misc.,134980
+44,2019,Alleys,439060
+44,2019,Street Resurfacing,585680
+44,2020,Ped. Infra.,2460
+44,2020,Misc. CDOT,4500
+44,2020,Sidewalk Repair,7190
+44,2020,Street Redesign,99120
+44,2020,Lighting,120000
+44,2020,Alleys,207960
+44,2020,Street Resurfacing,878770
+44,2021,Misc. CDOT,4420
+44,2021,Street Redesign,9400
+44,2021,Lighting,14490
+44,2021,Misc.,136310
+44,2021,Sidewalk Repair,222660
+44,2021,Alleys,482720
+44,2021,Street Resurfacing,629990
+44,2022,Misc. CDOT,3800
+44,2022,Parks,60000
+44,2022,Sidewalk Repair,166700
+44,2022,Lighting,330510
+44,2022,Street Resurfacing,461200
+44,2022,Alleys,477800
+45,2019,Parks,48690
+45,2019,Alleys,260340
+45,2019,Street Resurfacing,1010970
+45,2020,Sidewalk Repair,10680
+45,2020,Street Redesign,35250
+45,2020,Alleys,164390
+45,2020,Street Resurfacing,1109680
+45,2021,Ped. Infra.,2000
+45,2021,Misc. CDOT,2500
+45,2021,Street Redesign,4700
+45,2021,Alleys,36790
+45,2021,Misc.,127970
+45,2021,Street Resurfacing,1326050
+45,2022,Misc. CDOT,660
+45,2022,Street Redesign,2350
+45,2022,Lighting,2500
+45,2022,Ped. Infra.,11560
+45,2022,Misc.,41410
+45,2022,Alleys,107320
+45,2022,Street Resurfacing,1328250
+46,2019,Beautification,40000
+46,2019,Sidewalk Repair,42280
+46,2019,Parks,50000
+46,2019,Ped. Infra.,72080
+46,2019,Misc. CDOT,72810
+46,2019,Misc.,140000
+46,2019,Alleys,284170
+46,2019,Street Resurfacing,618650
+46,2020,Misc.,1000
+46,2020,Ped. Infra.,1070
+46,2020,Sidewalk Repair,22960
+46,2020,Police Cameras,49550
+46,2020,Alleys,81470
+46,2020,Street Resurfacing,368950
+46,2020,Lighting,795000
+46,2021,Misc. CDOT,41100
+46,2021,Viaducts,70920
+46,2021,Police Cameras,74330
+46,2021,Beautification,75000
+46,2021,Ped. Infra.,128060
+46,2021,Sidewalk Repair,135400
+46,2021,Parks,153540
+46,2021,Lighting,223460
+46,2021,Street Resurfacing,225310
+46,2021,Alleys,372880
+46,2022,Street Redesign,2350
+46,2022,Lighting,6840
+46,2022,Bike Infra.,17500
+46,2022,Misc. CDOT,20000
+46,2022,Misc.,53000
+46,2022,Sidewalk Repair,56160
+46,2022,Police Cameras,123880
+46,2022,Alleys,141110
+46,2022,Ped. Infra.,495220
+46,2022,Street Resurfacing,583950
+47,2019,Bike Infra.,29000
+47,2019,Sidewalk Repair,30880
+47,2019,Street Redesign,54950
+47,2019,Beautification,60000
+47,2019,Ped. Infra.,70040
+47,2019,Parks,130000
+47,2019,Lighting,244000
+47,2019,Street Resurfacing,335590
+47,2019,Alleys,365550
+47,2020,Misc.,28000
+47,2020,Street Redesign,29370
+47,2020,Bike Infra.,71000
+47,2020,Misc. CDOT,82280
+47,2020,Ped. Infra.,103510
+47,2020,Alleys,156810
+47,2020,Sidewalk Repair,226810
+47,2020,Street Resurfacing,622220
+47,2021,Lighting,3300
+47,2021,Street Redesign,16670
+47,2021,Beautification,40000
+47,2021,Misc. CDOT,49690
+47,2021,Sidewalk Repair,111520
+47,2021,Misc.,156300
+47,2021,Bike Infra.,186500
+47,2021,Alleys,192620
+47,2021,Ped. Infra.,221870
+47,2021,Street Resurfacing,521530
+47,2022,Lighting,5430
+47,2022,Misc. CDOT,11350
+47,2022,Street Redesign,46580
+47,2022,Parks,54000
+47,2022,Misc.,122910
+47,2022,Sidewalk Repair,162490
+47,2022,Alleys,200850
+47,2022,Ped. Infra.,203200
+47,2022,Street Resurfacing,662960
+48,2019,Lighting,10200
+48,2019,Street Redesign,12050
+48,2019,Bike Infra.,17000
+48,2019,Misc.,34070
+48,2019,Sidewalk Repair,40390
+48,2019,Police Cameras,49550
+48,2019,Ped. Infra.,115760
+48,2019,Alleys,193860
+48,2019,Street Resurfacing,847120
+48,2020,Street Redesign,4700
+48,2020,Misc.,11000
+48,2020,Lighting,24600
+48,2020,Police Cameras,24780
+48,2020,Beautification,70410
+48,2020,Sidewalk Repair,78140
+48,2020,Parks,80000
+48,2020,Ped. Infra.,142460
+48,2020,Alleys,219600
+48,2020,Street Resurfacing,664310
+48,2021,Ped. Infra.,5890
+48,2021,Street Redesign,16850
+48,2021,Beautification,50000
+48,2021,Alleys,130860
+48,2021,Police Cameras,164700
+48,2021,Misc.,176150
+48,2021,Sidewalk Repair,185510
+48,2021,Lighting,374900
+48,2021,Street Resurfacing,395150
+48,2022,Ped. Infra.,1800
+48,2022,Street Redesign,2350
+48,2022,Misc.,15900
+48,2022,Beautification,50000
+48,2022,Alleys,224720
+48,2022,Sidewalk Repair,251080
+48,2022,Street Resurfacing,454140
+48,2022,Misc. CDOT,500000
+49,2019,Ped. Infra.,5120
+49,2019,Misc. CDOT,39920
+49,2019,Parks,60000
+49,2019,Street Resurfacing,113830
+49,2019,Sidewalk Repair,139160
+49,2019,Beautification,168000
+49,2019,Misc.,335000
+49,2019,Alleys,458970
+49,2020,Street Redesign,2350
+49,2020,Misc. CDOT,20660
+49,2020,Parks,115000
+49,2020,Sidewalk Repair,126910
+49,2020,Misc.,136000
+49,2020,Street Resurfacing,143620
+49,2020,Alleys,775460
+49,2021,Street Redesign,2350
+49,2021,Beautification,24000
+49,2021,Misc.,35000
+49,2021,Misc. CDOT,47290
+49,2021,Sidewalk Repair,178380
+49,2021,Street Resurfacing,227890
+49,2021,Parks,267830
+49,2021,Lighting,300000
+49,2021,Alleys,417260
+49,2022,Misc. CDOT,4560
+49,2022,Street Redesign,4700
+49,2022,Ped. Infra.,40460
+49,2022,Misc.,58090
+49,2022,Sidewalk Repair,84410
+49,2022,Parks,105730
+49,2022,Street Resurfacing,326440
+49,2022,Lighting,333000
+49,2022,Alleys,542610
+50,2019,Ped. Infra.,65950
+50,2019,Alleys,111460
+50,2019,Lighting,350000
+50,2019,Street Resurfacing,792590
+50,2020,Lighting,2500
+50,2020,Sidewalk Repair,24890
+50,2020,Street Redesign,74650
+50,2020,Ped. Infra.,80000
+50,2020,Alleys,97040
+50,2020,Street Resurfacing,1040920
+50,2021,Ped. Infra.,7500
+50,2021,Sidewalk Repair,12660
+50,2021,Street Redesign,24280
+50,2021,Alleys,98550
+50,2021,Lighting,629700
+50,2021,Street Resurfacing,727310
+50,2022,Misc.,3770
+50,2022,Street Redesign,25430
+50,2022,Ped. Infra.,42920
+50,2022,Alleys,51360
+50,2022,Lighting,233440
+50,2022,Street Resurfacing,1143080
+1,2012,Alleys,9154
+1,2012,Lighting,147950
+1,2012,Misc.,103305
+1,2012,Parks,605000
+1,2012,Pedestrian Infrastructure,15011
+1,2012,Sidewalk Repair,23613
+1,2012,Street Redesign,16800
+1,2012,Street Resurfacing,399166
+1,2013,Alleys,438774
+1,2013,Bicycle Infrastructure,50000
+1,2013,Lighting,1550
+1,2013,Misc.,148808
+1,2013,Parks,450000
+1,2013,Pedestrian Infrastructure,6933
+1,2013,Sidewalk Repair,40743
+1,2013,Street Redesign,29600
+1,2013,Street Resurfacing,153592
+1,2014,Alleys,1701
+1,2014,Lighting,500
+1,2014,Misc.,41860
+1,2014,Parks,372247
+1,2014,Pedestrian Infrastructure,67429
+1,2014,Sidewalk Repair,54123
+1,2014,Street Redesign,9250
+1,2014,Street Resurfacing,772889
+1,2015,Alleys,89661
+1,2015,Misc.,194240
+1,2015,Misc. CDOT,65059
+1,2015,Parks,535000
+1,2015,Pedestrian Infrastructure,600
+1,2015,Sidewalk Repair,101467
+1,2015,Street Redesign,7400
+1,2015,Street Resurfacing,350577
+1,2016,Alleys,396117
+1,2016,Lighting,8500
+1,2016,Misc.,115687
+1,2016,Pedestrian Infrastructure,13300
+1,2016,Sidewalk Repair,87850
+1,2016,Street Redesign,3850
+1,2016,Street Resurfacing,612199
+1,2016,Viaducts,16000
+1,2017,Alleys,399638
+1,2017,Beautification,50000
+1,2017,Misc.,79111
+1,2017,Misc. CDOT,634
+1,2017,Parks,9300
+1,2017,Pedestrian Infrastructure,179338
+1,2017,Street Resurfacing,601979
+1,2018,Alleys,219138
+1,2018,Misc.,71900
+1,2018,Parks,550000
+1,2018,Pedestrian Infrastructure,80322
+1,2018,Sidewalk Repair,31299
+1,2018,Street Redesign,7400
+1,2018,Street Resurfacing,359939
+1,2023,Alleys,82158
+1,2023,Bicycle Infrastructure,475000
+1,2023,Misc.,61000
+1,2023,Misc. CDOT,2081
+1,2023,Parks,100000
+1,2023,Pedestrian Infrastructure,405973
+1,2023,Sidewalk Repair,20262
+1,2023,Street Redesign,68000
+1,2023,Street Resurfacing,285526
+2,2012,Alleys,102940
+2,2012,Lighting,352600
+2,2012,Misc.,245250
+2,2012,Sidewalk Repair,77413
+2,2012,Street Redesign,11500
+2,2012,Street Resurfacing,529693
+2,2013,Alleys,34614
+2,2013,Lighting,290950
+2,2013,Misc.,210760
+2,2013,Pedestrian Infrastructure,35377
+2,2013,Sidewalk Repair,155400
+2,2013,Street Redesign,3700
+2,2013,Street Resurfacing,589199
+2,2014,Alleys,4147
+2,2014,Lighting,37400
+2,2014,Misc.,183272
+2,2014,Pedestrian Infrastructure,700
+2,2014,Sidewalk Repair,343523
+2,2014,Street Resurfacing,743462
+2,2015,Misc.,175000
+2,2015,Pedestrian Infrastructure,1550
+2,2015,Sidewalk Repair,8985
+2,2015,Street Resurfacing,1110461
+2,2016,Alleys,493532
+2,2016,Lighting,1650
+2,2016,Misc.,86933
+2,2016,Pedestrian Infrastructure,6900
+2,2016,Sidewalk Repair,23669
+2,2016,Street Redesign,759
+2,2016,Street Resurfacing,706557
+2,2017,Alleys,94291
+2,2017,Lighting,205000
+2,2017,Misc.,138375
+2,2017,Misc. CDOT,19702
+2,2017,Pedestrian Infrastructure,153738
+2,2017,Police Cameras,27011
+2,2017,Sidewalk Repair,41225
+2,2017,Street Redesign,19890
+2,2017,Street Resurfacing,584858
+2,2017,Viaducts,35911
+2,2018,Lighting,2700
+2,2018,Misc.,700
+2,2018,Misc. CDOT,15765
+2,2018,Pedestrian Infrastructure,12784
+2,2018,Police Cameras,81033
+2,2018,Sidewalk Repair,97105
+2,2018,Street Redesign,31872
+2,2018,Street Resurfacing,1078040
+2,2023,Alleys,318000
+2,2023,Misc.,7320
+2,2023,Pedestrian Infrastructure,64000
+2,2023,Sidewalk Repair,111299
+2,2023,Street Resurfacing,802549
+3,2012,Alleys,224815
+3,2012,Lighting,189327
+3,2012,Misc.,30079
+3,2012,Pedestrian Infrastructure,550
+3,2012,Sidewalk Repair,73955
+3,2012,Street Redesign,13250
+3,2012,Street Resurfacing,784483
+3,2013,Alleys,478382
+3,2013,Lighting,240600
+3,2013,Misc.,67021
+3,2013,Parks,34000
+3,2013,Sidewalk Repair,53026
+3,2013,Street Redesign,75154
+3,2013,Street Resurfacing,371816
+3,2014,Lighting,551650
+3,2014,Misc.,10000
+3,2014,Sidewalk Repair,87907
+3,2014,Street Redesign,3700
+3,2014,Street Resurfacing,666231
+3,2015,Alleys,241445
+3,2015,Lighting,414600
+3,2015,Misc.,12597
+3,2015,Sidewalk Repair,47367
+3,2015,Street Redesign,70000
+3,2015,Street Resurfacing,533990
+3,2016,Alleys,521425
+3,2016,Lighting,42950
+3,2016,Misc.,149470
+3,2016,Sidewalk Repair,106239
+3,2016,Street Redesign,17450
+3,2016,Street Resurfacing,472409
+3,2017,Alleys,127950
+3,2017,Lighting,320000
+3,2017,Misc.,10000
+3,2017,Misc. CDOT,87215
+3,2017,Pedestrian Infrastructure,38178
+3,2017,Police Cameras,81033
+3,2017,Sidewalk Repair,149369
+3,2017,Street Redesign,33700
+3,2017,Street Resurfacing,406555
+3,2017,Viaducts,66000
+3,2018,Alleys,189696
+3,2018,Lighting,900
+3,2018,Misc.,43700
+3,2018,Misc. CDOT,28526
+3,2018,Pedestrian Infrastructure,68432
+3,2018,Police Cameras,27011
+3,2018,Sidewalk Repair,381182
+3,2018,Street Redesign,113653
+3,2018,Street Resurfacing,466900
+3,2023,Alleys,471317
+3,2023,Lighting,63912
+3,2023,Misc.,22440
+3,2023,Misc. CDOT,34356
+3,2023,Sidewalk Repair,207006
+3,2023,Street Resurfacing,595535
+4,2012,Alleys,24195
+4,2012,Lighting,9350
+4,2012,Misc.,219903
+4,2012,Parks,150000
+4,2012,Sidewalk Repair,198226
+4,2012,Street Resurfacing,718179
+4,2013,Alleys,174358
+4,2013,Lighting,224400
+4,2013,Pedestrian Infrastructure,550
+4,2013,Sidewalk Repair,537111
+4,2013,Street Resurfacing,381747
+4,2014,Alleys,88529
+4,2014,Lighting,109600
+4,2014,Misc.,58850
+4,2014,Pedestrian Infrastructure,29170
+4,2014,Sidewalk Repair,554821
+4,2014,Street Redesign,7400
+4,2014,Street Resurfacing,466364
+4,2015,Alleys,295545
+4,2015,Lighting,4400
+4,2015,Pedestrian Infrastructure,21828
+4,2015,Sidewalk Repair,124125
+4,2015,Street Redesign,140000
+4,2015,Street Resurfacing,734103
+4,2016,Alleys,78770
+4,2016,Lighting,2100
+4,2016,Misc.,1501
+4,2016,Pedestrian Infrastructure,14782
+4,2016,Sidewalk Repair,115300
+4,2016,Street Redesign,181855
+4,2016,Street Resurfacing,860670
+4,2017,Alleys,119225
+4,2017,Lighting,28055
+4,2017,Misc.,23945
+4,2017,Misc. CDOT,4200
+4,2017,Parks,27011
+4,2017,Pedestrian Infrastructure,64411
+4,2017,Police Cameras,27011
+4,2017,Sidewalk Repair,220067
+4,2017,Street Redesign,71300
+4,2017,Street Resurfacing,734776
+4,2018,Misc.,49575
+4,2018,Misc. CDOT,300
+4,2018,Pedestrian Infrastructure,1300
+4,2018,Police Cameras,135055
+4,2018,Sidewalk Repair,106221
+4,2018,Street Redesign,6644
+4,2018,Street Resurfacing,997837
+4,2018,Viaducts,23070
+4,2023,Alleys,179566
+4,2023,Lighting,500
+4,2023,Misc.,308290
+4,2023,Misc. CDOT,29520
+4,2023,Parks,150000
+4,2023,Pedestrian Infrastructure,3052
+4,2023,Sidewalk Repair,258037
+4,2023,Street Redesign,31964
+4,2023,Street Resurfacing,539074
+5,2012,Lighting,828000
+5,2012,Misc.,491999
+5,2013,Alleys,28526
+5,2013,Lighting,442000
+5,2013,Misc.,415002
+5,2013,Pedestrian Infrastructure,7400
+5,2013,Sidewalk Repair,56674
+5,2013,Street Resurfacing,306060
+5,2014,Alleys,105107
+5,2014,Lighting,156800
+5,2014,Misc.,360973
+5,2014,Pedestrian Infrastructure,8200
+5,2014,Sidewalk Repair,62510
+5,2014,Street Redesign,3700
+5,2014,Street Resurfacing,622601
+5,2015,Alleys,134973
+5,2015,Lighting,158100
+5,2015,Misc.,2300
+5,2015,Pedestrian Infrastructure,3200
+5,2015,Sidewalk Repair,205048
+5,2015,Street Redesign,5550
+5,2015,Street Resurfacing,647579
+5,2016,Alleys,19079
+5,2016,Lighting,171600
+5,2016,Misc.,101033
+5,2016,Pedestrian Infrastructure,6450
+5,2016,Sidewalk Repair,42397
+5,2016,Street Resurfacing,540785
+5,2016,Viaducts,75679
+5,2017,Alleys,76525
+5,2017,Misc.,5000
+5,2017,Sidewalk Repair,81159
+5,2017,Street Redesign,81264
+5,2017,Street Resurfacing,1076051
+5,2018,Alleys,271978
+5,2018,Lighting,166500
+5,2018,Misc.,16880
+5,2018,Sidewalk Repair,22153
+5,2018,Street Resurfacing,842487
+5,2023,Lighting,553913
+5,2023,Misc.,4880
+5,2023,Street Resurfacing,941206
+6,2012,Lighting,1280000
+6,2012,Misc.,1166
+6,2012,Street Resurfacing,38833
+6,2013,Lighting,575999
+6,2013,Street Redesign,7866
+6,2013,Street Resurfacing,736134
+6,2014,Misc.,46980
+6,2014,Pedestrian Infrastructure,4650
+6,2014,Sidewalk Repair,86280
+6,2014,Street Resurfacing,1175973
+6,2015,Alleys,27230
+6,2015,Sidewalk Repair,95014
+6,2015,Street Resurfacing,1179863
+6,2016,Alleys,93781
+6,2016,Misc.,200000
+6,2016,Parks,49470
+6,2016,Sidewalk Repair,75933
+6,2016,Street Redesign,3700
+6,2016,Street Resurfacing,887766
+6,2017,Alleys,88412
+6,2017,Lighting,20750
+6,2017,Misc.,10619
+6,2017,Parks,55177
+6,2017,Pedestrian Infrastructure,68200
+6,2017,Sidewalk Repair,109129
+6,2017,Street Resurfacing,967714
+6,2018,Alleys,20859
+6,2018,Lighting,200000
+6,2018,Misc.,481
+6,2018,Parks,47323
+6,2018,Pedestrian Infrastructure,20734
+6,2018,Police Cameras,54022
+6,2018,Sidewalk Repair,44544
+6,2018,Street Resurfacing,932037
+6,2023,Alleys,21262
+6,2023,Lighting,489500
+6,2023,Misc.,14640
+6,2023,Misc. CDOT,2224
+6,2023,Parks,125000
+6,2023,Pedestrian Infrastructure,224000
+6,2023,Sidewalk Repair,65351
+6,2023,Street Resurfacing,557596
+7,2012,Sidewalk Repair,72616
+7,2012,Street Redesign,33300
+7,2012,Street Resurfacing,1214016
+7,2013,Lighting,328000
+7,2013,Pedestrian Infrastructure,1100
+7,2013,Sidewalk Repair,70953
+7,2013,Street Redesign,3700
+7,2013,Street Resurfacing,915744
+7,2014,Alleys,8924
+7,2014,Lighting,180000
+7,2014,Misc.,77217
+7,2014,Sidewalk Repair,101610
+7,2014,Street Resurfacing,950562
+7,2015,Alleys,9092
+7,2015,Lighting,522978
+7,2015,Sidewalk Repair,16826
+7,2015,Street Redesign,3700
+7,2015,Street Resurfacing,767405
+7,2016,Lighting,287422
+7,2016,Misc.,255
+7,2016,Sidewalk Repair,38627
+7,2016,Street Resurfacing,712628
+7,2017,Alleys,10554
+7,2017,Lighting,83000
+7,2017,Misc.,4625
+7,2017,Pedestrian Infrastructure,38999
+7,2017,Street Redesign,3700
+7,2017,Street Resurfacing,1179119
+7,2018,Alleys,2100
+7,2018,Misc.,11200
+7,2018,Street Redesign,13200
+7,2018,Street Resurfacing,1293500
+7,2023,Alleys,185839
+7,2023,Lighting,500
+7,2023,Misc.,29280
+7,2023,Misc. CDOT,660
+7,2023,Pedestrian Infrastructure,10500
+7,2023,Sidewalk Repair,55419
+7,2023,Street Redesign,8000
+7,2023,Street Resurfacing,925995
+8,2012,Alleys,3257
+8,2012,Lighting,775811
+8,2012,Misc.,2520
+8,2012,Pedestrian Infrastructure,15188
+8,2012,Sidewalk Repair,330691
+8,2012,Street Redesign,7400
+8,2012,Street Resurfacing,185133
+8,2013,Alleys,32911
+8,2013,Lighting,687150
+8,2013,Misc.,0
+8,2013,Sidewalk Repair,149653
+8,2013,Street Redesign,7400
+8,2013,Street Resurfacing,442886
+8,2014,Alleys,30037
+8,2014,Lighting,532550
+8,2014,Misc.,770
+8,2014,Pedestrian Infrastructure,950
+8,2014,Sidewalk Repair,146185
+8,2014,Street Redesign,11100
+8,2014,Street Resurfacing,598109
+8,2015,Lighting,589850
+8,2015,Pedestrian Infrastructure,600
+8,2015,Sidewalk Repair,58454
+8,2015,Street Resurfacing,666353
+8,2016,Lighting,432500
+8,2016,Sidewalk Repair,195701
+8,2016,Street Redesign,3700
+8,2016,Street Resurfacing,674869
+8,2017,Lighting,704200
+8,2017,Misc.,16475
+8,2017,Sidewalk Repair,55417
+8,2017,Street Resurfacing,543909
+8,2018,Lighting,639500
+8,2018,Sidewalk Repair,202342
+8,2018,Street Resurfacing,478157
+8,2023,Lighting,274300
+8,2023,Misc.,45470
+8,2023,Misc. CDOT,8110
+8,2023,Pedestrian Infrastructure,18308
+8,2023,Sidewalk Repair,159275
+8,2023,Street Resurfacing,985437
+9,2012,Alleys,700
+9,2012,Lighting,3500
+9,2012,Misc.,11405
+9,2012,Sidewalk Repair,284185
+9,2012,Street Resurfacing,1020208
+9,2013,Misc.,65941
+9,2013,Sidewalk Repair,53085
+9,2013,Street Resurfacing,1200974
+9,2014,Alleys,3500
+9,2014,Lighting,15000
+9,2014,Misc.,3008
+9,2014,Sidewalk Repair,54491
+9,2014,Street Resurfacing,1243956
+9,2015,Lighting,10300
+9,2015,Misc.,1260
+9,2015,Sidewalk Repair,394095
+9,2015,Street Redesign,700
+9,2015,Street Resurfacing,897967
+9,2016,Misc.,550
+9,2016,Sidewalk Repair,38438
+9,2016,Street Resurfacing,1280851
+9,2017,Alleys,22108
+9,2017,Lighting,812
+9,2017,Misc.,80517
+9,2017,Sidewalk Repair,133648
+9,2017,Street Resurfacing,1082913
+9,2018,Alleys,2100
+9,2018,Misc.,2503
+9,2018,Sidewalk Repair,131571
+9,2018,Street Resurfacing,1183826
+9,2023,Alleys,177977
+9,2023,Misc.,5345
+9,2023,Misc. CDOT,300
+9,2023,Sidewalk Repair,111475
+9,2023,Street Redesign,66503
+9,2023,Street Resurfacing,1131837
+10,2012,Alleys,27111
+10,2012,Misc.,16146
+10,2012,Parks,61942
+10,2012,Sidewalk Repair,455342
+10,2012,Street Redesign,3700
+10,2012,Street Resurfacing,755699
+10,2013,Alleys,7700
+10,2013,Lighting,235400
+10,2013,Misc.,115108
+10,2013,Pedestrian Infrastructure,2050
+10,2013,Sidewalk Repair,259032
+10,2013,Street Redesign,5550
+10,2013,Street Resurfacing,695157
+10,2014,Alleys,14488
+10,2014,Misc.,2735
+10,2014,Pedestrian Infrastructure,6983
+10,2014,Sidewalk Repair,339875
+10,2014,Street Redesign,11750
+10,2014,Street Resurfacing,942314
+10,2015,Alleys,700
+10,2015,Sidewalk Repair,216404
+10,2015,Street Resurfacing,1076086
+10,2016,Alleys,90000
+10,2016,Misc.,325000
+10,2016,Sidewalk Repair,242593
+10,2016,Street Resurfacing,578159
+10,2017,Alleys,117499
+10,2017,Misc.,12620
+10,2017,Sidewalk Repair,257955
+10,2017,Street Redesign,3700
+10,2017,Street Resurfacing,928225
+10,2018,Alleys,197000
+10,2018,Lighting,7200
+10,2018,Misc.,60107
+10,2018,Parks,160000
+10,2018,Sidewalk Repair,315307
+10,2018,Street Redesign,1850
+10,2018,Street Resurfacing,578535
+10,2023,Alleys,165700
+10,2023,Lighting,3350
+10,2023,Misc.,51500
+10,2023,Misc. CDOT,660
+10,2023,Parks,23017
+10,2023,Sidewalk Repair,413393
+10,2023,Street Resurfacing,842378
+11,2012,Alleys,122121
+11,2012,Lighting,130546
+11,2012,Misc.,1640
+11,2012,Sidewalk Repair,175408
+11,2012,Street Redesign,3700
+11,2012,Street Resurfacing,886584
+11,2013,Alleys,397092
+11,2013,Lighting,284654
+11,2013,Misc.,368
+11,2013,Pedestrian Infrastructure,950
+11,2013,Sidewalk Repair,114841
+11,2013,Street Resurfacing,522093
+11,2014,Alleys,83234
+11,2014,Lighting,231900
+11,2014,Pedestrian Infrastructure,1732
+11,2014,Sidewalk Repair,153238
+11,2014,Street Redesign,11100
+11,2014,Street Resurfacing,838687
+11,2015,Alleys,261658
+11,2015,Lighting,174400
+11,2015,Pedestrian Infrastructure,700
+11,2015,Sidewalk Repair,174096
+11,2015,Street Redesign,44400
+11,2015,Street Resurfacing,661991
+11,2016,Alleys,437929
+11,2016,Lighting,374200
+11,2016,Misc.,270781
+11,2016,Pedestrian Infrastructure,1200
+11,2016,Sidewalk Repair,59488
+11,2016,Street Redesign,18350
+11,2016,Street Resurfacing,158052
+11,2017,Alleys,444720
+11,2017,Lighting,257200
+11,2017,Misc.,11850
+11,2017,Misc. CDOT,6829
+11,2017,Police Cameras,108044
+11,2017,Sidewalk Repair,175583
+11,2017,Street Redesign,13608
+11,2017,Street Resurfacing,104785
+11,2017,Viaducts,197382
+11,2018,Alleys,395145
+11,2018,Lighting,203067
+11,2018,Misc.,1654
+11,2018,Pedestrian Infrastructure,37686
+11,2018,Police Cameras,108044
+11,2018,Sidewalk Repair,168374
+11,2018,Street Resurfacing,105291
+11,2018,Viaducts,300739
+11,2023,Alleys,355769
+11,2023,Lighting,4000
+11,2023,Misc.,12760
+11,2023,Pedestrian Infrastructure,219101
+11,2023,Sidewalk Repair,64521
+11,2023,Street Redesign,8500
+11,2023,Street Resurfacing,305419
+12,2012,Alleys,64543
+12,2012,Lighting,905400
+12,2012,Misc.,1915
+12,2012,Sidewalk Repair,268869
+12,2012,Street Resurfacing,79173
+12,2013,Alleys,40670
+12,2013,Lighting,878200
+12,2013,Misc.,905
+12,2013,Pedestrian Infrastructure,16844
+12,2013,Sidewalk Repair,259476
+12,2013,Street Redesign,5550
+12,2013,Street Resurfacing,112355
+12,2014,Alleys,1629
+12,2014,Lighting,932200
+12,2014,Misc.,40282
+12,2014,Pedestrian Infrastructure,43551
+12,2014,Sidewalk Repair,113618
+12,2014,Street Redesign,16650
+12,2014,Street Resurfacing,171907
+12,2015,Alleys,654
+12,2015,Lighting,482000
+12,2015,Parks,250000
+12,2015,Sidewalk Repair,50782
+12,2015,Street Redesign,11100
+12,2015,Street Resurfacing,525410
+12,2016,Alleys,8400
+12,2016,Lighting,717674
+12,2016,Misc.,3493
+12,2016,Sidewalk Repair,164156
+12,2016,Street Redesign,6708
+12,2016,Street Resurfacing,416029
+12,2017,Alleys,16897
+12,2017,Bicycle Infrastructure,30000
+12,2017,Lighting,494000
+12,2017,Misc.,17400
+12,2017,Parks,40511
+12,2017,Sidewalk Repair,196663
+12,2017,Street Redesign,3700
+12,2017,Street Resurfacing,520831
+12,2018,Alleys,312302
+12,2018,Lighting,18122
+12,2018,Misc.,25900
+12,2018,Sidewalk Repair,399877
+12,2018,Street Resurfacing,397364
+12,2018,Viaducts,166437
+12,2023,Alleys,640749
+12,2023,Lighting,40902
+12,2023,Sidewalk Repair,106366
+12,2023,Street Resurfacing,639179
+13,2012,Lighting,1102750
+13,2012,Misc.,30000
+13,2012,Parks,150000
+13,2012,Pedestrian Infrastructure,410
+13,2012,Street Redesign,19200
+13,2012,Street Resurfacing,17640
+13,2013,Alleys,9891
+13,2013,Lighting,796115
+13,2013,Misc.,6366
+13,2013,Parks,300000
+13,2013,Pedestrian Infrastructure,2450
+13,2013,Sidewalk Repair,2106
+13,2013,Street Redesign,3700
+13,2013,Street Resurfacing,199372
+13,2014,Alleys,82225
+13,2014,Lighting,579500
+13,2014,Misc.,29099
+13,2014,Pedestrian Infrastructure,26925
+13,2014,Sidewalk Repair,38798
+13,2014,Street Redesign,27750
+13,2014,Street Resurfacing,535510
+13,2015,Lighting,748800
+13,2015,Misc.,11220
+13,2015,Parks,115000
+13,2015,Sidewalk Repair,5683
+13,2015,Street Resurfacing,438253
+13,2016,Alleys,157405
+13,2016,Lighting,730806
+13,2016,Misc.,107723
+13,2016,Sidewalk Repair,268913
+13,2016,Street Redesign,27500
+13,2016,Street Resurfacing,26579
+13,2017,Alleys,311276
+13,2017,Lighting,344500
+13,2017,Misc.,487
+13,2017,Misc. CDOT,49083
+13,2017,Parks,300000
+13,2017,Pedestrian Infrastructure,3255
+13,2017,Sidewalk Repair,89532
+13,2017,Street Redesign,11100
+13,2017,Street Resurfacing,210766
+13,2018,Alleys,337969
+13,2018,Lighting,242500
+13,2018,Misc.,14960
+13,2018,Misc. CDOT,8212
+13,2018,Parks,60000
+13,2018,Police Cameras,1800
+13,2018,Sidewalk Repair,280053
+13,2018,Street Redesign,1850
+13,2018,Street Resurfacing,372659
+13,2023,Alleys,508758
+13,2023,Lighting,9900
+13,2023,Misc.,15679
+13,2023,Misc. CDOT,660
+13,2023,Pedestrian Infrastructure,7984
+13,2023,Sidewalk Repair,697429
+13,2023,Street Redesign,27400
+13,2023,Street Resurfacing,230286
+14,2012,Alleys,35413
+14,2012,Lighting,350
+14,2012,Misc.,483
+14,2012,Pedestrian Infrastructure,410
+14,2012,Sidewalk Repair,456992
+14,2012,Street Redesign,85100
+14,2012,Street Resurfacing,741252
+14,2013,Alleys,85773
+14,2013,Misc.,0
+14,2013,Pedestrian Infrastructure,10300
+14,2013,Sidewalk Repair,634312
+14,2013,Street Redesign,31461
+14,2013,Street Resurfacing,558058
+14,2014,Alleys,12481
+14,2014,Misc.,0
+14,2014,Sidewalk Repair,546728
+14,2014,Street Redesign,29600
+14,2014,Street Resurfacing,731018
+14,2015,Alleys,34553
+14,2015,Sidewalk Repair,576224
+14,2015,Street Redesign,55500
+14,2015,Street Resurfacing,653150
+14,2016,Alleys,47589
+14,2016,Misc.,0
+14,2016,Sidewalk Repair,370965
+14,2016,Street Redesign,27178
+14,2016,Street Resurfacing,874266
+14,2017,Alleys,159073
+14,2017,Misc.,42550
+14,2017,Sidewalk Repair,488282
+14,2017,Street Resurfacing,630094
+14,2018,Alleys,40763
+14,2018,Misc.,14800
+14,2018,Misc. CDOT,660
+14,2018,Sidewalk Repair,570368
+14,2018,Street Resurfacing,693408
+14,2023,Alleys,277376
+14,2023,Misc.,36822
+14,2023,Misc. CDOT,660
+14,2023,Sidewalk Repair,526687
+14,2023,Street Resurfacing,647563
+15,2012,Lighting,1248500
+15,2012,Misc.,44730
+15,2012,Sidewalk Repair,8792
+15,2012,Street Resurfacing,17640
+15,2013,Alleys,234955
+15,2013,Lighting,530000
+15,2013,Misc.,814
+15,2013,Sidewalk Repair,247485
+15,2013,Street Redesign,3700
+15,2013,Street Resurfacing,303046
+15,2014,Alleys,76879
+15,2014,Lighting,378900
+15,2014,Misc.,10094
+15,2014,Sidewalk Repair,489151
+15,2014,Street Redesign,1850
+15,2014,Street Resurfacing,362715
+15,2015,Alleys,188620
+15,2015,Misc.,620
+15,2015,Pedestrian Infrastructure,600
+15,2015,Sidewalk Repair,41917
+15,2015,Street Redesign,64750
+15,2015,Street Resurfacing,1023492
+15,2016,Alleys,171085
+15,2016,Misc.,0
+15,2016,Sidewalk Repair,132763
+15,2016,Street Redesign,242185
+15,2016,Street Resurfacing,544644
+15,2017,Alleys,61633
+15,2017,Lighting,940653
+15,2017,Misc.,92350
+15,2017,Parks,27016
+15,2017,Street Redesign,7400
+15,2017,Street Resurfacing,190948
+15,2018,Alleys,123465
+15,2018,Lighting,640058
+15,2018,Misc.,17116
+15,2018,Sidewalk Repair,9539
+15,2018,Street Redesign,62121
+15,2018,Street Resurfacing,467700
+15,2023,Alleys,31900
+15,2023,Lighting,100000
+15,2023,Misc.,82960
+15,2023,Parks,85000
+15,2023,Sidewalk Repair,443055
+15,2023,Street Redesign,258085
+16,2012,Alleys,221031
+16,2012,Lighting,106892
+16,2012,Misc.,47200
+16,2012,Parks,150000
+16,2012,Sidewalk Repair,223472
+16,2012,Street Redesign,61619
+16,2012,Street Resurfacing,509132
+16,2013,Alleys,171687
+16,2013,Lighting,97550
+16,2013,Misc.,32790
+16,2013,Pedestrian Infrastructure,32200
+16,2013,Sidewalk Repair,334639
+16,2013,Street Redesign,48346
+16,2013,Street Resurfacing,602261
+16,2014,Alleys,395480
+16,2014,Lighting,240400
+16,2014,Misc.,6870
+16,2014,Sidewalk Repair,56005
+16,2014,Street Redesign,48404
+16,2014,Street Resurfacing,572840
+16,2015,Alleys,122646
+16,2015,Lighting,312800
+16,2015,Misc. CDOT,545
+16,2015,Sidewalk Repair,373308
+16,2015,Street Redesign,5550
+16,2015,Street Resurfacing,503894
+16,2016,Alleys,132720
+16,2016,Lighting,410900
+16,2016,Misc.,0
+16,2016,Pedestrian Infrastructure,600
+16,2016,Sidewalk Repair,293252
+16,2016,Street Redesign,38850
+16,2016,Street Resurfacing,294955
+16,2017,Alleys,35094
+16,2017,Lighting,500
+16,2017,Misc.,32200
+16,2017,Sidewalk Repair,943814
+16,2017,Street Resurfacing,308393
+16,2018,Alleys,23664
+16,2018,Lighting,552000
+16,2018,Misc.,3700
+16,2018,Sidewalk Repair,260498
+16,2018,Street Resurfacing,480130
+16,2023,Misc.,41912
+16,2023,Misc. CDOT,660
+16,2023,Pedestrian Infrastructure,160000
+16,2023,Sidewalk Repair,87180
+16,2023,Street Redesign,3300
+16,2023,Street Resurfacing,1055290
+17,2012,Lighting,512000
+17,2012,Sidewalk Repair,136265
+17,2012,Street Redesign,18500
+17,2012,Street Resurfacing,653235
+17,2013,Alleys,29937
+17,2013,Lighting,392600
+17,2013,Misc.,13737
+17,2013,Pedestrian Infrastructure,950
+17,2013,Sidewalk Repair,191987
+17,2013,Street Redesign,9250
+17,2013,Street Resurfacing,681539
+17,2014,Alleys,8491
+17,2014,Lighting,360400
+17,2014,Misc.,20323
+17,2014,Sidewalk Repair,218083
+17,2014,Street Redesign,7400
+17,2014,Street Resurfacing,705045
+17,2015,Alleys,119638
+17,2015,Lighting,2150
+17,2015,Pedestrian Infrastructure,1200
+17,2015,Street Resurfacing,1171631
+17,2016,Misc.,0
+17,2016,Parks,50000
+17,2016,Sidewalk Repair,96348
+17,2016,Street Resurfacing,862646
+17,2017,Alleys,311434
+17,2017,Lighting,2500
+17,2017,Misc.,17400
+17,2017,Sidewalk Repair,55392
+17,2017,Street Resurfacing,933274
+17,2018,Alleys,503532
+17,2018,Lighting,500
+17,2018,Misc.,7400
+17,2018,Police Cameras,27011
+17,2018,Sidewalk Repair,208288
+17,2018,Street Resurfacing,453269
+17,2018,Viaducts,120000
+17,2023,Alleys,272778
+17,2023,Lighting,1000
+17,2023,Misc.,9760
+17,2023,Misc. CDOT,450
+17,2023,Parks,30000
+17,2023,Sidewalk Repair,295675
+17,2023,Street Resurfacing,878243
+18,2012,Alleys,22019
+18,2012,Lighting,382350
+18,2012,Misc.,480
+18,2012,Sidewalk Repair,351343
+18,2012,Street Redesign,14800
+18,2012,Street Resurfacing,549007
+18,2013,Alleys,292777
+18,2013,Misc.,0
+18,2013,Sidewalk Repair,217189
+18,2013,Street Resurfacing,810035
+18,2014,Lighting,448000
+18,2014,Misc.,1751
+18,2014,Sidewalk Repair,2833
+18,2014,Street Redesign,18500
+18,2014,Street Resurfacing,842769
+18,2015,Alleys,45447
+18,2015,Pedestrian Infrastructure,2303
+18,2015,Sidewalk Repair,188408
+18,2015,Street Resurfacing,925107
+18,2016,Alleys,19996
+18,2016,Lighting,450
+18,2016,Misc.,50000
+18,2016,Sidewalk Repair,239919
+18,2016,Street Redesign,5550
+18,2016,Street Resurfacing,1003921
+18,2017,Alleys,32165
+18,2017,Lighting,500
+18,2017,Misc.,17400
+18,2017,Misc. CDOT,8761
+18,2017,Sidewalk Repair,352400
+18,2017,Street Resurfacing,901180
+18,2017,Viaducts,7595
+18,2018,Alleys,74859
+18,2018,Lighting,233000
+18,2018,Sidewalk Repair,162296
+18,2018,Street Resurfacing,849845
+18,2023,Alleys,87153
+18,2023,Misc.,16209
+18,2023,Misc. CDOT,1320
+18,2023,Sidewalk Repair,100591
+18,2023,Street Redesign,600
+18,2023,Street Resurfacing,1294124
+19,2012,Lighting,700
+19,2012,Misc.,20515
+19,2012,Sidewalk Repair,4335
+19,2012,Street Redesign,5550
+19,2012,Street Resurfacing,1281544
+19,2013,Alleys,39760
+19,2013,Lighting,43500
+19,2013,Misc.,9800
+19,2013,Parks,123738
+19,2013,Street Resurfacing,1103202
+19,2014,Misc.,0
+19,2014,Parks,30380
+19,2014,Street Resurfacing,1238268
+19,2015,Street Resurfacing,1293455
+19,2016,Street Resurfacing,1254443
+19,2017,Alleys,12601
+19,2017,Misc.,11700
+19,2017,Street Resurfacing,1295557
+19,2018,Parks,50000
+19,2018,Street Resurfacing,1270001
+19,2023,Lighting,500
+19,2023,Misc. CDOT,660
+19,2023,Street Resurfacing,1493115
+20,2012,Alleys,30827
+20,2012,Lighting,77300
+20,2012,Misc.,193
+20,2012,Sidewalk Repair,576591
+20,2012,Street Redesign,43544
+20,2012,Street Resurfacing,591133
+20,2013,Alleys,4200
+20,2013,Lighting,288400
+20,2013,Misc.,0
+20,2013,Sidewalk Repair,204543
+20,2013,Street Redesign,43850
+20,2013,Street Resurfacing,777731
+20,2014,Lighting,600
+20,2014,Misc.,40296
+20,2014,Pedestrian Infrastructure,600
+20,2014,Sidewalk Repair,353201
+20,2014,Street Redesign,22200
+20,2014,Street Resurfacing,901913
+20,2015,Alleys,144560
+20,2015,Lighting,800
+20,2015,Misc.,12492
+20,2015,Sidewalk Repair,493537
+20,2015,Street Redesign,22200
+20,2015,Street Resurfacing,632879
+20,2016,Alleys,26160
+20,2016,Misc.,55550
+20,2016,Pedestrian Infrastructure,80461
+20,2016,Sidewalk Repair,551752
+20,2016,Street Resurfacing,606076
+20,2017,Alleys,91363
+20,2017,Beautification,138000
+20,2017,Misc.,7228
+20,2017,Pedestrian Infrastructure,32945
+20,2017,Sidewalk Repair,336850
+20,2017,Street Resurfacing,651017
+20,2017,Viaducts,62598
+20,2018,Alleys,64151
+20,2018,Lighting,176000
+20,2018,Misc.,7400
+20,2018,Pedestrian Infrastructure,56348
+20,2018,Police Cameras,1800
+20,2018,Sidewalk Repair,940304
+20,2018,Street Redesign,6332
+20,2018,Street Resurfacing,67666
+20,2023,Alleys,26589
+20,2023,Lighting,355000
+20,2023,Misc.,25190
+20,2023,Pedestrian Infrastructure,13101
+20,2023,Sidewalk Repair,8404
+20,2023,Street Resurfacing,942667
+21,2012,Alleys,47109
+21,2012,Sidewalk Repair,378545
+21,2012,Street Redesign,11100
+21,2012,Street Resurfacing,883247
+21,2013,Alleys,14707
+21,2013,Misc.,0
+21,2013,Sidewalk Repair,73345
+21,2013,Street Redesign,3700
+21,2013,Street Resurfacing,1227631
+21,2014,Alleys,1400
+21,2014,Lighting,559
+21,2014,Misc.,0
+21,2014,Sidewalk Repair,212990
+21,2014,Street Redesign,14800
+21,2014,Street Resurfacing,1090251
+21,2015,Alleys,28057
+21,2015,Lighting,641
+21,2015,Pedestrian Infrastructure,32550
+21,2015,Sidewalk Repair,259150
+21,2015,Street Redesign,3700
+21,2015,Street Resurfacing,995717
+21,2016,Lighting,9300
+21,2016,Misc.,0
+21,2016,Sidewalk Repair,221534
+21,2016,Street Redesign,18500
+21,2016,Street Resurfacing,866556
+21,2017,Lighting,1000
+21,2017,Misc.,28500
+21,2017,Sidewalk Repair,246990
+21,2017,Street Redesign,16063
+21,2017,Street Resurfacing,1021885
+21,2017,Viaducts,5562
+21,2018,Alleys,80223
+21,2018,Sidewalk Repair,281645
+21,2018,Street Resurfacing,958130
+21,2023,Alleys,122635
+21,2023,Misc.,16890
+21,2023,Misc. CDOT,660
+21,2023,Sidewalk Repair,381174
+21,2023,Street Resurfacing,966417
+22,2012,Lighting,291850
+22,2012,Misc.,520000
+22,2012,Sidewalk Repair,66429
+22,2012,Street Redesign,101750
+22,2012,Street Resurfacing,339563
+22,2013,Alleys,4675
+22,2013,Lighting,72000
+22,2013,Misc.,22500
+22,2013,Sidewalk Repair,181092
+22,2013,Street Redesign,55500
+22,2013,Street Resurfacing,984233
+22,2014,Alleys,52463
+22,2014,Lighting,1100
+22,2014,Misc.,85700
+22,2014,Parks,375000
+22,2014,Sidewalk Repair,95406
+22,2014,Street Redesign,35150
+22,2014,Street Resurfacing,674638
+22,2015,Alleys,369783
+22,2015,Lighting,27800
+22,2015,Misc.,50000
+22,2015,Parks,130990
+22,2015,Sidewalk Repair,167974
+22,2015,Street Resurfacing,503557
+22,2016,Alleys,736600
+22,2016,Lighting,450
+22,2016,Misc.,270864
+22,2016,Parks,34502
+22,2016,Sidewalk Repair,2369
+22,2016,Street Redesign,7400
+22,2016,Street Resurfacing,152049
+22,2016,Viaducts,9000
+22,2017,Alleys,825578
+22,2017,Lighting,900
+22,2017,Misc.,27102
+22,2017,Misc. CDOT,634
+22,2017,Parks,125000
+22,2017,Sidewalk Repair,18224
+22,2017,Street Resurfacing,322561
+22,2018,Alleys,532333
+22,2018,Misc.,148188
+22,2018,Sidewalk Repair,66541
+22,2018,Street Resurfacing,572936
+22,2023,Alleys,434810
+22,2023,Lighting,2000
+22,2023,Misc.,34160
+22,2023,Misc. CDOT,1320
+22,2023,Parks,39500
+22,2023,Pedestrian Infrastructure,32678
+22,2023,Sidewalk Repair,98594
+22,2023,Street Redesign,32699
+22,2023,Street Resurfacing,342894
+23,2012,Alleys,125497
+23,2012,Lighting,6000
+23,2012,Misc.,10925
+23,2012,Parks,250000
+23,2012,Pedestrian Infrastructure,13581
+23,2012,Sidewalk Repair,346676
+23,2012,Street Redesign,27750
+23,2012,Street Resurfacing,539572
+23,2013,Alleys,466677
+23,2013,Parks,354112
+23,2013,Pedestrian Infrastructure,1900
+23,2013,Sidewalk Repair,90440
+23,2013,Street Redesign,9400
+23,2013,Street Resurfacing,397471
+23,2014,Alleys,261750
+23,2014,Lighting,3500
+23,2014,Misc.,52652
+23,2014,Pedestrian Infrastructure,550
+23,2014,Sidewalk Repair,163000
+23,2014,Street Redesign,40217
+23,2014,Street Resurfacing,797988
+23,2015,Alleys,257281
+23,2015,Misc.,129800
+23,2015,Parks,195888
+23,2015,Sidewalk Repair,385580
+23,2015,Street Redesign,20350
+23,2015,Street Resurfacing,331104
+23,2016,Alleys,193826
+23,2016,Lighting,6000
+23,2016,Misc.,63949
+23,2016,Parks,44523
+23,2016,Sidewalk Repair,373969
+23,2016,Street Redesign,16650
+23,2016,Street Resurfacing,619740
+23,2017,Alleys,250587
+23,2017,Lighting,83000
+23,2017,Misc.,67838
+23,2017,Sidewalk Repair,165095
+23,2017,Street Redesign,55175
+23,2017,Street Resurfacing,698305
+23,2018,Alleys,104151
+23,2018,Lighting,2000
+23,2018,Misc.,49182
+23,2018,Parks,161000
+23,2018,Police Cameras,27011
+23,2018,Sidewalk Repair,149953
+23,2018,Street Redesign,3700
+23,2018,Street Resurfacing,823004
+23,2023,Alleys,96285
+23,2023,Beautification,100000
+23,2023,Misc.,38783
+23,2023,Misc. CDOT,660
+23,2023,Sidewalk Repair,261312
+23,2023,Street Redesign,21061
+23,2023,Street Resurfacing,880706
+24,2012,Alleys,182905
+24,2012,Lighting,162900
+24,2012,Misc.,800
+24,2012,Sidewalk Repair,74372
+24,2012,Street Redesign,53650
+24,2012,Street Resurfacing,845374
+24,2013,Alleys,366056
+24,2013,Lighting,291500
+24,2013,Misc.,22500
+24,2013,Sidewalk Repair,46736
+24,2013,Street Redesign,14800
+24,2013,Street Resurfacing,578406
+24,2014,Alleys,161901
+24,2014,Misc.,45469
+24,2014,Sidewalk Repair,70964
+24,2014,Street Redesign,53650
+24,2014,Street Resurfacing,988006
+24,2015,Alleys,180099
+24,2015,Parks,15000
+24,2015,Pedestrian Infrastructure,15339
+24,2015,Sidewalk Repair,7682
+24,2015,Street Redesign,22200
+24,2015,Street Resurfacing,796471
+24,2016,Alleys,175365
+24,2016,Misc.,81033
+24,2016,Parks,264257
+24,2016,Sidewalk Repair,27357
+24,2016,Street Redesign,31450
+24,2016,Street Resurfacing,740538
+24,2017,Alleys,169749
+24,2017,Misc.,41450
+24,2017,Misc. CDOT,16310
+24,2017,Parks,338986
+24,2017,Pedestrian Infrastructure,26710
+24,2017,Sidewalk Repair,5733
+24,2017,Street Redesign,3700
+24,2017,Street Resurfacing,717361
+24,2018,Alleys,166202
+24,2018,Lighting,7000
+24,2018,Misc.,93796
+24,2018,Parks,75000
+24,2018,Pedestrian Infrastructure,99983
+24,2018,Police Cameras,108044
+24,2018,Sidewalk Repair,130688
+24,2018,Street Redesign,11100
+24,2018,Street Resurfacing,628188
+24,2023,Alleys,131596
+24,2023,Lighting,950
+24,2023,Misc.,61964
+24,2023,Misc. CDOT,39160
+24,2023,Pedestrian Infrastructure,160000
+24,2023,Sidewalk Repair,338892
+24,2023,Street Resurfacing,620521
+25,2012,Alleys,648691
+25,2012,Lighting,3350
+25,2012,Misc.,247049
+25,2012,Parks,184724
+25,2012,Sidewalk Repair,70161
+25,2012,Street Redesign,3700
+25,2012,Street Resurfacing,162325
+25,2013,Alleys,166286
+25,2013,Lighting,96000
+25,2013,Misc.,238076
+25,2013,Parks,460276
+25,2013,Sidewalk Repair,63650
+25,2013,Street Redesign,18500
+25,2013,Street Resurfacing,277211
+25,2014,Alleys,253658
+25,2014,Lighting,95400
+25,2014,Misc.,73346
+25,2014,Parks,62242
+25,2014,Sidewalk Repair,128323
+25,2014,Street Redesign,12950
+25,2014,Street Resurfacing,693721
+25,2015,Alleys,463858
+25,2015,Lighting,5800
+25,2015,Misc.,67395
+25,2015,Parks,137758
+25,2015,Sidewalk Repair,144748
+25,2015,Street Redesign,7400
+25,2015,Street Resurfacing,489496
+25,2016,Alleys,439264
+25,2016,Lighting,344450
+25,2016,Misc.,46745
+25,2016,Parks,100000
+25,2016,Sidewalk Repair,44448
+25,2016,Street Redesign,22200
+25,2016,Street Resurfacing,322892
+25,2017,Alleys,378941
+25,2017,Lighting,305200
+25,2017,Misc.,50724
+25,2017,Police Cameras,27011
+25,2017,Sidewalk Repair,116901
+25,2017,Street Redesign,20450
+25,2017,Street Resurfacing,348242
+25,2017,Viaducts,72000
+25,2018,Alleys,458140
+25,2018,Bicycle Infrastructure,25000
+25,2018,Lighting,230000
+25,2018,Misc.,49621
+25,2018,Pedestrian Infrastructure,20228
+25,2018,Police Cameras,54022
+25,2018,Sidewalk Repair,115991
+25,2018,Street Redesign,21913
+25,2018,Street Resurfacing,310700
+25,2018,Viaducts,34385
+25,2023,Alleys,451619
+25,2023,Lighting,500
+25,2023,Misc.,53840
+25,2023,Misc. CDOT,1320
+25,2023,Pedestrian Infrastructure,82530
+25,2023,Sidewalk Repair,330057
+25,2023,Street Redesign,30000
+25,2023,Street Resurfacing,550132
+26,2012,Alleys,21323
+26,2012,Lighting,519750
+26,2012,Misc.,69602
+26,2012,Parks,150000
+26,2012,Pedestrian Infrastructure,3120
+26,2012,Street Redesign,228500
+26,2012,Street Resurfacing,327607
+26,2013,Alleys,791923
+26,2013,Misc.,22500
+26,2013,Parks,21730
+26,2013,Pedestrian Infrastructure,2426
+26,2013,Sidewalk Repair,225852
+26,2013,Street Redesign,29750
+26,2013,Street Resurfacing,225666
+26,2014,Alleys,387052
+26,2014,Lighting,288000
+26,2014,Misc.,16425
+26,2014,Pedestrian Infrastructure,550
+26,2014,Sidewalk Repair,91035
+26,2014,Street Redesign,29600
+26,2014,Street Resurfacing,507284
+26,2015,Alleys,423129
+26,2015,Lighting,168400
+26,2015,Sidewalk Repair,45311
+26,2015,Street Redesign,22200
+26,2015,Street Resurfacing,660695
+26,2016,Alleys,700
+26,2016,Lighting,450
+26,2016,Misc.,54022
+26,2016,Pedestrian Infrastructure,86
+26,2016,Sidewalk Repair,135027
+26,2016,Street Redesign,9400
+26,2016,Street Resurfacing,743009
+26,2017,Alleys,279239
+26,2017,Lighting,300
+26,2017,Misc.,55628
+26,2017,Sidewalk Repair,203802
+26,2017,Street Resurfacing,781032
+26,2018,Alleys,390417
+26,2018,Lighting,270000
+26,2018,Misc.,14800
+26,2018,Pedestrian Infrastructure,350
+26,2018,Sidewalk Repair,53306
+26,2018,Street Resurfacing,591127
+26,2023,Alleys,611846
+26,2023,Lighting,179000
+26,2023,Misc.,41999
+26,2023,Sidewalk Repair,329896
+26,2023,Street Resurfacing,299237
+27,2012,Alleys,520400
+27,2012,Lighting,555224
+27,2012,Misc.,10600
+27,2012,Sidewalk Repair,127635
+27,2012,Street Redesign,7400
+27,2012,Street Resurfacing,97945
+27,2013,Alleys,142942
+27,2013,Lighting,349912
+27,2013,Misc.,42500
+27,2013,Sidewalk Repair,192021
+27,2013,Street Redesign,10701
+27,2013,Street Resurfacing,581147
+27,2014,Alleys,106468
+27,2014,Lighting,296500
+27,2014,Misc.,22500
+27,2014,Pedestrian Infrastructure,550
+27,2014,Sidewalk Repair,280493
+27,2014,Street Redesign,207800
+27,2014,Street Resurfacing,402871
+27,2015,Alleys,347087
+27,2015,Lighting,236400
+27,2015,Sidewalk Repair,126739
+27,2015,Street Redesign,9250
+27,2015,Street Resurfacing,462297
+27,2016,Alleys,216858
+27,2016,Lighting,158000
+27,2016,Misc.,2352
+27,2016,Pedestrian Infrastructure,12395
+27,2016,Sidewalk Repair,442930
+27,2016,Street Redesign,2400
+27,2016,Street Resurfacing,240621
+27,2016,Viaducts,244446
+27,2017,Alleys,411275
+27,2017,Lighting,286000
+27,2017,Misc.,71422
+27,2017,Pedestrian Infrastructure,29283
+27,2017,Police Cameras,81033
+27,2017,Sidewalk Repair,275251
+27,2017,Street Redesign,3700
+27,2017,Street Resurfacing,147544
+27,2017,Viaducts,14490
+27,2018,Alleys,63564
+27,2018,Lighting,703000
+27,2018,Misc.,184303
+27,2018,Pedestrian Infrastructure,9523
+27,2018,Sidewalk Repair,99401
+27,2018,Street Redesign,63540
+27,2018,Street Resurfacing,142400
+27,2018,Viaducts,510
+27,2023,Alleys,50506
+27,2023,Lighting,346500
+27,2023,Misc.,44544
+27,2023,Misc. CDOT,780
+27,2023,Pedestrian Infrastructure,33000
+27,2023,Sidewalk Repair,414082
+27,2023,Street Redesign,20100
+27,2023,Street Resurfacing,560120
+28,2012,Alleys,250482
+28,2012,Lighting,30200
+28,2012,Misc.,9000
+28,2012,Sidewalk Repair,2583
+28,2012,Street Redesign,7400
+28,2012,Street Resurfacing,1020231
+28,2013,Alleys,28266
+28,2013,Lighting,15401
+28,2013,Misc.,7828
+28,2013,Parks,500000
+28,2013,Sidewalk Repair,704
+28,2013,Street Redesign,22200
+28,2013,Street Resurfacing,745603
+28,2014,Alleys,49602
+28,2014,Lighting,264450
+28,2014,Misc.,8300
+28,2014,Parks,250000
+28,2014,Pedestrian Infrastructure,3035
+28,2014,Sidewalk Repair,93812
+28,2014,Street Redesign,37000
+28,2014,Street Resurfacing,613802
+28,2015,Alleys,88808
+28,2015,Lighting,356000
+28,2015,Misc.,12577
+28,2015,Parks,250000
+28,2015,Pedestrian Infrastructure,15505
+28,2015,Sidewalk Repair,18455
+28,2015,Street Redesign,18500
+28,2015,Street Resurfacing,560109
+28,2016,Alleys,154213
+28,2016,Lighting,344900
+28,2016,Misc.,7824
+28,2016,Pedestrian Infrastructure,40658
+28,2016,Sidewalk Repair,60589
+28,2016,Street Redesign,24050
+28,2016,Street Resurfacing,457366
+28,2017,Alleys,3500
+28,2017,Lighting,540799
+28,2017,Misc.,11465
+28,2017,Pedestrian Infrastructure,31079
+28,2017,Sidewalk Repair,420370
+28,2017,Street Redesign,3700
+28,2017,Street Resurfacing,309088
+28,2018,Alleys,263459
+28,2018,Lighting,331606
+28,2018,Misc.,25900
+28,2018,Misc. CDOT,93750
+28,2018,Pedestrian Infrastructure,29050
+28,2018,Police Cameras,16200
+28,2018,Sidewalk Repair,25867
+28,2018,Street Redesign,40000
+28,2018,Street Resurfacing,494167
+28,2023,Alleys,210680
+28,2023,Lighting,662900
+28,2023,Misc.,9025
+28,2023,Sidewalk Repair,77820
+28,2023,Street Resurfacing,436812
+29,2012,Alleys,345759
+29,2012,Lighting,448350
+29,2012,Sidewalk Repair,35942
+29,2012,Street Redesign,3700
+29,2012,Street Resurfacing,484895
+29,2013,Alleys,47183
+29,2013,Lighting,216000
+29,2013,Misc.,11654
+29,2013,Sidewalk Repair,40503
+29,2013,Street Redesign,14800
+29,2013,Street Resurfacing,973861
+29,2014,Alleys,49038
+29,2014,Lighting,597500
+29,2014,Misc.,5200
+29,2014,Street Resurfacing,667578
+29,2015,Alleys,229614
+29,2015,Sidewalk Repair,10667
+29,2015,Street Redesign,16200
+29,2015,Street Resurfacing,1056121
+29,2016,Alleys,185443
+29,2016,Misc.,385000
+29,2016,Sidewalk Repair,111670
+29,2016,Street Redesign,24801
+29,2016,Street Resurfacing,441636
+29,2017,Alleys,155318
+29,2017,Beautification,54009
+29,2017,Misc.,93336
+29,2017,Pedestrian Infrastructure,60000
+29,2017,Sidewalk Repair,60563
+29,2017,Street Redesign,17920
+29,2017,Street Resurfacing,878852
+29,2018,Alleys,104626
+29,2018,Lighting,500
+29,2018,Misc.,49076
+29,2018,Misc. CDOT,57350
+29,2018,Parks,55700
+29,2018,Pedestrian Infrastructure,41423
+29,2018,Sidewalk Repair,51708
+29,2018,Street Resurfacing,959616
+29,2023,Alleys,459635
+29,2023,Beautification,50000
+29,2023,Lighting,500
+29,2023,Misc.,14640
+29,2023,Misc. CDOT,47810
+29,2023,Parks,92000
+29,2023,Sidewalk Repair,163838
+29,2023,Street Redesign,47921
+29,2023,Street Resurfacing,623654
+30,2012,Alleys,301646
+30,2012,Lighting,7800
+30,2012,Misc.,22814
+30,2012,Pedestrian Infrastructure,23162
+30,2012,Sidewalk Repair,374705
+30,2012,Street Redesign,11100
+30,2012,Street Resurfacing,578671
+30,2013,Alleys,51419
+30,2013,Lighting,89400
+30,2013,Misc.,27687
+30,2013,Pedestrian Infrastructure,1100
+30,2013,Sidewalk Repair,74066
+30,2013,Street Redesign,16650
+30,2013,Street Resurfacing,1055677
+30,2014,Alleys,10972
+30,2014,Lighting,141800
+30,2014,Misc.,270
+30,2014,Sidewalk Repair,20473
+30,2014,Street Resurfacing,1146099
+30,2015,Alleys,257469
+30,2015,Lighting,1200
+30,2015,Pedestrian Infrastructure,350
+30,2015,Sidewalk Repair,247622
+30,2015,Street Redesign,40100
+30,2015,Street Resurfacing,769037
+30,2016,Alleys,307727
+30,2016,Lighting,108317
+30,2016,Misc.,90000
+30,2016,Pedestrian Infrastructure,31461
+30,2016,Sidewalk Repair,254553
+30,2016,Street Redesign,14957
+30,2016,Street Resurfacing,512985
+30,2017,Alleys,316771
+30,2017,Lighting,228633
+30,2017,Misc.,48217
+30,2017,Sidewalk Repair,254256
+30,2017,Street Resurfacing,472120
+30,2018,Alleys,269798
+30,2018,Misc.,44400
+30,2018,Parks,45000
+30,2018,Police Cameras,27011
+30,2018,Sidewalk Repair,378331
+30,2018,Street Redesign,3700
+30,2018,Street Resurfacing,551767
+30,2023,Alleys,509407
+30,2023,Lighting,347299
+30,2023,Misc.,14640
+30,2023,Misc. CDOT,101
+30,2023,Sidewalk Repair,262691
+30,2023,Street Resurfacing,308175
+31,2012,Alleys,137763
+31,2012,Lighting,237100
+31,2012,Misc.,17250
+31,2012,Street Redesign,22200
+31,2012,Street Resurfacing,905685
+31,2013,Alleys,158786
+31,2013,Lighting,75200
+31,2013,Misc.,10703
+31,2013,Pedestrian Infrastructure,4350
+31,2013,Sidewalk Repair,427
+31,2013,Street Redesign,11100
+31,2013,Street Resurfacing,1059385
+31,2014,Alleys,101535
+31,2014,Lighting,303250
+31,2014,Misc.,1597
+31,2014,Pedestrian Infrastructure,1900
+31,2014,Sidewalk Repair,65803
+31,2014,Street Redesign,25900
+31,2014,Street Resurfacing,818575
+31,2015,Alleys,6300
+31,2015,Lighting,468400
+31,2015,Pedestrian Infrastructure,15211
+31,2015,Sidewalk Repair,55810
+31,2015,Street Redesign,9250
+31,2015,Street Resurfacing,615334
+31,2016,Alleys,139502
+31,2016,Lighting,333000
+31,2016,Misc.,7999
+31,2016,Pedestrian Infrastructure,600
+31,2016,Sidewalk Repair,141905
+31,2016,Street Redesign,108350
+31,2016,Street Resurfacing,243554
+31,2016,Viaducts,94400
+31,2017,Alleys,306963
+31,2017,Lighting,414131
+31,2017,Misc.,80223
+31,2017,Parks,100000
+31,2017,Sidewalk Repair,81584
+31,2017,Street Resurfacing,252948
+31,2017,Viaducts,84148
+31,2018,Alleys,61226
+31,2018,Misc.,3700
+31,2018,Police Cameras,13506
+31,2018,Sidewalk Repair,109193
+31,2018,Street Resurfacing,1132376
+31,2023,Alleys,347375
+31,2023,Lighting,494500
+31,2023,Misc.,16066
+31,2023,Misc. CDOT,3900
+31,2023,Parks,11882
+31,2023,Pedestrian Infrastructure,6367
+31,2023,Sidewalk Repair,122486
+31,2023,Street Redesign,4400
+31,2023,Street Resurfacing,493024
+32,2012,Alleys,44500
+32,2012,Pedestrian Infrastructure,46098
+32,2012,Street Redesign,14150
+32,2012,Street Resurfacing,1214746
+32,2013,Alleys,34083
+32,2013,Misc.,3700
+32,2013,Street Resurfacing,1282214
+32,2014,Alleys,58667
+32,2014,Bicycle Infrastructure,5000
+32,2014,Lighting,9400
+32,2014,Misc.,5200
+32,2014,Parks,150000
+32,2014,Pedestrian Infrastructure,5650
+32,2014,Sidewalk Repair,12370
+32,2014,Street Redesign,7400
+32,2014,Street Resurfacing,1060412
+32,2015,Alleys,5477
+32,2015,Parks,150000
+32,2015,Pedestrian Infrastructure,1200
+32,2015,Sidewalk Repair,10288
+32,2015,Street Redesign,5550
+32,2015,Street Resurfacing,1142580
+32,2016,Alleys,248020
+32,2016,Lighting,1200
+32,2016,Misc.,70557
+32,2016,Pedestrian Infrastructure,3100
+32,2016,Sidewalk Repair,23537
+32,2016,Street Redesign,37000
+32,2016,Street Resurfacing,810290
+32,2016,Viaducts,16000
+32,2017,Alleys,70128
+32,2017,Lighting,1000
+32,2017,Misc.,30139
+32,2017,Pedestrian Infrastructure,30600
+32,2017,Sidewalk Repair,213199
+32,2017,Street Redesign,2525
+32,2017,Street Resurfacing,972407
+32,2018,Alleys,172772
+32,2018,Lighting,88000
+32,2018,Misc.,38850
+32,2018,Pedestrian Infrastructure,29639
+32,2018,Sidewalk Repair,89568
+32,2018,Street Redesign,7871
+32,2018,Street Resurfacing,893302
+32,2023,Alleys,770552
+32,2023,Misc.,7320
+32,2023,Parks,50000
+32,2023,Pedestrian Infrastructure,79241
+32,2023,Sidewalk Repair,5729
+32,2023,Street Redesign,10505
+32,2023,Street Resurfacing,568812
+33,2012,Alleys,37959
+33,2012,Lighting,1011350
+33,2012,Misc.,660
+33,2012,Pedestrian Infrastructure,800
+33,2012,Sidewalk Repair,23508
+33,2012,Street Resurfacing,245636
+33,2013,Alleys,336498
+33,2013,Lighting,432400
+33,2013,Misc.,122471
+33,2013,Pedestrian Infrastructure,1900
+33,2013,Sidewalk Repair,53408
+33,2013,Street Resurfacing,373322
+33,2014,Alleys,94357
+33,2014,Lighting,288000
+33,2014,Misc.,18510
+33,2014,Parks,13404
+33,2014,Pedestrian Infrastructure,4400
+33,2014,Sidewalk Repair,22910
+33,2014,Street Redesign,3700
+33,2014,Street Resurfacing,874718
+33,2015,Alleys,576180
+33,2015,Lighting,469200
+33,2015,Misc.,75000
+33,2015,Misc. CDOT,3500
+33,2015,Parks,25000
+33,2015,Pedestrian Infrastructure,20100
+33,2015,Sidewalk Repair,35189
+33,2015,Street Resurfacing,97983
+33,2016,Alleys,446908
+33,2016,Lighting,637000
+33,2016,Misc.,126822
+33,2016,Parks,33500
+33,2016,Pedestrian Infrastructure,5781
+33,2016,Sidewalk Repair,22517
+33,2016,Street Redesign,9250
+33,2017,Alleys,454964
+33,2017,Beautification,10000
+33,2017,Lighting,442500
+33,2017,Misc.,78120
+33,2017,Misc. CDOT,490
+33,2017,Parks,64802
+33,2017,Sidewalk Repair,43125
+33,2017,Street Redesign,45780
+33,2017,Street Resurfacing,180215
+33,2018,Alleys,483394
+33,2018,Lighting,380000
+33,2018,Misc.,33673
+33,2018,Misc. CDOT,3500
+33,2018,Sidewalk Repair,102827
+33,2018,Street Redesign,1548
+33,2018,Street Resurfacing,315057
+33,2023,Alleys,361508
+33,2023,Bicycle Infrastructure,106763
+33,2023,Misc.,249984
+33,2023,Parks,94564
+33,2023,Pedestrian Infrastructure,225000
+33,2023,Sidewalk Repair,196675
+33,2023,Street Resurfacing,261252
+34,2012,Alleys,81690
+34,2012,Lighting,409555
+34,2012,Misc.,117177
+34,2012,Sidewalk Repair,231849
+34,2012,Street Redesign,70147
+34,2012,Street Resurfacing,409546
+34,2013,Alleys,43765
+34,2013,Lighting,237750
+34,2013,Misc.,11950
+34,2013,Sidewalk Repair,283569
+34,2013,Street Redesign,55500
+34,2013,Street Resurfacing,687464
+34,2014,Alleys,29056
+34,2014,Lighting,4350
+34,2014,Misc.,0
+34,2014,Pedestrian Infrastructure,550
+34,2014,Sidewalk Repair,365335
+34,2014,Street Redesign,37000
+34,2014,Street Resurfacing,882380
+34,2015,Alleys,17000
+34,2015,Lighting,651150
+34,2015,Misc.,154150
+34,2015,Sidewalk Repair,127681
+34,2015,Street Redesign,6650
+34,2015,Street Resurfacing,306472
+34,2016,Alleys,52967
+34,2016,Lighting,187000
+34,2016,Misc.,156731
+34,2016,Sidewalk Repair,91240
+34,2016,Street Redesign,94982
+34,2016,Street Resurfacing,616490
+34,2017,Alleys,103597
+34,2017,Lighting,453750
+34,2017,Misc.,9250
+34,2017,Pedestrian Infrastructure,25407
+34,2017,Sidewalk Repair,100419
+34,2017,Street Redesign,25434
+34,2017,Street Resurfacing,602143
+34,2018,Alleys,113882
+34,2018,Lighting,184800
+34,2018,Misc.,9250
+34,2018,Sidewalk Repair,236328
+34,2018,Street Redesign,7014
+34,2018,Street Resurfacing,768728
+34,2023,Alleys,52448
+34,2023,Sidewalk Repair,170669
+34,2023,Street Resurfacing,170717
+35,2012,Alleys,16199
+35,2012,Lighting,729000
+35,2012,Pedestrian Infrastructure,75711
+35,2012,Sidewalk Repair,150057
+35,2012,Street Redesign,7400
+35,2012,Street Resurfacing,341384
+35,2013,Alleys,48304
+35,2013,Lighting,512000
+35,2013,Misc.,297000
+35,2013,Parks,21732
+35,2013,Pedestrian Infrastructure,35726
+35,2013,Sidewalk Repair,25273
+35,2013,Street Redesign,25900
+35,2013,Street Resurfacing,354065
+35,2014,Alleys,48412
+35,2014,Lighting,590600
+35,2014,Misc.,39392
+35,2014,Pedestrian Infrastructure,1900
+35,2014,Sidewalk Repair,202468
+35,2014,Street Redesign,27750
+35,2014,Street Resurfacing,405671
+35,2015,Alleys,44364
+35,2015,Bicycle Infrastructure,74897
+35,2015,Lighting,576000
+35,2015,Misc.,11450
+35,2015,Pedestrian Infrastructure,14011
+35,2015,Street Resurfacing,591533
+35,2016,Alleys,337805
+35,2016,Bicycle Infrastructure,15968
+35,2016,Lighting,439000
+35,2016,Misc.,439533
+35,2016,Pedestrian Infrastructure,2750
+35,2016,Sidewalk Repair,39948
+35,2016,Street Redesign,3700
+35,2017,Alleys,316871
+35,2017,Lighting,405000
+35,2017,Misc.,26650
+35,2017,Pedestrian Infrastructure,146814
+35,2017,Sidewalk Repair,26728
+35,2017,Street Redesign,89307
+35,2017,Street Resurfacing,308630
+35,2018,Alleys,527158
+35,2018,Lighting,121000
+35,2018,Misc.,52422
+35,2018,Pedestrian Infrastructure,2500
+35,2018,Sidewalk Repair,83258
+35,2018,Street Redesign,8400
+35,2018,Street Resurfacing,525260
+35,2023,Alleys,264874
+35,2023,Beautification,40000
+35,2023,Bicycle Infrastructure,114500
+35,2023,Lighting,75681
+35,2023,Misc.,19520
+35,2023,Misc. CDOT,2600
+35,2023,Pedestrian Infrastructure,78161
+35,2023,Sidewalk Repair,297281
+35,2023,Street Resurfacing,205080
+36,2012,Alleys,51127
+36,2012,Misc.,525
+36,2012,Parks,85301
+36,2012,Sidewalk Repair,70590
+36,2012,Street Redesign,14800
+36,2012,Street Resurfacing,1097657
+36,2013,Alleys,1400
+36,2013,Misc.,2090
+36,2013,Parks,310277
+36,2013,Pedestrian Infrastructure,2850
+36,2013,Street Resurfacing,1003385
+36,2014,Alleys,1400
+36,2014,Misc.,0
+36,2014,Pedestrian Infrastructure,950
+36,2014,Sidewalk Repair,17859
+36,2014,Street Redesign,16650
+36,2014,Street Resurfacing,1283140
+36,2015,Misc.,9550
+36,2015,Misc. CDOT,51849
+36,2015,Parks,43464
+36,2015,Pedestrian Infrastructure,350
+36,2015,Sidewalk Repair,20962
+36,2015,Street Redesign,8900
+36,2015,Street Resurfacing,1180764
+36,2016,Alleys,2100
+36,2016,Misc.,175000
+36,2016,Parks,10000
+36,2016,Pedestrian Infrastructure,46211
+36,2016,Sidewalk Repair,31931
+36,2016,Street Redesign,31450
+36,2016,Street Resurfacing,899805
+36,2017,Alleys,14959
+36,2017,Lighting,500
+36,2017,Misc.,49837
+36,2017,Misc. CDOT,2350
+36,2017,Parks,435000
+36,2017,Pedestrian Infrastructure,59232
+36,2017,Sidewalk Repair,160870
+36,2017,Street Resurfacing,597250
+36,2018,Alleys,129851
+36,2018,Misc.,75350
+36,2018,Pedestrian Infrastructure,10245
+36,2018,Police Cameras,13506
+36,2018,Sidewalk Repair,153916
+36,2018,Street Redesign,35199
+36,2018,Street Resurfacing,901931
+36,2023,Alleys,537795
+36,2023,Lighting,950
+36,2023,Misc. CDOT,660
+36,2023,Parks,1020
+36,2023,Sidewalk Repair,286521
+36,2023,Street Resurfacing,623924
+37,2012,Alleys,30109
+37,2012,Lighting,599450
+37,2012,Misc.,13890
+37,2012,Sidewalk Repair,67341
+37,2012,Street Redesign,24050
+37,2012,Street Resurfacing,585043
+37,2013,Alleys,45854
+37,2013,Lighting,843000
+37,2013,Misc.,0
+37,2013,Sidewalk Repair,2503
+37,2013,Street Redesign,5550
+37,2013,Street Resurfacing,423092
+37,2014,Alleys,21633
+37,2014,Lighting,516245
+37,2014,Misc.,0
+37,2014,Sidewalk Repair,41217
+37,2014,Street Redesign,14800
+37,2014,Street Resurfacing,726105
+37,2015,Alleys,35007
+37,2015,Lighting,744205
+37,2015,Pedestrian Infrastructure,1200
+37,2015,Sidewalk Repair,83424
+37,2015,Street Redesign,29600
+37,2015,Street Resurfacing,426566
+37,2016,Alleys,2800
+37,2016,Lighting,675000
+37,2016,Misc.,495
+37,2016,Pedestrian Infrastructure,600
+37,2016,Sidewalk Repair,58706
+37,2016,Street Redesign,16650
+37,2016,Street Resurfacing,562304
+37,2017,Alleys,70486
+37,2017,Bicycle Infrastructure,45000
+37,2017,Lighting,156000
+37,2017,Misc.,49598
+37,2017,Pedestrian Infrastructure,40600
+37,2017,Sidewalk Repair,372553
+37,2017,Street Redesign,7245
+37,2017,Street Resurfacing,578518
+37,2018,Alleys,631154
+37,2018,Misc.,18842
+37,2018,Misc. CDOT,660
+37,2018,Pedestrian Infrastructure,2400
+37,2018,Sidewalk Repair,144436
+37,2018,Street Redesign,11005
+37,2018,Street Resurfacing,511503
+37,2023,Alleys,247067
+37,2023,Lighting,340000
+37,2023,Misc.,37397
+37,2023,Misc. CDOT,2100
+37,2023,Pedestrian Infrastructure,35045
+37,2023,Sidewalk Repair,124642
+37,2023,Street Resurfacing,327543
+38,2012,Alleys,66861
+38,2012,Lighting,3000
+38,2012,Misc.,198217
+38,2012,Pedestrian Infrastructure,410
+38,2012,Sidewalk Repair,114345
+38,2012,Street Redesign,14800
+38,2012,Street Resurfacing,922366
+38,2013,Alleys,273740
+38,2013,Lighting,7450
+38,2013,Misc.,96227
+38,2013,Pedestrian Infrastructure,1500
+38,2013,Sidewalk Repair,108226
+38,2013,Street Redesign,3800
+38,2013,Street Resurfacing,828498
+38,2014,Lighting,1240
+38,2014,Misc.,0
+38,2014,Sidewalk Repair,21862
+38,2014,Street Redesign,7400
+38,2014,Street Resurfacing,1289495
+38,2015,Alleys,9247
+38,2015,Lighting,1360
+38,2015,Misc.,20650
+38,2015,Misc. CDOT,1849
+38,2015,Pedestrian Infrastructure,1200
+38,2015,Street Redesign,14800
+38,2015,Street Resurfacing,1268672
+38,2016,Alleys,1400
+38,2016,Misc.,0
+38,2016,Sidewalk Repair,25475
+38,2016,Street Redesign,1478
+38,2016,Street Resurfacing,1289658
+38,2017,Misc.,13700
+38,2017,Sidewalk Repair,62737
+38,2017,Street Resurfacing,1243562
+38,2018,Misc.,9250
+38,2018,Street Resurfacing,1310750
+38,2023,Alleys,103545
+38,2023,Lighting,500
+38,2023,Misc.,17080
+38,2023,Misc. CDOT,660
+38,2023,Parks,50000
+38,2023,Sidewalk Repair,23000
+38,2023,Street Resurfacing,969527
+39,2012,Alleys,90254
+39,2012,Lighting,384000
+39,2012,Misc.,264865
+39,2012,Sidewalk Repair,14318
+39,2012,Street Resurfacing,566562
+39,2013,Alleys,42803
+39,2013,Lighting,31571
+39,2013,Misc.,167621
+39,2013,Pedestrian Infrastructure,2850
+39,2013,Street Resurfacing,1074820
+39,2014,Alleys,71683
+39,2014,Misc.,50615
+39,2014,Pedestrian Infrastructure,950
+39,2014,Sidewalk Repair,36996
+39,2014,Street Resurfacing,1157657
+39,2015,Alleys,47896
+39,2015,Misc.,39511
+39,2015,Pedestrian Infrastructure,34711
+39,2015,Sidewalk Repair,16574
+39,2015,Street Resurfacing,1181308
+39,2016,Alleys,64950
+39,2016,Lighting,3300
+39,2016,Misc.,48000
+39,2016,Pedestrian Infrastructure,3241
+39,2016,Sidewalk Repair,48151
+39,2016,Street Resurfacing,1017804
+39,2017,Alleys,146772
+39,2017,Lighting,20650
+39,2017,Misc.,25550
+39,2017,Misc. CDOT,45256
+39,2017,Pedestrian Infrastructure,24008
+39,2017,Sidewalk Repair,16376
+39,2017,Street Resurfacing,1041387
+39,2018,Alleys,14450
+39,2018,Beautification,13000
+39,2018,Lighting,30700
+39,2018,Misc.,116495
+39,2018,Misc. CDOT,78778
+39,2018,Parks,10000
+39,2018,Pedestrian Infrastructure,33714
+39,2018,Sidewalk Repair,38585
+39,2018,Street Resurfacing,984279
+39,2023,Bicycle Infrastructure,150000
+39,2023,Lighting,4000
+39,2023,Misc.,150000
+39,2023,Misc. CDOT,660
+39,2023,Pedestrian Infrastructure,50000
+39,2023,Sidewalk Repair,21435
+39,2023,Street Redesign,150000
+39,2023,Street Resurfacing,906274
+40,2012,Alleys,203303
+40,2012,Lighting,700
+40,2012,Misc.,4773
+40,2012,Pedestrian Infrastructure,15439
+40,2012,Sidewalk Repair,1275
+40,2012,Street Resurfacing,1094509
+40,2013,Alleys,66103
+40,2013,Lighting,2400
+40,2013,Misc.,47922
+40,2013,Pedestrian Infrastructure,562
+40,2013,Sidewalk Repair,6873
+40,2013,Street Redesign,12950
+40,2013,Street Resurfacing,1183190
+40,2014,Alleys,22809
+40,2014,Lighting,145050
+40,2014,Misc.,18872
+40,2014,Sidewalk Repair,53234
+40,2014,Street Resurfacing,1079839
+40,2015,Alleys,276710
+40,2015,Misc.,23290
+40,2015,Sidewalk Repair,8877
+40,2015,Street Resurfacing,1011097
+40,2016,Alleys,79934
+40,2016,Lighting,402950
+40,2016,Misc.,14143
+40,2016,Pedestrian Infrastructure,950
+40,2016,Sidewalk Repair,5789
+40,2016,Street Redesign,3700
+40,2016,Street Resurfacing,810228
+40,2017,Alleys,249129
+40,2017,Lighting,101000
+40,2017,Misc.,10000
+40,2017,Pedestrian Infrastructure,1550
+40,2017,Sidewalk Repair,23129
+40,2017,Street Redesign,1163
+40,2017,Street Resurfacing,934031
+40,2018,Alleys,260381
+40,2018,Lighting,188225
+40,2018,Misc.,36330
+40,2018,Pedestrian Infrastructure,91011
+40,2018,Sidewalk Repair,45204
+40,2018,Street Redesign,3700
+40,2018,Street Resurfacing,695151
+40,2023,Alleys,370795
+40,2023,Lighting,1000
+40,2023,Pedestrian Infrastructure,320000
+40,2023,Sidewalk Repair,200953
+40,2023,Street Redesign,70500
+40,2023,Street Resurfacing,138594
+41,2012,Alleys,52900
+41,2012,Lighting,350
+41,2012,Parks,120000
+41,2012,Pedestrian Infrastructure,2000
+41,2012,Sidewalk Repair,11397
+41,2012,Street Resurfacing,1132714
+41,2013,Alleys,2759
+41,2013,Misc.,124881
+41,2013,Sidewalk Repair,3627
+41,2013,Street Resurfacing,1188732
+41,2014,Misc.,4000
+41,2014,Street Redesign,21000
+41,2014,Street Resurfacing,1294999
+41,2015,Alleys,52542
+41,2015,Misc.,22600
+41,2015,Misc. CDOT,7444
+41,2015,Sidewalk Repair,17872
+41,2015,Street Redesign,9250
+41,2015,Street Resurfacing,1210293
+41,2016,Alleys,6597
+41,2016,Lighting,1200
+41,2016,Misc.,10736
+41,2016,Sidewalk Repair,21163
+41,2016,Street Redesign,10900
+41,2016,Street Resurfacing,1269406
+41,2017,Alleys,700
+41,2017,Lighting,51650
+41,2017,Misc.,41261
+41,2017,Misc. CDOT,12000
+41,2017,Parks,100307
+41,2017,Sidewalk Repair,111337
+41,2017,Street Resurfacing,1002746
+41,2018,Alleys,700
+41,2018,Lighting,1500
+41,2018,Misc.,6815
+41,2018,Misc. CDOT,25000
+41,2018,Parks,277000
+41,2018,Pedestrian Infrastructure,600
+41,2018,Sidewalk Repair,93074
+41,2018,Street Redesign,250
+41,2018,Street Resurfacing,915062
+41,2023,Lighting,500
+41,2023,Misc.,4880
+41,2023,Misc. CDOT,11178
+41,2023,Street Resurfacing,1466104
+42,2012,Alleys,31770
+42,2012,Lighting,128900
+42,2012,Misc.,29479
+42,2012,Pedestrian Infrastructure,32040
+42,2012,Sidewalk Repair,205022
+42,2012,Street Redesign,55900
+42,2012,Street Resurfacing,836721
+42,2013,Alleys,700
+42,2013,Lighting,56600
+42,2013,Misc.,249490
+42,2013,Pedestrian Infrastructure,39810
+42,2013,Sidewalk Repair,196527
+42,2013,Street Redesign,1850
+42,2013,Street Resurfacing,774412
+42,2014,Bicycle Infrastructure,18000
+42,2014,Lighting,108480
+42,2014,Misc.,63423
+42,2014,Pedestrian Infrastructure,31496
+42,2014,Sidewalk Repair,86310
+42,2014,Street Redesign,73750
+42,2014,Street Resurfacing,938314
+42,2015,Alleys,41120
+42,2015,Lighting,113650
+42,2015,Misc.,50107
+42,2015,Misc. CDOT,18025
+42,2015,Pedestrian Infrastructure,73024
+42,2015,Sidewalk Repair,114088
+42,2015,Street Redesign,53150
+42,2015,Street Resurfacing,840956
+42,2016,Alleys,9182
+42,2016,Lighting,587645
+42,2016,Misc.,103475
+42,2016,Pedestrian Infrastructure,201941
+42,2016,Sidewalk Repair,58914
+42,2016,Street Redesign,1400
+42,2016,Street Resurfacing,270120
+42,2016,Viaducts,85500
+42,2017,Alleys,32910
+42,2017,Lighting,130025
+42,2017,Misc.,25000
+42,2017,Misc. CDOT,192961
+42,2017,Pedestrian Infrastructure,128026
+42,2017,Police Cameras,54022
+42,2017,Sidewalk Repair,64599
+42,2017,Street Redesign,19000
+42,2017,Street Resurfacing,668455
+42,2018,Alleys,26820
+42,2018,Lighting,85069
+42,2018,Misc.,108357
+42,2018,Misc. CDOT,113599
+42,2018,Parks,128044
+42,2018,Pedestrian Infrastructure,221535
+42,2018,Police Cameras,162066
+42,2018,Street Redesign,32050
+42,2018,Street Resurfacing,379171
+42,2018,Viaducts,63290
+42,2023,Alleys,6273
+42,2023,Lighting,365000
+42,2023,Misc.,4880
+42,2023,Misc. CDOT,38965
+42,2023,Pedestrian Infrastructure,25684
+42,2023,Sidewalk Repair,120000
+42,2023,Street Resurfacing,484943
+42,2023,Viaducts,166100
+43,2012,Alleys,684914
+43,2012,Lighting,72470
+43,2012,Misc.,23408
+43,2012,Parks,10000
+43,2012,Pedestrian Infrastructure,10820
+43,2012,Sidewalk Repair,155983
+43,2012,Street Redesign,1200
+43,2012,Street Resurfacing,361205
+43,2013,Alleys,643624
+43,2013,Lighting,4613
+43,2013,Misc.,65320
+43,2013,Pedestrian Infrastructure,16700
+43,2013,Sidewalk Repair,150533
+43,2013,Street Resurfacing,436182
+43,2014,Lighting,4550
+43,2014,Misc.,18620
+43,2014,Pedestrian Infrastructure,8500
+43,2014,Sidewalk Repair,18287
+43,2014,Street Resurfacing,1270041
+43,2015,Alleys,603552
+43,2015,Lighting,292700
+43,2015,Parks,78500
+43,2015,Pedestrian Infrastructure,42721
+43,2015,Sidewalk Repair,193971
+43,2015,Street Redesign,2750
+43,2015,Street Resurfacing,105806
+43,2016,Alleys,365606
+43,2016,Lighting,311400
+43,2016,Misc.,9250
+43,2016,Pedestrian Infrastructure,15998
+43,2016,Sidewalk Repair,79146
+43,2016,Street Redesign,24000
+43,2016,Street Resurfacing,370255
+43,2017,Alleys,94367
+43,2017,Beautification,50000
+43,2017,Lighting,915500
+43,2017,Misc.,59698
+43,2017,Parks,30000
+43,2017,Pedestrian Infrastructure,4100
+43,2017,Sidewalk Repair,57340
+43,2017,Street Resurfacing,108994
+43,2018,Alleys,511778
+43,2018,Lighting,6900
+43,2018,Misc. CDOT,14690
+43,2018,Parks,39000
+43,2018,Pedestrian Infrastructure,387843
+43,2018,Sidewalk Repair,51846
+43,2018,Street Resurfacing,220943
+43,2018,Viaducts,87000
+43,2023,Alleys,442250
+43,2023,Lighting,48617
+43,2023,Misc.,17333
+43,2023,Parks,208082
+43,2023,Pedestrian Infrastructure,45888
+43,2023,Sidewalk Repair,44656
+43,2023,Street Redesign,2500
+43,2023,Street Resurfacing,119898
+44,2012,Alleys,700
+44,2012,Lighting,705350
+44,2012,Misc.,71670
+44,2012,Pedestrian Infrastructure,5120
+44,2012,Sidewalk Repair,264783
+44,2012,Street Resurfacing,272306
+44,2013,Alleys,107804
+44,2013,Lighting,576600
+44,2013,Misc.,37233
+44,2013,Pedestrian Infrastructure,35216
+44,2013,Sidewalk Repair,169645
+44,2013,Street Redesign,5550
+44,2013,Street Resurfacing,387951
+44,2014,Alleys,101376
+44,2014,Lighting,452150
+44,2014,Misc.,287200
+44,2014,Pedestrian Infrastructure,6550
+44,2014,Sidewalk Repair,156770
+44,2014,Street Redesign,9250
+44,2014,Street Resurfacing,306514
+44,2015,Alleys,233748
+44,2015,Lighting,193800
+44,2015,Misc.,21050
+44,2015,Parks,44988
+44,2015,Pedestrian Infrastructure,3900
+44,2015,Sidewalk Repair,123354
+44,2015,Street Resurfacing,684237
+44,2016,Alleys,155743
+44,2016,Misc.,532011
+44,2016,Pedestrian Infrastructure,350
+44,2016,Sidewalk Repair,130141
+44,2016,Street Resurfacing,501756
+44,2017,Alleys,435538
+44,2017,Lighting,180400
+44,2017,Misc.,103700
+44,2017,Misc. CDOT,5388
+44,2017,Sidewalk Repair,111222
+44,2017,Street Redesign,7575
+44,2017,Street Resurfacing,476180
+44,2018,Alleys,274749
+44,2018,Beautification,7500
+44,2018,Lighting,67000
+44,2018,Misc.,170000
+44,2018,Parks,60000
+44,2018,Sidewalk Repair,34472
+44,2018,Street Resurfacing,706280
+44,2023,Alleys,426915
+44,2023,Beautification,700
+44,2023,Lighting,3500
+44,2023,Misc.,24400
+44,2023,Misc. CDOT,348164
+44,2023,Pedestrian Infrastructure,78144
+44,2023,Sidewalk Repair,54207
+44,2023,Street Resurfacing,281685
+44,2023,Viaducts,500
+45,2012,Alleys,408820
+45,2012,Lighting,320000
+45,2012,Misc.,2025
+45,2012,Pedestrian Infrastructure,33821
+45,2012,Sidewalk Repair,199320
+45,2012,Street Redesign,8400
+45,2012,Street Resurfacing,347614
+45,2013,Alleys,700
+45,2013,Lighting,2800
+45,2013,Misc.,412663
+45,2013,Parks,2500
+45,2013,Pedestrian Infrastructure,5050
+45,2013,Sidewalk Repair,160521
+45,2013,Street Redesign,5550
+45,2013,Street Resurfacing,730073
+45,2014,Alleys,59934
+45,2014,Bicycle Infrastructure,75716
+45,2014,Misc.,5789
+45,2014,Parks,100000
+45,2014,Pedestrian Infrastructure,4000
+45,2014,Sidewalk Repair,138734
+45,2014,Street Redesign,22200
+45,2014,Street Resurfacing,913135
+45,2015,Alleys,29037
+45,2015,Lighting,156000
+45,2015,Misc.,253536
+45,2015,Sidewalk Repair,8758
+45,2015,Street Redesign,5550
+45,2015,Street Resurfacing,727925
+45,2016,Alleys,4900
+45,2016,Bicycle Infrastructure,100000
+45,2016,Lighting,450
+45,2016,Misc.,213507
+45,2016,Parks,82762
+45,2016,Sidewalk Repair,216574
+45,2016,Street Redesign,54220
+45,2016,Street Resurfacing,644783
+45,2017,Alleys,34897
+45,2017,Misc.,51672
+45,2017,Misc. CDOT,8292
+45,2017,Parks,34664
+45,2017,Pedestrian Infrastructure,144945
+45,2017,Sidewalk Repair,199572
+45,2017,Street Redesign,3700
+45,2017,Street Resurfacing,741799
+45,2017,Viaducts,30000
+45,2018,Alleys,119509
+45,2018,Beautification,15909
+45,2018,Lighting,500
+45,2018,Misc.,22257
+45,2018,Parks,15000
+45,2018,Pedestrian Infrastructure,79757
+45,2018,Sidewalk Repair,209020
+45,2018,Street Redesign,51705
+45,2018,Street Resurfacing,784920
+45,2018,Viaducts,5000
+45,2023,Alleys,725
+45,2023,Misc.,4880
+45,2023,Street Resurfacing,1491274
+46,2012,Alleys,197000
+46,2012,Lighting,967300
+46,2012,Misc.,32997
+46,2012,Pedestrian Infrastructure,13900
+46,2012,Street Redesign,15000
+46,2012,Street Resurfacing,93723
+46,2013,Alleys,9475
+46,2013,Bicycle Infrastructure,330000
+46,2013,Misc.,316233
+46,2013,Pedestrian Infrastructure,12000
+46,2013,Sidewalk Repair,14306
+46,2013,Street Redesign,73700
+46,2013,Street Resurfacing,560693
+46,2014,Alleys,93107
+46,2014,Misc.,114934
+46,2014,Pedestrian Infrastructure,1100
+46,2014,Sidewalk Repair,161438
+46,2014,Street Redesign,3700
+46,2014,Street Resurfacing,945189
+46,2015,Alleys,41622
+46,2015,Lighting,168000
+46,2015,Misc.,135055
+46,2015,Misc. CDOT,1532
+46,2015,Parks,3209
+46,2015,Sidewalk Repair,106977
+46,2015,Street Redesign,115950
+46,2015,Street Resurfacing,744236
+46,2016,Alleys,293401
+46,2016,Lighting,625000
+46,2016,Misc.,14877
+46,2016,Pedestrian Infrastructure,350
+46,2016,Sidewalk Repair,48539
+46,2016,Street Redesign,46073
+46,2016,Street Resurfacing,253063
+46,2017,Alleys,714602
+46,2017,Lighting,188300
+46,2017,Misc.,106000
+46,2017,Misc. CDOT,634
+46,2017,Parks,26952
+46,2017,Pedestrian Infrastructure,21400
+46,2017,Sidewalk Repair,55220
+46,2017,Street Resurfacing,206892
+46,2018,Alleys,92654
+46,2018,Bicycle Infrastructure,30000
+46,2018,Lighting,335000
+46,2018,Misc.,379398
+46,2018,Parks,25000
+46,2018,Pedestrian Infrastructure,82529
+46,2018,Sidewalk Repair,53095
+46,2018,Street Redesign,10969
+46,2018,Street Resurfacing,311355
+46,2023,Alleys,771041
+46,2023,Lighting,15750
+46,2023,Misc.,48249
+46,2023,Misc. CDOT,40882
+46,2023,Sidewalk Repair,120540
+46,2023,Street Resurfacing,374002
+47,2012,Alleys,239943
+47,2012,Lighting,500
+47,2012,Misc.,519585
+47,2012,Parks,30000
+47,2012,Pedestrian Infrastructure,13729
+47,2012,Sidewalk Repair,131630
+47,2012,Street Redesign,2750
+47,2012,Street Resurfacing,381863
+47,2013,Alleys,470139
+47,2013,Lighting,64400
+47,2013,Misc.,98587
+47,2013,Parks,33023
+47,2013,Pedestrian Infrastructure,221618
+47,2013,Sidewalk Repair,129392
+47,2013,Street Redesign,8300
+47,2013,Street Resurfacing,294408
+47,2014,Alleys,316965
+47,2014,Lighting,400
+47,2014,Misc.,507546
+47,2014,Pedestrian Infrastructure,12101
+47,2014,Sidewalk Repair,15884
+47,2014,Street Redesign,16150
+47,2014,Street Resurfacing,450784
+47,2015,Alleys,274682
+47,2015,Lighting,454000
+47,2015,Misc.,5188
+47,2015,Misc. CDOT,1000
+47,2015,Pedestrian Infrastructure,58000
+47,2015,Sidewalk Repair,24823
+47,2015,Street Redesign,42900
+47,2015,Street Resurfacing,459408
+47,2016,Alleys,257017
+47,2016,Lighting,383300
+47,2016,Misc.,19000
+47,2016,Parks,50000
+47,2016,Pedestrian Infrastructure,15100
+47,2016,Sidewalk Repair,61547
+47,2016,Street Redesign,6300
+47,2016,Street Resurfacing,449963
+47,2017,Alleys,187214
+47,2017,Lighting,77500
+47,2017,Misc.,15003
+47,2017,Misc. CDOT,312369
+47,2017,Parks,190000
+47,2017,Pedestrian Infrastructure,193634
+47,2017,Sidewalk Repair,4400
+47,2017,Street Redesign,1800
+47,2017,Street Resurfacing,338080
+47,2018,Alleys,229857
+47,2018,Beautification,13740
+47,2018,Bicycle Infrastructure,23000
+47,2018,Lighting,2500
+47,2018,Misc.,4626
+47,2018,Misc. CDOT,300000
+47,2018,Parks,176100
+47,2018,Pedestrian Infrastructure,170942
+47,2018,Police Cameras,27011
+47,2018,Sidewalk Repair,40736
+47,2018,Street Resurfacing,331491
+47,2023,Alleys,79229
+47,2023,Bicycle Infrastructure,250000
+47,2023,Lighting,3118
+47,2023,Misc.,50364
+47,2023,Pedestrian Infrastructure,254198
+47,2023,Sidewalk Repair,217118
+47,2023,Street Redesign,6931
+47,2023,Street Resurfacing,522334
+48,2012,Lighting,729050
+48,2012,Misc.,75163
+48,2012,Parks,20000
+48,2012,Pedestrian Infrastructure,207788
+48,2012,Street Resurfacing,288000
+48,2013,Lighting,140000
+48,2013,Misc.,652744
+48,2013,Parks,222000
+48,2013,Street Resurfacing,305256
+48,2014,Alleys,2800
+48,2014,Bicycle Infrastructure,56000
+48,2014,Lighting,35750
+48,2014,Misc.,640050
+48,2014,Pedestrian Infrastructure,71200
+48,2014,Sidewalk Repair,15093
+48,2014,Street Redesign,9200
+48,2014,Street Resurfacing,489662
+48,2015,Alleys,217136
+48,2015,Lighting,368800
+48,2015,Misc.,79072
+48,2015,Pedestrian Infrastructure,11550
+48,2015,Sidewalk Repair,120702
+48,2015,Street Resurfacing,495837
+48,2016,Alleys,54608
+48,2016,Bicycle Infrastructure,65000
+48,2016,Lighting,117050
+48,2016,Misc.,173096
+48,2016,Parks,346420
+48,2016,Pedestrian Infrastructure,114392
+48,2016,Sidewalk Repair,21612
+48,2016,Street Redesign,34601
+48,2016,Street Resurfacing,393221
+48,2017,Alleys,168509
+48,2017,Beautification,43900
+48,2017,Bicycle Infrastructure,17500
+48,2017,Lighting,38000
+48,2017,Misc.,55914
+48,2017,Misc. CDOT,3315
+48,2017,Parks,130480
+48,2017,Pedestrian Infrastructure,437916
+48,2017,Sidewalk Repair,96909
+48,2017,Street Redesign,1700
+48,2017,Street Resurfacing,325857
+48,2018,Alleys,214058
+48,2018,Beautification,40000
+48,2018,Bicycle Infrastructure,100000
+48,2018,Lighting,31452
+48,2018,Misc.,338011
+48,2018,Misc. CDOT,20000
+48,2018,Parks,26000
+48,2018,Pedestrian Infrastructure,96387
+48,2018,Sidewalk Repair,125737
+48,2018,Street Redesign,8796
+48,2018,Street Resurfacing,319557
+48,2023,Alleys,69802
+48,2023,Misc.,69096
+48,2023,Misc. CDOT,660
+48,2023,Parks,50000
+48,2023,Pedestrian Infrastructure,298012
+48,2023,Street Resurfacing,187078
+49,2012,Alleys,11434
+49,2012,Lighting,600
+49,2012,Misc.,195630
+49,2012,Parks,29000
+49,2012,Pedestrian Infrastructure,3625
+49,2012,Sidewalk Repair,70441
+49,2012,Street Redesign,8500
+49,2012,Street Resurfacing,1000770
+49,2013,Alleys,21735
+49,2013,Lighting,165750
+49,2013,Misc.,368494
+49,2013,Parks,11081
+49,2013,Pedestrian Infrastructure,3150
+49,2013,Sidewalk Repair,8211
+49,2013,Street Redesign,5550
+49,2013,Street Resurfacing,736029
+49,2014,Alleys,1400
+49,2014,Lighting,254800
+49,2014,Misc.,257496
+49,2014,Parks,337785
+49,2014,Pedestrian Infrastructure,1900
+49,2014,Street Resurfacing,466619
+49,2015,Alleys,267906
+49,2015,Misc.,111950
+49,2015,Parks,502668
+49,2015,Pedestrian Infrastructure,700
+49,2015,Sidewalk Repair,82105
+49,2015,Street Resurfacing,301855
+49,2016,Alleys,466765
+49,2016,Lighting,500
+49,2016,Misc.,132000
+49,2016,Sidewalk Repair,132652
+49,2016,Street Resurfacing,561934
+49,2017,Alleys,345114
+49,2017,Beautification,50000
+49,2017,Lighting,423000
+49,2017,Misc.,19000
+49,2017,Misc. CDOT,3192
+49,2017,Parks,120000
+49,2017,Sidewalk Repair,50765
+49,2017,Street Resurfacing,308928
+49,2018,Alleys,706973
+49,2018,Bicycle Infrastructure,50000
+49,2018,Lighting,6450
+49,2018,Misc.,5338
+49,2018,Misc. CDOT,20000
+49,2018,Parks,159476
+49,2018,Pedestrian Infrastructure,48760
+49,2018,Sidewalk Repair,93551
+49,2018,Street Redesign,4700
+49,2018,Street Resurfacing,224752
+49,2023,Alleys,295636
+49,2023,Beautification,33000
+49,2023,Bicycle Infrastructure,80000
+49,2023,Misc. CDOT,4560
+49,2023,Parks,112000
+49,2023,Pedestrian Infrastructure,200000
+49,2023,Sidewalk Repair,186986
+49,2023,Street Resurfacing,586698
+50,2012,Lighting,23760
+50,2012,Street Resurfacing,1296243
+50,2013,Alleys,11448
+50,2013,Lighting,132359
+50,2013,Misc.,0
+50,2013,Pedestrian Infrastructure,2600
+50,2013,Street Resurfacing,1173592
+50,2014,Alleys,45460
+50,2014,Lighting,12000
+50,2014,Misc.,0
+50,2014,Sidewalk Repair,41116
+50,2014,Street Redesign,7700
+50,2014,Street Resurfacing,1107115
+50,2015,Alleys,10990
+50,2015,Lighting,37426
+50,2015,Street Resurfacing,1256786
+50,2016,Lighting,261168
+50,2016,Misc.,0
+50,2016,Street Redesign,3700
+50,2016,Street Resurfacing,1055133
+50,2017,Alleys,28817
+50,2017,Lighting,449682
+50,2017,Misc.,15550
+50,2017,Misc. CDOT,150
+50,2017,Street Redesign,2600
+50,2017,Street Resurfacing,823201
+50,2018,Alleys,49515
+50,2018,Lighting,506500
+50,2018,Misc.,4000
+50,2018,Street Resurfacing,759986
+50,2023,Alleys,184145
+50,2023,Lighting,327500
+50,2023,Pedestrian Infrastructure,1404
+50,2023,Sidewalk Repair,61570
+50,2023,Street Resurfacing,656842
