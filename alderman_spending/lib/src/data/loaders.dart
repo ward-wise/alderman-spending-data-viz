@@ -7,7 +7,7 @@ import 'package:alderman_spending/src/services/csv_service.dart';
 import 'dart:convert';
 
 Future<List<AnnualWardSpendingData>> loadAnnualCategorySpendingData() async {
-  final csvTable = await readCSV('assets/2019-2022_ward_category_totals.csv');
+  final csvTable = await readCSV('assets/2012-2023_ward_category_totals.csv');
   if (csvTable.isEmpty) {
     return [];
   }
@@ -26,7 +26,7 @@ Future<List<AnnualWardSpendingData>> loadAnnualCategorySpendingData() async {
 }
 
 Future<List<WardItemLocationSpendingData>> loadCategoryItemsData() async {
-  final csvTable = await readCSV('assets/2019-2022_ward_items.csv');
+  final csvTable = await readCSV('assets/2012-2023_ward_items.csv');
   if (csvTable.isEmpty) {
     return [];
   }

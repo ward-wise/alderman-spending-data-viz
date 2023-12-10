@@ -109,10 +109,12 @@ class _DetailRegionState extends State<DetailRegion> {
         _selectedYear == null) {
       return null;
     }
-    return _wardItemLocationSpendingData!
+    var data = _wardItemLocationSpendingData!
         .where((element) =>
             element.ward == _selectedWard && element.year == _selectedYear)
-        .toList();
+        .toList()
+      ..sort((a, b) => b.cost.compareTo(a.cost));
+    return data;
   }
 
   @override
@@ -127,10 +129,9 @@ class _DetailRegionState extends State<DetailRegion> {
     }
     if (selectedData.selectedCategory == null ||
         selectedData.selectedCategory == "") {
-      return Center(
+      return const Center(
           // child: Text(AppLocalizations.of(context)!.detailPlaceholder));
-          child: const Text(
-              "Select a category to see a detailed list of spending."));
+          child: Text("Select a category to see a detailed list of spending"));
     }
 
     final selectedWardItems = _filteredData!
@@ -219,7 +220,8 @@ class BarChartRegionState extends State<BarChartRegion> {
     return _spendingData!
         .where((element) =>
             element.ward == _selectedWard && element.year == _selectedYear)
-        .toList();
+        .toList()
+      ..sort((a, b) => a.cost.compareTo(b.cost));
   }
 
   @override
@@ -268,7 +270,7 @@ class BarChartRegionState extends State<BarChartRegion> {
             return DropdownMenuItem<int>(
                 value: value,
                 // child: Text(AppLocalizations.of(context)!.wardDropdown(value)),
-                child: Text('Ward: $value'));
+                child: Text('Ward $value'));
           }).toList(),
         ),
         DropdownButton<int>(
@@ -280,7 +282,7 @@ class BarChartRegionState extends State<BarChartRegion> {
               _selectedCategory = null;
             });
           },
-          items: <int>[2019, 2020, 2021, 2022]
+          items: List<int>.generate(12, (i) => 2012 + i) //2012-2023
               .map<DropdownMenuItem<int>>((int value) {
             return DropdownMenuItem<int>(
               value: value,
@@ -331,7 +333,7 @@ class BarChartRegionState extends State<BarChartRegion> {
             return _selectedCategory == null
                 ? Colors.blue // Default color
                 : _selectedCategory == data.category
-                    ? Color.fromARGB(
+                    ? const Color.fromARGB(
                         255, 105, 208, 255) // Color for selected category
                     : Colors.blue; // Color for other categories
           },
