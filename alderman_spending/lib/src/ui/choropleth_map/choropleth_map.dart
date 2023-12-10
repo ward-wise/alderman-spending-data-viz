@@ -16,6 +16,8 @@ class ChoroplethMapPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyNavigationDrawer(),
+      appBar: AppBar(title: const Text('Citywide Menu Category Spending'),),
       body: const _ChoroplethMap(),
     );
   }
