@@ -5,7 +5,7 @@ import 'package:alderman_spending/src/ui/navigation/navigation_drawer.dart';
 class DataPage extends StatelessWidget {
   final int initialWard;
   final int initialYear;
-  const DataPage({super.key, this.initialWard = 1, this.initialYear = 2022});
+  const DataPage({super.key, this.initialWard = 1, this.initialYear = 2023});
 
   // This widget is the root of your application.
   @override
