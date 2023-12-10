@@ -69,13 +69,7 @@ class MenuItemsScreen extends StatelessWidget {
                             physics: const NeverScrollableScrollPhysics(),
                             itemCount: menuItems.length,
                             primary: false,
-                            // gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                            //   crossAxisCount: 3,
-                            //   childAspectRatio: 1.5,
-                            //   crossAxisSpacing: 20,
-                            //   mainAxisSpacing: 20,
-                            // ),
-                            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                               maxCrossAxisExtent: 600,
                               childAspectRatio: 1.5,
                               crossAxisSpacing: 20,
@@ -163,10 +157,10 @@ class MenuGridItem extends StatelessWidget {
         );
       },
       child: Card(
-        margin: const EdgeInsets.all(8),
+        margin: const EdgeInsets.fromLTRB(8,0,8,8),
         elevation: 5,
         child: Padding(
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.fromLTRB(8,0,8,8),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -214,9 +208,10 @@ class MenuItemDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: GFCard(
+        color: Colors.grey[200]!,
         height: MediaQuery.of(context).size.height,
         elevation: 15,
-        // padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.fromLTRB(40,20,40,20),
         image: Image.asset(
           '$baseImagePath/${menuItemInfo.imgFilename}',
           fit: BoxFit.cover,
@@ -240,18 +235,23 @@ class MenuItemDetailScreen extends StatelessWidget {
         // TODO Make this scrollable, overflows for some reason
         content: Column(
           children: [
+            Divider(),
             Text(
               menuItemInfo.description,
               style: const TextStyle(fontSize: 16),
             ),
-            _parseNotes(),
+            const SizedBox(height: 20),
+            _parseNotes(menuItemInfo),
           ],
         ),
       ),
     );
   }
 
-  _parseNotes() {
+
+}
+
+  _parseNotes(MenuItemInfo menuItemInfo) {
     if (menuItemInfo.notes != null) {
       return Column(
         children: menuItemInfo.notes!
@@ -267,7 +267,6 @@ class MenuItemDetailScreen extends StatelessWidget {
       return const SizedBox.shrink();
     }
   }
-}
 
 _parseCostMeasurement(MenuItemInfo menuItemInfo) {
   return '${NumberFormat.simpleCurrency(decimalDigits: 0).format(menuItemInfo.cost)} per ${menuItemInfo.measurement}';
