@@ -9,6 +9,7 @@ import 'package:alderman_spending/src/ui/faq_page/faq_screen.dart';
 import 'package:alderman_spending/src/ui/home_screen/home_screen.dart';
 import 'package:alderman_spending/src/ui/ward_finder_page/ward_finder_screen.dart';
 import 'package:alderman_spending/src/ui/choropleth_map/choropleth_map.dart';
+import 'package:alderman_spending/src/ui/item_map/item_spending_map.dart';
 
 class MyNavigationDrawer extends StatelessWidget {
   const MyNavigationDrawer({
@@ -38,12 +39,27 @@ class MyNavigationDrawer extends StatelessWidget {
           Navigator.pushNamed(context, '/ward-spending');
         },
       ),
-      ListTile(
-        title: const Text("Categorical Spending Map"), //need Applocalizations
-        onTap: () {
-          Navigator.pushNamed(context, '/category-map');
-        },
-      ),
+      ExpansionTile(
+            title: Text("Maps"),
+            children: [
+              ListTile(
+                  title: const Text("Citywide Spending Map"), //need Applocalizations
+                  onTap: () {
+                      Navigator.of(context).pop();
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const ChoroplethMapPage(),));
+                  },
+              ),
+              ListTile(
+                  title: const Text("Detailed Menu Item Map"), //need Applocalizations
+                  onTap: () {
+                      Navigator.of(context).pop();
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ItemSpendingiFrame(),));
+                  },
+              ),
+            ],
+          ),
       ListTile(
         title: const Text("View Spending Menu"),
         onTap: () {

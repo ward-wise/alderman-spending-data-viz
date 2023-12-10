@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class SelectedDataMap extends ChangeNotifier {
   int _selectedWard = 1;
-  int _selectedYear = 2022;
+  int _selectedYear = 2023;
   String _selectedCategory = "Street Resurfacing";
 
   int get selectedWard => _selectedWard;
