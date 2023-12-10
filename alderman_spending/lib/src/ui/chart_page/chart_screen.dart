@@ -18,51 +18,73 @@ class ChartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: MyNavigationDrawer(),
-      // appBar: AppBar(title: const Text('Spending Charts'),),
+      drawer: const MyNavigationDrawer(),
       body: SafeArea(
         child: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) {
-          // if (constraints.maxWidth / constraints.maxHeight > 1.3) {
-          //   return const Row(
-          //     children: [
-          //       Expanded(
-          //         flex: 2,
-          //         child: BarChartRegion(),
-          //       ),
-          //       VerticalDivider(
-          //         color: Colors.grey,
-          //         width: 1,
-          //         thickness: 1,
-          //       ),
-          //       Expanded(
-          //         flex: 1,
-          //         child: DetailRegion(),
-          //       ),
-          //     ],
-          //   );
-          // } else {
-          return const Column(
-            children: [
-              Expanded(
-                flex: 2,
-                child: BarChartRegion(),
-              ),
-              Divider(
-                color: Colors.grey,
-                height: 1,
-                thickness: 1,
-              ),
-              Expanded(
-                flex: 1,
-                child: DetailRegion(),
-              ),
-            ],
-          );
-        }
-            // },
-            ),
+  builder: (BuildContext context, BoxConstraints constraints) {
+    if (constraints.maxWidth / constraints.maxHeight > 1.3) {
+      return const LandscapeLayout();
+    } else {
+      return const PortraitLayout();
+    }
+  },
+),
+
       ),
+    );
+  }
+}
+
+class PortraitLayout extends StatelessWidget {
+  const PortraitLayout({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      children: [
+        Expanded(
+          flex: 2,
+          child: BarChartRegion(),
+        ),
+        Divider(
+          color: Colors.grey,
+          height: 1,
+          thickness: 1,
+        ),
+        Expanded(
+          flex: 1,
+          child: DetailRegion(),
+        ),
+      ],
+    );
+  }
+}
+
+class LandscapeLayout extends StatelessWidget {
+  const LandscapeLayout({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Row(
+      children: [
+        Expanded(
+          flex: 2,
+          child: BarChartRegion(),
+        ),
+        VerticalDivider(
+          color: Colors.grey,
+          width: 1,
+          thickness: 1,
+        ),
+        Expanded(
+          flex: 1,
+          child: DetailRegion(),
+        ),
+      ],
     );
   }
 }
@@ -124,14 +146,12 @@ class _DetailRegionState extends State<DetailRegion> {
       return const CircularProgressIndicator();
     }
     if (_wardItemLocationSpendingData!.isEmpty) {
-      // return Text(AppLocalizations.of(context)!.errorLoadingData);
-      return const Text("error loading data");
+      return Text(AppLocalizations.of(context)!.errorLoadingData);
     }
     if (selectedData.selectedCategory == null ||
         selectedData.selectedCategory == "") {
-      return const Center(
-          // child: Text(AppLocalizations.of(context)!.detailPlaceholder));
-          child: Text("Select a category to see a detailed list of spending"));
+      return Center(
+          child: Text(AppLocalizations.of(context)!.detailPlaceholder));
     }
 
     final selectedWardItems = _filteredData!
