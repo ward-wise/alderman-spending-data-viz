@@ -47,6 +47,7 @@ dependencies:
   syncfusion_flutter_maps: ^23.1.38
   url_launcher: ^6.1.14
   url_launcher_web: ^2.0.20
+  font_awesome_flutter: ^10.6.0
 
 dev_dependencies:
   flutter_test:
