@@ -112,7 +112,8 @@ class _DetailRegionState extends State<DetailRegion> {
     var data = _wardItemLocationSpendingData!
         .where((element) =>
             element.ward == _selectedWard && element.year == _selectedYear)
-        .toList();
+        .toList()
+      ..sort((a, b) => b.cost.compareTo(a.cost));
     return data;
   }
 
@@ -219,7 +220,8 @@ class BarChartRegionState extends State<BarChartRegion> {
     return _spendingData!
         .where((element) =>
             element.ward == _selectedWard && element.year == _selectedYear)
-        .toList();
+        .toList()
+      ..sort((a, b) => a.cost.compareTo(b.cost));
   }
 
   @override
