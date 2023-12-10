@@ -54,14 +54,38 @@ class MenuItemsScreen extends StatelessWidget {
                           softWrap: true,
                         ),
                         const SizedBox(height: 25),
-                        ListView.builder(
+                        if(MediaQuery.of(context).size.aspectRatio < 1.3)
+                          ListView.builder(
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
                           itemCount: menuItems.length,
                           itemBuilder: (context, index) {
                             return MenuListItem(menuItemInfo: menuItems[index]);
                           },
-                        ),
+                        )
+                        else
+                          GridView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: menuItems.length,
+                            primary: false,
+                            // gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                            //   crossAxisCount: 3,
+                            //   childAspectRatio: 1.5,
+                            //   crossAxisSpacing: 20,
+                            //   mainAxisSpacing: 20,
+                            // ),
+                            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                              maxCrossAxisExtent: 600,
+                              childAspectRatio: 1.5,
+                              crossAxisSpacing: 20,
+                              mainAxisSpacing: 20,
+                            ),
+                            itemBuilder: (context, index) {
+                              return MenuGridItem(menuItemInfo: menuItems[index]);
+                            },
+                          )
+                        
                       ],
                     ),
                   ),
@@ -118,6 +142,61 @@ class MenuListItem extends StatelessWidget {
     );
   }
 }
+
+class MenuGridItem extends StatelessWidget {
+  final MenuItemInfo menuItemInfo;
+
+  const MenuGridItem({Key? key, required this.menuItemInfo}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      hoverColor: Colors.grey[300],
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MenuItemDetailScreen(
+              menuItemInfo: menuItemInfo,
+            ),
+          ),
+        );
+      },
+      child: Card(
+        margin: const EdgeInsets.all(8),
+        elevation: 5,
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 8),
+              Text(
+                menuItemInfo.title,
+                style: const TextStyle(fontSize: 18),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 4),
+              Text(
+                _parseCostMeasurement(menuItemInfo),
+                style: const TextStyle(fontSize: 14),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 8),
+              Image.asset(
+                '$baseImagePath/${menuItemInfo.imgFilename}',
+                fit: BoxFit.cover,
+                scale: 2,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 
 class MenuItemDetailScreen extends StatelessWidget {
   final MenuItemInfo menuItemInfo;
