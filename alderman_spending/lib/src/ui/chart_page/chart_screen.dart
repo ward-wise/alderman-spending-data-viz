@@ -250,13 +250,11 @@ class BarChartRegionState extends State<BarChartRegion> {
       return const CircularProgressIndicator();
     }
     if (_spendingData!.isEmpty) {
-      // return Text(AppLocalizations.of(context)!.errorLoadingData);
-      return const Text("error loading data");
+      return Text(AppLocalizations.of(context)!.errorLoadingData);
     }
     if (_filteredData == null) {
-      // return Text(AppLocalizations.of(context)!
-      //     .noDataForWardYear(_selectedWard!, _selectedYear!));
-      return const Text("error loading data");
+      return Text(AppLocalizations.of(context)!
+          .noDataForWardYear(_selectedWard!, _selectedYear!));
     }
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
@@ -289,8 +287,8 @@ class BarChartRegionState extends State<BarChartRegion> {
               .map<DropdownMenuItem<int>>((int value) {
             return DropdownMenuItem<int>(
                 value: value,
-                // child: Text(AppLocalizations.of(context)!.wardDropdown(value)),
-                child: Text('Ward $value'));
+                child: Text(AppLocalizations.of(context)!.wardDropdown(value)),
+            );
           }).toList(),
         ),
         DropdownButton<int>(
