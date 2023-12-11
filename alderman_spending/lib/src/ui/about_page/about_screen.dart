@@ -15,7 +15,7 @@ class AboutScreen extends StatelessWidget {
         padding: const EdgeInsets.all(32),
         children: [
           Text(
-            '''Ward Wise is a breakout group under Chi Hack Night. The data used is scraped from the Chicago Capital Improvements Archive.
+            '''Ward Wise is a breakout group under Chi Hack Night. Our source code is available on GitHub. We use data scraped from the Chicago Capital Improvements Archive by Jake Smith and John C. Ruf.
               ''',
             // TODO add links, add repo, add data download button, give credit to John and Jake, give credit to ourselves
             softWrap: true,
