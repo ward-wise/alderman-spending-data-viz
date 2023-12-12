@@ -304,7 +304,7 @@ class _WardContactCardState extends State<WardContactCard> {
     if (widget.wardNumber != null) {
       wardInfo = wardsInformation[widget.wardNumber! - 1];
       avatarImage = Image.asset(
-        "assets/images/alderpeople/ward_${widget.wardNumber}.png",
+        "images/alderpeople/ward_${widget.wardNumber}.png",
         width: 100,
         errorBuilder: (context, error, stackTrace) {
           return avatarPlaceholder;
@@ -394,6 +394,7 @@ Widget websiteButtons(Map<String, String?> wardWebsites) {
     "LinkedIn": Icon(FontAwesomeIcons.linkedin, color: Colors.blue),
   };
   wardWebsites.forEach((key, value) {
+    print("$key: $value");
     if (value != null) {
       rowElements.add(IconButton(
         onPressed: () {
