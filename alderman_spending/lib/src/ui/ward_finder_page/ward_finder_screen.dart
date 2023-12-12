@@ -257,7 +257,7 @@ class _HighlightedWardMapState extends State<HighlightedWardMap> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
       child: IgnorePointer(
         // Hack to show city map under ward map, SFMaps doesn't support asset tiles
         child: Container(
