@@ -21,15 +21,14 @@ class ChartScreen extends StatelessWidget {
       drawer: const MyNavigationDrawer(),
       body: SafeArea(
         child: LayoutBuilder(
-  builder: (BuildContext context, BoxConstraints constraints) {
-    if (constraints.maxWidth / constraints.maxHeight > 1.3) {
-      return const LandscapeLayout();
-    } else {
-      return const PortraitLayout();
-    }
-  },
-),
-
+          builder: (BuildContext context, BoxConstraints constraints) {
+            if (constraints.maxWidth / constraints.maxHeight > 1.3) {
+              return const LandscapeLayout();
+            } else {
+              return const PortraitLayout();
+            }
+          },
+        ),
       ),
     );
   }
@@ -286,8 +285,8 @@ class BarChartRegionState extends State<BarChartRegion> {
           items: List<int>.generate(50, (i) => i + 1)
               .map<DropdownMenuItem<int>>((int value) {
             return DropdownMenuItem<int>(
-                value: value,
-                child: Text(AppLocalizations.of(context)!.wardDropdown(value)),
+              value: value,
+              child: Text(AppLocalizations.of(context)!.wardDropdown(value)),
             );
           }).toList(),
         ),
@@ -302,11 +301,14 @@ class BarChartRegionState extends State<BarChartRegion> {
           },
           items: List<int>.generate(12, (i) => 2012 + i) //2012-2023
               .map<DropdownMenuItem<int>>((int value) {
-            return DropdownMenuItem<int>(
-              value: value,
-              child: Text('$value'),
-            );
-          }).toList(),
+                return DropdownMenuItem<int>(
+                  value: value,
+                  child: Text('$value'),
+                );
+              })
+              .toList()
+              .reversed
+              .toList(),
         ),
       ],
     );

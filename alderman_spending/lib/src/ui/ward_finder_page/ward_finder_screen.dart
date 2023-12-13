@@ -74,6 +74,7 @@ Thank you for your time and attention, I look forward to your response and to wo
 
 Sincerely,
 Ward wardNumber Resident''');
+
 final mapDataSource = MapShapeSource.asset(
   'assets/Wards-Boundaries.geojson',
   shapeDataField: 'ward',
@@ -92,6 +93,7 @@ class WardFinderScreen extends StatefulWidget {
 
 class _WardFinderScreenState extends State<WardFinderScreen> {
   int? _selectedWard;
+  String? _address;
 
   @override
   void initState() {
@@ -138,8 +140,14 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
                 AnimatedOpacity(
                   duration: const Duration(milliseconds: 250),
                   opacity: _selectedWard == null ? 0 : 1,
-                  child:
-                      Text("Ward\n$_selectedWard", textAlign: TextAlign.center),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(
+                          context, '/ward-spending?ward=$_selectedWard');
+                    },
+                    child: Text("Look at spending in\nward $_selectedWard",
+                        textAlign: TextAlign.center),
+                  ),
                 ),
                 const Spacer(flex: 1),
                 // Selected ward
@@ -206,17 +214,29 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
       decoration: const InputDecoration(labelText: "Enter Address"),
       // REST call using getWard() from WardLookupRequest
       onFieldSubmitted: (value) async {
+        value = value.trim();
+        if (value.isEmpty) {
+          return;
+        }
+        if (value.split(" ").length < 3) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text("Please enter a full address"),
+            ),
+          );
+          return;
+        }
         try {
-          final ward = int.parse(value);
-          // final ward = await getWard(value);
+          // final ward = int.parse(value);
+          final ward = await getWard(value);
           setState(() => _selectedWard = ward);
         } catch (e) {
-          setState(() => _selectedWard = null);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(e.toString()),
             ),
           );
+          setState(() => _selectedWard = null);
         }
       },
     );
@@ -394,7 +414,6 @@ Widget websiteButtons(Map<String, String?> wardWebsites) {
     "LinkedIn": Icon(FontAwesomeIcons.linkedin, color: Colors.blue),
   };
   wardWebsites.forEach((key, value) {
-    print("$key: $value");
     if (value != null) {
       rowElements.add(IconButton(
         onPressed: () {
