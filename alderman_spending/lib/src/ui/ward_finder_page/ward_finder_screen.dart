@@ -324,7 +324,7 @@ class _WardContactCardState extends State<WardContactCard> {
     if (widget.wardNumber != null) {
       wardInfo = wardsInformation[widget.wardNumber! - 1];
       avatarImage = Image.asset(
-        "images/alderpeople/ward_${widget.wardNumber}.png",
+        "assets/images/alderpeople/ward_${widget.wardNumber}.png",
         width: 100,
         errorBuilder: (context, error, stackTrace) {
           return avatarPlaceholder;
