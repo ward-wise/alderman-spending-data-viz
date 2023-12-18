@@ -24,18 +24,21 @@ class MyNavigationDrawer extends StatelessWidget {
       ListTile(
         title: const Text("Home"),
         onTap: () {
+          Navigator.of(context).pop();
           Navigator.pushNamed(context, '/');
         },
       ),
       ListTile(
         title: const Text("Find My Ward"),
         onTap: () {
+          Navigator.of(context).pop();
           Navigator.pushNamed(context, '/find-my-ward');
         },
       ),
       ListTile(
         title: const Text("View Ward Spending"), //need Applocalizations
         onTap: () {
+          Navigator.of(context).pop();
           Navigator.pushNamed(context, '/ward-spending');
         },
       ),
@@ -63,18 +66,21 @@ class MyNavigationDrawer extends StatelessWidget {
       ListTile(
         title: const Text("View Spending Menu"),
         onTap: () {
+          Navigator.of(context).pop();
           Navigator.pushNamed(context, '/menu-items');
         },
       ),
       ListTile(
         title: const Text("FAQs"),
         onTap: () {
+          Navigator.of(context).pop();
           Navigator.pushNamed(context, '/faqs');
         },
       ),
       ListTile(
         title: const Text("About the Project"),
         onTap: () {
+          Navigator.of(context).pop();
           Navigator.pushNamed(context, '/about');
         },
       )
