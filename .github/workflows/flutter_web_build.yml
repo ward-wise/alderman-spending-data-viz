@@ -22,7 +22,8 @@ jobs:
         run: |
           cd alderman_spending
           flutter build web
-          cp -r build/web/ ../docs
+          cd ..
+          cp -r alderman_spending/build/web/ ./docs
           
       - name: Commit and Push Changes
         run: |
