@@ -81,7 +81,7 @@ class MenuItemsScreen extends StatelessWidget {
                               gridDelegate:
                                   const SliverGridDelegateWithMaxCrossAxisExtent(
                                 maxCrossAxisExtent: 600,
-                                childAspectRatio: 6,
+                                childAspectRatio: 5.25,
                                 // childAspectRatio: 1.5,
                                 crossAxisSpacing: 20,
                                 mainAxisSpacing: 20,
@@ -210,7 +210,7 @@ class MenuGridItem extends StatelessWidget {
         imageContainerShapeZigzagIndex: 0,
         imageContainer: Image.asset(
           '$baseImagePath/${menuItemInfo.imgFilename}',
-          fit: BoxFit.fitHeight,
+          fit: BoxFit.fill,
         ),
         title: Text(
           menuItemInfo.title,
