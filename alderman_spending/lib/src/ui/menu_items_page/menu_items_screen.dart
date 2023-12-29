@@ -4,6 +4,8 @@ import 'package:alderman_spending/src/data/models/menu_item_info.dart';
 import 'package:alderman_spending/src/data/loaders.dart';
 import 'package:intl/intl.dart';
 import 'package:alderman_spending/src/ui/navigation/navigation_drawer.dart';
+import 'package:card_banner/card_banner.dart';
+import 'package:banner_listtile/banner_listtile.dart';
 
 const baseImagePath = 'assets/images/menu_items';
 
@@ -119,9 +121,16 @@ class MenuListItem extends StatelessWidget {
       child: Card(
         margin: const EdgeInsets.fromLTRB(5, 8, 5, 8),
         elevation: 5,
-        child: ListTile(
-          dense: false,
-          leading: Image.asset(
+        child: BannerListTile(
+          showBanner: menuItemInfo.visionZero,
+          bannerColor: Colors.blue..withOpacity(0.25),
+          bannerText: "Vision Zero",
+          bannerIcon: Image.asset("assets/images/vision_zero_icon.png"),
+          bannerPosition: BannerPosition.topRight,
+          bannerSize: 50,
+          backgroundColor: Colors.white,
+          imageContainerShapeZigzagIndex: 1,
+          imageContainer: Image.asset(
             '$baseImagePath/${menuItemInfo.imgFilename}',
             fit: BoxFit.cover,
             scale: 2,
@@ -136,6 +145,26 @@ class MenuListItem extends StatelessWidget {
           ),
         ),
       ),
+      // child: CardBanner(
+      //   text: "Vision Zero",
+      //   position: CardBannerPosition.TOPRIGHT,
+      //   child: ListTile(
+      //     dense: false,
+      //     leading: Image.asset(
+      //       '$baseImagePath/${menuItemInfo.imgFilename}',
+      //       fit: BoxFit.cover,
+      //       scale: 2,
+      //     ),
+      //     title: Text(
+      //       menuItemInfo.title,
+      //       style: const TextStyle(fontSize: 20),
+      //     ),
+      //     subtitle: Text(
+      //       _parseCostMeasurement(menuItemInfo),
+      //       style: const TextStyle(fontSize: 16),
+      //     ),
+      //   ),
+      // ),
     );
   }
 }
@@ -220,12 +249,21 @@ class MenuItemDetailPortraitCard extends StatelessWidget {
           ),
           showImage: true,
           title: GFListTile(
-            title: Text(
-              menuItemInfo.title,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+            title: Row(
+              children: [
+                Text(
+                  menuItemInfo.title,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Icon(
+                  Icons.info_outline,
+                  color: Colors.grey[600],
+                  size: 20,
+                )
+              ],
             ),
             subTitle: Text(
               _parseCostMeasurement(menuItemInfo),
@@ -243,34 +281,31 @@ class MenuItemDetailPortraitCard extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(5)),
             ),
             child: SizedBox(
-                  height: MediaQuery.of(context).size.height / 4,
-                  child: CustomScrollView(
-                    shrinkWrap: true,
-                    scrollBehavior: const ScrollBehavior(),
-                    scrollDirection: Axis.vertical,
-                    slivers: [
-                      SliverList(
-                        delegate: SliverChildListDelegate(
-                          [
-                            Text(
-                              menuItemInfo.description,
-                              style: const TextStyle(fontSize: 16),
-                            ),
-                            const SizedBox(height: 20),
-                            _parseNotes(menuItemInfo),
-                          ],
+              height: MediaQuery.of(context).size.height / 4,
+              child: CustomScrollView(
+                shrinkWrap: true,
+                scrollBehavior: const ScrollBehavior(),
+                scrollDirection: Axis.vertical,
+                slivers: [
+                  SliverList(
+                    delegate: SliverChildListDelegate(
+                      [
+                        Text(
+                          menuItemInfo.description,
+                          style: const TextStyle(fontSize: 16),
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 20),
+                        _parseNotes(menuItemInfo),
+                      ],
+                    ),
                   ),
-                ),
+                ],
+              ),
+            ),
           ),
         ));
   }
 }
-
-
-
 
 _parseNotes(MenuItemInfo menuItemInfo) {
   if (menuItemInfo.notes != null) {
