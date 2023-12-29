@@ -10,6 +10,9 @@ import 'package:banner_listtile/banner_listtile.dart';
 const baseImagePath = 'assets/images/menu_items';
 
 class MenuItemsScreen extends StatelessWidget {
+  static const _menuItemsHeading =
+      "Each year, CDOT and OBM provide alderpersons a list of standard menu items. Costs are estimated based on previous years' costs. Alderpersons select items from this list to allocate their \$1.5 million budget.";
+
   const MenuItemsScreen({Key? key});
 
   @override
@@ -43,17 +46,19 @@ class MenuItemsScreen extends StatelessWidget {
                         children: [
                           const SizedBox(height: 30),
                           Text(
-                            "Each year, CDOT and OBM provide alderpersons a list of standard menu items. Costs are estimated based on previous years' costs. Alderpersons select items from this list to allocate their \$1.5 million budget.",
-                            style: Theme.of(context).textTheme.bodyLarge,
+                            _menuItemsHeading,
+                            style: Theme.of(context).textTheme.headlineMedium,
                             softWrap: true,
                           ),
                           const SizedBox(height: 20),
                           Text(
                             "Tap items to learn more.",
-                            style:
-                                Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineSmall
+                                ?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
                             softWrap: true,
                           ),
                           const SizedBox(height: 25),
@@ -76,7 +81,8 @@ class MenuItemsScreen extends StatelessWidget {
                               gridDelegate:
                                   const SliverGridDelegateWithMaxCrossAxisExtent(
                                 maxCrossAxisExtent: 600,
-                                childAspectRatio: 1.5,
+                                childAspectRatio: 6,
+                                // childAspectRatio: 1.5,
                                 crossAxisSpacing: 20,
                                 mainAxisSpacing: 20,
                               ),
@@ -125,6 +131,7 @@ class MenuListItem extends StatelessWidget {
           showBanner: menuItemInfo.visionZero,
           bannerColor: Colors.blue..withOpacity(0.25),
           bannerText: "Vision Zero",
+          bannerIconRotation: 1,
           bannerIcon: Image.asset("assets/images/vision_zero_icon.png"),
           bannerPosition: BannerPosition.topRight,
           bannerSize: 50,
@@ -169,6 +176,7 @@ class MenuListItem extends StatelessWidget {
   }
 }
 
+// TODO make look good on landscape
 class MenuGridItem extends StatelessWidget {
   final MenuItemInfo menuItemInfo;
 
@@ -176,6 +184,7 @@ class MenuGridItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // InkWell stopped working on switching to BannerListTile
     return InkWell(
       hoverColor: Colors.grey[300],
       onTap: () {
@@ -188,37 +197,61 @@ class MenuGridItem extends StatelessWidget {
           ),
         );
       },
-      child: Card(
-        margin: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+      child: BannerListTile(
+        showBanner: menuItemInfo.visionZero,
         elevation: 5,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(height: 8),
-              Text(
-                menuItemInfo.title,
-                style: const TextStyle(fontSize: 18),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                _parseCostMeasurement(menuItemInfo),
-                style: const TextStyle(fontSize: 14),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 8),
-              Image.asset(
-                '$baseImagePath/${menuItemInfo.imgFilename}',
-                fit: BoxFit.cover,
-                scale: 2,
-              ),
-            ],
-          ),
+        bannerColor: Colors.blue..withOpacity(0.25),
+        bannerText: "Vision Zero",
+        bannerIconRotation: 1,
+        bannerIcon: Image.asset("assets/images/vision_zero_icon.png"),
+        bannerPosition: BannerPosition.topRight,
+        bannerSize: 50,
+        backgroundColor: Colors.white,
+        imageContainerShapeZigzagIndex: 0,
+        imageContainer: Image.asset(
+          '$baseImagePath/${menuItemInfo.imgFilename}',
+          fit: BoxFit.fitHeight,
+        ),
+        title: Text(
+          menuItemInfo.title,
+          style: const TextStyle(fontSize: 20),
+        ),
+        subtitle: Text(
+          _parseCostMeasurement(menuItemInfo),
+          style: const TextStyle(fontSize: 16),
         ),
       ),
+      // child: Card(
+      //   margin: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+      //   elevation: 5,
+      //   child: Padding(
+      //     padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+      //     child: Column(
+      //       mainAxisAlignment: MainAxisAlignment.start,
+      //       crossAxisAlignment: CrossAxisAlignment.center,
+      //       children: [
+      //         const SizedBox(height: 8),
+      //         Text(
+      //           menuItemInfo.title,
+      //           style: const TextStyle(fontSize: 18),
+      //           textAlign: TextAlign.center,
+      //         ),
+      //         const SizedBox(height: 4),
+      //         Text(
+      //           _parseCostMeasurement(menuItemInfo),
+      //           style: const TextStyle(fontSize: 14),
+      //           textAlign: TextAlign.center,
+      //         ),
+      //         const SizedBox(height: 8),
+      //         Image.asset(
+      //           '$baseImagePath/${menuItemInfo.imgFilename}',
+      //           fit: BoxFit.cover,
+      //           scale: 2.25,
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
     );
   }
 }
@@ -309,6 +342,12 @@ class MenuItemDetailPortraitCard extends StatelessWidget {
 
 _parseNotes(MenuItemInfo menuItemInfo) {
   if (menuItemInfo.notes != null) {
+    if (menuItemInfo.notes!.length == 1) {
+      return Text(
+        'Note: ${menuItemInfo.notes![0]}',
+        style: const TextStyle(fontSize: 12),
+      );
+    }
     return Column(
       children: menuItemInfo.notes!
           .asMap()
