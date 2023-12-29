@@ -1,0 +1,34 @@
+# name: Flutter Web Build
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v2
+
+#       - name: Set up Flutter
+#         uses: subosito/flutter-action@v2
+#         with:
+#           channel: 'stable'
+
+#       - name: Build Flutter Web
+#         run: |
+#           cd alderman_spending
+#           flutter build web
+#           cd ..
+#           cp -r alderman_spending/build/web/ /docs
+          
+#       - name: Commit and Push Changes
+#         run: |
+#           git config --local user.email "action@github.com"
+#           git config --local user.name "GitHub Action"
+#           git add ../docs
+#           git commit -m "Rebuild"
+#           git push
