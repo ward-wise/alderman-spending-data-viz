@@ -104,7 +104,7 @@ Widget titleSection(context) {
               ),
               const SizedBox(height: 20),
               Text(
-                  '''Each year, Chicago alderpersons get \$1.5 million in to spend on improvements in their ward. The spending is limited to "Menu Items", a list of specific projects that can be completed in each ward. Ward-Wise is intended to educate residents about these "Menu Items" and give them access to the spending history in their ward. It explains past spending in each ward and the options for future spending.
+                  '''Each year, Chicago alders get \$1.5 million in "menu money" to spend at their discretion on neighborhood infrastructure in their ward. Use this tool to learn about the process, view past spending, and reach out to your alder.
               ''',
                   softWrap: true, style: Theme.of(context).textTheme.bodyLarge),
             ],
