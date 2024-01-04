@@ -176,6 +176,18 @@ class RouteGenerator {
       route = uriData.path;
       queryParameters = uriData.queryParameters;
     }
+    int ward = 1;
+    try {
+      ward = int.parse(queryParameters?['ward'] ?? '1');
+    } catch (e) {
+      ward = 1;
+    }
+    int year = 2023;
+    try {
+      year = int.parse(queryParameters?['year'] ?? '2023');
+    } catch (e) {
+      year = 2023;
+    }
 
     // var message =
     //     'generateRoute: Route $route, QueryParameters $queryParameters';
@@ -185,11 +197,12 @@ class RouteGenerator {
     final Map<String, WidgetBuilder> routes = {
       '/': (context) => const HomeScreen(),
       '/find-my-ward': (context) => const WardFinderScreen(),
+      // TODO refactor to use query parameters, turn DataPage into a stful widget
       '/ward-spending': (context) {
         return DataPage(
           // pass query parameters
-          initialWard: int.parse(queryParameters?['ward'] ?? '1'),
-          initialYear: int.parse(queryParameters?['year'] ?? '2023'),
+          initialWard: ward,
+          initialYear: year,
         );
       },
       '/category-map': (context) => const CategoryMapPage(),

@@ -14,9 +14,6 @@ class DataPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MyNavigationDrawer(),
-      appBar: AppBar(
-        title: const Text('Ward Spending'),
-      ),
       body: Builder(
         builder: (BuildContext context) {
           // Use Builder widget to get a new context where Provider.of will work

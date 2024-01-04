@@ -9,6 +9,9 @@ import 'package:alderman_spending/src/data/models/ward_item_location_spending_da
 import 'package:alderman_spending/src/data/providers/selected_data.dart';
 import 'package:alderman_spending/src/services/language.dart';
 import 'package:alderman_spending/src/ui/navigation/navigation_drawer.dart';
+import 'package:flutter/services.dart';
+
+const String baseURL = 'https://www.wardwisechicago.org/#/ward-spending';
 
 class ChartScreen extends StatelessWidget {
   const ChartScreen({
@@ -18,6 +21,30 @@ class ChartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.chartTitle),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 20, 0),
+            child: IconButton(
+              icon: const Icon(Icons.share),
+              onPressed: () {
+                final selectedData =
+                    Provider.of<SelectedData>(context, listen: false);
+                final int ward = selectedData.selectedWard;
+                final int year = selectedData.selectedYear;
+                final url = '$baseURL?ward=$ward&year=$year';
+                Clipboard.setData(ClipboardData(text: url));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text("URL copied to clipboard"),
+                  ),
+                );
+              },
+            ),
+          )
+        ],
+      ),
       drawer: const MyNavigationDrawer(),
       body: SafeArea(
         child: LayoutBuilder(
