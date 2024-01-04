@@ -140,13 +140,21 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
                 AnimatedOpacity(
                   duration: const Duration(milliseconds: 250),
                   opacity: _selectedWard == null ? 0 : 1,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(
-                          context, '/ward-spending?ward=$_selectedWard');
-                    },
-                    child: Text("Look at spending in\nward $_selectedWard",
-                        textAlign: TextAlign.center),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.teal, width: 2),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(100),
+                      ),
+                    ),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(
+                            context, '/ward-spending?ward=$_selectedWard');
+                      },
+                      child: Text("Look at spending in\nward $_selectedWard",
+                          textAlign: TextAlign.center),
+                    ),
                   ),
                 ),
                 const Spacer(flex: 1),
@@ -175,23 +183,28 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
                       padding: const EdgeInsets.all(20.0),
                       child: addressLookupForm(),
                     ),
-                    if (_selectedWard != null)
-                      Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.teal,
-                                width: 2,
-                              ),
-                            ),
-                            padding: const EdgeInsets.all(5),
-                            child: Text("Ward $_selectedWard",
-                                style: const TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                )),
-                          )),
+                    AnimatedOpacity(
+                      duration: const Duration(milliseconds: 250),
+                      opacity: _selectedWard == null ? 0 : 1,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.teal, width: 2),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(100),
+                          ),
+                        ),
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(
+                                context, '/ward-spending?ward=$_selectedWard');
+                          },
+                          child: Text(
+                              "Look at spending in\nward $_selectedWard",
+                              textAlign: TextAlign.center),
+                        ),
+                      ),
+                    ),
+                      
                   ],
                 ),
                 Padding(
