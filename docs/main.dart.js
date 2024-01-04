@@ -9224,10 +9224,12 @@ m=s.ga_H()}else r=o
 n.a=1
 try{l=m
 l=l==null?o:J.a4(l,"ward")
-n.a=A.d9(l==null?"1":l,o)}catch(q){n.a=1}n.b=2023
+l=n.a=A.d9(l==null?"1":l,o)}catch(q){l=n.a=1}if(l>50||l<1)n.a=1
+n.b=2023
 try{l=m
 l=l==null?o:J.a4(l,"year")
-n.b=A.d9(l==null?"2023":l,o)}catch(q){n.b=2023}p=A.aG(["/",new A.amI(),"/find-my-ward",new A.amJ(),"/ward-spending",new A.amK(n),"/category-map",new A.amL(),"/menu-items",new A.amM(),"/faqs",new A.amN(),"/about",new A.amO()],t.N,t.Ab).h(0,r)
+l=n.b=A.d9(l==null?"2023":l,o)}catch(q){l=n.b=2023}if(l>2023||l<2012)n.b=2023
+p=A.aG(["/",new A.amI(),"/find-my-ward",new A.amJ(),"/ward-spending",new A.amK(n),"/category-map",new A.amL(),"/menu-items",new A.amM(),"/faqs",new A.amN(),"/about",new A.amO()],t.N,t.Ab).h(0,r)
 if(p==null)p=new A.amP()
 return A.BW(p,a,t.z)},
 aDC:function aDC(){},
