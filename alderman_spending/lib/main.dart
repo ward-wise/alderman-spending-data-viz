@@ -182,13 +182,18 @@ class RouteGenerator {
     } catch (e) {
       ward = 1;
     }
+    if (ward > 50 || ward < 1) {
+      ward = 1;
+    }
     int year = 2023;
     try {
       year = int.parse(queryParameters?['year'] ?? '2023');
     } catch (e) {
       year = 2023;
     }
-
+    if (year > 2023 || year < 2012) {
+      year = 2023;
+    }
     // var message =
     //     'generateRoute: Route $route, QueryParameters $queryParameters';
     // print(message);
