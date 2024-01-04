@@ -271,7 +271,9 @@ class MenuItemDetailPortraitCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          toolbarHeight: 40,
+        ),
         body: GFCard(
           color: Colors.grey[200]!,
           elevation: 15,
@@ -283,19 +285,23 @@ class MenuItemDetailPortraitCard extends StatelessWidget {
           showImage: true,
           title: GFListTile(
             title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  menuItemInfo.title,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  child: Text(
+                    menuItemInfo.title,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-                Icon(
-                  Icons.info_outline,
-                  color: Colors.grey[600],
-                  size: 20,
-                )
+                if (menuItemInfo.visionZero)
+                  Image.asset(
+                    "assets/images/vision_zero_logo.png",
+                    height: 50,
+                  ),
               ],
             ),
             subTitle: Text(
@@ -314,7 +320,7 @@ class MenuItemDetailPortraitCard extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(5)),
             ),
             child: SizedBox(
-              height: MediaQuery.of(context).size.height / 4,
+              height: MediaQuery.of(context).size.height / 3.25,
               child: CustomScrollView(
                 shrinkWrap: true,
                 scrollBehavior: const ScrollBehavior(),
