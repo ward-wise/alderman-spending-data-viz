@@ -259,7 +259,7 @@ class BarChartRegionState extends State<BarChartRegion> {
       padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
       child: Column(
         children: [
-          wardYearSelector(),
+          Stack(children: [PBBadge(), wardYearSelector()]),
           Expanded(child: wardYearCategorySpending()),
         ],
       ),
@@ -370,6 +370,43 @@ class BarChartRegionState extends State<BarChartRegion> {
           ),
         )
       ],
+    );
+  }
+}
+
+class PBBadge extends StatelessWidget {
+  const PBBadge({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox.shrink();
+    return Align(
+      alignment: AlignmentDirectional.centerEnd,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+        child: Container(
+          width: 40,
+          height: 40,
+          decoration: BoxDecoration(
+            // TODO - Change color depending on PB or not
+            color: Colors.grey,
+            shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: const Center(
+            child: Text(
+              'PB',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
