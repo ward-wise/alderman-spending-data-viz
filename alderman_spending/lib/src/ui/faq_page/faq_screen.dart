@@ -17,8 +17,11 @@ class FAQScreen extends StatelessWidget {
   }
 }
 
-const TextStyle style =
-    TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.normal);
+const TextStyle style = TextStyle(
+    color: Colors.black,
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+    height: 1.5);
 
 class FAQPage extends StatelessWidget {
   final List<FAQ> faqs = [
@@ -324,7 +327,7 @@ The standard menu item descriptions and cost information comes from the 2023 Nei
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth > 600) {
-          // Desktop layout with multiple columns
+          // Desktop layout
           return ListView.builder(
             itemCount: faqs.length,
             itemBuilder: (context, index) {

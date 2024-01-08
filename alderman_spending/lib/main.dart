@@ -121,6 +121,7 @@ Widget buttonSection(context) {
     _buildButtonColumn(color, 'Find My Ward', '/find-my-ward', context),
     _buildButtonColumn(color, 'Explore Spending', '/ward-spending', context),
     _buildButtonColumn(color, 'Learn About Menu Items', '/menu-items', context),
+    _buildButtonColumn(color, 'Read FAQs', '/faqs', context),
   ];
 
   return LayoutBuilder(
