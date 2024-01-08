@@ -17,7 +17,8 @@ class FAQScreen extends StatelessWidget {
   }
 }
 
-const TextStyle style = TextStyle(color: Colors.black);
+const TextStyle style =
+    TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.normal);
 
 class FAQPage extends StatelessWidget {
   final List<FAQ> faqs = [
@@ -93,12 +94,28 @@ Source: ''',
                 link: 'https://www.participatepbchicago.org/pages/menumoney',
               ),
             ),
+          ],
+        ),
+      ),
+    ),
+    FAQ(
+      question: "What are aldermanic menu funds?",
+      answer: RichText(
+        text: TextSpan(
+          style: style,
+          children: [
             const TextSpan(
-              text: '''
-
-
-Alders are provided a list of standard menu items they can implement across their ward. They can choose to spend money on projects that aren’t on the list too.
-''',
+              text: 'Alders are provided ',
+            ),
+            WidgetSpan(
+              child: HyperLink(
+                displayText: 'a list of standard menu items',
+                link: 'https://www.wardwisechicago.org/#/menu-items',
+              ),
+            ),
+            const TextSpan(
+              text:
+                  ''' they can implement across their ward. They can choose to spend money on projects that aren’t on the list too. It is entirely up to alder’s discretion on how and where they spend their menu funds, but some alders choose to involve the community through participatory budgeting.''',
             ),
           ],
         ),
@@ -127,6 +144,27 @@ Learn more about participatory budgeting in Chicago here: ''',
                     'https://www.participatepbchicago.org/pages/pbgeneralinfo',
                 link:
                     'https://www.participatepbchicago.org/pages/pbgeneralinfo',
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+    FAQ(
+      question: "What is Vision Zero?",
+      answer: RichText(
+        text: TextSpan(
+          style: style,
+          children: [
+            const TextSpan(
+              text:
+                  '''Menu items that make streets safer are denoted with the Vision Zero logo in the menu item list. Vision Zero is an effort to bring the number of yearly traffic fatalities down to zero. You can learn more here: ''',
+            ),
+            WidgetSpan(
+              child: HyperLink(
+                displayText:
+                    'https://activetrans.org/our-work/walking/vision-zero',
+                link: 'https://activetrans.org/our-work/walking/vision-zero',
               ),
             ),
           ],
