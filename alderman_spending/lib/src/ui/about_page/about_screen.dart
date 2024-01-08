@@ -1,28 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:alderman_spending/src/ui/navigation/navigation_drawer.dart';
+import 'package:alderman_spending/src/ui/faq_page/hyperlink.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    ListView contents = ListView(
+      padding: const EdgeInsets.all(32),
+      children: [
+        Text(
+          '''Ward Wise is a breakout group under Chi Hack Night. Our source code is available on GitHub. We use data scraped from the Chicago Capital Improvements Archive by Jake Smith and John C. Ruf.
+              ''',
+          softWrap: true,
+          style: Theme.of(context).textTheme.bodyLarge,
+        ),
+        HyperLink(
+          displayText: 'Check out our Chi Hack Night project page',
+          link: 'https://github.com/chihacknight/breakout-groups/issues/224',
+        ),
+      ],
+    );
+
     return Scaffold(
       drawer: MyNavigationDrawer(),
       appBar: AppBar(
         title: const Text('About'),
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(32),
-        children: [
-          Text(
-            '''Ward Wise is a breakout group under Chi Hack Night. The data used is scraped from the Chicago Capital Improvements Archive.
-              ''',
-            // TODO add links, add repo, add data download button, give credit to John and Jake, give credit to ourselves
-            softWrap: true,
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-        ],
-      ),
+      body: LayoutBuilder(builder: (context, constraints) {
+        if (constraints.maxWidth > 600) {
+          // Desktop layout
+          return Padding(
+            padding: const EdgeInsets.symmetric(
+                horizontal: 250.0), // Add your desired padding
+            child: contents,
+          );
+        } else {
+          // Mobile layout
+          return contents;
+        }
+      }),
     );
   }
 }
