@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:alderman_spending/src/ui/navigation/navigation_drawer.dart';
+import 'package:alderman_spending/src/ui/faq_page/hyperlink.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
@@ -14,6 +15,10 @@ class AboutScreen extends StatelessWidget {
               ''',
           softWrap: true,
           style: Theme.of(context).textTheme.bodyLarge,
+        ),
+        HyperLink(
+          displayText: 'Check out our Chi Hack Night project page',
+          link: 'https://github.com/chihacknight/breakout-groups/issues/224',
         ),
       ],
     );
