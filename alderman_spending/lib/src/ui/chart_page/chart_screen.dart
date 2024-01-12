@@ -10,6 +10,7 @@ import 'package:alderman_spending/src/data/providers/selected_data.dart';
 import 'package:alderman_spending/src/services/language.dart';
 import 'package:alderman_spending/src/ui/navigation/navigation_drawer.dart';
 import 'package:flutter/services.dart';
+import 'package:alderman_spending/src/ui/choropleth_map/choropleth_map.dart';
 
 const String baseURL = 'https://www.wardwisechicago.org/#/ward-spending';
 
@@ -337,6 +338,38 @@ class BarChartRegionState extends State<BarChartRegion> {
               .reversed
               .toList(),
         ),
+        ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
+          elevation: 3, 
+          // side: BorderSide(color: Colors.blue, width: 2),  
+          minimumSize: Size(80, 36),
+          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15), 
+        ),
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const ChoroplethMapPage(),));
+        }, 
+        child: const Text.rich(
+          textAlign: TextAlign.center, 
+          TextSpan(
+            text: 'See spending',
+            style: TextStyle(
+              fontSize: 14,
+              height: 1.2, // Tighter line spacing 
+            ),
+            children: <TextSpan>[
+              TextSpan(
+                text: '\non a map',
+                style: TextStyle(height: 1.2), // Same line spacing
+              ),  
+            ],
+          ),
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+        ), 
+      ),
       ],
     );
   }

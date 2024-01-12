@@ -256,6 +256,37 @@ class __ChoroplethMapState extends State<_ChoroplethMap> {
             );
           }).toList(),
         ),
+      ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
+          elevation: 3, 
+          // side: BorderSide(color: Colors.blue, width: 2),  
+          minimumSize: Size(80, 36),
+          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15), 
+        ),
+        onPressed: () {
+          Navigator.pushNamed(context, '/ward-spending');
+        }, 
+        child: const Text.rich(
+          textAlign: TextAlign.center, 
+          TextSpan(
+            text: 'See spending',
+            style: TextStyle(
+              fontSize: 14,
+              height: 1.2, // Tighter line spacing 
+            ),
+            children: <TextSpan>[
+              TextSpan(
+                text: '\nin your ward',
+                style: TextStyle(height: 1.2), // Same line spacing
+              ),  
+            ],
+          ),
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+        ), 
+      ),
       ],
     );
   }
