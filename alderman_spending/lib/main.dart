@@ -67,22 +67,40 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Ward Wise'),
-      ),
-      drawer: const MyNavigationDrawer(),
-      body: ListView(
-        children: [
-          //   Image.asset(
-          //   'assets/images/chicago_flag.png',
-          //   width: 600,
-          //   height: 240,
-          //   fit: BoxFit.cover,
-          // ),
-          titleSection(context),
-          buttonSection(context),
-        ],
+    return Center(
+      child: SizedBox(
+        width: 1020,
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('Ward Wise'),
+          ),
+          drawer: const MyNavigationDrawer(),
+          body: ListView(
+            children: [
+              Container(
+                height: 10,
+                padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                color: Colors.blue[200],
+              ),
+              Image.asset(
+                'assets/images/wardMapBanner.jpg',
+                // width: 800,
+                height: 180,
+                fit: BoxFit.cover,
+                color: Color.fromRGBO(0, 0, 0, 0.5),
+                colorBlendMode: BlendMode.saturation,
+              ),
+              Container(
+                height: 10,
+                padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                color: Colors.blue[200],
+              ),
+              titleSection(context),
+              buttonSection(context),
+              bodySection(context),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -97,18 +115,17 @@ Widget titleSection(context) {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                padding: const EdgeInsets.only(bottom: 8),
+                            Container(
+                padding: const EdgeInsets.only(bottom: 8), 
                 child: Text(
-                  'Welcome to Ward Wise!',
-                  style: Theme.of(context).textTheme.headlineLarge,
+                  'Welcome to Ward Wise Chicago!',
+                  style: Theme.of(context).textTheme.headlineLarge, 
                 ),
               ),
-              const SizedBox(height: 20),
               Text(
-                  '''Each year, Chicago alders get \$1.5 million in "menu money" to spend at their discretion on neighborhood infrastructure in their ward. Use this tool to learn about the process, view past spending, and reach out to your alder.
-              ''',
-                  softWrap: true, style: Theme.of(context).textTheme.bodyLarge),
+                'Keeping government spending accountable.',
+                style: Theme.of(context).textTheme.headlineMedium,  
+              ),
             ],
           ),
         ),
@@ -116,6 +133,55 @@ Widget titleSection(context) {
     ),
   );
 }
+
+Widget bodySection(context) {
+    return GridView.count(
+      shrinkWrap: true, 
+      crossAxisCount: MediaQuery.of(context).size.width < 800 ? 1 : 2,
+      childAspectRatio: 3,
+      children: [
+        Container(
+          alignment: Alignment.center,
+          child: Text(
+            'What is a ward?',
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+        ),
+        Container(
+          alignment: Alignment.center,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 50, 0),
+            child: Text(
+              'Chicago is divided fifty legislative districts called wards. Each ward is represented by an alderman who is elected by the ward residents to serve a four year term.',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+          ),
+        ),      
+        Container(
+          alignment: Alignment.center,
+          child: Text(
+            '\$1.5 Million/year',
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+        ),
+        Container(
+          alignment: Alignment.center,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 50, 0),
+            child: Text(
+              'Each year Chicago provides aldermen with \$1.5 million to spend on infrustructure improvements in their ward. The money must be spent on specific improvements approved by the city. These improvements are known as menu items.',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyLarge,  
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
 
 Widget buttonSection(context) {
   Color color = Theme.of(context).primaryColor;
@@ -128,7 +194,7 @@ Widget buttonSection(context) {
 
   return LayoutBuilder(
     builder: (BuildContext context, BoxConstraints constraints) {
-      if (MediaQuery.of(context).size.width < 600) {
+      if (MediaQuery.of(context).size.width < 800) {
         return Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: children,
@@ -151,7 +217,7 @@ Column _buildButtonColumn(Color color, String label, String route, context) {
         padding: const EdgeInsets.all(20),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue[300],
+            backgroundColor: Colors.blue[200],
             elevation: 0,
             padding: const EdgeInsets.all(25),
           ),
