@@ -50,6 +50,7 @@ dependencies:
   font_awesome_flutter: ^10.6.0
   card_banner: ^0.0.1+2
   banner_listtile: ^2.3.0
+  flutter_svg: ^2.0.9
 
 dev_dependencies:
   flutter_test:
