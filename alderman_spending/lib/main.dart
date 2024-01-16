@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/gestures.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'src/data/providers/selected_data.dart';
 import 'src/data/providers/selected_data_choropleth.dart';
@@ -77,27 +79,30 @@ class HomeScreen extends StatelessWidget {
           drawer: const MyNavigationDrawer(),
           body: ListView(
             children: [
-              Container(
-                height: 10,
-                padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
-                color: Colors.blue[200],
-              ),
               Image.asset(
-                'assets/images/wardMapBanner.jpg',
+                'assets/images/wards.png',
                 // width: 800,
-                height: 180,
+                height: 220,
                 fit: BoxFit.cover,
                 color: Color.fromRGBO(0, 0, 0, 0.5),
                 colorBlendMode: BlendMode.saturation,
               ),
-              Container(
-                height: 10,
-                padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
-                color: Colors.blue[200],
-              ),
               titleSection(context),
               buttonSection(context),
               bodySection(context),
+              Container(
+                height: 30,
+                padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                color: Colors.white,
+              ),
+              Container(
+                height: 50,
+                padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                color: Colors.grey[300],
+                child: Text(
+                    "Links\nChi Hack Night\ngithub"
+                ),
+              ),
             ],
           ),
         ),
@@ -115,7 +120,7 @@ Widget titleSection(context) {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-                            Container(
+              Container(
                 padding: const EdgeInsets.only(bottom: 8), 
                 child: Text(
                   'Welcome to Ward Wise Chicago!',
@@ -152,17 +157,39 @@ Widget bodySection(context) {
           alignment: Alignment.center,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 50, 0),
-            child: Text(
-              'Chicago is divided fifty legislative districts called wards. Each ward is represented by an alderman who is elected by the ward residents to serve a four year term.',
-              textAlign: TextAlign.center,
+            child: Text.rich(
+              TextSpan(children: [
+                const TextSpan(
+                  text: "Chicago is divided fifty legislative districts called \"wards\". Each ward contains roughly 50,000 redidents and elects an alderman to represent their interests on the city council. Don't know which ward you live in? Check out our ",
+                 ),
+                 TextSpan(
+                  text: "ward finder.",
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      Navigator.pushNamed(context, '/ward-spending');
+                     },
+                 ),
+              ]),
+              textAlign: TextAlign.left,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),
         ),      
         Container(
           alignment: Alignment.center,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(50, 0, 30, 0),
+            child: Text(
+              'Each year Chicago provides aldermen with \$1.5 million to spend on infrustructure improvements in their ward. The money must be spent on specific improvements approved by the city, known as menu items. Menu items include things like street resurfacing, bike lines, and street lights. Learn more.',
+              textAlign: TextAlign.left,
+              style: Theme.of(context).textTheme.bodyLarge,  
+            ),
+          ),
+        ),
+        Container(
+          alignment: Alignment.center,
           child: Text(
-            '\$1.5 Million/year',
+            '\$1.5 Million/year \nin spending',
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.headlineSmall,
           ),
@@ -170,14 +197,25 @@ Widget bodySection(context) {
         Container(
           alignment: Alignment.center,
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 50, 0),
+            padding: const EdgeInsets.fromLTRB(50, 0, 30, 0),
             child: Text(
-              'Each year Chicago provides aldermen with \$1.5 million to spend on infrustructure improvements in their ward. The money must be spent on specific improvements approved by the city. These improvements are known as menu items.',
+              'What is Ward Wise?',
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyLarge,  
+              style: Theme.of(context).textTheme.headlineSmall,  
             ),
           ),
-        )
+        ),
+        Container(
+          alignment: Alignment.center,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 50, 0),
+            child: Text(
+              "Ward Wise is a group of civic technologists who want to keep aldermen accountable and educate Chicago residents on how money is spent in their wards. We've collected more than 10 years of ward spending. On this site you can find a break down of spending in you ward, a summary of spending across the city, and a detailed map of each spending item's location and cost. Want to learn more? Check out our FAQ.",
+              textAlign: TextAlign.left,
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -217,7 +255,7 @@ Column _buildButtonColumn(Color color, String label, String route, context) {
         padding: const EdgeInsets.all(20),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue[200],
+            backgroundColor: Colors.blue[300],
             elevation: 0,
             padding: const EdgeInsets.all(25),
           ),
