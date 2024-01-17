@@ -26,7 +26,6 @@ import 'package:alderman_spending/src/ui/item_map/item_spending_map.dart';
 import 'src/ui/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
 void main() {
   runApp(
     MultiProvider(
@@ -76,7 +75,6 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        width: 1020,
         child: Scaffold(
           appBar: AppBar(
             title: const Text('Ward Wise'),
@@ -87,16 +85,16 @@ class HomeScreen extends StatelessWidget {
               Image.asset(
                 'assets/images/wards.png',
                 // width: 800,
-                height: 220,
+                height: 110,
                 fit: BoxFit.cover,
                 color: Color.fromRGBO(0, 0, 0, 0.5),
                 colorBlendMode: BlendMode.saturation,
               ),
               titleSection(context),
               buttonSection(context),
-              bodySection(context),
+              // bodySection(context),
               Container(
-                height: 30,
+                height: 220,
                 padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                 color: Colors.white,
               ),
@@ -110,10 +108,7 @@ class HomeScreen extends StatelessWidget {
 }
 
 final String assetName = 'assets/imagages/ward-wise-logo.svg';
-final Widget svg = SvgPicture.asset(
-  assetName,
-  semanticsLabel: 'Logo'
-);
+final Widget svg = SvgPicture.asset(assetName, semanticsLabel: 'Logo');
 
 Widget titleSection(context) {
   return Container(
@@ -125,16 +120,17 @@ Widget titleSection(context) {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                padding: const EdgeInsets.only(bottom: 8), 
+                padding: const EdgeInsets.only(bottom: 8),
                 child: Text(
-                  'Welcome to Ward Wise Chicago!',
-                  style: Theme.of(context).textTheme.headlineLarge, 
+                  'Ward Wise',
+                  style: Theme.of(context).textTheme.headlineLarge,
                 ),
               ),
+              SizedBox(height: 20),
               Text(
-                'Keeping government spending accountable.',
-                style: Theme.of(context).textTheme.headlineMedium,  
-              ),
+                  '''Each year, Chicago alders get \$1.5 million in "menu money" to spend at their discretion on neighborhood infrastructure in their ward. Use this tool to learn about the process, view past spending, and reach out to your alder.
+              ''',
+                  softWrap: true, style: Theme.of(context).textTheme.bodyLarge),
             ],
           ),
         ),
@@ -144,333 +140,294 @@ Widget titleSection(context) {
 }
 
 Widget bodySection(context) {
-
   final isNarrowScreen = MediaQuery.of(context).size.width < 800;
 
   return Expanded(
-    child: isNarrowScreen ? Column(
-      children: [
-      
-        Container(
-          alignment: Alignment.center,
-          child: Text(
-            'What is a ward?',
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headlineSmall,
-          ), 
-        ),
-
-        Padding(
-          padding: const EdgeInsets.fromLTRB(50, 20, 50, 20),
-          child: Text.rich(
-            TextSpan(
+      child: isNarrowScreen
+          ? Column(
               children: [
-                const TextSpan(text: "Chicago is divided fifty legislative districts called \"wards\". Each ward contains roughly 50,000 redidents and elects an alderman to represent their interests on the city council. Don't know which ward you live in? Check out our "),
-                TextSpan(
-                  text: "ward finder",
-                  style: const TextStyle(
-                    color: Colors.blue,
-                    decoration: TextDecoration.underline  
+                Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'What is a ward?',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headlineSmall,
                   ),
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      Navigator.pushNamed(context, '/find-my-ward');
-                    }
                 ),
-                const TextSpan(text: "."),
-              ]
-            ),
-            textAlign: TextAlign.left,
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),        
-        ),
-        Container(
-          alignment: Alignment.center,
-          child: Text(
-            '\$1.5 Million/year in spending',
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headlineSmall,
-          ), 
-        ),        
-        Padding(
-          padding: const EdgeInsets.fromLTRB(50, 20, 30, 20), 
-          child: Text.rich(
-            TextSpan(
-              children: [
-                const TextSpan(text: 'Each year Chicago provides aldermen with \$1.5 million to spend on infrustructure improvements in their ward. The money must be spent on specific improvements approved by the city, known as menu items. Menu items include things like street resurfacing, bike lines, and street lights. Learn more about menu items '),
-                TextSpan(
-                  text: 'here',
-                  style: const TextStyle(
-                    color: Colors.blue,
-                    decoration: TextDecoration.underline
-                  ),
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      Navigator.pushNamed(context, '/menu-items');  
-                    }
-                ),
-                const TextSpan(text: '.'),
-              ]
-            ),
-            textAlign: TextAlign.left,
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-        ),
-        
-        Padding(
-          padding: const EdgeInsets.fromLTRB(50, 0, 30, 0),
-          child: Text(
-            'What is Ward Wise?',
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headlineSmall,
-          ),
-        ),
-        
-        Padding(
-          padding: const EdgeInsets.fromLTRB(50, 20, 50, 20),
-          child: Text.rich(
-            TextSpan(
-              children: [
-                const TextSpan(text: "Ward Wise is a group of civic technologists who want to keep aldermen accountable and educate Chicago residents on how money is spent in their ward. We've collected more than 10 years of ward spending. On this site you can find a break down of "),
-                TextSpan(
-                  text: 'spending in your ward',
-                  style: const TextStyle(
-                    color: Colors.blue,
-                    decoration: TextDecoration.underline
-                  ),
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      Navigator.pushNamed(context, '/ward-spending');
-                    }
-                ),
-                const TextSpan(text: ", a summary of "),
-                TextSpan(
-                  text: 'spending across the city',
-                  style: const TextStyle(
-                    color: Colors.blue,
-                    decoration: TextDecoration.underline
-                  ),
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const ChoroplethMapPage(),));
-                    }
-                ),
-                const TextSpan(text: ", and a detailed "),
-                TextSpan(
-                  text: 'map',
-                  style: const TextStyle(
-                    color: Colors.blue, 
-                    decoration: TextDecoration.underline
-                  ),
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ItemSpendingiFrame(),));
-                    }
-                ),
-                const TextSpan(text: " of each spending item's location and cost. Want to learn more? Check out our "),
-                TextSpan(
-                  text: 'FAQ',
-                  style: const TextStyle(
-                    color: Colors.blue,
-                    decoration: TextDecoration.underline
-                  ),
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      Navigator.pushNamed(context, '/faqs');
-                    }
-                ),
-                const TextSpan(text: ".")
-              ]
-            ),
-            textAlign: TextAlign.left,
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-        ),
-        
-      ],
-    ) :Column(
-      children: [
-      
-        Flex(
-          direction: Axis.horizontal,
-          children: [
-            Expanded(
-              flex: 1,
-              child: Container(
-                alignment: Alignment.center,
-                child: Text(
-                  'What is a ward?',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ), 
-              )
-            ),
-      
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20, 50, 10),
-                child: Text.rich(
-                  TextSpan(
-                    children: [
-                      const TextSpan(text: "Chicago is divided fifty legislative districts called \"wards\". Each ward contains roughly 50,000 redidents and elects an alderman to represent their interests on the city council. Don't know which ward you live in? Check out our "),
-                      TextSpan(
-                        text: "ward finder",
-                        style: const TextStyle(
-                          color: Colors.blue,
-                          decoration: TextDecoration.underline  
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Navigator.pushNamed(context, '/find-my-ward');
-                          }
-                      ),
-                      const TextSpan(text: "."),
-                      ]
-                  ),
-                  textAlign: TextAlign.left,
-                  style: Theme.of(context).textTheme.bodyLarge,
-                )  
-              ),
-            ),
-          ]
-        ),
-        
-        Flex(
-          direction: Axis.horizontal,
-          children: [
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(50, 10, 30, 10),
-                child: Text.rich(
-                  TextSpan(
-                    children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(50, 20, 50, 20),
+                  child: Text.rich(
+                    TextSpan(children: [
                       const TextSpan(
-                        text: 'Each year Chicago provides aldermen with \$1.5 million to spend on infrustructure improvements in their ward. The money must be spent on specific improvements approved by the city, known as menu items. Menu items include things like street resurfacing, bike lines, and street lights. Learn more about menu items '
-                      ),
+                          text:
+                              "Chicago is divided fifty legislative districts called \"wards\". Each ward contains roughly 50,000 redidents and elects an alderman to represent their interests on the city council. Don't know which ward you live in? Check out our "),
                       TextSpan(
-                        text: 'here',
-                        style: const TextStyle(
-                          color: Colors.blue,
-                          decoration: TextDecoration.underline
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Navigator.pushNamed(context, '/menu-items');
-                          }
-                      ),
-                      const TextSpan(text: '.'),  
-                    ]
+                          text: "ward finder",
+                          style: const TextStyle(
+                              color: Colors.blue,
+                              decoration: TextDecoration.underline),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.pushNamed(context, '/find-my-ward');
+                            }),
+                      const TextSpan(text: "."),
+                    ]),
+                    textAlign: TextAlign.left,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
-                  textAlign: TextAlign.left,
-                  style: Theme.of(context).textTheme.bodyLarge,
-                )
-              ),
-            ),
-            
-            Expanded(
-              flex: 1,
-              child: Container(
-                alignment: Alignment.center,
-                child: Text(
-                  '\$1.5 Million/year in spending',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headlineSmall,
-                )
-              ),
-            ),
-          ]  
-        ),
-        
-        Flex(
-          direction: Axis.horizontal,
-          children: [
-            Expanded(
-              flex: 1, 
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(50, 0, 30, 0),
-                child: Text(
-                  'What is Ward Wise?',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headlineSmall,
-                )  
-              ),
-            ),
-            
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(0, 10, 50, 20),
-                child: Text.rich(
-                  TextSpan(
-                    children: [
-                      const TextSpan(text: "Ward Wise is a group of civic technologists who want to keep aldermen accountable and educate Chicago residents on how money is spent in their wards. We've collected more than 10 years of ward spending. On this site you can find a break down of "),
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    '\$1.5 Million/year in spending',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(50, 20, 30, 20),
+                  child: Text.rich(
+                    TextSpan(children: [
+                      const TextSpan(
+                          text:
+                              'Each year Chicago provides aldermen with \$1.5 million to spend on infrustructure improvements in their ward. The money must be spent on specific improvements approved by the city, known as menu items. Menu items include things like street resurfacing, bike lines, and street lights. Learn more about menu items '),
                       TextSpan(
-                        text: 'spending in your ward',
-                        style: const TextStyle(
-                          color: Colors.blue,
-                          decoration: TextDecoration.underline
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Navigator.pushNamed(context, '/ward-spending'); 
-                          }  
-                      ),
+                          text: 'here',
+                          style: const TextStyle(
+                              color: Colors.blue,
+                              decoration: TextDecoration.underline),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.pushNamed(context, '/menu-items');
+                            }),
+                      const TextSpan(text: '.'),
+                    ]),
+                    textAlign: TextAlign.left,
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(50, 0, 30, 0),
+                  child: Text(
+                    'What is Ward Wise?',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(50, 20, 50, 20),
+                  child: Text.rich(
+                    TextSpan(children: [
+                      const TextSpan(
+                          text:
+                              "Ward Wise is a group of civic technologists who want to keep aldermen accountable and educate Chicago residents on how money is spent in their ward. We've collected more than 10 years of ward spending. On this site you can find a break down of "),
+                      TextSpan(
+                          text: 'spending in your ward',
+                          style: const TextStyle(
+                              color: Colors.blue,
+                              decoration: TextDecoration.underline),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.pushNamed(context, '/ward-spending');
+                            }),
                       const TextSpan(text: ", a summary of "),
                       TextSpan(
-                        text: 'spending across the city',
-                        style: const TextStyle(
-                          color: Colors.blue,
-                          decoration: TextDecoration.underline  
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const ChoroplethMapPage(),));
-                          }
-                      ),
+                          text: 'spending across the city',
+                          style: const TextStyle(
+                              color: Colors.blue,
+                              decoration: TextDecoration.underline),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const ChoroplethMapPage(),
+                              ));
+                            }),
                       const TextSpan(text: ", and a detailed "),
                       TextSpan(
-                        text: 'map',
-                        style: const TextStyle(
-                          color: Colors.blue,
-                          decoration: TextDecoration.underline
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => ItemSpendingiFrame(),));
-                          }
-                      ),
-                      const TextSpan(text: " of each spending item's location and cost. Want to learn more? Check out our "),
+                          text: 'map',
+                          style: const TextStyle(
+                              color: Colors.blue,
+                              decoration: TextDecoration.underline),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => ItemSpendingiFrame(),
+                              ));
+                            }),
+                      const TextSpan(
+                          text:
+                              " of each spending item's location and cost. Want to learn more? Check out our "),
                       TextSpan(
-                        text: 'FAQ',
-                        style: const TextStyle(
-                          color: Colors.blue,
-                          decoration: TextDecoration.underline
-                        ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Navigator.pushNamed(context, '/faqs');
-                          } 
-                      ),
-                      const TextSpan(text: "."),
-                    ]
+                          text: 'FAQ',
+                          style: const TextStyle(
+                              color: Colors.blue,
+                              decoration: TextDecoration.underline),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.pushNamed(context, '/faqs');
+                            }),
+                      const TextSpan(text: ".")
+                    ]),
+                    textAlign: TextAlign.left,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
-                  textAlign: TextAlign.left,
-                  style: Theme.of(context).textTheme.bodyLarge,
-                )
-              ),
-            ),
-          ]
-        ),
-        
-      ], 
-    )
-  );
+                ),
+              ],
+            )
+          : Column(
+              children: [
+                Flex(direction: Axis.horizontal, children: [
+                  Expanded(
+                      flex: 1,
+                      child: Container(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'What is a ward?',
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.headlineSmall,
+                        ),
+                      )),
+                  Expanded(
+                    flex: 1,
+                    child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 20, 50, 10),
+                        child: Text.rich(
+                          TextSpan(children: [
+                            const TextSpan(
+                                text:
+                                    "Chicago is divided fifty legislative districts called \"wards\". Each ward contains roughly 50,000 redidents and elects an alderman to represent their interests on the city council. Don't know which ward you live in? Check out our "),
+                            TextSpan(
+                                text: "ward finder",
+                                style: const TextStyle(
+                                    color: Colors.blue,
+                                    decoration: TextDecoration.underline),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Navigator.pushNamed(
+                                        context, '/find-my-ward');
+                                  }),
+                            const TextSpan(text: "."),
+                          ]),
+                          textAlign: TextAlign.left,
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        )),
+                  ),
+                ]),
+                Flex(direction: Axis.horizontal, children: [
+                  Expanded(
+                    flex: 1,
+                    child: Padding(
+                        padding: EdgeInsets.fromLTRB(50, 10, 30, 10),
+                        child: Text.rich(
+                          TextSpan(children: [
+                            const TextSpan(
+                                text:
+                                    'Each year Chicago provides aldermen with \$1.5 million to spend on infrustructure improvements in their ward. The money must be spent on specific improvements approved by the city, known as menu items. Menu items include things like street resurfacing, bike lines, and street lights. Learn more about menu items '),
+                            TextSpan(
+                                text: 'here',
+                                style: const TextStyle(
+                                    color: Colors.blue,
+                                    decoration: TextDecoration.underline),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Navigator.pushNamed(context, '/menu-items');
+                                  }),
+                            const TextSpan(text: '.'),
+                          ]),
+                          textAlign: TextAlign.left,
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        )),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                        alignment: Alignment.center,
+                        child: Text(
+                          '\$1.5 Million/year in spending',
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.headlineSmall,
+                        )),
+                  ),
+                ]),
+                Flex(direction: Axis.horizontal, children: [
+                  Expanded(
+                    flex: 1,
+                    child: Padding(
+                        padding: const EdgeInsets.fromLTRB(50, 0, 30, 0),
+                        child: Text(
+                          'What is Ward Wise?',
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.headlineSmall,
+                        )),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 10, 50, 20),
+                        child: Text.rich(
+                          TextSpan(children: [
+                            const TextSpan(
+                                text:
+                                    "Ward Wise is a group of civic technologists who want to keep aldermen accountable and educate Chicago residents on how money is spent in their wards. We've collected more than 10 years of ward spending. On this site you can find a break down of "),
+                            TextSpan(
+                                text: 'spending in your ward',
+                                style: const TextStyle(
+                                    color: Colors.blue,
+                                    decoration: TextDecoration.underline),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Navigator.pushNamed(
+                                        context, '/ward-spending');
+                                  }),
+                            const TextSpan(text: ", a summary of "),
+                            TextSpan(
+                                text: 'spending across the city',
+                                style: const TextStyle(
+                                    color: Colors.blue,
+                                    decoration: TextDecoration.underline),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          const ChoroplethMapPage(),
+                                    ));
+                                  }),
+                            const TextSpan(text: ", and a detailed "),
+                            TextSpan(
+                                text: 'map',
+                                style: const TextStyle(
+                                    color: Colors.blue,
+                                    decoration: TextDecoration.underline),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          ItemSpendingiFrame(),
+                                    ));
+                                  }),
+                            const TextSpan(
+                                text:
+                                    " of each spending item's location and cost. Want to learn more? Check out our "),
+                            TextSpan(
+                                text: 'FAQ',
+                                style: const TextStyle(
+                                    color: Colors.blue,
+                                    decoration: TextDecoration.underline),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Navigator.pushNamed(context, '/faqs');
+                                  }),
+                            const TextSpan(text: "."),
+                          ]),
+                          textAlign: TextAlign.left,
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        )),
+                  ),
+                ]),
+              ],
+            ));
 }
 
 Widget bottomBar(context) {
@@ -479,49 +436,49 @@ Widget bottomBar(context) {
     color: Colors.grey[300],
     child: Row(
       children: [
-      
         Flexible(
           child: Center(
             child: Text.rich(
               TextSpan(
-                text: 'Chi Hack Night',
-                style: const TextStyle(
-                  color: Colors.black,
-                  decoration: TextDecoration.underline,
-                ),
-                recognizer: TapGestureRecognizer()..onTap = () async {
-                  if (await canLaunchUrl(Uri.parse('https://chihacknight.org/'))) {
-                    await launchUrl(Uri.parse('https://chihacknight.org/'));
-                  } else {
-                    throw 'Could load Chi Hack Night';
-                  }
-                }
-              ),
+                  text: 'Chi Hack Night',
+                  style: const TextStyle(
+                    color: Colors.black,
+                    decoration: TextDecoration.underline,
+                  ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () async {
+                      if (await canLaunchUrl(
+                          Uri.parse('https://chihacknight.org/'))) {
+                        await launchUrl(Uri.parse('https://chihacknight.org/'));
+                      } else {
+                        throw 'Could load Chi Hack Night';
+                      }
+                    }),
             ),
           ),
         ),
-        
         Flexible(
           child: Center(
             child: Text.rich(
               TextSpan(
-                text: 'github',
-                style: const TextStyle(
-                  color: Colors.black,
-                  decoration: TextDecoration.underline,
-                ),
-                recognizer: TapGestureRecognizer()..onTap = () async {
-                  if (await canLaunchUrl(Uri.parse('https://github.com/chihacknight/breakout-groups/issues/224'))) {
-                    await launchUrl(Uri.parse('https://github.com/chihacknight/breakout-groups/issues/224'));
-                  } else {
-                    throw 'Could not load github';
-                  }
-                }
-              ),
+                  text: 'Github',
+                  style: const TextStyle(
+                    color: Colors.black,
+                    decoration: TextDecoration.underline,
+                  ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () async {
+                      if (await canLaunchUrl(Uri.parse(
+                          'https://github.com/chihacknight/breakout-groups/issues/224'))) {
+                        await launchUrl(Uri.parse(
+                            'https://github.com/chihacknight/breakout-groups/issues/224'));
+                      } else {
+                        throw 'Could not load github';
+                      }
+                    }),
             ),
           ),
         ),
-        
       ],
     ),
   );
