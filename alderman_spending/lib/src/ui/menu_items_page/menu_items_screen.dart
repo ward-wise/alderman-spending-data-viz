@@ -82,7 +82,6 @@ class MenuItemsScreen extends StatelessWidget {
                                   const SliverGridDelegateWithMaxCrossAxisExtent(
                                 maxCrossAxisExtent: 600,
                                 childAspectRatio: 5.25,
-                                // childAspectRatio: 1.5,
                                 crossAxisSpacing: 20,
                                 mainAxisSpacing: 20,
                               ),
@@ -152,26 +151,6 @@ class MenuListItem extends StatelessWidget {
           ),
         ),
       ),
-      // child: CardBanner(
-      //   text: "Vision Zero",
-      //   position: CardBannerPosition.TOPRIGHT,
-      //   child: ListTile(
-      //     dense: false,
-      //     leading: Image.asset(
-      //       '$baseImagePath/${menuItemInfo.imgFilename}',
-      //       fit: BoxFit.cover,
-      //       scale: 2,
-      //     ),
-      //     title: Text(
-      //       menuItemInfo.title,
-      //       style: const TextStyle(fontSize: 20),
-      //     ),
-      //     subtitle: Text(
-      //       _parseCostMeasurement(menuItemInfo),
-      //       style: const TextStyle(fontSize: 16),
-      //     ),
-      //   ),
-      // ),
     );
   }
 }
@@ -191,7 +170,7 @@ class MenuGridItem extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => MenuItemDetailPortraitCard(
+            builder: (context) => MenuItemDetailLandscapeCard(
               menuItemInfo: menuItemInfo,
             ),
           ),
@@ -221,37 +200,6 @@ class MenuGridItem extends StatelessWidget {
           style: const TextStyle(fontSize: 16),
         ),
       ),
-      // child: Card(
-      //   margin: const EdgeInsets.fromLTRB(8, 0, 8, 8),
-      //   elevation: 5,
-      //   child: Padding(
-      //     padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
-      //     child: Column(
-      //       mainAxisAlignment: MainAxisAlignment.start,
-      //       crossAxisAlignment: CrossAxisAlignment.center,
-      //       children: [
-      //         const SizedBox(height: 8),
-      //         Text(
-      //           menuItemInfo.title,
-      //           style: const TextStyle(fontSize: 18),
-      //           textAlign: TextAlign.center,
-      //         ),
-      //         const SizedBox(height: 4),
-      //         Text(
-      //           _parseCostMeasurement(menuItemInfo),
-      //           style: const TextStyle(fontSize: 14),
-      //           textAlign: TextAlign.center,
-      //         ),
-      //         const SizedBox(height: 8),
-      //         Image.asset(
-      //           '$baseImagePath/${menuItemInfo.imgFilename}',
-      //           fit: BoxFit.cover,
-      //           scale: 2.25,
-      //         ),
-      //       ],
-      //     ),
-      //   ),
-      // ),
     );
   }
 }
@@ -346,12 +294,112 @@ class MenuItemDetailPortraitCard extends StatelessWidget {
   }
 }
 
-_parseNotes(MenuItemInfo menuItemInfo) {
+class MenuItemDetailLandscapeCard extends StatelessWidget {
+  final MenuItemInfo menuItemInfo;
+  static final _boxShadowSettingsGFCard = BoxShadow(
+    color: Colors.grey[500]!,
+    spreadRadius: 5,
+    blurRadius: 7,
+    offset: const Offset(0, 3),
+  );
+
+  const MenuItemDetailLandscapeCard({super.key, required this.menuItemInfo});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 40,
+      ),
+      body: Card(
+        elevation: 15,
+        shadowColor: Colors.grey[500]!,
+        margin: const EdgeInsets.all(20),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Left side - Image, Title, Subtitle
+                        Expanded(
+              flex: 2,
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                                        GFListTile(
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width * .2,
+                            child: Text(
+                              menuItemInfo.title,
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          if (menuItemInfo.visionZero)
+                            Image.asset(
+                              "assets/images/vision_zero_logo.png",
+                              height: 50,
+                            ),
+                        ],
+                      ),
+                      subTitle: Text(
+                        _parseCostMeasurement(menuItemInfo),
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                      shadow: _boxShadowSettingsGFCard,
+                    ),
+                    const Divider(),
+                    Text(
+                      menuItemInfo.description,
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                    const SizedBox(height: 20),
+                    _parseNotes(menuItemInfo),
+                  ],
+                ),
+              ),
+            ),
+
+            const VerticalDivider(),
+            // Right side - Scrollable text content
+            Expanded(
+              flex: 3,
+              child: Container(
+                padding: const EdgeInsets.all(5),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      '$baseImagePath/${menuItemInfo.imgFilename}',
+                      width: double.infinity,
+                      height: MediaQuery.of(context).size.height*.65,
+                      fit: BoxFit.contain,
+                    ),
+                    const SizedBox(height: 10),
+
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+_parseNotes(MenuItemInfo menuItemInfo, {double fontSize=16}) {
   if (menuItemInfo.notes != null) {
     if (menuItemInfo.notes!.length == 1) {
       return Text(
         'Note: ${menuItemInfo.notes![0]}',
-        style: const TextStyle(fontSize: 12),
+        style: TextStyle(fontSize: fontSize),
       );
     }
     return Column(
@@ -360,7 +408,7 @@ _parseNotes(MenuItemInfo menuItemInfo) {
           .entries
           .map((entry) => Text(
                 'Note ${entry.key + 1}: ${entry.value}\n',
-                style: const TextStyle(fontSize: 12),
+                style: TextStyle(fontSize: fontSize),
               ))
           .toList(),
     );
