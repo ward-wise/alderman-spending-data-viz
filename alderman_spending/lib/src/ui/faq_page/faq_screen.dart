@@ -306,20 +306,6 @@ The standard menu item descriptions and cost information comes from the 2023 Nei
         ),
       ),
     ),
-    //extra FAQ for spacing
-    FAQ(
-      question: "",
-      answer: RichText(
-        text: const TextSpan(
-          style: style,
-          children: [
-            TextSpan(
-              text: '',
-            ),
-          ],
-        ),
-      ),
-    ),
   ];
 
   @override
@@ -365,19 +351,40 @@ class FAQTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(50, 35, 50, 10),
-      child: ListTile(
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              faq.question,
-              style: Theme.of(context).textTheme.titleLarge,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+            color: Colors.grey.withOpacity(0.5),
+            width: 1,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.1),
+              spreadRadius: 0,
+              blurRadius: 10,
+              offset: const Offset(0, 3), // changes position of shadow
             ),
-            const SizedBox(
-                height: 10), // Add some spacing between title and subtitle
           ],
         ),
-        subtitle: faq.answer,
+        child: ListTile(
+          tileColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                faq.question,
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              const SizedBox(
+                  height: 10), // Add some spacing between title and subtitle
+            ],
+          ),
+          subtitle: faq.answer,
+        ),
       ),
     );
   }

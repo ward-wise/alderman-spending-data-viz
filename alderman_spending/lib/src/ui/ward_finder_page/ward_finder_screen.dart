@@ -204,7 +204,6 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
                         ),
                       ),
                     ),
-                      
                   ],
                 ),
                 Padding(
@@ -221,37 +220,41 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
   }
 
   Widget addressLookupForm() {
-    return TextFormField(
-      // TODO Validation function
-      // TODO Add timer to prevent spamming
-      decoration: const InputDecoration(labelText: "Enter Address"),
-      // REST call using getWard() from WardLookupRequest
-      onFieldSubmitted: (value) async {
-        value = value.trim();
-        if (value.isEmpty) {
-          return;
-        }
-        if (value.split(" ").length < 3) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text("Please enter a full address"),
-            ),
-          );
-          return;
-        }
-        try {
-          // final ward = int.parse(value);
-          final ward = await getWard(value);
-          setState(() => _selectedWard = ward);
-        } catch (e) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(e.toString()),
-            ),
-          );
-          setState(() => _selectedWard = null);
-        }
-      },
+    return AutofillGroup(
+      child: TextFormField(
+        autofillHints: const [AutofillHints.streetAddressLine1],
+        // TODO Validation function
+        // TODO Add timer to prevent spamming
+        // https://api.flutter.dev/flutter/services/AutofillHints-class.html
+        decoration: const InputDecoration(labelText: "Enter Address"),
+        // REST call using getWard() from WardLookupRequest
+        onFieldSubmitted: (value) async {
+          value = value.trim();
+          if (value.isEmpty) {
+            return;
+          }
+          if (value.split(" ").length < 3) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text("Please enter a full address"),
+              ),
+            );
+            return;
+          }
+          try {
+            // final ward = int.parse(value);
+            final ward = await getWard(value);
+            setState(() => _selectedWard = ward);
+          } catch (e) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(e.toString()),
+              ),
+            );
+            setState(() => _selectedWard = null);
+          }
+        },
+      ),
     );
   }
 }
