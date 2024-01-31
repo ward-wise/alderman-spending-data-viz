@@ -136,6 +136,7 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
                   flex: 12,
                   child: addressLookupForm(),
                 ),
+                Flexible(child: submitAddressButton()),
                 const Spacer(flex: 1),
                 AnimatedOpacity(
                   duration: const Duration(milliseconds: 250),
@@ -254,7 +255,32 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
             setState(() => _selectedWard = null);
           }
         },
+        onChanged: (value) {
+          _address = value;
+        },
       ),
+    );
+  }
+
+  Widget submitAddressButton() {
+    return IconButton(
+      onPressed: () async {
+        if (_address == null) {
+          return;
+        }
+        try {
+          final ward = await getWard(_address!);
+          setState(() => _selectedWard = ward);
+        } catch (e) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(e.toString()),
+            ),
+          );
+          setState(() => _selectedWard = null);
+        }
+      },
+      icon: const Icon(Icons.search),
     );
   }
 }
@@ -389,7 +415,20 @@ class _WardContactCardState extends State<WardContactCard> {
               wardInfo?.wardEmail ?? "Email",
             )
           ],
-        )
+        ),
+        if (wardInfo?.wardAddress != null &&
+            wardInfo!.wardAddress != null &&
+            wardInfo!.wardAddress!.isNotEmpty)
+          Row(
+            children: [
+              IconButton(
+                  icon: const Icon(Icons.location_on),
+                  onPressed: _launchNavigation),
+              Text(
+                wardInfo!.wardAddress!,
+              )
+            ],
+          ),
       ]),
       subTitle: websiteButtons(wardInfo?.wardWebsites ?? {}),
     );
@@ -415,6 +454,12 @@ class _WardContactCardState extends State<WardContactCard> {
       return Future.value();
     }
     final url = Uri.encodeFull("tel:${wardInfo!.wardPhone}");
+    return launchUrl(Uri.parse(url));
+  }
+
+  Future<void> _launchNavigation() {
+    final url = Uri.encodeFull(
+        "https://www.google.com/maps/search/?api=1&query=${wardInfo!.wardAddress}");
     return launchUrl(Uri.parse(url));
   }
 }
