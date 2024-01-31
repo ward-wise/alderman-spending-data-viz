@@ -438,7 +438,7 @@ class _WardContactCardState extends State<WardContactCard> {
                   onPressed: _launchNavigation),
               ConstrainedBox(
                 constraints: BoxConstraints(
-                  maxWidth: MediaQuery.of(context).size.width * 0.5,
+                  maxWidth: MediaQuery.of(context).size.width * 0.4,
                 ),
                 child: Text(
                   wardInfo!.wardAddress!,
