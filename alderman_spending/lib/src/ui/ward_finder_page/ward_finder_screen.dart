@@ -182,7 +182,12 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(20.0),
-                      child: addressLookupForm(),
+                      child: Row(
+                        children: [
+                          Expanded(child: addressLookupForm()),
+                          submitAddressButton(),
+                        ],
+                      ),
                     ),
                     AnimatedOpacity(
                       duration: const Duration(milliseconds: 250),
