@@ -123,43 +123,44 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
 
   Widget portraitLayout() {
     return Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.fromLTRB(10,10,10,10),
         child: ListView(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 50,
-                ),
                 Flexible(
-                  flex: 12,
+                  flex: 10,
                   child: addressLookupForm(),
                 ),
-                Flexible(child: submitAddressButton()),
-                const Spacer(flex: 1),
-                AnimatedOpacity(
-                  duration: const Duration(milliseconds: 250),
-                  opacity: _selectedWard == null ? 0 : 1,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.teal, width: 2),
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(100),
+                Flexible(flex:2,child: submitAddressButton()),
+                Flexible(
+                  flex: 5,
+                  child: AbsorbPointer(
+                    absorbing: _selectedWard == null,
+                    child: AnimatedOpacity(
+                      duration: const Duration(milliseconds: 250),
+                      opacity: _selectedWard == null ? 0 : 1,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.teal, width: 2),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(100),
+                          ),
+                        ),
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(
+                                context, '/ward-spending?ward=$_selectedWard');
+                          },
+                          child: Text("Look at spending in\nward $_selectedWard",
+                              textAlign: TextAlign.center),
+                        ),
                       ),
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(
-                            context, '/ward-spending?ward=$_selectedWard');
-                      },
-                      child: Text("Look at spending in\nward $_selectedWard",
-                          textAlign: TextAlign.center),
                     ),
                   ),
                 ),
-                const Spacer(flex: 1),
-                // Selected ward
+                
               ],
             ),
             HighlightedWardMap(selectedWard: _selectedWard),
@@ -189,31 +190,37 @@ class _WardFinderScreenState extends State<WardFinderScreen> {
                         ],
                       ),
                     ),
-                    AnimatedOpacity(
-                      duration: const Duration(milliseconds: 250),
-                      opacity: _selectedWard == null ? 0 : 1,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.teal, width: 2),
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(100),
+                    AbsorbPointer(
+                      absorbing: _selectedWard == null,
+                      child: AnimatedOpacity(
+                        duration: const Duration(milliseconds: 250),
+                        opacity: _selectedWard == null ? 0 : 1,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.teal, width: 2),
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(100),
+                            ),
                           ),
-                        ),
-                        child: TextButton(
-                          onPressed: () {
-                            Navigator.pushNamed(
-                                context, '/ward-spending?ward=$_selectedWard');
-                          },
-                          child: Text(
-                              "Look at spending in\nward $_selectedWard",
-                              textAlign: TextAlign.center),
+                          child: TextButton(
+                            onPressed: () {
+                              if (_selectedWard == null) {
+                                return;
+                              }
+                              Navigator.pushNamed(
+                                  context, '/ward-spending?ward=$_selectedWard');
+                            },
+                            child: Text(
+                                "Look at spending in\nward $_selectedWard",
+                                textAlign: TextAlign.center),
+                          ),
                         ),
                       ),
                     ),
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: WardContactCard(wardNumber: _selectedWard),
                 )
               ],
@@ -429,8 +436,13 @@ class _WardContactCardState extends State<WardContactCard> {
               IconButton(
                   icon: const Icon(Icons.location_on),
                   onPressed: _launchNavigation),
-              Text(
-                wardInfo!.wardAddress!,
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: MediaQuery.of(context).size.width * 0.5,
+                ),
+                child: Text(
+                  wardInfo!.wardAddress!,
+                ),
               )
             ],
           ),
